@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Team34_GP_IFM02B2_2023_WCF.RESQSERVICE" CodeBehind="RESQSERVICE.svc.cs" %>
