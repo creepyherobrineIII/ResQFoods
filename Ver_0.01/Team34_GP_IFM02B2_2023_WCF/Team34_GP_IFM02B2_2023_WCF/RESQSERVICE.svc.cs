@@ -14,7 +14,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
         // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
         public class RESQSERVICE : IRESQSERVICE
         {
-            public string DeleteUser(UserRecord user)
+            public string DeleteUser(String uEmail)
             {
                 throw new NotImplementedException();
             }
@@ -24,7 +24,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
                 return string.Format("You entered: {0}", value);
             }
 
-            public List<UserRecord> GetEmployeeRecords()
+            public List<UserRecord> GetEmployeeRecords(String uEmail)
             {
                 throw new NotImplementedException();
             }
@@ -32,8 +32,8 @@ namespace Team34_GP_IFM02B2_2023_WCF
             private bool checkValid(String email)
             {
                 bool valid = true;
-                String con = "Data Source = DESKTOP - 69RGCI5; Initial Catalog = RESQFOODS; Integrated Security = True";
-                String query = "SELECT Count(USER_EMAIL) FROM USERS WHERE USER_EMAIL = @userEmail ";
+                String con = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = C:\\Users\\USER\\Source\\Repos\\ResQFoods\\Ver_0.01\\Team34_GP_IFM02B2_2023_WCF\\Team34_GP_IFM02B2_2023_WCF\\App_Data\\ResQFoods_DB.mdf; Integrated Security = True";
+                String query = "SELECT Count(Email) FROM UserTable WHERE Email = @userEmail";
                 SqlConnection conn = new SqlConnection(con);
                 SqlCommand sCom = new SqlCommand(query, conn);
                 sCom.Parameters.AddWithValue("@userEmail", email);
@@ -64,8 +64,8 @@ namespace Team34_GP_IFM02B2_2023_WCF
             public bool loginUser(String user, String pass)
             {
                 bool valid = false;
-                String con = "Data Source = DESKTOP - 69RGCI5; Initial Catalog = RESQFOODS; Integrated Security = True";
-                String query = "SELECT Count(USER_EMAIL) FROM USERS WHERE USER_EMAIL = @userEmail AND USER_PASS = @userPass";
+                String con = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = C:\\Users\\USER\\Source\\Repos\\ResQFoods\\Ver_0.01\\Team34_GP_IFM02B2_2023_WCF\\Team34_GP_IFM02B2_2023_WCF\\App_Data\\ResQFoods_DB.mdf; Integrated Security = True";
+                String query = "SELECT Count(Email) FROM UserTable WHERE Email = @userEmail AND HashedPassword = @userPass";
                 SqlConnection conn = new SqlConnection(con);
                 SqlCommand sCom = new SqlCommand(query, conn);
                 sCom.Parameters.AddWithValue("@userEmail", user);
@@ -94,19 +94,19 @@ namespace Team34_GP_IFM02B2_2023_WCF
                 return valid;
             }
 
-            public bool RegUser(UserRecord rec)
+            public bool RegUser(String uEmail, char uType, String uPass, String uReg, bool uAct)
             {
-                if (checkValid(rec.userEmail))
+                if (checkValid(uEmail))
                 {
                     String con = "Data Source = DESKTOP - 69RGCI5; Initial Catalog = RESQFOODS; Integrated Security = True";
                     String query = "INSERT INTO USERS(USER_EMAIL, USER_TYPE, USER_PASS, USER_REG, USER_ACTIVE) VALUES(@param1, @param2, @param3, @param4, @param5 )";
                     SqlConnection conn = new SqlConnection(con);
                     SqlCommand sCom = new SqlCommand(query, conn);
-                    sCom.Parameters.AddWithValue("@param1", rec.userEmail);
-                    sCom.Parameters.AddWithValue("@param2", rec.userType);
-                    sCom.Parameters.AddWithValue("@param3", rec.userPass);
-                    sCom.Parameters.AddWithValue("@param4", rec.userReg);
-                    sCom.Parameters.AddWithValue("@param5", rec.userActive);
+                    sCom.Parameters.AddWithValue("@param1", uEmail);
+                    sCom.Parameters.AddWithValue("@param2", uType);
+                    sCom.Parameters.AddWithValue("@param3", uPass);
+                    sCom.Parameters.AddWithValue("@param4", uReg);
+                    sCom.Parameters.AddWithValue("@param5", uAct);
                     try
                     {
                         conn.Open();
@@ -126,15 +126,20 @@ namespace Team34_GP_IFM02B2_2023_WCF
                 return false;
             }
 
-            public List<UserRecord> SearchEmployeeRecord(UserRecord user)
+            public List<UserRecord> SearchUser(string uEmail)
             {
                 throw new NotImplementedException();
             }
 
-            public string UpdateEmployeeContact(UserRecord user)
+            public string UpdateUser(String uEmail)
             {
                 throw new NotImplementedException();
             }
+
+        public List<ProductRecord> getAllProducts()
+        {
+            throw new NotImplementedException();
         }
+    }
     }
 

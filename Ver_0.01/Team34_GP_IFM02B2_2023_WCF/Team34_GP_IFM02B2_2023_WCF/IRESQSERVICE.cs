@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 
@@ -12,25 +13,27 @@ namespace Team34_GP_IFM02B2_2023_WCF
     {
 
         [OperationContract]
-        string GetData(int value);
+        bool RegUser(String uEmail, char uType, String uPass, String uReg, bool uAc);
 
         [OperationContract]
-        bool RegUser(UserRecord rec);
+        bool loginUser(String uEmail, String pass);
 
         [OperationContract]
-        bool loginUser(String user, String pass);
+        List<UserRecord> GetEmployeeRecords(String uEmail);
 
         [OperationContract]
-        List<UserRecord> GetEmployeeRecords();
+        string DeleteUser(String uEmail);
 
         [OperationContract]
-        string DeleteUser(UserRecord user);
+        List<UserRecord> SearchUser(String uEmail);
 
         [OperationContract]
-        List<UserRecord> SearchEmployeeRecord(UserRecord user);
+        string UpdateUser(String uEmail);
 
         [OperationContract]
-        string UpdateEmployeeContact(UserRecord user);
+        List<ProductRecord> getAllProducts();
+
+
     }
 
 
@@ -38,15 +41,15 @@ namespace Team34_GP_IFM02B2_2023_WCF
     public class UserRecord
     {
 
-        string _userID = "";
-        string _userEmail = "";
-        string _userPass = "";
-        string _userReg = "";
+        int _userID;
+        string _userEmail;
+        string _userPass;
+        string _userReg;
         char _userType = 'N';
         bool _userActive;
 
         [DataMember]
-        public string userID
+        public int userID
         {
             get { return _userID; }
             set { _userID = value; }
@@ -84,6 +87,63 @@ namespace Team34_GP_IFM02B2_2023_WCF
         {
             get { return _userActive; }
             set { _userActive = value; }
+        }
+    }
+
+
+
+    [DataContract]
+    public class ProductRecord
+    {
+        int _prodID;
+        int _userID;
+        String _prodName;
+        String _prodDesc;
+        Image _prodPic;
+        String _prodPrice;
+        String _prodAdd;
+        bool _enabled;
+
+
+        [DataMember]
+        public int userID
+        {
+            get { return _userID; }
+            set { _userID = value; }
+        }
+
+        [DataMember]
+        public string prodName
+        {
+            get { return _prodName; }
+            set { _prodName = value; }
+        }
+
+        [DataMember]
+        public string userPass
+        {
+            get { return _prodDesc; }
+            set { _prodDesc = value; }
+        }
+
+        public Image prodPic 
+        {
+            get { return _prodPic; }
+            set { _prodPic = value; }
+        }
+
+        [DataMember]
+        public String prodPrice
+        {
+            get { return _prodPrice; }
+            set { _prodPrice = value; }
+        }
+
+        [DataMember]
+        public bool enabled
+        {
+            get { return _enabled; }
+            set { _enabled = value; }
         }
     }
 }
