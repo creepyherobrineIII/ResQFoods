@@ -98,13 +98,13 @@ namespace Team34_GP_IFM02B2_2023_WCF
             {
                 if (checkValid(uEmail))
                 {
-                    String con = "Data Source = DESKTOP - 69RGCI5; Initial Catalog = RESQFOODS; Integrated Security = True";
-                    String query = "INSERT INTO USERS(USER_EMAIL, USER_TYPE, USER_PASS, USER_REG, USER_ACTIVE) VALUES(@param1, @param2, @param3, @param4, @param5 )";
+                    String con = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = C:\\Users\\USER\\Source\\Repos\\ResQFoods\\Ver_0.01\\Team34_GP_IFM02B2_2023_WCF\\Team34_GP_IFM02B2_2023_WCF\\App_Data\\ResQFoods_DB.mdf; Integrated Security = True";
+                    String query = "INSERT INTO UserTable(UserType, HashedPassword, Email, DateRegistered, Enabled) VALUES(@param1, @param2, @param3, @param4, @param5 )";
                     SqlConnection conn = new SqlConnection(con);
                     SqlCommand sCom = new SqlCommand(query, conn);
-                    sCom.Parameters.AddWithValue("@param1", uEmail);
-                    sCom.Parameters.AddWithValue("@param2", uType);
-                    sCom.Parameters.AddWithValue("@param3", uPass);
+                    sCom.Parameters.AddWithValue("@param1", uType);
+                    sCom.Parameters.AddWithValue("@param2", uPass);
+                    sCom.Parameters.AddWithValue("@param3", uEmail);
                     sCom.Parameters.AddWithValue("@param4", uReg);
                     sCom.Parameters.AddWithValue("@param5", uAct);
                     try
