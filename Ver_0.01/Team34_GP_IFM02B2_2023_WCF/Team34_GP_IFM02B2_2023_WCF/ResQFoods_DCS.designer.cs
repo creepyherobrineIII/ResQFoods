@@ -321,7 +321,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_FavouriteStore", Storage="_Customer", ThisKey="CustomerUserId", OtherKey="UserID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_FavouriteStore", Storage="_Customer", ThisKey="CustomerUserId", OtherKey="UserId", IsForeignKey=true)]
 		public Customer Customer
 		{
 			get
@@ -344,7 +344,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
 					if ((value != null))
 					{
 						value.FavouriteStores.Add(this);
-						this._CustomerUserId = value.UserID;
+						this._CustomerUserId = value.UserId;
 					}
 					else
 					{
@@ -818,7 +818,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_Invoice", Storage="_Customer", ThisKey="UserId", OtherKey="UserID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_Invoice", Storage="_Customer", ThisKey="UserId", OtherKey="UserId", IsForeignKey=true)]
 		public Customer Customer
 		{
 			get
@@ -841,7 +841,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
 					if ((value != null))
 					{
 						value.Invoices.Add(this);
-						this._UserId = value.UserID;
+						this._UserId = value.UserId;
 					}
 					else
 					{
@@ -1420,7 +1420,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_CartItem", Storage="_Customer", ThisKey="UserId", OtherKey="UserID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_CartItem", Storage="_Customer", ThisKey="UserId", OtherKey="UserId", IsForeignKey=true)]
 		public Customer Customer
 		{
 			get
@@ -1443,7 +1443,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
 					if ((value != null))
 					{
 						value.CartItems.Add(this);
-						this._UserId = value.UserID;
+						this._UserId = value.UserId;
 					}
 					else
 					{
@@ -1485,15 +1485,9 @@ namespace Team34_GP_IFM02B2_2023_WCF
 		
 		private int _UserType;
 		
-		private string _FirstName;
-		
-		private string _LastName;
-		
 		private string _HashedPassword;
 		
 		private string _Email;
-		
-		private string _Phone;
 		
 		private System.DateTime _DateRegistered;
 		
@@ -1511,16 +1505,10 @@ namespace Team34_GP_IFM02B2_2023_WCF
     partial void OnUserIdChanged();
     partial void OnUserTypeChanging(int value);
     partial void OnUserTypeChanged();
-    partial void OnFirstNameChanging(string value);
-    partial void OnFirstNameChanged();
-    partial void OnLastNameChanging(string value);
-    partial void OnLastNameChanged();
     partial void OnHashedPasswordChanging(string value);
     partial void OnHashedPasswordChanged();
     partial void OnEmailChanging(string value);
     partial void OnEmailChanged();
-    partial void OnPhoneChanging(string value);
-    partial void OnPhoneChanged();
     partial void OnDateRegisteredChanging(System.DateTime value);
     partial void OnDateRegisteredChanged();
     partial void OnEnabledChanging(bool value);
@@ -1574,46 +1562,6 @@ namespace Team34_GP_IFM02B2_2023_WCF
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string FirstName
-		{
-			get
-			{
-				return this._FirstName;
-			}
-			set
-			{
-				if ((this._FirstName != value))
-				{
-					this.OnFirstNameChanging(value);
-					this.SendPropertyChanging();
-					this._FirstName = value;
-					this.SendPropertyChanged("FirstName");
-					this.OnFirstNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string LastName
-		{
-			get
-			{
-				return this._LastName;
-			}
-			set
-			{
-				if ((this._LastName != value))
-				{
-					this.OnLastNameChanging(value);
-					this.SendPropertyChanging();
-					this._LastName = value;
-					this.SendPropertyChanged("LastName");
-					this.OnLastNameChanged();
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HashedPassword", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
 		public string HashedPassword
 		{
@@ -1650,26 +1598,6 @@ namespace Team34_GP_IFM02B2_2023_WCF
 					this._Email = value;
 					this.SendPropertyChanged("Email");
 					this.OnEmailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Phone", DbType="VarChar(20)")]
-		public string Phone
-		{
-			get
-			{
-				return this._Phone;
-			}
-			set
-			{
-				if ((this._Phone != value))
-				{
-					this.OnPhoneChanging(value);
-					this.SendPropertyChanging();
-					this._Phone = value;
-					this.SendPropertyChanged("Phone");
-					this.OnPhoneChanged();
 				}
 			}
 		}
@@ -1743,7 +1671,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserTable_Customer", Storage="_Customer", ThisKey="UserId", OtherKey="UserID", IsUnique=true, IsForeignKey=false)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserTable_Customer", Storage="_Customer", ThisKey="UserId", OtherKey="UserId", IsUnique=true, IsForeignKey=false)]
 		public Customer Customer
 		{
 			get
@@ -1809,7 +1737,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
 		
 		private string _Location;
 		
-		private int _StoreType;
+		private string _StoreType;
 		
 		private EntitySet<FavouriteStore> _FavouriteStores;
 		
@@ -1831,7 +1759,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
     partial void OnLogoChanged();
     partial void OnLocationChanging(string value);
     partial void OnLocationChanged();
-    partial void OnStoreTypeChanging(int value);
+    partial void OnStoreTypeChanging(string value);
     partial void OnStoreTypeChanged();
     #endregion
 		
@@ -1947,8 +1875,8 @@ namespace Team34_GP_IFM02B2_2023_WCF
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StoreType", DbType="Int NOT NULL")]
-		public int StoreType
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StoreType", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string StoreType
 		{
 			get
 			{
@@ -2433,7 +2361,11 @@ namespace Team34_GP_IFM02B2_2023_WCF
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _UserID;
+		private int _UserId;
+		
+		private string _FirstName;
+		
+		private string _LastName;
 		
 		private System.DateTime _Birthdate;
 		
@@ -2451,8 +2383,12 @@ namespace Team34_GP_IFM02B2_2023_WCF
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnUserIDChanging(int value);
-    partial void OnUserIDChanged();
+    partial void OnUserIdChanging(int value);
+    partial void OnUserIdChanged();
+    partial void OnFirstNameChanging(string value);
+    partial void OnFirstNameChanged();
+    partial void OnLastNameChanging(string value);
+    partial void OnLastNameChanged();
     partial void OnBirthdateChanging(System.DateTime value);
     partial void OnBirthdateChanged();
     partial void OnGrantRecipientChanging(bool value);
@@ -2468,26 +2404,66 @@ namespace Team34_GP_IFM02B2_2023_WCF
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int UserID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserId", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int UserId
 		{
 			get
 			{
-				return this._UserID;
+				return this._UserId;
 			}
 			set
 			{
-				if ((this._UserID != value))
+				if ((this._UserId != value))
 				{
 					if (this._UserTable.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.OnUserIDChanging(value);
+					this.OnUserIdChanging(value);
 					this.SendPropertyChanging();
-					this._UserID = value;
-					this.SendPropertyChanged("UserID");
-					this.OnUserIDChanged();
+					this._UserId = value;
+					this.SendPropertyChanged("UserId");
+					this.OnUserIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string FirstName
+		{
+			get
+			{
+				return this._FirstName;
+			}
+			set
+			{
+				if ((this._FirstName != value))
+				{
+					this.OnFirstNameChanging(value);
+					this.SendPropertyChanging();
+					this._FirstName = value;
+					this.SendPropertyChanged("FirstName");
+					this.OnFirstNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string LastName
+		{
+			get
+			{
+				return this._LastName;
+			}
+			set
+			{
+				if ((this._LastName != value))
+				{
+					this.OnLastNameChanging(value);
+					this.SendPropertyChanging();
+					this._LastName = value;
+					this.SendPropertyChanged("LastName");
+					this.OnLastNameChanged();
 				}
 			}
 		}
@@ -2532,7 +2508,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_FavouriteStore", Storage="_FavouriteStores", ThisKey="UserID", OtherKey="CustomerUserId")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_FavouriteStore", Storage="_FavouriteStores", ThisKey="UserId", OtherKey="CustomerUserId")]
 		public EntitySet<FavouriteStore> FavouriteStores
 		{
 			get
@@ -2545,7 +2521,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_Invoice", Storage="_Invoices", ThisKey="UserID", OtherKey="UserId")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_Invoice", Storage="_Invoices", ThisKey="UserId", OtherKey="UserId")]
 		public EntitySet<Invoice> Invoices
 		{
 			get
@@ -2558,7 +2534,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_CartItem", Storage="_CartItems", ThisKey="UserID", OtherKey="UserId")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_CartItem", Storage="_CartItems", ThisKey="UserId", OtherKey="UserId")]
 		public EntitySet<CartItem> CartItems
 		{
 			get
@@ -2571,7 +2547,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserTable_Customer", Storage="_UserTable", ThisKey="UserID", OtherKey="UserId", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserTable_Customer", Storage="_UserTable", ThisKey="UserId", OtherKey="UserId", IsForeignKey=true)]
 		public UserTable UserTable
 		{
 			get
@@ -2594,11 +2570,11 @@ namespace Team34_GP_IFM02B2_2023_WCF
 					if ((value != null))
 					{
 						value.Customer = this;
-						this._UserID = value.UserId;
+						this._UserId = value.UserId;
 					}
 					else
 					{
-						this._UserID = default(int);
+						this._UserId = default(int);
 					}
 					this.SendPropertyChanged("UserTable");
 				}
