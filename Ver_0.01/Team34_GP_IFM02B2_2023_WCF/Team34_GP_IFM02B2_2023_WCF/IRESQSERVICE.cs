@@ -104,6 +104,12 @@ namespace Team34_GP_IFM02B2_2023_WCF
         String _prodAdd;
         bool _enabled;
 
+        [DataMember]
+        public int prodID
+        {
+            get { return _prodID; }
+            set { _prodID = value; }
+        }
 
         [DataMember]
         public int userID
@@ -118,9 +124,8 @@ namespace Team34_GP_IFM02B2_2023_WCF
             get { return _prodName; }
             set { _prodName = value; }
         }
-
         [DataMember]
-        public string userPass
+        public string prodDesc
         {
             get { return _prodDesc; }
             set { _prodDesc = value; }

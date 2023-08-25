@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -138,6 +139,34 @@ namespace Team34_GP_IFM02B2_2023_WCF
 
         public List<ProductRecord> getAllProducts()
         {
+            String conn = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = C:\\Users\\USER\\Source\\Repos\\ResQFoods\\Ver_0.01\\Team34_GP_IFM02B2_2023_WCF\\Team34_GP_IFM02B2_2023_WCF\\App_Data\\ResQFoods_DB.mdf; Integrated Security = True";
+            String comm = "SELECT * FROM Products";
+            SqlConnection SqlConn = new SqlConnection(conn);
+            SqlCommand SqlComm = new SqlCommand(comm, SqlConn);
+            try
+            {
+                SqlConn.Open();
+                DbDataReader dbr = SqlComm.ExecuteReader();
+                while(dbr.Read())
+                {
+                    byte[] tempImg = null;
+                    ProductRecord temp = new ProductRecord();
+                    temp.prodID = dbr.GetInt32(0);
+                    temp.userID = dbr.GetInt32(1);
+                    temp.prodName = dbr.GetString(2);
+                    temp.prodDesc = dbr.GetString(3);
+                    
+
+                }
+            }
+            catch(SqlException s)
+            {
+                //Error handling logic here
+            }
+            finally
+            {
+                SqlConn.Close();
+            }
             throw new NotImplementedException();
         }
     }
