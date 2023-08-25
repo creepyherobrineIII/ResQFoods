@@ -180,6 +180,16 @@ namespace Team34_GP_IFM02B2_2023_WCF
             }
             throw new NotImplementedException();
         }
+
+        public bool RegUser(string fName, string lName, string uEmail, int uType, string uPass, string phone, string uReg)
+        {
+            throw new NotImplementedException();
+        }
+
+        UserRecord IRESQSERVICE.loginUser(string uEmail, string pass)
+        {
+            throw new NotImplementedException();
+        }
     }
     }
 
