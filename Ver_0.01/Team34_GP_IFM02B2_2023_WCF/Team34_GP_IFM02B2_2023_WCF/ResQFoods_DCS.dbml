@@ -1,43 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="ResQFoods_DB" Class="ResQFoods_DCSDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\ResQFoods_DB.mdf;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="ResQFoods_DBConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.UserTable" Member="UserTables">
-    <Type Name="UserTable">
-      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="UserType" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
-      <Column Name="HashedPassword" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="Email" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="DateRegistered" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="Enabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Customers" Member="Customers">
-    <Type Name="Customer">
-      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Birthdate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="GrantRecipient" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="Customer_FavouriteStore" Member="FavouriteStores" ThisKey="UserID" OtherKey="CustomerUserId" Type="FavouriteStore" />
-      <Association Name="Customer_Invoice" Member="Invoices" ThisKey="UserID" OtherKey="UserId" Type="Invoice" />
-      <Association Name="Customer_CartItem" Member="CartItems" ThisKey="UserID" OtherKey="UserId" Type="CartItem" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Stores" Member="Stores">
-    <Type Name="Store">
-      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Company" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="Location" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="StoreType" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Association Name="Store_FavouriteStore" Member="FavouriteStores" ThisKey="UserId" OtherKey="StoreUserId" Type="FavouriteStore" />
-      <Association Name="Store_Product" Member="Products" ThisKey="UserId" OtherKey="UserId" Type="Product" />
-    </Type>
-  </Table>
   <Table Name="dbo.FavouriteStores" Member="FavouriteStores">
     <Type Name="FavouriteStore">
       <Column Name="FavStoreId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="StoreUserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="CustomerUserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Customer_FavouriteStore" Member="Customer" ThisKey="CustomerUserId" OtherKey="UserID" Type="Customer" IsForeignKey="true" />
       <Association Name="Store_FavouriteStore" Member="Store" ThisKey="StoreUserId" OtherKey="UserId" Type="Store" IsForeignKey="true" />
+      <Association Name="Customer_FavouriteStore" Member="Customer" ThisKey="CustomerUserId" OtherKey="UserID" Type="Customer" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.ProductTags" Member="ProductTags">
@@ -54,21 +23,6 @@
       <Column Name="TagID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="TagName" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Association Name="Tag_ProductTag" Member="ProductTags" ThisKey="TagID" OtherKey="TagId" Type="ProductTag" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Products" Member="Products">
-    <Type Name="Product">
-      <Column Name="ProductId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="Description" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="Price" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
-      <Column Name="DateAdded" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="Enabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="Product_ProductTag" Member="ProductTags" ThisKey="ProductId" OtherKey="ProductId" Type="ProductTag" />
-      <Association Name="Product_InvoiceItem" Member="InvoiceItems" ThisKey="ProductId" OtherKey="ProductId" Type="InvoiceItem" />
-      <Association Name="Product_CartItem" Member="CartItems" ThisKey="ProductId" OtherKey="ProductId" Type="CartItem" />
-      <Association Name="Store_Product" Member="Store" ThisKey="UserId" OtherKey="UserId" Type="Store" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Invoice" Member="Invoices">
@@ -108,6 +62,61 @@
       <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
       <Association Name="Product_CartItem" Member="Product" ThisKey="ProductId" OtherKey="ProductId" Type="Product" IsForeignKey="true" />
       <Association Name="Customer_CartItem" Member="Customer" ThisKey="UserId" OtherKey="UserID" Type="Customer" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserTable" Member="UserTables">
+    <Type Name="UserTable">
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="HashedPassword" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Phone" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="DateRegistered" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Enabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="UserTable_Store" Member="Store" ThisKey="UserId" OtherKey="UserId" Type="Store" Cardinality="One" />
+      <Association Name="UserTable_Customer" Member="Customer" ThisKey="UserId" OtherKey="UserID" Type="Customer" Cardinality="One" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Stores" Member="Stores">
+    <Type Name="Store">
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Company" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Logo" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Location" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="StoreType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Store_FavouriteStore" Member="FavouriteStores" ThisKey="UserId" OtherKey="StoreUserId" Type="FavouriteStore" />
+      <Association Name="Store_Product" Member="Products" ThisKey="UserId" OtherKey="UserId" Type="Product" />
+      <Association Name="UserTable_Store" Member="UserTable" ThisKey="UserId" OtherKey="UserId" Type="UserTable" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Products" Member="Products">
+    <Type Name="Product">
+      <Column Name="ProductId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Picture" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Enabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Product_ProductTag" Member="ProductTags" ThisKey="ProductId" OtherKey="ProductId" Type="ProductTag" />
+      <Association Name="Product_InvoiceItem" Member="InvoiceItems" ThisKey="ProductId" OtherKey="ProductId" Type="InvoiceItem" />
+      <Association Name="Product_CartItem" Member="CartItems" ThisKey="ProductId" OtherKey="ProductId" Type="CartItem" />
+      <Association Name="Store_Product" Member="Store" ThisKey="UserId" OtherKey="UserId" Type="Store" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Customers" Member="Customers">
+    <Type Name="Customer">
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Birthdate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="GrantRecipient" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Customer_FavouriteStore" Member="FavouriteStores" ThisKey="UserID" OtherKey="CustomerUserId" Type="FavouriteStore" />
+      <Association Name="Customer_Invoice" Member="Invoices" ThisKey="UserID" OtherKey="UserId" Type="Invoice" />
+      <Association Name="Customer_CartItem" Member="CartItems" ThisKey="UserID" OtherKey="UserId" Type="CartItem" />
+      <Association Name="UserTable_Customer" Member="UserTable" ThisKey="UserID" OtherKey="UserId" Type="UserTable" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

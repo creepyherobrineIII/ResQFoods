@@ -9,12 +9,10 @@ using System.Text;
 
 namespace Team34_GP_IFM02B2_2023_WCF
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "RESQSERVICE" in code, svc and config file together.
-    // NOTE: In order to launch WCF Test Client for testing this service, please select RESQSERVICE.svc or RESQSERVICE.svc.cs at the Solution Explorer and start debugging.
-        // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in code, svc and config file together.
-        // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
+        
         public class RESQSERVICE : IRESQSERVICE
         {
+            ResQFoods_DCSDataContext db = new ResQFoods_DCSDataContext();
             public string DeleteUser(String uEmail)
             {
                 throw new NotImplementedException();
@@ -65,7 +63,18 @@ namespace Team34_GP_IFM02B2_2023_WCF
             //Make 3 methods, one for each type of user
             public bool loginUser(String user, String pass)
             {
-                bool valid = false;
+            /* var syslog = (from u in db.UserTables
+                           where u.Email.Equals(user) &&
+                           u.HashedPassword.Equals(pass)
+                           select u).FirstOrDefault();*/
+
+            /*var u = new UserTable
+            {
+                Email = 90;
+            };*/
+
+
+        bool valid = false;
                 String con = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = C:\\Users\\USER\\Source\\Repos\\ResQFoods\\Ver_0.01\\Team34_GP_IFM02B2_2023_WCF\\Team34_GP_IFM02B2_2023_WCF\\App_Data\\ResQFoods_DB.mdf; Integrated Security = True";
                 String query = "SELECT Count(Email) FROM UserTable WHERE Email = @userEmail AND HashedPassword = @userPass";
                 SqlConnection conn = new SqlConnection(con);
@@ -74,6 +83,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
                 sCom.Parameters.AddWithValue("@userPass", pass);
                 try
                 {
+                
                     conn.Open();
                     Object count = sCom.ExecuteScalar();
                     Int32 var;

@@ -13,7 +13,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
     {
 
         [OperationContract]
-        bool RegUser(String uEmail, char uType, String uPass, String uReg, bool uAc);
+        bool RegUser(String uEmail, char uType, String uPass, String uReg);
 
         [OperationContract]
         bool loginUser(String uEmail, String pass);
