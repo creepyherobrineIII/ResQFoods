@@ -66,20 +66,20 @@
     <Content Include="App_Data\ResQFoods_DB_log.ldf">
       <DependentUpon>ResQFoods_DB.mdf</DependentUpon>
     </Content>
-    <Content Include="Service.svc" />
+    <Content Include="RESQSERVICE.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IRESQSERVICE.cs" />
     <Compile Include="ResQFoods_DCS.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ResQFoods_DCS.dbml</DependentUpon>
     </Compile>
-    <Compile Include="Service.svc.cs">
-      <DependentUpon>Service.svc</DependentUpon>
-    </Compile>
-    <Compile Include="IService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RESQSERVICE.svc.cs">
+      <DependentUpon>RESQSERVICE.svc</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
