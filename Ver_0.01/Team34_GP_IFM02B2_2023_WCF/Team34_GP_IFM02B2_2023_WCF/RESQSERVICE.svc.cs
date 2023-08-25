@@ -61,7 +61,8 @@ namespace Team34_GP_IFM02B2_2023_WCF
                 }
                 return valid;
             }
-
+            //Look for user record type, return that type
+            //Make 3 methods, one for each type of user
             public bool loginUser(String user, String pass)
             {
                 bool valid = false;
@@ -94,8 +95,8 @@ namespace Team34_GP_IFM02B2_2023_WCF
                 }
                 return valid;
             }
-
-            public bool RegUser(String uEmail, char uType, String uPass, String uReg, bool uAct)
+            //Add an insert for the type of user registering (USERTYPE)
+            public bool RegUser(String uEmail, char uType, String uPass, String uReg)
             {
                 if (checkValid(uEmail))
                 {
@@ -107,7 +108,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
                     sCom.Parameters.AddWithValue("@param2", uPass);
                     sCom.Parameters.AddWithValue("@param3", uEmail);
                     sCom.Parameters.AddWithValue("@param4", uReg);
-                    sCom.Parameters.AddWithValue("@param5", uAct);
+                    sCom.Parameters.AddWithValue("@param5", true);
                 try
                     {
                         conn.Open();
