@@ -102,12 +102,12 @@ namespace Team34_GP_IFM02B2_2023_WCF
                 String query = "INSERT INTO UserTable(UserType, HashedPassword, Email, DateRegistered, Enabled) VALUES(@param1, @param2, @param3, @param4, @param5 )";
                 SqlConnection conn = new SqlConnection(con);
                     SqlCommand sCom = new SqlCommand(query, conn);
-                    sCom.Parameters.AddWithValue("@param1", uEmail);
-                    sCom.Parameters.AddWithValue("@param2", uType);
-                    sCom.Parameters.AddWithValue("@param3", uPass);
+                    sCom.Parameters.AddWithValue("@param1", uType);
+                    sCom.Parameters.AddWithValue("@param2", uPass);
+                    sCom.Parameters.AddWithValue("@param3", uEmail);
                     sCom.Parameters.AddWithValue("@param4", uReg);
                     sCom.Parameters.AddWithValue("@param5", uAct);
-                    try
+                try
                     {
                         conn.Open();
                         int recordsAffected = sCom.ExecuteNonQuery();
