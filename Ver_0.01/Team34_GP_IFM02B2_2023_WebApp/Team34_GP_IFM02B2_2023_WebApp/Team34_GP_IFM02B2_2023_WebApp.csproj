@@ -69,13 +69,85 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assests\css\bootstrap.css" />
+    <Content Include="assests\css\theme.css.map" />
+    <Content Include="assests\fonts\maicons.eot" />
+    <Content Include="assests\fonts\maicons.ttf" />
+    <Content Include="assests\fonts\maicons.woff" />
+    <Content Include="assests\sass\theme.scss" />
+    <Content Include="assests\sass\_breadcrumb.scss" />
+    <Content Include="assests\sass\_buttons.scss" />
+    <Content Include="assests\sass\_color-systems.scss" />
+    <Content Include="assests\sass\_functions.scss" />
+    <Content Include="assests\sass\_images.scss" />
+    <Content Include="assests\sass\_input.scss" />
+    <Content Include="assests\sass\_mixins.scss" />
+    <Content Include="assests\sass\_navbar.scss" />
+    <Content Include="assests\sass\_pagination.scss" />
+    <Content Include="assests\sass\_plugins.scss" />
+    <Content Include="assests\sass\_variables.scss" />
     <None Include="Connected Services\Team34_ServiceReference\configuration91.svcinfo" />
     <None Include="Connected Services\Team34_ServiceReference\configuration.svcinfo" />
     <None Include="Connected Services\Team34_ServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="assests\css\maicons.css" />
+    <Content Include="assests\css\theme.css" />
+    <Content Include="assests\fonts\maicons.svg" />
+    <Content Include="assests\img\about.jpg" />
+    <Content Include="assests\img\bg_image_1.jpg" />
+    <Content Include="assests\img\bg_image_2.jpg" />
+    <Content Include="assests\img\bg_image_3.jpg" />
+    <Content Include="assests\img\clients\airbnb.png" />
+    <Content Include="assests\img\clients\google.png" />
+    <Content Include="assests\img\clients\mailchimp.png" />
+    <Content Include="assests\img\clients\paypal.png" />
+    <Content Include="assests\img\clients\stripe.png" />
+    <Content Include="assests\img\icons\app_development.svg" />
+    <Content Include="assests\img\icons\customer_services.svg" />
+    <Content Include="assests\img\icons\data_analyst.svg" />
+    <Content Include="assests\img\icons\graphics_design.svg" />
+    <Content Include="assests\img\icons\product_design.svg" />
+    <Content Include="assests\img\icons\seo_and_marketing.svg" />
+    <Content Include="assests\img\icons\ui_ux_design.svg" />
+    <Content Include="assests\img\icons\web_development.svg" />
+    <Content Include="assests\img\person\person_1.jpg" />
+    <Content Include="assests\img\person\person_2.jpg" />
+    <Content Include="assests\img\person\person_3.jpg" />
+    <Content Include="assests\img\person\person_4.jpg" />
+    <Content Include="assests\img\portfolio\work-1.jpg" />
+    <Content Include="assests\img\portfolio\work-2.jpg" />
+    <Content Include="assests\img\portfolio\work-3.jpg" />
+    <Content Include="assests\img\portfolio\work-4.jpg" />
+    <Content Include="assests\img\portfolio\work-5.jpg" />
+    <Content Include="assests\img\portfolio\work-6.jpg" />
+    <Content Include="assests\img\portfolio\work-7.jpg" />
+    <Content Include="assests\img\portfolio\work-8.jpg" />
+    <Content Include="assests\img\portfolio\work-9.jpg" />
+    <Content Include="assests\img\teams\team_1.jpg" />
+    <Content Include="assests\img\teams\team_2.jpg" />
+    <Content Include="assests\img\teams\team_3.jpg" />
+    <Content Include="assests\js\bootstrap.bundle.min.js" />
+    <Content Include="assests\js\google-maps.js" />
+    <Content Include="assests\js\jquery-3.5.1.min.js" />
+    <Content Include="assests\js\theme.js" />
+    <Content Include="assests\vendor\animate\animate.css" />
+    <Content Include="assests\vendor\fancybox\css\jquery.fancybox.css" />
+    <Content Include="assests\vendor\fancybox\css\jquery.fancybox.min.css" />
+    <Content Include="assests\vendor\fancybox\js\jquery.fancybox.js" />
+    <Content Include="assests\vendor\fancybox\js\jquery.fancybox.min.js" />
+    <Content Include="assests\vendor\isotope\isotope.pkgd.js" />
+    <Content Include="assests\vendor\isotope\isotope.pkgd.min.js" />
+    <Content Include="assests\vendor\owl-carousel\css\owl.carousel.css" />
+    <Content Include="assests\vendor\owl-carousel\css\owl.carousel.min.css" />
+    <Content Include="assests\vendor\owl-carousel\css\owl.theme.default.css" />
+    <Content Include="assests\vendor\owl-carousel\css\owl.theme.default.min.css" />
+    <Content Include="assests\vendor\owl-carousel\js\owl.carousel.js" />
+    <Content Include="assests\vendor\owl-carousel\js\owl.carousel.min.js" />
+    <Content Include="assests\vendor\wow\wow.min.js" />
     <Content Include="index.aspx" />
+    <Content Include="login.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -91,7 +163,15 @@
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Secrecy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\Team34_ServiceReference\Service.wsdl" />
@@ -108,6 +188,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\Team34_ServiceReference\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="assests\sass\mixins\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

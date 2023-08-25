@@ -14,10 +14,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
         ServiceClient sc = new ServiceClient();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (sc.Login("fred", "fred123") == true)
-                testbox.Text = "Logged in";
-            else
-                testbox.Text = "Failed to Log in";
+            
         }
     }
 }
