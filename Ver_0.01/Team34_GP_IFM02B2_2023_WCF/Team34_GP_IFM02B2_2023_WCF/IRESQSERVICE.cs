@@ -13,10 +13,10 @@ namespace Team34_GP_IFM02B2_2023_WCF
     {
 
         [OperationContract]
-        bool RegUser(String uEmail, char uType, String uPass, String uReg);
+        bool RegUser(String fName, String lName, String uEmail,  int uType, String uPass, String phone,  String uReg);
 
         [OperationContract]
-        bool loginUser(String uEmail, String pass);
+        UserRecord loginUser(String uEmail, String pass);
 
         [OperationContract]
         List<UserRecord> GetEmployeeRecords(String uEmail);
@@ -41,18 +41,25 @@ namespace Team34_GP_IFM02B2_2023_WCF
     public class UserRecord
     {
 
-        int _userID;
-        string _userEmail;
-        string _userPass;
-        string _userReg;
-        char _userType = 'N';
-        bool _userActive;
+        String _userEmail;
+        String _fName;
+        String _lName;
+        String _userReg;
+        String _userPhone;
+        int _userType;
 
         [DataMember]
-        public int userID
+        public String fName
         {
-            get { return _userID; }
-            set { _userID = value; }
+            get { return _fName; }
+            set { _fName = value; }
+        }
+
+        [DataMember]
+        public String lName
+        {
+            get { return _lName; }
+            set { _lName = value; }
         }
 
         [DataMember]
@@ -63,30 +70,24 @@ namespace Team34_GP_IFM02B2_2023_WCF
         }
 
         [DataMember]
-        public string userPass
-        {
-            get { return _userPass; }
-            set { _userPass = value; }
-        }
-
         public string userReg
         {
             get { return _userReg; }
-            set { _userPass = value; }
+            set { _userReg = value; }
         }
 
         [DataMember]
-        public char userType
+        public string userPhone
+        {
+            get { return _userPhone; }
+            set { _userPhone = value; }
+        }
+
+        [DataMember]
+        public int userType
         {
             get { return _userType; }
             set { _userType = value; }
-        }
-
-        [DataMember]
-        public bool userActive
-        {
-            get { return _userActive; }
-            set { _userActive = value; }
         }
     }
 
@@ -99,8 +100,8 @@ namespace Team34_GP_IFM02B2_2023_WCF
         int _userID;
         String _prodName;
         String _prodDesc;
-        Image _prodPic;
-        String _prodPrice;
+        String _prodPic;
+        double _prodPrice;
         String _prodAdd;
         bool _enabled;
 
@@ -131,14 +132,14 @@ namespace Team34_GP_IFM02B2_2023_WCF
             set { _prodDesc = value; }
         }
 
-        public Image prodPic 
+        public String prodPic 
         {
             get { return _prodPic; }
             set { _prodPic = value; }
         }
 
         [DataMember]
-        public String prodPrice
+        public double prodPrice
         {
             get { return _prodPrice; }
             set { _prodPrice = value; }
