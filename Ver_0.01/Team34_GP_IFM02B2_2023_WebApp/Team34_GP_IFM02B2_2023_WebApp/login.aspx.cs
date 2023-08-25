@@ -10,7 +10,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
 {
     public partial class login : System.Web.UI.Page
     {
-        Team34_ServiceReference.ServiceClient sc = new Team34_ServiceReference.ServiceClient();
+        Team34_ServiceReference.RESQSERVICEClient sc = new Team34_ServiceReference.RESQSERVICEClient();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -20,7 +20,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
         {
             String GivenEmail= EmailAddress.Text;
             String GivenPassword = Secrecy.HashPassword(Password.Text); // hashpassword, never gets stored
-            sc.Login(GivenEmail, GivenPassword); //send details to api? 
+            sc.loginUser(GivenEmail, GivenPassword); //send details to api? 
         }
 
     }

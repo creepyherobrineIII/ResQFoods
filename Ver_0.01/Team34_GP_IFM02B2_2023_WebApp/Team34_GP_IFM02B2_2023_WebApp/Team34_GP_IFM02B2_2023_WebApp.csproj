@@ -174,7 +174,7 @@
     <Compile Include="Secrecy.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\Team34_ServiceReference\Service.wsdl" />
+    <None Include="Connected Services\Team34_ServiceReference\RESQSERVICE.wsdl" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
