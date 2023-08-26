@@ -11,12 +11,26 @@ namespace Team34_GP_IFM02B2_2023_WCF
     [ServiceContract]
     public interface IRESQSERVICE
     {
+        [OperationContract]
+        int loginUser(String user, String pass);
 
         [OperationContract]
-        bool RegUser(String fName, String lName, String uEmail,  int uType, String uPass, String phone,  String uReg);
+        bool regAdmin(String uEmail, String uPass);
 
         [OperationContract]
-        UserRecord loginUser(String uEmail, String pass);
+        bool regCust(String uEmail, String uPass, String fName, String lName, DateTime BDate, bool grant);
+
+        [OperationContract]
+        bool regStore(String uEmail, String uPass, String comp, String name, String icoPath, String loc, String type);
+
+        [OperationContract]
+        UserRecord getAdmin(String uEmail);
+
+        [OperationContract]
+        CustomerRecord getCustomer(String uEmail);
+
+        [OperationContract]
+        StoreRecord getStore(String uEmail);
 
         [OperationContract]
         List<UserRecord> GetEmployeeRecords(String uEmail);
@@ -40,28 +54,19 @@ namespace Team34_GP_IFM02B2_2023_WCF
     [DataContract]
     public class UserRecord
     {
-
+        int _userId;
         String _userEmail;
-        String _fName;
-        String _lName;
-        String _userReg;
-        String _userPhone;
+        DateTime _userReg;
         int _userType;
+        bool _enabled;
+
 
         [DataMember]
-        public String fName
+        public int userId
         {
-            get { return _fName; }
-            set { _fName = value; }
+            get { return _userId; }
+            set { _userId = value; }
         }
-
-        [DataMember]
-        public String lName
-        {
-            get { return _lName; }
-            set { _lName = value; }
-        }
-
         [DataMember]
         public string userEmail
         {
@@ -70,17 +75,10 @@ namespace Team34_GP_IFM02B2_2023_WCF
         }
 
         [DataMember]
-        public string userReg
+        public DateTime userReg
         {
             get { return _userReg; }
             set { _userReg = value; }
-        }
-
-        [DataMember]
-        public string userPhone
-        {
-            get { return _userPhone; }
-            set { _userPhone = value; }
         }
 
         [DataMember]
@@ -89,6 +87,111 @@ namespace Team34_GP_IFM02B2_2023_WCF
             get { return _userType; }
             set { _userType = value; }
         }
+
+        [DataMember]
+        public bool enabled
+        {
+            get { return _enabled; }
+            set { _enabled = value; }
+        }
+    }
+
+
+    [DataContract]
+    public class CustomerRecord
+    {
+        UserRecord _u;
+        String _fName;
+        String _lName;
+        DateTime _birthDate;
+        bool _grantRec;
+
+
+        [DataMember]
+        public UserRecord u
+        {
+            get { return _u; }
+            set { _u = value; }
+        }
+
+        [DataMember]
+        public string fName
+        {
+            get { return _fName; }
+            set { _fName = value; }
+        }
+        [DataMember]
+        public string lName
+        {
+            get { return _lName; }
+            set { _lName = value; }
+        }
+
+        [DataMember]
+        public DateTime birthDate
+        {
+            get { return _birthDate; }
+            set { _birthDate = value; }
+        }
+
+        [DataMember]
+        public bool grantRec
+        {
+            get { return _grantRec; }
+            set { _grantRec = value; }
+        }
+
+    }
+
+    [DataContract]
+    public class StoreRecord
+    {
+        UserRecord _u;
+        String _company;
+        String _name;
+        String _logo;
+        String _location;
+        String _storeType;
+
+        [DataMember]
+        public UserRecord u
+        {
+            get { return _u; }
+            set { _u = value; }
+        }
+
+        [DataMember]
+        public string name
+        {
+            get { return _name; }
+            set { _name = value; }
+        }
+        [DataMember]
+        public string logo
+        {
+            get { return _logo; }
+            set { _logo = value; }
+        }
+
+        [DataMember]
+        public string location
+        {
+            get { return _location; }
+            set { _location = value; }
+        }
+        [DataMember]
+        public string company
+        {
+            get { return _company; }
+            set { _company = value; }
+        }
+
+        [DataMember]
+        public string sType
+        {
+            get { return _storeType; }
+            set { _storeType = value; }
+        }
     }
 
 
@@ -96,27 +199,28 @@ namespace Team34_GP_IFM02B2_2023_WCF
     [DataContract]
     public class ProductRecord
     {
-        int _prodID;
-        int _userID;
+        int _storeId;
+        int _prodId;
         String _prodName;
         String _prodDesc;
         String _prodPic;
         double _prodPrice;
-        String _prodAdd;
+        DateTime _prodDate;
         bool _enabled;
 
         [DataMember]
-        public int prodID
+        public int prodId
         {
-            get { return _prodID; }
-            set { _prodID = value; }
+            get { return _prodId; }
+            set { _prodId = value; }
         }
 
+
         [DataMember]
-        public int userID
+        public int storeId
         {
-            get { return _userID; }
-            set { _userID = value; }
+            get { return _storeId; }
+            set { _storeId = value; }
         }
 
         [DataMember]
@@ -143,6 +247,13 @@ namespace Team34_GP_IFM02B2_2023_WCF
         {
             get { return _prodPrice; }
             set { _prodPrice = value; }
+        }
+
+        [DataMember]
+        public DateTime prodDate
+        {
+            get { return _prodDate; }
+            set { _prodDate = value; }
         }
 
         [DataMember]
