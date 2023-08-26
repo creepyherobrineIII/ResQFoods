@@ -47,6 +47,12 @@ namespace Team34_GP_IFM02B2_2023_WCF
         [OperationContract]
         List<ProductRecord> getAllProducts();
 
+        [OperationContract]
+        List<ProductRecord> SearchProducts(String name);
+
+        [OperationContract]
+        bool AddProduct(int sID, String name, String desc, String picPath, double price, DateTime date, bool enabled);
+
 
     }
 

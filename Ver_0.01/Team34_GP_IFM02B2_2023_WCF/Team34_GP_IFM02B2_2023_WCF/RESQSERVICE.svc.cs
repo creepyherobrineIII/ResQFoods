@@ -277,113 +277,168 @@ namespace Team34_GP_IFM02B2_2023_WCF
                 throw new NotImplementedException();
             }
 
-        public List<ProductRecord> getAllProducts()
-        {
-            /*String conn = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = C:\\Users\\USER\\Source\\Repos\\ResQFoods\\Ver_0.01\\Team34_GP_IFM02B2_2023_WCF\\Team34_GP_IFM02B2_2023_WCF\\App_Data\\ResQFoods_DB.mdf; Integrated Security = True";
-            String comm = "SELECT * FROM Products";
-            SqlConnection SqlConn = new SqlConnection(conn);
-            SqlCommand SqlComm = new SqlCommand(comm, SqlConn);
-            try
+            public List<ProductRecord> getAllProducts()
             {
-                SqlConn.Open();
-                DbDataReader dbr = SqlComm.ExecuteReader();
-                while(dbr.Read())
+                /*String conn = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = C:\\Users\\USER\\Source\\Repos\\ResQFoods\\Ver_0.01\\Team34_GP_IFM02B2_2023_WCF\\Team34_GP_IFM02B2_2023_WCF\\App_Data\\ResQFoods_DB.mdf; Integrated Security = True";
+                String comm = "SELECT * FROM Products";
+                SqlConnection SqlConn = new SqlConnection(conn);
+                SqlCommand SqlComm = new SqlCommand(comm, SqlConn);
+                try
                 {
-                    byte[] tempImg = null;
-                    ProductRecord temp = new ProductRecord();
-                    temp.prodID = dbr.GetInt32(0);
-                    temp.userID = dbr.GetInt32(1);
-                    temp.prodName = dbr.GetString(2);
-                    temp.prodDesc = dbr.GetString(3);
+                    SqlConn.Open();
+                    DbDataReader dbr = SqlComm.ExecuteReader();
+                    while(dbr.Read())
+                    {
+                        byte[] tempImg = null;
+                        ProductRecord temp = new ProductRecord();
+                        temp.prodID = dbr.GetInt32(0);
+                        temp.userID = dbr.GetInt32(1);
+                        temp.prodName = dbr.GetString(2);
+                        temp.prodDesc = dbr.GetString(3);
                     
 
+                    }
                 }
-            }
-            catch(SqlException s)
-            {
-                //Error handling logic here
-            }
-            finally
-            {
-                SqlConn.Close();
-            }
-            throw new NotImplementedException();*/
-            List<ProductRecord> prodRec = new List<ProductRecord>();
-            List<Product> prods = (from p in db.Products 
-                                    select p).ToList();
-            foreach(Product p in prods)
-            {
-                ProductRecord pr = new ProductRecord();
-                pr.storeId = p.UserId;
-                pr.prodId = p.ProductId;
-                pr.prodName = p.Name;
-                pr.prodPic = p.Picture;
-                pr.prodPrice = (double)p.Price;
-                pr.prodDesc = p.Description;
-                pr.prodDate = p.DateAdded;
-                prodRec.Add(pr);
-            }
+                catch(SqlException s)
+                {
+                    //Error handling logic here
+                }
+                finally
+                {
+                    SqlConn.Close();
+                }
+                throw new NotImplementedException();*/
+                List<ProductRecord> prodRec = new List<ProductRecord>();
+                List<Product> prods = (from p in db.Products 
+                                        select p).ToList();
+                foreach(Product p in prods)
+                {
+                    ProductRecord pr = new ProductRecord();
+                    pr.storeId = p.UserId;
+                    pr.prodId = p.ProductId;
+                    pr.prodName = p.Name;
+                    pr.prodPic = p.Picture;
+                    pr.prodPrice = (double)p.Price;
+                    pr.prodDesc = p.Description;
+                    pr.prodDate = p.DateAdded;
+                    prodRec.Add(pr);
+                }
 
-            return prodRec;
+                return prodRec;
             
-        }
-
-        public UserRecord getAdmin(string uEmail)
-        {
-            UserRecord ur = new UserRecord();
-            var us = (from u in db.UserTables
-                            where u.Email.Equals(uEmail)
-                            select u).FirstOrDefault();
-            if(us!=null)
-            {
-                ur.userId = us.UserId;
-                ur.userEmail = us.Email;
-                ur.userReg = us.DateRegistered;
-                ur.userType = us.UserType;
-                ur.enabled = us.Enabled;
-            }
-            return ur;
-        }
-
-        public CustomerRecord getCustomer(string uEmail)
-        {
-            UserRecord inner = getAdmin(uEmail);
-            CustomerRecord c = new CustomerRecord();
-            var cs = (from cus in db.Customers
-                      where cus.UserId == inner.userId
-                      select cus).FirstOrDefault();
-            if (cs != null)
-            {
-                c.u = inner;
-                c.fName = cs.FirstName;
-                c.lName = cs.LastName;
-                c.birthDate = cs.Birthdate;
-                c.grantRec = cs.GrantRecipient;
             }
 
-            return c;
-
-        }
-
-        public StoreRecord getStore(string uEmail)
-        {
-            UserRecord inner = getAdmin(uEmail);
-            StoreRecord s = new StoreRecord();
-            var ss = (from str in db.Stores
-                      where str.UserId == inner.userId
-                      select str).FirstOrDefault();
-            if (ss != null)
+            public UserRecord getAdmin(string uEmail)
             {
-                s.u = inner;
-                s.company = ss.Company;
-                s.location = ss.Location;
-                s.logo = ss.Location;
-                s.name = ss.Name;
-                s.sType = ss.StoreType;
+                UserRecord ur = new UserRecord();
+                var us = (from u in db.UserTables
+                                where u.Email.Equals(uEmail)
+                                select u).FirstOrDefault();
+                if(us!=null)
+                {
+                    ur.userId = us.UserId;
+                    ur.userEmail = us.Email;
+                    ur.userReg = us.DateRegistered;
+                    ur.userType = us.UserType;
+                    ur.enabled = us.Enabled;
+                }
+                return ur;
             }
 
-            return s;
+            public CustomerRecord getCustomer(string uEmail)
+            {
+                UserRecord inner = getAdmin(uEmail);
+                CustomerRecord c = new CustomerRecord();
+                var cs = (from cus in db.Customers
+                          where cus.UserId == inner.userId
+                          select cus).FirstOrDefault();
+                if (cs != null)
+                {
+                    c.u = inner;
+                    c.fName = cs.FirstName;
+                    c.lName = cs.LastName;
+                    c.birthDate = cs.Birthdate;
+                    c.grantRec = cs.GrantRecipient;
+                }
+
+                return c;
+
+            }
+
+            public StoreRecord getStore(string uEmail)
+            {
+                UserRecord inner = getAdmin(uEmail);
+                StoreRecord s = new StoreRecord();
+                var ss = (from str in db.Stores
+                          where str.UserId == inner.userId
+                          select str).FirstOrDefault();
+                if (ss != null)
+                {
+                    s.u = inner;
+                    s.company = ss.Company;
+                    s.location = ss.Location;
+                    s.logo = ss.Location;
+                    s.name = ss.Name;
+                    s.sType = ss.StoreType;
+                }
+
+                return s;
+            }
+
+            public List<ProductRecord> SearchProducts(string name)
+            {
+                List<ProductRecord> prodRec = new List<ProductRecord>();
+                List<Product> prods = (from p in db.Products
+                                       where p.Name.ToLower().Contains(name.ToLower())
+                                       select p).ToList();
+                foreach (Product p in prods)
+                {
+                    ProductRecord pr = new ProductRecord();
+                    pr.storeId = p.UserId;
+                    pr.prodId = p.ProductId;
+                    pr.prodName = p.Name;
+                    pr.prodPic = p.Picture;
+                    pr.prodPrice = (double)p.Price;
+                    pr.prodDesc = p.Description;
+                    pr.prodDate = p.DateAdded;
+                    prodRec.Add(pr);
+                }
+
+                return prodRec;
+            }
+
+            public bool AddProduct(int sID, string name, string desc, double price, string picPath, DateTime date, bool enabled)
+            {
+                bool checkP = (from p in db.Products
+                                  where p.Name.Equals(name)
+                                  select p).Any();
+                if(!checkP)
+                {
+                    Product p = new Product
+                    {
+                        UserId = sID, 
+                        Name = name, 
+                        Description = desc, 
+                        Picture = picPath, 
+                        Price = (decimal)price, 
+                        DateAdded = date, 
+                        Enabled = enabled
+                    };
+                    try
+                    {
+                        db.Products.InsertOnSubmit(p);
+                        db.SubmitChanges();
+                        return true;
+                    }
+                    catch(Exception ex)
+                    {
+                        ex.GetBaseException();
+                        return false;
+                    }
+                
+                }
+                return false;
+            }
         }
-    }
     }
 
