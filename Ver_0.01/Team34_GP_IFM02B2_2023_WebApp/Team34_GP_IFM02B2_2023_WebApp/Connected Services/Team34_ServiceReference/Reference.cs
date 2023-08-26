@@ -15,18 +15,27 @@ namespace Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CompositeType", Namespace="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserRecord", Namespace="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF")]
     [System.SerializableAttribute()]
-    public partial class CompositeType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class UserRecord : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool BoolValueField;
+        private bool userActiveField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string StringValueField;
+        private string userEmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string userIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string userPassField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private char userTypeField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -39,27 +48,66 @@ namespace Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool BoolValue {
+        public bool userActive {
             get {
-                return this.BoolValueField;
+                return this.userActiveField;
             }
             set {
-                if ((this.BoolValueField.Equals(value) != true)) {
-                    this.BoolValueField = value;
-                    this.RaisePropertyChanged("BoolValue");
+                if ((this.userActiveField.Equals(value) != true)) {
+                    this.userActiveField = value;
+                    this.RaisePropertyChanged("userActive");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string StringValue {
+        public string userEmail {
             get {
-                return this.StringValueField;
+                return this.userEmailField;
             }
             set {
-                if ((object.ReferenceEquals(this.StringValueField, value) != true)) {
-                    this.StringValueField = value;
-                    this.RaisePropertyChanged("StringValue");
+                if ((object.ReferenceEquals(this.userEmailField, value) != true)) {
+                    this.userEmailField = value;
+                    this.RaisePropertyChanged("userEmail");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string userID {
+            get {
+                return this.userIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.userIDField, value) != true)) {
+                    this.userIDField = value;
+                    this.RaisePropertyChanged("userID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string userPass {
+            get {
+                return this.userPassField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.userPassField, value) != true)) {
+                    this.userPassField = value;
+                    this.RaisePropertyChanged("userPass");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public char userType {
+            get {
+                return this.userTypeField;
+            }
+            set {
+                if ((this.userTypeField.Equals(value) != true)) {
+                    this.userTypeField = value;
+                    this.RaisePropertyChanged("userType");
                 }
             }
         }
@@ -75,52 +123,76 @@ namespace Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="Team34_ServiceReference.IService")]
-    public interface IService {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="Team34_ServiceReference.IRESQSERVICE")]
+    public interface IRESQSERVICE {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetData", ReplyAction="http://tempuri.org/IService/GetDataResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/GetData", ReplyAction="http://tempuri.org/IRESQSERVICE/GetDataResponse")]
         string GetData(int value);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetData", ReplyAction="http://tempuri.org/IService/GetDataResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/GetData", ReplyAction="http://tempuri.org/IRESQSERVICE/GetDataResponse")]
         System.Threading.Tasks.Task<string> GetDataAsync(int value);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService/GetDataUsingDataContractResponse")]
-        Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference.CompositeType GetDataUsingDataContract(Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference.CompositeType composite);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/RegUser", ReplyAction="http://tempuri.org/IRESQSERVICE/RegUserResponse")]
+        bool RegUser(Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference.UserRecord rec);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService/GetDataUsingDataContractResponse")]
-        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference.CompositeType> GetDataUsingDataContractAsync(Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference.CompositeType composite);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/RegUser", ReplyAction="http://tempuri.org/IRESQSERVICE/RegUserResponse")]
+        System.Threading.Tasks.Task<bool> RegUserAsync(Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference.UserRecord rec);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Login", ReplyAction="http://tempuri.org/IService/LoginResponse")]
-        bool Login(string Username, string Password);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/loginUser", ReplyAction="http://tempuri.org/IRESQSERVICE/loginUserResponse")]
+        bool loginUser(string user, string pass);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService/Login", ReplyAction="http://tempuri.org/IService/LoginResponse")]
-        System.Threading.Tasks.Task<bool> LoginAsync(string Username, string Password);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/loginUser", ReplyAction="http://tempuri.org/IRESQSERVICE/loginUserResponse")]
+        System.Threading.Tasks.Task<bool> loginUserAsync(string user, string pass);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/GetEmployeeRecords", ReplyAction="http://tempuri.org/IRESQSERVICE/GetEmployeeRecordsResponse")]
+        Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference.UserRecord[] GetEmployeeRecords();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/GetEmployeeRecords", ReplyAction="http://tempuri.org/IRESQSERVICE/GetEmployeeRecordsResponse")]
+        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference.UserRecord[]> GetEmployeeRecordsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/DeleteUser", ReplyAction="http://tempuri.org/IRESQSERVICE/DeleteUserResponse")]
+        string DeleteUser(Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference.UserRecord user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/DeleteUser", ReplyAction="http://tempuri.org/IRESQSERVICE/DeleteUserResponse")]
+        System.Threading.Tasks.Task<string> DeleteUserAsync(Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference.UserRecord user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/SearchEmployeeRecord", ReplyAction="http://tempuri.org/IRESQSERVICE/SearchEmployeeRecordResponse")]
+        Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference.UserRecord[] SearchEmployeeRecord(Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference.UserRecord user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/SearchEmployeeRecord", ReplyAction="http://tempuri.org/IRESQSERVICE/SearchEmployeeRecordResponse")]
+        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference.UserRecord[]> SearchEmployeeRecordAsync(Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference.UserRecord user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/UpdateEmployeeContact", ReplyAction="http://tempuri.org/IRESQSERVICE/UpdateEmployeeContactResponse")]
+        string UpdateEmployeeContact(Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference.UserRecord user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/UpdateEmployeeContact", ReplyAction="http://tempuri.org/IRESQSERVICE/UpdateEmployeeContactResponse")]
+        System.Threading.Tasks.Task<string> UpdateEmployeeContactAsync(Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference.UserRecord user);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IServiceChannel : Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference.IService, System.ServiceModel.IClientChannel {
+    public interface IRESQSERVICEChannel : Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference.IRESQSERVICE, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ServiceClient : System.ServiceModel.ClientBase<Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference.IService>, Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference.IService {
+    public partial class RESQSERVICEClient : System.ServiceModel.ClientBase<Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference.IRESQSERVICE>, Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference.IRESQSERVICE {
         
-        public ServiceClient() {
+        public RESQSERVICEClient() {
         }
         
-        public ServiceClient(string endpointConfigurationName) : 
+        public RESQSERVICEClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public ServiceClient(string endpointConfigurationName, string remoteAddress) : 
+        public RESQSERVICEClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public ServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public RESQSERVICEClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public ServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public RESQSERVICEClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         
@@ -132,20 +204,52 @@ namespace Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference {
             return base.Channel.GetDataAsync(value);
         }
         
-        public Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference.CompositeType GetDataUsingDataContract(Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference.CompositeType composite) {
-            return base.Channel.GetDataUsingDataContract(composite);
+        public bool RegUser(Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference.UserRecord rec) {
+            return base.Channel.RegUser(rec);
         }
         
-        public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference.CompositeType> GetDataUsingDataContractAsync(Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference.CompositeType composite) {
-            return base.Channel.GetDataUsingDataContractAsync(composite);
+        public System.Threading.Tasks.Task<bool> RegUserAsync(Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference.UserRecord rec) {
+            return base.Channel.RegUserAsync(rec);
         }
         
-        public bool Login(string Username, string Password) {
-            return base.Channel.Login(Username, Password);
+        public bool loginUser(string user, string pass) {
+            return base.Channel.loginUser(user, pass);
         }
         
-        public System.Threading.Tasks.Task<bool> LoginAsync(string Username, string Password) {
-            return base.Channel.LoginAsync(Username, Password);
+        public System.Threading.Tasks.Task<bool> loginUserAsync(string user, string pass) {
+            return base.Channel.loginUserAsync(user, pass);
+        }
+        
+        public Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference.UserRecord[] GetEmployeeRecords() {
+            return base.Channel.GetEmployeeRecords();
+        }
+        
+        public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference.UserRecord[]> GetEmployeeRecordsAsync() {
+            return base.Channel.GetEmployeeRecordsAsync();
+        }
+        
+        public string DeleteUser(Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference.UserRecord user) {
+            return base.Channel.DeleteUser(user);
+        }
+        
+        public System.Threading.Tasks.Task<string> DeleteUserAsync(Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference.UserRecord user) {
+            return base.Channel.DeleteUserAsync(user);
+        }
+        
+        public Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference.UserRecord[] SearchEmployeeRecord(Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference.UserRecord user) {
+            return base.Channel.SearchEmployeeRecord(user);
+        }
+        
+        public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference.UserRecord[]> SearchEmployeeRecordAsync(Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference.UserRecord user) {
+            return base.Channel.SearchEmployeeRecordAsync(user);
+        }
+        
+        public string UpdateEmployeeContact(Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference.UserRecord user) {
+            return base.Channel.UpdateEmployeeContact(user);
+        }
+        
+        public System.Threading.Tasks.Task<string> UpdateEmployeeContactAsync(Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference.UserRecord user) {
+            return base.Channel.UpdateEmployeeContactAsync(user);
         }
     }
 }
