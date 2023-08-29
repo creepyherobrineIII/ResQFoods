@@ -7,11 +7,9 @@
     <meta charset="utf-8">
     <title>RESQFoods</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Free HTML Templates" name="keywords">
-    <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+    <link href="assets/img/logo.ico" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -28,40 +26,65 @@
     <link href="assets/css/style.css" rel="stylesheet">
 </head>
 <body>
-   <body>
+
     <!-- Topbar Start -->
 
-    
-        <div class="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex">
-
+<div class="container-fluid">
+    <div class="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex">
             <div class="col-lg-4">
-               
-                <img class="logo-image" src="assets/img/logo.png" style="object-fit: cover;">
+                <a href="index.aspx"><img src="assets/img/logo.png" height="120" width="250" alt="ResQFoods" /></a>
 
+                <!-- Text format of logo -->
+
+                <!--<a href="index.aspx" class="text-decoration-none">
+                    <span class="h1 text-uppercase text-light bg-dark px-2">RESQ</span>
+                    <span class="h1 text-uppercase text-dark bg-primary px-2 ml-n1">FOODS</span>
+                </a> -->
             </div>
-            <div class="col-lg-8 col-6 text-left">
-                
-        <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Account</i></a>
-                                <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
-                                    <a href="cart.html" class="dropdown-item">Shopping Cart</a>
-                                    <a href="checkout.html" class="dropdown-item">Checkout</a>
-                                </div>
-            <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
+            <div class="col-lg-6 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">My Account</button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <button class="dropdown-item" type="button">Sign in</button>
+                            <button class="dropdown-item" type="button">Sign up</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-inline-flex align-items-center d-block d-lg-none">
+                    <a href="" class="btn px-0 ml-2">
+                        <i class="fas fa-heart text-dark"></i>
+                        <span class="badge text-dark border border-dark rounded-circle" style="padding-bottom: 2px;">0</span>
+                    </a>
+                    <a href="" class="btn px-0 ml-2">
+                        <i class="fas fa-shopping-cart text-dark"></i>
+                        <span class="badge text-dark border border-dark rounded-circle" style="padding-bottom: 2px;">0</span>
+                    </a>
+                </div>
+        </div>
+    </div>
+</div>
+<!-- Topbar End -->
+        <div class="col-lg-8 col-6 text-left">
+            <div class="nav-item dropdown">
+                <!--<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Account</i></a>
+                        <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
+                            <a href="cart.html" class="dropdown-item">Shopping Cart</a>
+                            <a href="checkout.html" class="dropdown-item">Checkout</a>
+                        </div>
+                <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
                             <a href="" class="btn px-0">
-                                <i class="fas fa-heart text-primary"></i>
-                                
+                                 <i class="fas fa-heart text-primary"></i>
                             </a>
                             <a href="" class="btn px-0 ml-3">
                                 <i class="fas fa-shopping-cart text-primary"></i>
                                 <span class="badge circle-color border text-black-50 rounded-circle " style="padding-bottom: 4px;">0</span>
                             </a>
-                        </div>
-                            </div>
-               
+                </div> -->
+
+
             </div>
         </div>
-    </div>
     <!-- Topbar End -->
 
 
