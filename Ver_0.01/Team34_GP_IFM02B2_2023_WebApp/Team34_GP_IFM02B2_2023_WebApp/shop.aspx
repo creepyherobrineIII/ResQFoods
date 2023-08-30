@@ -103,7 +103,6 @@
                             </div>
                         </div>
                         <a href="" class="nav-item nav-link">Fruits & Vegetables</a>
-                        <a href="" class="nav-item nav-link">Dairy</a>
                         <a href="" class="nav-item nav-link">Drinkables</a>
                         <a href="" class="nav-item nav-link">Snacks</a>
                         <a href="" class="nav-item nav-link">Canned Goods</a>
@@ -116,9 +115,6 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                        <div class="navbar-nav mr-auto py-0 px-4">
-                            <a href="shop.aspx" class="nav-item nav-link">Shop</a>                      
-                        </div>
                     </div>
                     <form action="">
                     <div class="input-group">

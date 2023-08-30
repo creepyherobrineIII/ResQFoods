@@ -105,14 +105,20 @@
                                 <a href="" class="dropdown-item">Breads</a>
                             </div>
                         </div>
+                         <a href="" class="nav-item nav-link">Fruits & Vegetables</a>
                         <a href="" class="nav-item nav-link">Drinkables</a>
                         <a href="" class="nav-item nav-link">Snacks</a>
                         <a href="" class="nav-item nav-link">Canned Goods</a>
                     </div>
                 </nav>
             </div>
-            <div class="col-lg-9">
+               <div class="col-lg-9">
                 <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-0">
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    </div>
                     <form action="">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search for products">
@@ -123,12 +129,6 @@
                         </div>
                     </div>
                 </form>
-                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                   
-                    </div>
                 </nav>
             </div>
         </div>
