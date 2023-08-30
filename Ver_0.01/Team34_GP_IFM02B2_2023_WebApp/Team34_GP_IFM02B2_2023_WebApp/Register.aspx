@@ -17,10 +17,9 @@
 	<div class="signup">
     <span class="signup">
 	<p>I am a <br>
-	<input type="radio" name="userType" id="buy" hidden="true"></input>
-	<label for="buy">Buyer</label> 
-	<input type="radio" name="userType" id="sell" hidden="true"></input>
-	<label for="sell">Seller</label> 
+	<p>I am a <br>
+	<label><a href="/Register.aspx">Buyer</a></label> 
+	<label><a href="/RegStore.aspx">Seller</a></label> 
 	</span>
 	</div>
     <div class="registration form">
