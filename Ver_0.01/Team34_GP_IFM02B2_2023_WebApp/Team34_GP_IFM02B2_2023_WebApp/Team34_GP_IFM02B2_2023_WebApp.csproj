@@ -116,7 +116,29 @@
     <Content Include="assets\mail\jqBootstrapValidation.min.js" />
     <Content Include="assets\scss\style.scss" />
     <Content Include="assets\lib\owlcarousel\LICENSE" />
+    <None Include="Connected Services\ResQReference\configuration91.svcinfo" />
+    <None Include="Connected Services\ResQReference\configuration.svcinfo" />
+    <None Include="Connected Services\ResQReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Register.aspx" />
+    <None Include="Connected Services\ResQReference\RESQSERVICE.wsdl" />
+    <Content Include="Connected Services\ResQReference\Team34_GP_IFM02B2_2023_WebApp.ResQReference.CartRecord.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ResQReference\Team34_GP_IFM02B2_2023_WebApp.ResQReference.CustomerRecord.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ResQReference\Team34_GP_IFM02B2_2023_WebApp.ResQReference.ProductRecord.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ResQReference\Team34_GP_IFM02B2_2023_WebApp.ResQReference.StoreRecord.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ResQReference\Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserRecord.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\Team34_ServiceReference\configuration91.svcinfo" />
     <None Include="Connected Services\Team34_ServiceReference\configuration.svcinfo" />
     <None Include="Connected Services\Team34_ServiceReference\Reference.svcmap">
@@ -153,6 +175,11 @@
     </Compile>
     <Compile Include="checkout.aspx.designer.cs">
       <DependentUpon>checkout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\ResQReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Connected Services\Team34_ServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -204,6 +231,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ResQReference\" />
     <WCFMetadataStorage Include="Connected Services\Team34_ServiceReference\" />
   </ItemGroup>
   <ItemGroup />

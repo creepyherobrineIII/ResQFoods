@@ -60,14 +60,9 @@ namespace Team34_GP_IFM02B2_2023_WCF
             return valid;*/
 
 
-            bool exists = false;
-            var check = (from u in db.UserTables
+            bool exists = (from u in db.UserTables
                          where u.Email.Equals(email)
-                         select u).FirstOrDefault();
-            if (check != null)
-            {
-                exists = true;
-            }
+                         select u).Any();
             return exists;
 
 
@@ -118,14 +113,15 @@ namespace Team34_GP_IFM02B2_2023_WCF
                     conn.Close();
                 }
                 return valid;*/
-
-            var check = (from u in db.UserTables
-                             where u.Email.Equals(user) &&
-                             u.HashedPassword.Equals(pass)
-                             select u).FirstOrDefault(); 
-            if(check!=null)
+          
+            if(checkUserValid(user))
             {
-                int t = check.UserType;
+                var userT = (from u in db.UserTables
+                              where u.Email.Equals(user) &&
+                              u.HashedPassword.Equals(pass)
+                              select u).FirstOrDefault(); 
+
+                int t = userT.UserType;
                 return t;
             }
             return -1;
