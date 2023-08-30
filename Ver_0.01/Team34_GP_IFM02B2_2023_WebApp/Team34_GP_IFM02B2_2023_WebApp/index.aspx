@@ -115,7 +115,15 @@
             </div>
             <div class="col-lg-9">
                 <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-0">
-                    <form action="">
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <div class="navbar-nav mr-auto py-0 px-4">
+                            <a href="shop.aspx" class="nav-item nav-link">Shop</a>                      
+                        </div>
+                    </div>
+                     <form action="">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search for products">
                         <div class="input-group-append">
@@ -125,14 +133,6 @@
                         </div>
                     </div>
                 </form>
-                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                        <div class="navbar-nav mr-auto py-0 px-4">
-                            <a href="shop.html" class="nav-item nav-link">About Us</a>                      
-                        </div>
-                    </div>
                 </nav>
             </div>
         </div>
