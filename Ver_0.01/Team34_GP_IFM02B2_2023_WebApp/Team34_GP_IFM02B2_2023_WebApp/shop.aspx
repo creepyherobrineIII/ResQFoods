@@ -353,7 +353,7 @@
                                 </div>
                             </div>
                             <div class="text-center py-4">
-                                <a class="h6 text-decoration-none text-truncate" href="">Bag of Mixed Vegetables (7kg)</a>
+                                <a class="h6 text-decoration-none text-truncate" href="detail.aspx">Bag of Mixed Vegetables (7kg)</a>
                                 <div class="d-flex align-items-center justify-content-center mt-2">
                                     <h5>R55.00</h5><h6 class="text-muted ml-2"><del>R70.00</del></h6>
                                 </div>
