@@ -16,11 +16,14 @@ namespace Team34_GP_IFM02B2_2023_WebApp
 
         }
 
-        protected void LoginButton_Click(object sender, EventArgs e)
+        protected void logButt_Click(object sender, EventArgs e)
         {
-            String GivenEmail= EmailAddress.Text;
+           /* String GivenEmail= logEmail.;
             String GivenPassword = Secrecy.HashPassword(Password.Text); // hashpassword, never gets stored
-            sc.loginUser(GivenEmail, GivenPassword); //send details to api? 
+            sc.loginUser(GivenEmail, GivenPassword); //send details to api?
+            // Session["user"] = login(...);
+            //Put this in site master
+            //SysUser s = (SysUser)Session["user"] */
         }
 
     }
