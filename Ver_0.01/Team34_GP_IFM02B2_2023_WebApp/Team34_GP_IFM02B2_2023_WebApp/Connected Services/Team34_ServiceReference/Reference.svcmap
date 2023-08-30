@@ -19,10 +19,10 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:52680/Service.svc?singleWsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:52680/RESQSERVICE.svc?singleWsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Service.wsdl" MetadataType="Wsdl" ID="e276c906-a51d-446b-9718-bc70ecb367e5" SourceId="1" SourceUrl="http://localhost:52680/Service.svc?singleWsdl" />
+    <MetadataFile FileName="RESQSERVICE.wsdl" MetadataType="Wsdl" ID="308a3941-a02b-4c16-a598-464eb5a51ce6" SourceId="1" SourceUrl="http://localhost:52680/RESQSERVICE.svc?singleWsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
