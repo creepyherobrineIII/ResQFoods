@@ -69,20 +69,107 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\img\carousel-1.jpg" />
+    <Content Include="assets\img\carousel-2.jpg" />
+    <Content Include="assets\img\carousel-3.jpg" />
+    <Content Include="assets\img\cat-1.jpg" />
+    <Content Include="assets\img\cat-2.jpg" />
+    <Content Include="assets\img\cat-3.jpg" />
+    <Content Include="assets\img\cat-4.jpg" />
+    <Content Include="assets\img\offer-1.jpg" />
+    <Content Include="assets\img\offer-2.jpg" />
+    <Content Include="assets\img\payments.png" />
+    <Content Include="assets\img\product-1.jpg" />
+    <Content Include="assets\img\product-2.jpg" />
+    <Content Include="assets\img\product-3.jpg" />
+    <Content Include="assets\img\product-4.jpg" />
+    <Content Include="assets\img\product-5.jpg" />
+    <Content Include="assets\img\product-6.jpg" />
+    <Content Include="assets\img\product-7.jpg" />
+    <Content Include="assets\img\product-8.jpg" />
+    <Content Include="assets\img\product-9.jpg" />
+    <Content Include="assets\img\user.jpg" />
+    <Content Include="assets\img\vendor-1.jpg" />
+    <Content Include="assets\img\vendor-2.jpg" />
+    <Content Include="assets\img\vendor-3.jpg" />
+    <Content Include="assets\img\vendor-4.jpg" />
+    <Content Include="assets\img\vendor-5.jpg" />
+    <Content Include="assets\img\vendor-6.jpg" />
+    <Content Include="assets\img\vendor-7.jpg" />
+    <Content Include="assets\img\vendor-8.jpg" />
+    <Content Include="assets\lib\animate\animate.min.css" />
+    <Content Include="assets\lib\easing\easing.js" />
+    <Content Include="assets\lib\easing\easing.min.js" />
+    <Content Include="assets\lib\owlcarousel\assets\ajax-loader.gif" />
+    <Content Include="assets\lib\owlcarousel\assets\owl.carousel.css" />
+    <Content Include="assets\lib\owlcarousel\assets\owl.carousel.min.css" />
+    <Content Include="assets\lib\owlcarousel\assets\owl.theme.default.css" />
+    <Content Include="assets\lib\owlcarousel\assets\owl.theme.default.min.css" />
+    <Content Include="assets\lib\owlcarousel\assets\owl.theme.green.css" />
+    <Content Include="assets\lib\owlcarousel\assets\owl.theme.green.min.css" />
+    <Content Include="assets\lib\owlcarousel\assets\owl.video.play.png" />
+    <Content Include="assets\lib\owlcarousel\owl.carousel.js" />
+    <Content Include="assets\lib\owlcarousel\owl.carousel.min.js" />
+    <Content Include="assets\mail\contact.js" />
+    <Content Include="assets\mail\contact.php" />
+    <Content Include="assets\mail\jqBootstrapValidation.min.js" />
+    <Content Include="assets\scss\style.scss" />
+    <Content Include="assets\lib\owlcarousel\LICENSE" />
     <None Include="Connected Services\Team34_ServiceReference\configuration91.svcinfo" />
     <None Include="Connected Services\Team34_ServiceReference\configuration.svcinfo" />
     <None Include="Connected Services\Team34_ServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="assets\css\bootstrap-grid.css" />
+    <Content Include="assets\css\bootstrap-grid.min.css" />
+    <Content Include="assets\css\bootstrap-reboot.css" />
+    <Content Include="assets\css\bootstrap-reboot.min.css" />
+    <Content Include="assets\css\bootstrap.css" />
+    <Content Include="assets\css\bootstrap.min.css" />
+    <Content Include="assets\css\style.css" />
+    <Content Include="assets\css\style.min.css" />
+    <Content Include="assets\js\main.js" />
+    <Content Include="cart.aspx" />
+    <Content Include="checkout.aspx" />
+    <Content Include="detail.aspx" />
+    <Content Include="index.aspx" />
     <Content Include="login.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="cart.aspx.cs">
+      <DependentUpon>cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cart.aspx.designer.cs">
+      <DependentUpon>cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="checkout.aspx.cs">
+      <DependentUpon>checkout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="checkout.aspx.designer.cs">
+      <DependentUpon>checkout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\Team34_ServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="detail.aspx.cs">
+      <DependentUpon>detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="detail.aspx.designer.cs">
+      <DependentUpon>detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
