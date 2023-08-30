@@ -127,9 +127,7 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                        <div class="navbar-nav mr-auto py-0 px-4">
-                            <a href="shop.html" class="nav-item nav-link">About Us</a>                      
-                        </div>
+                   
                     </div>
                 </nav>
             </div>
