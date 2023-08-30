@@ -53,17 +53,6 @@
       <Column Name="TotalProfit" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.CartItems" Member="CartItems">
-    <Type Name="CartItem">
-      <Column Name="CartId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ProductId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="DateAdded" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Association Name="Product_CartItem" Member="Product" ThisKey="ProductId" OtherKey="ProductId" Type="Product" IsForeignKey="true" />
-      <Association Name="Customer_CartItem" Member="Customer" ThisKey="UserId" OtherKey="UserId" Type="Customer" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.UserTable" Member="UserTables">
     <Type Name="UserTable">
       <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -116,6 +105,17 @@
       <Association Name="Customer_Invoice" Member="Invoices" ThisKey="UserId" OtherKey="UserId" Type="Invoice" />
       <Association Name="Customer_CartItem" Member="CartItems" ThisKey="UserId" OtherKey="UserId" Type="CartItem" />
       <Association Name="UserTable_Customer" Member="UserTable" ThisKey="UserId" OtherKey="UserId" Type="UserTable" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CartItems" Member="CartItems">
+    <Type Name="CartItem">
+      <Column Name="CartId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DateAdded" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Product_CartItem" Member="Product" ThisKey="ProductId" OtherKey="ProductId" Type="Product" IsForeignKey="true" />
+      <Association Name="Customer_CartItem" Member="Customer" ThisKey="UserId" OtherKey="UserId" Type="Customer" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

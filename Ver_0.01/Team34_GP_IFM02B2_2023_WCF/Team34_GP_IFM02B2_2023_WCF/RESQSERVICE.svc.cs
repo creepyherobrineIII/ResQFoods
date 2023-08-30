@@ -311,7 +311,9 @@ namespace Team34_GP_IFM02B2_2023_WCF
                 List<ProductRecord> prodRec = new List<ProductRecord>();
                 List<Product> prods = (from p in db.Products 
                                         select p).ToList();
-                foreach(Product p in prods)
+            if (prods.Any())
+            {
+                foreach (Product p in prods)
                 {
                     ProductRecord pr = new ProductRecord();
                     pr.storeId = p.UserId;
@@ -325,7 +327,8 @@ namespace Team34_GP_IFM02B2_2023_WCF
                 }
 
                 return prodRec;
-            
+            }
+            return null;
             }
 
             public UserRecord getAdmin(string uEmail)
@@ -341,8 +344,9 @@ namespace Team34_GP_IFM02B2_2023_WCF
                     ur.userReg = us.DateRegistered;
                     ur.userType = us.UserType;
                     ur.enabled = us.Enabled;
-                }
                 return ur;
+            }
+            return null;
             }
 
             public CustomerRecord getCustomer(string uEmail)
@@ -380,9 +384,10 @@ namespace Team34_GP_IFM02B2_2023_WCF
                     s.logo = ss.Location;
                     s.name = ss.Name;
                     s.sType = ss.StoreType;
-                }
-
                 return s;
+            }
+            return null;
+                
             }
 
             public List<ProductRecord> SearchProducts(string name)
@@ -391,6 +396,8 @@ namespace Team34_GP_IFM02B2_2023_WCF
                 List<Product> prods = (from p in db.Products
                                        where p.Name.ToLower().Contains(name.ToLower())
                                        select p).ToList();
+            if (prods.Any())
+            {
                 foreach (Product p in prods)
                 {
                     ProductRecord pr = new ProductRecord();
@@ -403,11 +410,34 @@ namespace Team34_GP_IFM02B2_2023_WCF
                     pr.prodDate = p.DateAdded;
                     prodRec.Add(pr);
                 }
-
                 return prodRec;
             }
+            return null;
+            }
 
-            public bool AddProduct(int sID, string name, string desc, double price, string picPath, DateTime date, bool enabled)
+        public ProductRecord GetProduct(int pID)
+        {
+            
+            Product prods = (from p in db.Products
+                                   where p.ProductId == (pID)
+                                   select p).FirstOrDefault();
+            if(prods!=null)
+            {
+                ProductRecord pr = new ProductRecord();
+                pr.storeId = prods.UserId;
+                pr.prodId = prods.ProductId;
+                pr.prodName = prods.Name;
+                pr.prodPic = prods.Picture;
+                pr.prodPrice = (double)prods.Price;
+                pr.prodDesc = prods.Description;
+                pr.prodDate = prods.DateAdded;
+                return pr;
+            }
+
+            return null;
+        }
+
+        public bool AddProduct(int sID, string name, string desc, double price, string picPath, DateTime date, bool enabled)
             {
                 bool checkP = (from p in db.Products
                                   where p.Name.Equals(name)
@@ -439,6 +469,72 @@ namespace Team34_GP_IFM02B2_2023_WCF
                 }
                 return false;
             }
+
+        public bool AddToCart(int pID, int uID, DateTime added, bool enabled)
+        {
+            bool checkP = (from p in db.Products
+                           where p.ProductId.Equals(pID)
+                           select p).Any();
+
+            bool checkU = (from u in db.Products
+                           where u.UserId.Equals(uID)
+                           select u).Any();
+
+            if (checkP && checkU)
+            {
+                CartItem cI = new CartItem
+                {
+                    UserId = uID,
+                    ProductId = pID,
+                    DateAdded = DateTime.Today,
+                    Status = enabled
+                };
+                try
+                {
+                    db.CartItems.InsertOnSubmit(cI);
+                    db.SubmitChanges();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    ex.GetBaseException();
+                    return false;
+                }
+
+            }
+            return false;
         }
+
+        public List<CartRecord> GetCart()
+        {
+            List<CartRecord> cartRec = new List<CartRecord>();
+            List<CartItem> cart = (from c in db.CartItems
+                                   select c).ToList();
+            foreach (CartItem c in cart)
+            {
+                ProductRecord pr = GetProduct(c.ProductId);
+
+                UserTable user = (from u in db.UserTables
+                                  where u.UserId.Equals(c.UserId)
+                                  select u).FirstOrDefault();
+                UserRecord us = getAdmin(user.Email);
+
+                CartRecord cr = new CartRecord();
+
+                cr.u = us;
+                cr.p = pr;
+                cr.prodId = c.ProductId;
+                cr.cartId = c.CartId;
+                cr.userId = c.UserId;
+                cr.added = c.DateAdded;
+                cr.enabled = c.Status;
+
+                cartRec.Add(cr);
+       
+            }
+
+            return cartRec;
+        }
+    }
     }
 

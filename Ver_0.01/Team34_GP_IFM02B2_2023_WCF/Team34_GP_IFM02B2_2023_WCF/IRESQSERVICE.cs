@@ -53,6 +53,13 @@ namespace Team34_GP_IFM02B2_2023_WCF
         [OperationContract]
         bool AddProduct(int sID, String name, String desc, double price, String picPath, DateTime date, bool enabled);
 
+        [OperationContract]
+        bool AddToCart(int pID, int uID, DateTime added, bool enabled);
+
+        [OperationContract]
+        List<CartRecord> GetCart();
+
+
 
     }
 
@@ -260,6 +267,70 @@ namespace Team34_GP_IFM02B2_2023_WCF
         {
             get { return _prodDate; }
             set { _prodDate = value; }
+        }
+
+        [DataMember]
+        public bool enabled
+        {
+            get { return _enabled; }
+            set { _enabled = value; }
+        }
+    }
+
+
+    [DataContract]
+    public class CartRecord
+    {
+        UserRecord _u;
+        ProductRecord _p;
+        int _cartId;
+        int _userId;
+        int _prodId;
+        DateTime _added;
+        bool _enabled;
+
+        [DataMember]
+        public int prodId
+        {
+            get { return _prodId; }
+            set { _prodId = value; }
+        }
+
+
+        [DataMember]
+        public int userId
+        {
+            get { return _userId; }
+            set { _userId = value; }
+        }
+
+        [DataMember]
+        public int cartId
+        {
+            get { return _cartId; }
+            set { _cartId = value; }
+        }
+
+        [DataMember]
+        public ProductRecord p
+        {
+            get { return _p; }
+            set { _p = value; }
+        }
+
+        [DataMember]
+        public UserRecord u
+        {
+            get { return _u; }
+            set { _u = value; }
+        }
+
+
+        [DataMember]
+        public DateTime added
+        {
+            get { return _added; }
+            set { _added = value; }
         }
 
         [DataMember]
