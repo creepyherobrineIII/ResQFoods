@@ -144,7 +144,6 @@
                     <ol class="carousel-indicators">
                         <li data-target="#header-carousel" data-slide-to="0" class="active"></li>
                         <li data-target="#header-carousel" data-slide-to="1"></li>
-                        <li data-target="#header-carousel" data-slide-to="2"></li>
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item position-relative active" style="height: 430px;">
@@ -153,7 +152,7 @@
                                 <div class="p-3" style="max-width: 700px;">
                                     <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown"></h1>
                                     <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Pastries</p>
-                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Shop Now</a>
+                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="shop.aspx">Shop Now</a>
                                 </div>
                             </div>
                         </div>
@@ -163,17 +162,7 @@
                                 <div class="p-3" style="max-width: 700px;">
                                     <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown"></h1>
                                     <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Snacks</p>
-                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Shop Now</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item position-relative" style="height: 430px;">
-                            <img class="position-absolute w-100 h-100" src="assets/img/carousel-3.jpg" style="object-fit: cover;">
-                            <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                                <div class="p-3" style="max-width: 700px;">
-                                    <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown"></h1>
-                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Drinkables</p>
-                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Shop Now</a>
+                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="shop.aspx">Shop Now</a>
                                 </div>
                             </div>
                         </div>
@@ -249,8 +238,8 @@
                     <div class="product-img position-relative overflow-hidden">
                         <img class="img-fluid w-80" src="assets/img/pick-n-pay.png" alt="">
                         <div class="product-action">
-                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
-                            <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
+                            <a class="btn btn-outline-dark btn-square" href="shop.aspx"><i class="fa fa-shopping-cart"></i></a>
+                            <a class="btn btn-outline-dark btn-square" href="shop.aspx"><i class="far fa-heart"></i></a>
                         </div>
                     </div>
                     <div class="text-center py-4">
@@ -271,12 +260,12 @@
                     <div class="product-img position-relative overflow-hidden">
                         <img class="img-fluid w-80" src="assets/img/shoprite.jpg" alt="">
                         <div class="product-action">
-                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
-                            <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
+                            <a class="btn btn-outline-dark btn-square" href="shop.aspx"><i class="fa fa-shopping-cart"></i></a>
+                            <a class="btn btn-outline-dark btn-square" href="shop.aspx"><i class="far fa-heart"></i></a>
                         </div>
                     </div>
                     <div class="text-center py-4">
-                        <a class="h6 text-decoration-none text-truncate" href="">Shoprite Westdene</a>
+                        <a class="h6 text-decoration-none text-truncate" href="shop.aspx">Shoprite Westdene</a>
                         <div class="d-flex align-items-center justify-content-center mt-2">
 
                         </div>
@@ -306,11 +295,11 @@
                     <div class="product-img position-relative overflow-hidden">
                         <img class="img-fluid w-100" src="assets/img/bakedgoods.jpeg" alt="">
                         <div class="product-action">
-                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
+                            <a class="btn btn-outline-dark btn-square" href="shop.aspx"><i class="fa fa-shopping-cart"></i></a>
                         </div>
                     </div>
                     <div class="text-center py-4">
-                        <a class="h8 text-decoration-none text-truncate" href="">Woolworths Auckland Park <br />
+                        <a class="h8 text-decoration-none text-truncate" href="shop.aspx">Woolworths Auckland Park <br />
                             Baked Goods Bag</a>
                         <div class="d-flex align-items-center justify-content-center mt-2">
                             <h5>R80</h5>
@@ -328,7 +317,7 @@
                         </div>
                     </div>
                     <div class="text-center py-4">
-                        <a class="h6 text-decoration-none text-truncate" href="">Shoprite Melville Canned Goods</a>
+                        <a class="h6 text-decoration-none text-truncate" href="shop.aspx">Shoprite Melville Canned Goods</a>
                         <div class="d-flex align-items-center justify-content-center mt-2">
                             <h5>R50</h5>
                         </div>
