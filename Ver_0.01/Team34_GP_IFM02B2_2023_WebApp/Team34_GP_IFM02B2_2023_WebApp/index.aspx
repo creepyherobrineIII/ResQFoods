@@ -41,7 +41,7 @@
                     <span class="h1 text-uppercase text-dark bg-primary px-2 ml-n1">FOODS</span>
                 </a> -->
             </div>
-            <div class="col-lg-6 text-center text-lg-right">
+            <div class="col-lg-8 text-center text-lg-right">
                 <div class="d-inline-flex align-items-center">
                     <div class="btn-group">
                         <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">My Account</button>
@@ -51,12 +51,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="d-inline-flex align-items-center d-block d-lg-none">
+                <div class="d-inline-flex align-items-center d-block">
                     <a href="" class="btn px-0 ml-2">
                         <i class="fas fa-heart text-dark"></i>
                         <span class="badge text-dark border border-dark rounded-circle" style="padding-bottom: 2px;">0</span>
                     </a>
-                    <a href="" class="btn px-0 ml-2">
+                    <a href="cart.aspx" class="btn px-0 ml-2">
                         <i class="fas fa-shopping-cart text-dark"></i>
                         <span class="badge text-dark border border-dark rounded-circle" style="padding-bottom: 2px;">0</span>
                     </a>
@@ -64,7 +64,6 @@
         </div>
     </div>
 </div>
-<!-- Topbar End -->
         <div class="col-lg-8 col-6 text-left">
             <div class="nav-item dropdown">
                 <!--<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Account</i></a>
@@ -99,18 +98,18 @@
                 <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 999;">
                     <div class="navbar-nav w-100">
                         <div class="nav-item dropdown dropright">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Dresses <i class="fa fa-angle-right float-right mt-1"></i></a>
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Bakery <i class="fa fa-angle-right float-right mt-1"></i></a>
                             <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
-                                <a href="" class="dropdown-item">Men's Dresses</a>
-                                <a href="" class="dropdown-item">Women's Dresses</a>
-                                <a href="" class="dropdown-item">Baby's Dresses</a>
+                                <a href="" class="dropdown-item">Pastry</a>
+                                <a href="" class="dropdown-item">Baked Deserts</a>
+                                <a href="" class="dropdown-item">Breads</a>
                             </div>
                         </div>
-                        <a href="" class="nav-item nav-link">Shirts</a>
-                        <a href="" class="nav-item nav-link">Jeans</a>
-                        <a href="" class="nav-item nav-link">Swimwear</a>
-                        <a href="" class="nav-item nav-link">Sleepwear</a>
-                        <a href="" class="nav-item nav-link">Sportswear</a>
+                        <a href="" class="nav-item nav-link">Fruits & Vegetables</a>
+                        <a href="" class="nav-item nav-link">Dairy</a>
+                        <a href="" class="nav-item nav-link">Drinkables</a>
+                        <a href="" class="nav-item nav-link">Snacks</a>
+                        <a href="" class="nav-item nav-link">Canned Goods</a>
                     </div>
                 </nav>
             </div>
@@ -133,10 +132,6 @@
                         <div class="navbar-nav mr-auto py-0">
                             <a href="shop.html" class="nav-item nav-link">About Us</a>                      
                         </div>
-
-                          
-                
-                        
                     </div>
                 </nav>
             </div>
@@ -161,7 +156,7 @@
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
                                     <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown"></h1>
-                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Lorem rebum magna amet lorem magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum diam</p>
+                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Pastries</p>
                                     <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="#">Shop Now</a>
                                 </div>
                             </div>
