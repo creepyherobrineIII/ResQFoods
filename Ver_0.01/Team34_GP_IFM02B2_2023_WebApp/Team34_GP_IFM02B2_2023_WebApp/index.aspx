@@ -32,7 +32,7 @@
 <div class="container-fluid">
     <div class="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex">
             <div class="col-lg-4">
-                <a href="index.aspx"><img src="assets/img/logo.png" height="120" width="250" alt="ResQFoods" /></a>
+                <a href="index.aspx"><img src="assets/img/logo.png" height="120" width="230" alt="ResQFoods" /></a>
 
                 <!-- Text format of logo -->
 
@@ -112,7 +112,7 @@
                 </nav>
             </div>
             <div class="col-lg-8">
-                <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-0">
+                <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-10 py-lg-2 px-10">
                     <form action="">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search for products">
