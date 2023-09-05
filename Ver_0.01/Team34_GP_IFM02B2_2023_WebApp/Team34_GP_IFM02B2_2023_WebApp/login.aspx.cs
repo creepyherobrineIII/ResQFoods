@@ -27,22 +27,28 @@ namespace Team34_GP_IFM02B2_2023_WebApp
             // Session["user"] = login(...);
             //Put this in site master
             //SysUser s = (SysUser)Session["user"] */
-            switch (logSys)
-            {
-                case -1:
-                    noLog.Visible = true;
+                Session["user"] = sc.getAdmin(GivenEmail);
+                switch (logSys)
+                {
+                    case -1:
+                        noLog.Visible = true;
+                        break;
+                    case 0:
+                        Session["user"] = sc.getAdmin(GivenEmail);
+                        Server.Transfer("index.aspx");
                     break;
-                case 0:
-                    Server.Transfer("index.aspx");
-                    break;
-                case 1:
-                    Server.Transfer("index.aspx");
-                    break;
-                case 2:
-                    Server.Transfer("index.aspx");
-                    break;
+                    case 1:
+                        Session["user"] = sc.getAdmin(GivenEmail);
+                        Session["Customer"] = sc.getCustomer(GivenEmail);
+                        Server.Transfer("index.aspx");
+                        break;
+                    case 2:
+                        Session["user"] = sc.getAdmin(GivenEmail);
+                        Session["Store"] = sc.getStore(GivenEmail);
+                        Server.Transfer("index.aspx");
+                        break;
 
-            }
+                }
         }
     }
 }
