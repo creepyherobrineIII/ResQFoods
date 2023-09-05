@@ -170,6 +170,7 @@
     </None>
     <Content Include="detail.aspx" />
     <Content Include="index.aspx" />
+    <Content Include="login.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="RegStore.aspx" />
     <Content Include="shop.aspx" />
@@ -226,6 +227,13 @@
     </Compile>
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.aspx.cs">
