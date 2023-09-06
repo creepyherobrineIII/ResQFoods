@@ -16,20 +16,8 @@ namespace Team34_GP_IFM02B2_2023_WebApp
         protected void Page_Load(object sender, EventArgs e)
         {
             int type = ((ResQReference.UserRecord)Session["user"]).userType;
-            switch(type)
-            {
-                case -1:
-                    break;
-                case 0:
-                    Server.Transfer("index.aspx");
-                    break;
-                case 1:
-                    Server.Transfer("index.aspx");
-                    break;
-                case 2:
-                    Server.Transfer("index.aspx");
-                    break;
-            }
+            String id = Request.QueryString["username"];
+            IDLabel.Text = id;
             sc.getAllProducts();
         }
     }
