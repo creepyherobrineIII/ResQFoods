@@ -24,31 +24,31 @@ namespace Team34_GP_IFM02B2_2023_WCF
         bool regStore(String uEmail, String uPass, String comp, String name, String icoPath, String loc, String type);
 
         [OperationContract]
-        UserRecord getAdmin(String uEmail);
+        UserTable getAdmin(String uEmail);
 
         [OperationContract]
-        CustomerRecord getCustomer(String uEmail);
+        Customer getCustomer(String uEmail);
 
         [OperationContract]
-        StoreRecord getStore(String uEmail);
+        Store getStore(String uEmail);
 
         [OperationContract]
-        List<UserRecord> GetEmployeeRecords(String uEmail);
+        List<UserTable> GetEmployeeRecords(String uEmail);
 
         [OperationContract]
         string DeleteUser(String uEmail);
 
         [OperationContract]
-        List<UserRecord> SearchUser(String uEmail);
+        List<UserTable> SearchUser(String uEmail);
 
         [OperationContract]
         string UpdateUser(String uEmail);
 
         [OperationContract]
-        List<ProductRecord> getAllProducts();
+        List<Product> getAllProducts();
 
         [OperationContract]
-        List<ProductRecord> SearchProducts(String name);
+        List<Product> SearchProducts(String name);
 
         [OperationContract]
         bool AddProduct(int sID, String name, String desc, double price, String picPath, DateTime date, bool enabled);
@@ -57,14 +57,14 @@ namespace Team34_GP_IFM02B2_2023_WCF
         bool AddToCart(int pID, int uID, DateTime added, bool enabled);
 
         [OperationContract]
-        List<CartRecord> GetCart();
+        List<CartItem> GetCart();
 
 
 
     }
 
 
-    [DataContract]
+   /* [DataContract]
     public class UserRecord
     {
         int _userId;
@@ -339,6 +339,6 @@ namespace Team34_GP_IFM02B2_2023_WCF
             get { return _enabled; }
             set { _enabled = value; }
         }
-    }
+    }*/
 }
 
