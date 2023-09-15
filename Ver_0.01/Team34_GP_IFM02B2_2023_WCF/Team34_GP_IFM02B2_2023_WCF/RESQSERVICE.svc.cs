@@ -234,16 +234,6 @@ namespace Team34_GP_IFM02B2_2023_WCF
         }
             
 
-            public List<UserTable> SearchUser(string uEmail)
-            {
-                throw new NotImplementedException();
-            }
-
-            public string UpdateUser(String uEmail)
-            {
-                throw new NotImplementedException();
-            }
-
             public List<Product> getAllProducts()
             {
                 /*String conn = "Data Source = (LocalDB)\\MSSQLLocalDB; AttachDbFilename = C:\\Users\\USER\\Source\\Repos\\ResQFoods\\Ver_0.01\\Team34_GP_IFM02B2_2023_WCF\\Team34_GP_IFM02B2_2023_WCF\\App_Data\\ResQFoods_DB.mdf; Integrated Security = True";
@@ -371,7 +361,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
                 dynamic prods = (from p in db.Products
                                        where p.Name.ToLower().Contains(name.ToLower())
                                        select p).DefaultIfEmpty();
-            if (prods.Any())
+            if (prods!=null)
             {
                 foreach (Product p in prods)
                 {
@@ -490,33 +480,162 @@ namespace Team34_GP_IFM02B2_2023_WCF
             List<CartItem> cartRec = new List<CartItem>();
             dynamic cart = (from c in db.CartItems
                                    select c).DefaultIfEmpty();
-            
-            foreach (CartItem c in cart)
+            if (cart != null)
             {
-                Product pr = GetProduct(c.ProductId);
-
-                UserTable user = (from u in db.UserTables
-                                  where u.UserId.Equals(c.UserId)
-                                  select u).FirstOrDefault();
-
-                UserTable us = getAdmin(user.Email);
-
-                CartItem cr = new CartItem
+                foreach (CartItem c in cart)
                 {
-                    UserId = user.UserId,
-                    ProductId = pr.UserId,
-                    DateAdded = c.DateAdded,
-                    Status = c.Status
+                    Product pr = GetProduct(c.ProductId);
 
-                };
+                    UserTable user = (from u in db.UserTables
+                                      where u.UserId.Equals(c.UserId)
+                                      select u).FirstOrDefault();
 
-                cartRec.Add(cr);
-       
+                    UserTable us = getAdmin(user.Email);
+
+                    CartItem cr = new CartItem
+                    {
+                        UserId = user.UserId,
+                        ProductId = pr.UserId,
+                        DateAdded = c.DateAdded,
+                        Status = c.Status
+
+                    };
+
+                    cartRec.Add(cr);
+
+                }
+
+                return cartRec;
+            }
+            return null;
+        }
+
+        public bool editProduct(Product P)
+        {
+            var prod = (from p in db.Products
+                         where p.ProductId.Equals(P.ProductId)
+                         select p).FirstOrDefault();
+
+            if(prod!=null)
+            {
+                prod.ProductId = P.ProductId;
+                prod.Picture = P.Picture;
+                prod.DateAdded = P.DateAdded;
+                prod.Description = P.Description;
+                prod.Price = P.Price;
+                prod.ProductTags = P.ProductTags;
+                prod.Store = P.Store;
+
+                try
+                {
+                    db.SubmitChanges();
+                    return true;
+                }
+                catch(SqlException ex)
+                {
+                    ex.GetBaseException();
+                }
             }
 
-            return cartRec;
+            return false;
         }
-        
+
+        public bool editStore(Store S)
+        {
+
+            var user = (from u in db.UserTables
+                        where u.UserId.Equals(S.UserId)
+                        select u).FirstOrDefault();
+
+            var store = (from s in db.Stores
+                        where s.UserId.Equals(S.UserId)
+                        select s).FirstOrDefault();
+
+            if (user!=null && store != null)
+            {
+                if (editUser(getAdmin(user.Email)))
+                    {
+                    store.UserId = S.UserId;
+                    store.Logo = S.Logo;
+                    store.Name = S.Name;
+                    store.Location = S.Location;
+                    store.StoreType = S.StoreType;
+
+                    try
+                    {
+                        db.SubmitChanges();
+                        return true;
+                    }
+                    catch (SqlException ex)
+                    {
+                        ex.GetBaseException();
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        public bool editCustomer(Customer C)
+        {
+
+            var user = (from u in db.UserTables
+                        where u.UserId.Equals(C.UserId)
+                        select u).FirstOrDefault();
+
+            var cust = (from c in db.Customers
+                         where c.UserId.Equals(C.UserId)
+                         select c).FirstOrDefault();
+
+            if (user != null && cust != null)
+            {
+                if (editUser(getAdmin(user.Email)))
+                {
+                    cust.UserId = C.UserId;
+                    cust.FirstName = C.FirstName;
+                    cust.LastName = C.LastName;
+                    cust.GrantRecipient = C.GrantRecipient;
+
+                    try
+                    {
+                        db.SubmitChanges();
+                        return true;
+                    }
+                    catch (SqlException ex)
+                    {
+                        ex.GetBaseException();
+                    }
+                }
+            }
+
+            return false;
+        }
+
+        public bool editUser(UserTable U)
+        {
+            var user = (from u in db.UserTables
+                         where u.UserId.Equals(U.UserId)
+                         select u).FirstOrDefault();
+
+            if (user != null)
+            {
+                user.UserId = U.UserId;
+                user.Email = U.Email;
+                user.HashedPassword = U.HashedPassword;
+
+                try
+                {
+                    db.SubmitChanges();
+                    return true;
+                }
+                catch (SqlException ex)
+                {
+                    ex.GetBaseException();
+                }
+            };
+
+            return false;
+        }
     }
     }
 

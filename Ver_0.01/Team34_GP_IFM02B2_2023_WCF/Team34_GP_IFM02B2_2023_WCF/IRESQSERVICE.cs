@@ -39,12 +39,6 @@ namespace Team34_GP_IFM02B2_2023_WCF
         string DeleteUser(String uEmail);
 
         [OperationContract]
-        List<UserTable> SearchUser(String uEmail);
-
-        [OperationContract]
-        string UpdateUser(String uEmail);
-
-        [OperationContract]
         List<Product> getAllProducts();
 
         [OperationContract]
@@ -58,6 +52,18 @@ namespace Team34_GP_IFM02B2_2023_WCF
 
         [OperationContract]
         List<CartItem> GetCart();
+
+        [OperationContract]
+        bool editProduct(Product P);
+
+        [OperationContract]
+        bool editUser(UserTable U);
+
+        [OperationContract]
+        bool editCustomer(Customer C);
+
+        [OperationContract]
+        bool editStore(Store S);
 
 
 
