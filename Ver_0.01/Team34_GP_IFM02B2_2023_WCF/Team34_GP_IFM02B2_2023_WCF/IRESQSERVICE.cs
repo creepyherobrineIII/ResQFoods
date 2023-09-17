@@ -4,341 +4,73 @@ using System.Drawing;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 
-
+//FOR USERTYPE IN USERTABLE (Customer = 0) (Store = 1) (Admin = 2)
 namespace Team34_GP_IFM02B2_2023_WCF
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
     [ServiceContract]
     public interface IRESQSERVICE
     {
+        //LOGIN AND REGISTER
         [OperationContract]
-        int loginUser(String user, String pass);
-
-        [OperationContract]
-        bool regAdmin(String uEmail, String uPass);
+        int loginUser(String user, String pass); //Login User
 
         [OperationContract]
-        bool regCust(String uEmail, String uPass, String fName, String lName, DateTime BDate, bool grant);
+        bool regAdmin(String uEmail, String uPass); //Register Admin (Remember logic is on client side)
 
         [OperationContract]
-        bool regStore(String uEmail, String uPass, String comp, String name, String icoPath, String loc, String type);
+        bool regCust(String uEmail, String uPass, String fName, String lName, DateTime BDate, bool grant); //Register customer 
 
         [OperationContract]
-        UserRecord getAdmin(String uEmail);
+        bool regStore(String uEmail, String uPass, String comp, String name, String icoPath, String loc, String type); //Register Store
+
+
+        //CRU FUNCTIONS
+
+        //GET FUNCTIONS  //Delete this comment when done, i just renamed some of the functions to be consistent. like all "gets" are lowercase now and stuff like getEmployeeRecords -> getAllEmployees
 
         [OperationContract]
-        CustomerRecord getCustomer(String uEmail);
+        UserTable getUser(String uEmail); //gets called in both getAdmin or getCustomer or getStore since it is the base type
 
         [OperationContract]
-        StoreRecord getStore(String uEmail);
+        UserTable getAdmin(String uEmail);
 
         [OperationContract]
-        List<UserRecord> GetEmployeeRecords(String uEmail);
+        Customer getCustomer(String uEmail);
 
         [OperationContract]
-        string DeleteUser(String uEmail);
+        Store getStore(String uEmail);
 
         [OperationContract]
-        List<UserRecord> SearchUser(String uEmail);
+        List<CartItem> getCartItems(int uId); //Cart needs userID (from session variable on client side) then retreives items  C
+        
+        [OperationContract]
+        List<Product> getCartProducts(int uId); //This function is meant to call the getcartItems. What it will do is look at the cartitems and "connect" it to products (because we need the product information for display) 
 
         [OperationContract]
-        string UpdateUser(String uEmail);
+        List<Product> searchProduct(string name);
+
+
+        //ADD FUNCTIONS
+        [OperationContract]
+        bool addProduct(int sID, String name, String desc, double price, String picPath, DateTime date, bool enabled);
 
         [OperationContract]
-        List<ProductRecord> getAllProducts();
+        bool addToCart(int pID, int uID, DateTime added); // removed boolean attribute paramater since it should be enabled when added
 
-        [OperationContract]
-        List<ProductRecord> SearchProducts(String name);
+        
+        //UPDATE FUNCTIONS
+        //[OperationContract]
+        //bool updateUser(String uEmail);
 
-        [OperationContract]
-        bool AddProduct(int sID, String name, String desc, double price, String picPath, DateTime date, bool enabled);
-
-        [OperationContract]
-        bool AddToCart(int pID, int uID, DateTime added, bool enabled);
-
-        [OperationContract]
-        List<CartRecord> GetCart();
+        bool updateCart(int CartID); //update the cart to be enabled or disabled
 
 
 
+        //Commented Due to being taught not to delete? rather just update to "inactive/null" in database C
+        //[OperationContract]
+        //string DeleteUser(String uEmail);
     }
 
-
-    [DataContract]
-    public class UserRecord
-    {
-        int _userId;
-        String _userEmail;
-        DateTime _userReg;
-        int _userType;
-        bool _enabled;
-
-
-        [DataMember]
-        public int userId
-        {
-            get { return _userId; }
-            set { _userId = value; }
-        }
-        [DataMember]
-        public string userEmail
-        {
-            get { return _userEmail; }
-            set { _userEmail = value; }
-        }
-
-        [DataMember]
-        public DateTime userReg
-        {
-            get { return _userReg; }
-            set { _userReg = value; }
-        }
-
-        [DataMember]
-        public int userType
-        {
-            get { return _userType; }
-            set { _userType = value; }
-        }
-
-        [DataMember]
-        public bool enabled
-        {
-            get { return _enabled; }
-            set { _enabled = value; }
-        }
-    }
-
-
-    [DataContract]
-    public class CustomerRecord
-    {
-        UserRecord _u;
-        String _fName;
-        String _lName;
-        DateTime _birthDate;
-        bool _grantRec;
-
-
-        [DataMember]
-        public UserRecord u
-        {
-            get { return _u; }
-            set { _u = value; }
-        }
-
-        [DataMember]
-        public string fName
-        {
-            get { return _fName; }
-            set { _fName = value; }
-        }
-        [DataMember]
-        public string lName
-        {
-            get { return _lName; }
-            set { _lName = value; }
-        }
-
-        [DataMember]
-        public DateTime birthDate
-        {
-            get { return _birthDate; }
-            set { _birthDate = value; }
-        }
-
-        [DataMember]
-        public bool grantRec
-        {
-            get { return _grantRec; }
-            set { _grantRec = value; }
-        }
-
-    }
-
-    [DataContract]
-    public class StoreRecord
-    {
-        UserRecord _u;
-        String _company;
-        String _name;
-        String _logo;
-        String _location;
-        String _storeType;
-
-        [DataMember]
-        public UserRecord u
-        {
-            get { return _u; }
-            set { _u = value; }
-        }
-
-        [DataMember]
-        public string name
-        {
-            get { return _name; }
-            set { _name = value; }
-        }
-        [DataMember]
-        public string logo
-        {
-            get { return _logo; }
-            set { _logo = value; }
-        }
-
-        [DataMember]
-        public string location
-        {
-            get { return _location; }
-            set { _location = value; }
-        }
-        [DataMember]
-        public string company
-        {
-            get { return _company; }
-            set { _company = value; }
-        }
-
-        [DataMember]
-        public string sType
-        {
-            get { return _storeType; }
-            set { _storeType = value; }
-        }
-    }
-
-
-
-    [DataContract]
-    public class ProductRecord
-    {
-        int _storeId;
-        int _prodId;
-        String _prodName;
-        String _prodDesc;
-        String _prodPic;
-        double _prodPrice;
-        DateTime _prodDate;
-        bool _enabled;
-
-        [DataMember]
-        public int prodId
-        {
-            get { return _prodId; }
-            set { _prodId = value; }
-        }
-
-
-        [DataMember]
-        public int storeId
-        {
-            get { return _storeId; }
-            set { _storeId = value; }
-        }
-
-        [DataMember]
-        public string prodName
-        {
-            get { return _prodName; }
-            set { _prodName = value; }
-        }
-        [DataMember]
-        public string prodDesc
-        {
-            get { return _prodDesc; }
-            set { _prodDesc = value; }
-        }
-
-        public String prodPic 
-        {
-            get { return _prodPic; }
-            set { _prodPic = value; }
-        }
-
-        [DataMember]
-        public double prodPrice
-        {
-            get { return _prodPrice; }
-            set { _prodPrice = value; }
-        }
-
-        [DataMember]
-        public DateTime prodDate
-        {
-            get { return _prodDate; }
-            set { _prodDate = value; }
-        }
-
-        [DataMember]
-        public bool enabled
-        {
-            get { return _enabled; }
-            set { _enabled = value; }
-        }
-    }
-
-
-    [DataContract]
-    public class CartRecord
-    {
-        UserRecord _u;
-        ProductRecord _p;
-        int _cartId;
-        int _userId;
-        int _prodId;
-        DateTime _added;
-        bool _enabled;
-
-        [DataMember]
-        public int prodId
-        {
-            get { return _prodId; }
-            set { _prodId = value; }
-        }
-
-
-        [DataMember]
-        public int userId
-        {
-            get { return _userId; }
-            set { _userId = value; }
-        }
-
-        [DataMember]
-        public int cartId
-        {
-            get { return _cartId; }
-            set { _cartId = value; }
-        }
-
-        [DataMember]
-        public ProductRecord p
-        {
-            get { return _p; }
-            set { _p = value; }
-        }
-
-        [DataMember]
-        public UserRecord u
-        {
-            get { return _u; }
-            set { _u = value; }
-        }
-
-
-        [DataMember]
-        public DateTime added
-        {
-            get { return _added; }
-            set { _added = value; }
-        }
-
-        [DataMember]
-        public bool enabled
-        {
-            get { return _enabled; }
-            set { _enabled = value; }
-        }
-    }
 }
 

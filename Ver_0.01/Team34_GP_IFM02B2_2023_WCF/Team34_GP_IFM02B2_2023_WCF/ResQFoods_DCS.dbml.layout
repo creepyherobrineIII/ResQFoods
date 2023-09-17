@@ -91,7 +91,7 @@
         <classShapeMoniker Id="3b3a11b7-09d2-4d64-b239-0f5401b91518" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.375 : 1.1562505); (9.625 : 1.1562505); (9.625 : 4.64589680989583); (10.0572894166667 : 4.64589680989583 : JumpStart); (10.3645838333333 : 4.64589680989583 : JumpEnd); (10.3697944166667 : 4.64589680989583 : JumpStart); (10.5364610833333 : 4.64589680989583 : JumpEnd); (11.3124995 : 4.64589680989583); (11.3124995 : 7.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.375 : 1.1562505); (9.625 : 1.1562505); (9.625 : 4.64589680989583); (11.3124995 : 4.64589680989583); (11.3124995 : 7.75)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ResQFoods_DCSDataContext/Product/Product_InvoiceItem" />
       <nodes>
         <classShapeMoniker Id="942cab1d-67d1-484f-b2aa-9a0ea9c28341" />
@@ -138,14 +138,14 @@
         <elementListCompartment Id="7685f058-6baf-4ae9-b8e2-dc1d0c9cc952" absoluteBounds="3.5149999999999997, 9.585, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(4.5 : 2.84780110677083); (4.5 : 9.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(4.5 : 2.84780110677083); (4.5 : 9.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ResQFoods_DCSDataContext/Product/Product_CartItem" />
       <nodes>
         <classShapeMoniker Id="942cab1d-67d1-484f-b2aa-9a0ea9c28341" />
         <classShapeMoniker Id="f1007444-1f8a-4ae8-b593-d74c48d96b7c" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(10.14062275 : 4.39589680989583); (10.14062275 : 9.25564697265625); (5.5 : 9.25564697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(10.14062275 : 4.39589680989583); (10.14062275 : 9.25564697265625); (5.5 : 9.25564697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ResQFoods_DCSDataContext/Customer/Customer_CartItem" />
       <nodes>
         <classShapeMoniker Id="4236fad1-431c-4f92-a95c-457e35756de2" />
