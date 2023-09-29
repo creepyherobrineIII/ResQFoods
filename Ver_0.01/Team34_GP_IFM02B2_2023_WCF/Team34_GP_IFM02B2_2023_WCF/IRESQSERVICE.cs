@@ -36,9 +36,6 @@ namespace Team34_GP_IFM02B2_2023_WCF
         List<UserTable> GetEmployeeRecords(String uEmail);
 
         [OperationContract]
-        string DeleteUser(String uEmail);
-
-        [OperationContract]
         List<Product> getAllProducts();
 
         [OperationContract]
@@ -51,7 +48,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
         bool AddToCart(int pID, int uID, DateTime added, bool enabled);
 
         [OperationContract]
-        List<CartItem> GetCart();
+        List<CartItem> GetCart(int UID);
 
         [OperationContract]
         bool editProduct(Product P);
@@ -65,286 +62,26 @@ namespace Team34_GP_IFM02B2_2023_WCF
         [OperationContract]
         bool editStore(Store S);
 
+        [OperationContract]
+        bool addInvoice(int UID, double price, DateTime TOS, List<CartItem> cart);
 
+        [OperationContract]
+        bool addInvoiceItem(int ID, CartItem c);
 
-    }
+        [OperationContract]
+        List<Product> getFilteredList(String name, double P1, double P2, List<int> tags);
 
+        [OperationContract]
+        List<Invoice> getInvoices(int UID);
 
-   /* [DataContract]
-    public class UserRecord
-    {
-        int _userId;
-        String _userEmail;
-        DateTime _userReg;
-        int _userType;
-        bool _enabled;
+        [OperationContract]
+        Invoice getInvoice(int IID);
 
-
-        [DataMember]
-        public int userId
-        {
-            get { return _userId; }
-            set { _userId = value; }
-        }
-        [DataMember]
-        public string userEmail
-        {
-            get { return _userEmail; }
-            set { _userEmail = value; }
-        }
-
-        [DataMember]
-        public DateTime userReg
-        {
-            get { return _userReg; }
-            set { _userReg = value; }
-        }
-
-        [DataMember]
-        public int userType
-        {
-            get { return _userType; }
-            set { _userType = value; }
-        }
-
-        [DataMember]
-        public bool enabled
-        {
-            get { return _enabled; }
-            set { _enabled = value; }
-        }
-    }
-
-
-    [DataContract]
-    public class CustomerRecord
-    {
-        UserRecord _u;
-        String _fName;
-        String _lName;
-        DateTime _birthDate;
-        bool _grantRec;
-
-
-        [DataMember]
-        public UserRecord u
-        {
-            get { return _u; }
-            set { _u = value; }
-        }
-
-        [DataMember]
-        public string fName
-        {
-            get { return _fName; }
-            set { _fName = value; }
-        }
-        [DataMember]
-        public string lName
-        {
-            get { return _lName; }
-            set { _lName = value; }
-        }
-
-        [DataMember]
-        public DateTime birthDate
-        {
-            get { return _birthDate; }
-            set { _birthDate = value; }
-        }
-
-        [DataMember]
-        public bool grantRec
-        {
-            get { return _grantRec; }
-            set { _grantRec = value; }
-        }
+        [OperationContract]
+        List<InvoiceItem> getInvoiceItems(int IID);
 
     }
 
-    [DataContract]
-    public class StoreRecord
-    {
-        UserRecord _u;
-        String _company;
-        String _name;
-        String _logo;
-        String _location;
-        String _storeType;
 
-        [DataMember]
-        public UserRecord u
-        {
-            get { return _u; }
-            set { _u = value; }
-        }
-
-        [DataMember]
-        public string name
-        {
-            get { return _name; }
-            set { _name = value; }
-        }
-        [DataMember]
-        public string logo
-        {
-            get { return _logo; }
-            set { _logo = value; }
-        }
-
-        [DataMember]
-        public string location
-        {
-            get { return _location; }
-            set { _location = value; }
-        }
-        [DataMember]
-        public string company
-        {
-            get { return _company; }
-            set { _company = value; }
-        }
-
-        [DataMember]
-        public string sType
-        {
-            get { return _storeType; }
-            set { _storeType = value; }
-        }
-    }
-
-
-
-    [DataContract]
-    public class ProductRecord
-    {
-        int _storeId;
-        int _prodId;
-        String _prodName;
-        String _prodDesc;
-        String _prodPic;
-        double _prodPrice;
-        DateTime _prodDate;
-        bool _enabled;
-
-        [DataMember]
-        public int prodId
-        {
-            get { return _prodId; }
-            set { _prodId = value; }
-        }
-
-
-        [DataMember]
-        public int storeId
-        {
-            get { return _storeId; }
-            set { _storeId = value; }
-        }
-
-        [DataMember]
-        public string prodName
-        {
-            get { return _prodName; }
-            set { _prodName = value; }
-        }
-        [DataMember]
-        public string prodDesc
-        {
-            get { return _prodDesc; }
-            set { _prodDesc = value; }
-        }
-
-        public String prodPic 
-        {
-            get { return _prodPic; }
-            set { _prodPic = value; }
-        }
-
-        [DataMember]
-        public double prodPrice
-        {
-            get { return _prodPrice; }
-            set { _prodPrice = value; }
-        }
-
-        [DataMember]
-        public DateTime prodDate
-        {
-            get { return _prodDate; }
-            set { _prodDate = value; }
-        }
-
-        [DataMember]
-        public bool enabled
-        {
-            get { return _enabled; }
-            set { _enabled = value; }
-        }
-    }
-
-
-    [DataContract]
-    public class CartRecord
-    {
-        UserRecord _u;
-        ProductRecord _p;
-        int _cartId;
-        int _userId;
-        int _prodId;
-        DateTime _added;
-        bool _enabled;
-
-        [DataMember]
-        public int prodId
-        {
-            get { return _prodId; }
-            set { _prodId = value; }
-        }
-
-
-        [DataMember]
-        public int userId
-        {
-            get { return _userId; }
-            set { _userId = value; }
-        }
-
-        [DataMember]
-        public int cartId
-        {
-            get { return _cartId; }
-            set { _cartId = value; }
-        }
-
-        [DataMember]
-        public ProductRecord p
-        {
-            get { return _p; }
-            set { _p = value; }
-        }
-
-        [DataMember]
-        public UserRecord u
-        {
-            get { return _u; }
-            set { _u = value; }
-        }
-
-
-        [DataMember]
-        public DateTime added
-        {
-            get { return _added; }
-            set { _added = value; }
-        }
-
-        [DataMember]
-        public bool enabled
-        {
-            get { return _enabled; }
-            set { _enabled = value; }
-        }
-    }*/
 }
 

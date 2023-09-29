@@ -242,39 +242,44 @@ namespace Team34_GP_IFM02B2_2023_WCF
                 //Create boolean keep, set to false
                 bool keep = false;
 
-                //For each Prodcut tag in list
-                foreach(Tag t in tempTag)
+                if (tempTag != null)
                 {
-                    //Loop through tag list passed, and check if they match
-                    foreach(int val in tags)
+                    //For each Prodcut tag in list
+                    foreach (ProductTag t in tempTag)
                     {
-                        //If they match one of the tags
-                        if(val == t.TagID)
+                        //Loop through tag list passed, and check if they match
+                        foreach (int val in tags)
                         {
-                            //set keep to true
-                            keep = true;
+                            //If they match one of the tags
+                            if (val == t.TagId)
+                            {
+                                //set keep to true
+                                keep = true;
+                            }
                         }
                     }
-                }
-                //If the product does not have the tag
-                if (!keep)
-                {
-                    //remove the product from the list
-                    tempList.RemoveAt(i);
+                    //If the product does not have the tag
+                    if (!keep)
+                    {
+                        //remove the product from the list
+                        tempList.RemoveAt(i);
+                    }
                 }
             }
             //Return the list
             return tempList;
             }
-
+            //Get admin from the userparent table, also used for getting userparent table values, as admin is a parent object
             public UserTable getAdmin(string uEmail)
             {
-                
+                //Get admin from usertable database
                 var us = (from u in db.UserTables
                                 where u.Email.Equals(uEmail)
                                 select u).FirstOrDefault();
+      
             if (us != null)
             {
+                //Create usertable, return it
                 UserTable ur = new UserTable {
                     UserId = us.UserId,
                     Email = us.Email,
@@ -287,6 +292,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
             return null;
             }
 
+            //Get customer from customer table in database
             public Customer getCustomer(string uEmail)
             {
                 UserTable inner = getAdmin(uEmail);
@@ -296,6 +302,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
                           select cus).FirstOrDefault();
             if (cs != null)
             {
+                //Create and return customer
                 Customer c = new Customer {
                 FirstName = cs.FirstName,
                 LastName = cs.LastName,
@@ -307,9 +314,10 @@ namespace Team34_GP_IFM02B2_2023_WCF
             }
             return null;
         }
-
+            //Get store from storetable
             public Store getStore(string uEmail)
             {
+                //Get sotres parent
                 UserTable inner = getAdmin(uEmail);
             
                 var ss = (from str in db.Stores
@@ -317,6 +325,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
                           select str).FirstOrDefault();
                 if (ss != null)
                 {
+                //Create new store, return it
                 Store s = new Store { 
                 Company = ss.Company,
                 Location = ss.Location,
@@ -428,12 +437,34 @@ namespace Team34_GP_IFM02B2_2023_WCF
 
             if (checkP && checkU)
             {
+                //If the cart item already exists
+                var checkC = (from c in db.CartItems
+                               where c.UserId.Equals(uID) && c.ProductId.Equals(pID)
+                               select c).FirstOrDefault();
+
+                if(checkC!=null)
+                {
+                    //Increase quantity of cart item if it exists, return true
+                    checkC.Quantity += 1;
+                    try
+                    {
+                        db.SubmitChanges();
+                        return true;
+                    }
+                    catch (Exception ex)
+                    {
+                        ex.GetBaseException();
+                        return false;
+                    }
+                }
+                //Else, create cart item, add to database
                 CartItem cI = new CartItem
                 {
                     UserId = uID,
                     ProductId = pID,
                     DateAdded = DateTime.Today,
-                    Status = enabled
+                    Status = enabled,
+                    Quantity = 1
                 };
                 try
                 {
@@ -451,29 +482,25 @@ namespace Team34_GP_IFM02B2_2023_WCF
             return false;
         }
 
-        public List<CartItem> GetCart()
+        public List<CartItem> GetCart(int UID)
         {
+            //Get all cart items from cart database associated with the userID
             List<CartItem> cartRec = new List<CartItem>();
+
             dynamic cart = (from c in db.CartItems
-                                   select c).DefaultIfEmpty();
+                            where c.UserId.Equals(c.UserId)
+                            select c).DefaultIfEmpty();
             if (cart != null)
             {
-                foreach (CartItem c in cart)
+                foreach (CartItem ic in cart)
                 {
-                    Product pr = GetProduct(c.ProductId);
-
-                    UserTable user = (from u in db.UserTables
-                                      where u.UserId.Equals(c.UserId)
-                                      select u).FirstOrDefault();
-
-                    UserTable us = getAdmin(user.Email);
 
                     CartItem cr = new CartItem
                     {
-                        UserId = user.UserId,
-                        ProductId = pr.UserId,
-                        DateAdded = c.DateAdded,
-                        Status = c.Status
+                        UserId = ic.UserId,
+                        ProductId = ic.UserId,
+                        DateAdded = ic.DateAdded,
+                        Status = ic.Status
 
                     };
 
@@ -488,12 +515,14 @@ namespace Team34_GP_IFM02B2_2023_WCF
 
         public bool editProduct(Product P)
         {
+            //Get product from the database 
             var prod = (from p in db.Products
                          where p.ProductId.Equals(P.ProductId)
                          select p).FirstOrDefault();
 
             if(prod!=null)
             {
+                //Edit product attributes with passed product
                 prod.ProductId = P.ProductId;
                 prod.Picture = P.Picture;
                 prod.DateAdded = P.DateAdded;
@@ -504,6 +533,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
 
                 try
                 {
+                    //submit changes in db
                     db.SubmitChanges();
                     return true;
                 }
@@ -518,7 +548,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
 
         public bool editStore(Store S)
         {
-
+            //Check if store and its parent exist
             var user = (from u in db.UserTables
                         where u.UserId.Equals(S.UserId)
                         select u).FirstOrDefault();
@@ -598,6 +628,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
                 user.UserId = U.UserId;
                 user.Email = U.Email;
                 user.HashedPassword = U.HashedPassword;
+                user.Enabled = U.Enabled;
 
                 try
                 {
@@ -612,64 +643,154 @@ namespace Team34_GP_IFM02B2_2023_WCF
 
             return false;
         }
-
-        /*public List<Product> getProductsFiltered(double Price1, double Price2, int SID, String cat) 
+        private bool searchInvoiceUser(int UID)
         {
-            decimal temp1 = (decimal)Price1;
-            decimal temp2 = (decimal)Price2;
-            List<Product> returnList = new List<Product>();
-            dynamic prodList = (from p in db.Products
-                                where p.Price > temp1 && p.Price < temp2 && p.UserId == SID && p.ProductTags.Equals(cat)
-                                select p).DefaultIfEmpty();
-            if (prodList != null)
+            bool inv = (from i in db.Invoices
+                           where i.UserId.Equals(UID)
+                           select i).Any();
+            return inv;
+        }
+        public bool addInvoice(int UID, double price, DateTime TOS,  List<CartItem> prods)
+        {
+            //Create invoice, 
+            Invoice temp = new Invoice
             {
-                foreach (Product temp in prodList)
+                UserId = UID,
+                TotalPrice = (decimal)price,
+                DateAdded = TOS
+            };
+            try
+            {
+                //Add invoice to db
+                db.Invoices.InsertOnSubmit(temp);
+                db.SubmitChanges();
+                
+                //Get invoice just created
+                var inv = (from i in db.Invoices
+                           where i.UserId == UID && i.DateAdded.Equals(TOS)
+                           select i).FirstOrDefault();
+                if (inv != null)
                 {
-                    Product newP = new Product
+                    //Create invoice items for every cart item, add to invoice just added
+                    foreach (CartItem c in prods)
                     {
-                        ProductId = temp.ProductId,
-                        Name = temp.Name,
-                        Picture = temp.Picture,
-                        Price = temp.Price,
-                    };
-                    returnList.Add(newP);
+                        addInvoiceItem(inv.InvoiceId, c);
+
+                    }
+                }
+
+                return true;
+
+            }
+            catch (SqlException ex)
+            {
+                ex.GetBaseException();
+            }
+            return false;
+
+        }
+
+        public bool addInvoiceItem(int ID, CartItem c)
+        {
+            //Get invoice from database
+            var inv = (from i in db.Invoices
+                       where i.InvoiceId == ID
+                       select i).FirstOrDefault();
+            if(inv!=null)
+            {
+                //Create a new invoice item associated with the invoice
+                InvoiceItem ii = new InvoiceItem
+                {
+                    InvoiceId = inv.InvoiceId,
+                    ProductId = c.ProductId,
+                    Quantity = c.Quantity
+                };
+                try
+                {
+                    db.InvoiceItems.InsertOnSubmit(ii);
+                    db.SubmitChanges();
+                    return true;
 
                 }
-                return returnList;
-            }
-            return null;
-        }*/
-
-        /*public List<Product> searchFiltered(double Price1, double Price2, int SID, String cat)
-        {
-            decimal temp1 = (decimal)Price1;
-            decimal temp2 = (decimal)Price2;
-            List<Product> returnList = new List<Product>();
-            dynamic prodList = (from p in db.Products
-                                where p.Price > temp1 && p.Price < temp2 && p.UserId == SID && p.ProductTags.con(cat)
-                                select p).DefaultIfEmpty();
-            if (prodList != null)
-            {
-                foreach (Product temp in prodList)
+                catch (SqlException ex)
                 {
-                    Product newP = new Product
-                    {
-                        ProductId = temp.ProductId,
-                        Name = temp.Name,
-                        Picture = temp.Picture,
-                        Price = temp.Price,
-                    };
-                    returnList.Add(newP);
+                    ex.GetBaseException();
+                }                 
+            }
+            return false;
+        }
 
+        public List<Invoice> getInvoices(int UID)
+        {
+            //Get all invoices for a client
+            List <Invoice> tempList = new List<Invoice>();
+            dynamic inv = (from i in db.Invoices
+                           where i.UserId.Equals(UID)
+                           select i).DefaultIfEmpty();
+            if(inv!=null)
+            {
+                foreach(Invoice temp in inv)
+                {
+                    //Create invoice, add to list, return list
+                    Invoice tempin = new Invoice
+                    {
+                        InvoiceId = temp.InvoiceId,
+                        UserId = temp.UserId, 
+                        TotalPrice = temp.TotalPrice
+                    };
+
+                    tempList.Add(tempin);
                 }
-                return returnList;
+            }
+            return tempList;
+        }
+
+        public Invoice getInvoice(int IID)
+        {
+            //Get invoice from database, from passed database ID
+            var temp = (from i in db.Invoices
+                           where i.InvoiceId.Equals(IID)
+                           select i).FirstOrDefault();
+            
+            if (temp != null)
+            {
+                    //Create invoice, return 
+                    Invoice tempIn = new Invoice
+                    {
+                        InvoiceId = temp.InvoiceId,
+                        UserId = temp.UserId,
+                        TotalPrice = temp.TotalPrice
+                    };
+                return tempIn;
             }
             return null;
-        }*/
+        }
 
-        public string DeleteUser(string uEmail)
+        public List<InvoiceItem> getInvoiceItems(int IID)
         {
-            throw new NotImplementedException();
+            //Create list of invoice items
+            List<InvoiceItem> tempList = new List<InvoiceItem>();
+            //Get all invoice items associated with the passed invoice ID
+            dynamic temp = (from i in db.InvoiceItems
+                        where i.InvoiceId.Equals(IID)
+                        select i).DefaultIfEmpty();
+
+            if(temp!=null)
+            {
+                //Populate the invoice item list with created invoice items, return the list
+                foreach (InvoiceItem ii in temp)
+                {
+                    InvoiceItem tempI = new InvoiceItem
+                    {
+                        InvoiceId = ii.InvoiceId,
+                        ProductId = ii.ProductId,
+                        Quantity = ii.Quantity
+                    };
+                    tempList.Add(tempI);
+                }
+            }
+            return tempList;
+
         }
     }
     }
