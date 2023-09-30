@@ -117,7 +117,12 @@
     <Content Include="assets\mail\jqBootstrapValidation.min.js" />
     <Content Include="assets\scss\style.scss" />
     <Content Include="assets\lib\owlcarousel\LICENSE" />
+    <Content Include="bin\Team34_GP_IFM02B2_2023_WebApp.dll.config" />
     <None Include="Connected Services\ResQReference\RESQSERVICE.wsdl" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\Newtonsoft.Json.xml" />
+    <Content Include="bin\Team34_GP_IFM02B2_2023_WebApp.dll" />
+    <Content Include="bin\Team34_GP_IFM02B2_2023_WebApp.pdb" />
     <Content Include="Connected Services\ResQReference\Team34_GP_IFM02B2_2023_WebApp.ResQReference.CartRecord.datasource" />
     <Content Include="Connected Services\ResQReference\Team34_GP_IFM02B2_2023_WebApp.ResQReference.CustomerRecord.datasource" />
     <Content Include="Connected Services\ResQReference\Team34_GP_IFM02B2_2023_WebApp.ResQReference.ProductRecord.datasource" />
@@ -169,6 +174,13 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="detail.aspx" />
+    <Content Include="html\about.html" />
+    <Content Include="html\blog-single.html" />
+    <Content Include="html\blog.html" />
+    <Content Include="html\contact.html" />
+    <Content Include="html\index.html" />
+    <Content Include="html\portfolio.html" />
+    <Content Include="html\services.html" />
     <Content Include="index.aspx" />
     <Content Include="login.aspx" />
     <Content Include="Register.aspx" />
@@ -235,6 +247,8 @@
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
+    <Compile Include="obj\Release\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>
@@ -261,6 +275,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\Team34_ServiceReference\RESQSERVICE.wsdl" />
+    <Content Include="obj\Release\Team34_GP_IFM02B2_2023_WebApp.csproj.AssemblyReference.cache" />
+    <Content Include="obj\Release\Team34_GP_IFM02B2_2023_WebApp.csprojAssemblyReference.cache" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
