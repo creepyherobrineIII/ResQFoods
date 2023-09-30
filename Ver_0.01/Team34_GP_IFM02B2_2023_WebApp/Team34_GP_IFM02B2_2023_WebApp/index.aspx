@@ -43,6 +43,9 @@
             </div>
             <div class="col-lg-8 text-center text-lg-right">
                 <div class="d-inline-flex align-items-center">
+                    <div>
+                        <asp:Label ID="IDLabel" runat="server" Text="Hello, "></asp:Label>
+                    </div>
                     <div class="btn-group">
                         <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">My Account</button>
                         <div class="dropdown-menu dropdown-menu-right">

@@ -27,22 +27,35 @@ namespace Team34_GP_IFM02B2_2023_WebApp
             // Session["user"] = login(...);
             //Put this in site master
             //SysUser s = (SysUser)Session["user"] */
-            switch (logSys)
-            {
-                case -1:
-                    noLog.Visible = true;
+            String userName;
+                Session["user"] = sc.getAdmin(GivenEmail);
+                switch (logSys)
+                {
+                    case -1:
+                        noLog.Visible = true;
+                        break;
+                    case 0:
+                        Session["user"] = sc.getAdmin(GivenEmail);
+                        userName = ((ResQReference.UserRecord)Session["user"]).userEmail;
+                        //Server.Transfer("index.aspx");
+                        Response.Redirect("index.aspx?userName=" + userName);
                     break;
-                case 0:
-                    Server.Transfer("index.aspx");
+                    case 1:
+                        Session["user"] = sc.getAdmin(GivenEmail);
+                        ResQReference.CustomerRecord cust = sc.getCustomer(GivenEmail);
+                        userName = cust.fName + " " + cust.lName;
+                         //Server.Transfer("index.aspx?");
+                        Response.Redirect("index.aspx?userName=" + userName);
                     break;
-                case 1:
-                    Server.Transfer("index.aspx");
-                    break;
-                case 2:
-                    Server.Transfer("index.aspx");
+                    case 2:
+                        Session["user"] = sc.getAdmin(GivenEmail);
+                        ResQReference.StoreRecord store = sc.getStore(GivenEmail);
+                        userName = store.name;
+                        //Server.Transfer("index.aspx");
+                        Response.Redirect("index.aspx?userName=" + userName);
                     break;
 
-            }
+                }
         }
     }
 }
