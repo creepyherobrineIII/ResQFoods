@@ -27,6 +27,9 @@ namespace Team34_GP_IFM02B2_2023_WCF
         UserTable getAdmin(String uEmail);
 
         [OperationContract]
+        UserTable getUser(String uEmail, int type);
+
+        [OperationContract]
         Customer getCustomer(String uEmail);
 
         [OperationContract]
@@ -69,7 +72,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
         bool addInvoiceItem(int ID, CartItem c);
 
         [OperationContract]
-        List<Product> getFilteredList(String name, double P1, double P2, List<int> tags);
+        List<Product> getFilteredList(String name, double P1, double P2, List<int> tags, int manu);
 
         [OperationContract]
         List<Invoice> getInvoices(int UID);

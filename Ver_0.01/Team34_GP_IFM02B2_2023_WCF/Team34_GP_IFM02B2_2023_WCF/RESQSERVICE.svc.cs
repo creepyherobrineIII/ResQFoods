@@ -204,11 +204,23 @@ namespace Team34_GP_IFM02B2_2023_WCF
             return null;
             }
 
-            public List<Product> getFilteredList(String name, double P1, double P2, List<int> tags)
-            {
+        public List<Product> getFilteredList(String name, double P1, double P2, List<int> tags, int manu)
+        {
             //Get list of all products
             List<Product> tempList = getAllProducts();
-            //Filter if name not = null
+            //Filter if manufacturer!=-1
+            if (manu != -1)
+            {
+                for (int i = tempList.Count - 1; i > -1; i--)
+                {
+                    //If the name does not match the searched name, remove the item from the list
+                    if (tempList[i].UserId != manu)
+                    {
+                        tempList.RemoveAt(i);
+                    }
+                }
+            }
+            //Filter if name!=null
             if (name != "null")
             {
                 for (int i = tempList.Count - 1; i > -1; i--)
@@ -221,81 +233,101 @@ namespace Team34_GP_IFM02B2_2023_WCF
                 }
             }
 
-            for (int i = tempList.Count - 1; i > -1; i--)
+            if (P1 != -1 && P2 != -1)
             {
-                //Remove current value if it is greater or less than the bounds passed
-                if ((double)tempList[i].Price < P1 || (double)tempList[i].Price > P2)
+                for (int i = tempList.Count - 1; i > -1; i--)
                 {
-                    tempList.RemoveAt(i);
+                    //Remove current value if it is greater or less than the bounds passed
+                    if ((double)tempList[i].Price < P1 || (double)tempList[i].Price > P2)
+                    {
+                        tempList.RemoveAt(i);
+                    }
                 }
             }
-            
-            //In the remaining list
-            for (int i = tempList.Count - 1; i > -1; i--)
-            {
-                //Create current product instance
-                Product currProd = tempList[i];
-                //Search for all temp tags in bridging table ProductTags, where the product ID = the current product ID
-                dynamic tempTag = (from pt in db.ProductTags
-                                where pt.ProductId.Equals(currProd.ProductId)
-                                select pt).DefaultIfEmpty();
-                //Create boolean keep, set to false
-                bool keep = false;
 
-                if (tempTag != null)
+            //In the remaining list
+            if (tags != null)
+            {
+                for (int i = tempList.Count - 1; i > -1; i--)
                 {
-                    //For each Prodcut tag in list
-                    foreach (ProductTag t in tempTag)
+                    //Create current product instance
+                    Product currProd = tempList[i];
+                    //Search for all temp tags in bridging table ProductTags, where the product ID = the current product ID
+                    dynamic tempTag = (from pt in db.ProductTags
+                                       where pt.ProductId.Equals(currProd.ProductId)
+                                       select pt).DefaultIfEmpty();
+                    //Create boolean keep, set to false
+                    bool keep = false;
+
+                    if (tempTag != null)
                     {
-                        //Loop through tag list passed, and check if they match
-                        foreach (int val in tags)
+                        //For each Prodcut tag in list
+                        foreach (ProductTag t in tempTag)
                         {
-                            //If they match one of the tags
-                            if (val == t.TagId)
+                            //Loop through tag list passed, and check if they match
+                            foreach (int val in tags)
                             {
-                                //set keep to true
-                                keep = true;
+                                //If they match one of the tags
+                                if (val == t.TagId)
+                                {
+                                    //set keep to true
+                                    keep = true;
+                                }
                             }
                         }
-                    }
-                    //If the product does not have the tag
-                    if (!keep)
-                    {
-                        //remove the product from the list
-                        tempList.RemoveAt(i);
+                        //If the product does not have the tag
+                        if (!keep)
+                        {
+                            //remove the product from the list
+                            tempList.RemoveAt(i);
+                        }
                     }
                 }
             }
             //Return the list
             return tempList;
+        }
+            public UserTable getUser(string uEmail, int type)
+            {
+                //Get admin from usertable database
+                var us = (from u in db.UserTables
+                          where u.Email.Equals(uEmail) && u.Enabled == true && u.UserType == type
+                          select u).FirstOrDefault();
+
+                if (us != null)
+                {
+                    //Create usertable, return it
+                    UserTable ur = new UserTable
+                    {
+                        UserId = us.UserId,
+                        Email = us.Email,
+                        DateRegistered = us.DateRegistered,
+                        UserType = us.UserType,
+                        Enabled = us.Enabled,
+                    };
+                    return ur;
+                }
+                return null;
             }
             //Get admin from the userparent table, also used for getting userparent table values, as admin is a parent object
             public UserTable getAdmin(string uEmail)
             {
-                //Get admin from usertable database
-                var us = (from u in db.UserTables
-                                where u.Email.Equals(uEmail)
-                                select u).FirstOrDefault();
+            //Get admin from usertable database
+            UserTable user = getUser(uEmail, 0);
       
-            if (us != null)
+            if (user != null)
             {
                 //Create usertable, return it
-                UserTable ur = new UserTable {
-                    UserId = us.UserId,
-                    Email = us.Email,
-                    DateRegistered = us.DateRegistered,
-                    UserType = us.UserType,
-                    Enabled = us.Enabled,
+                return user;
             };
-                return ur;
-            }
+                
             return null;
             }
 
             //Get customer from customer table in database
             public Customer getCustomer(string uEmail)
             {
-                UserTable inner = getAdmin(uEmail);
+                UserTable inner = getUser(uEmail, 1);
                 
                 var cs = (from cus in db.Customers
                           where cus.UserId == inner.UserId
@@ -318,7 +350,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
             public Store getStore(string uEmail)
             {
                 //Get sotres parent
-                UserTable inner = getAdmin(uEmail);
+                UserTable inner = getUser(uEmail, 2);
             
                 var ss = (from str in db.Stores
                           where str.UserId == inner.UserId
@@ -369,7 +401,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
 
         public Product GetProduct(int pID)
         {
-            
+            //Get product from the data base where ID matches the passed ID
             Product prods = (from p in db.Products
                                    where p.ProductId == (pID)
                                    select p).FirstOrDefault();
@@ -394,11 +426,13 @@ namespace Team34_GP_IFM02B2_2023_WCF
 
         public bool AddProduct(int sID, string name, string desc, double price, string picPath, DateTime date, bool enabled)
             {
+            //Check if product exists
                 bool checkP = (from p in db.Products
                                   where p.Name.Equals(name)
                                   select p).Any();
                 if(!checkP)
                 {
+                //If not, create new proiduct with passed values, insert into database
                     Product p = new Product
                     {
                         UserId = sID, 
