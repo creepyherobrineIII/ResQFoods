@@ -1,13 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="Team34_GP_IFM02B2_2023_WebApp.login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" MasterPageFile="~/Site1.Master" Inherits="Team34_GP_IFM02B2_2023_WebApp.login" %>
 
-<!DOCTYPE html>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
 
-<html lang="en">
-<head>
-  <title>Login User</title>
-  <link rel="stylesheet" href="assets/css/logStyle.css">
-</head>
-<body>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
   <div class="container">
     <div class="login form">
       <header>Login</header>
@@ -25,5 +22,5 @@
       </div>
     </div>
   </div>
-</body>
-</html>
+
+</asp:Content>

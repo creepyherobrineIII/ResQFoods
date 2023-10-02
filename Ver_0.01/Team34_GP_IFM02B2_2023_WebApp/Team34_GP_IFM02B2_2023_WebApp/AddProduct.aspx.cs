@@ -17,7 +17,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
 
         protected void addProd_Click(object sender, EventArgs e)
         {
-            //int sID, string name, string desc, double price, string picPath, DateTime date, bool enabled
+            /*int sID, string name, string desc, double price, string picPath, DateTime date, bool enabled
             String pnm = pName.Value;
             String desc = pdesc.Value;
             Double price;
@@ -29,7 +29,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
             if (adProd)
             {
                 Server.Transfer("index.aspx");
-            }
+            }*/
         }
     }
 }
