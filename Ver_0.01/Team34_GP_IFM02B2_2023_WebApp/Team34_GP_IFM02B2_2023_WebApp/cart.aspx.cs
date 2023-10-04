@@ -13,26 +13,20 @@ namespace Team34_GP_IFM02B2_2023_WebApp
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if (Session["UID"] == null)
-            {
-                Response.Redirect("index.aspx");
-            }
-            int UserID = Convert.ToInt32(Session["UID"]);
+            //if (Session["UID"] == null)
+            // {
+            //     Response.Redirect("index.aspx");
+            //  }
+            // int UserID = Convert.ToInt32(Session["UID"]);
 
-            //Get a prodcut id if added to cart 
+            //Get a product id if added to cart 
 
-            if (Request.QueryString["PID"] != null)
-            {
-                int ProdID = Convert.ToInt32(Request.QueryString["ID"]);
-                var product = sc.getProduct(ProdID);
-                //check the product exits
-                if (product == null)
-                    Response.Redirect("Home.aspx");
+            //Display cart items
+            String Display = "";
 
 
-                //assume the user wants 1 for now. Can be changed on this page.
-                sr.addToCart(ProdID, UserID, 1);
+
+               
             }
         }
     }
-}

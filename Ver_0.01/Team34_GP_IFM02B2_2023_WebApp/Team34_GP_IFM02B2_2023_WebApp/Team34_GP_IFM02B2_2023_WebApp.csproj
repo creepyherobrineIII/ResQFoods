@@ -135,19 +135,25 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference1.cs</LastGenOutput>
     </None>
-    <Content Include="Connected Services\ServiceReference1\Team34_GP_IFM02B2_2023_WebApp.ServiceReference1.CartRecord.datasource">
+    <Content Include="Connected Services\ServiceReference1\Team34_GP_IFM02B2_2023_WebApp.ServiceReference1.CartItem.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\ServiceReference1\Team34_GP_IFM02B2_2023_WebApp.ServiceReference1.CustomerRecord.datasource">
+    <Content Include="Connected Services\ServiceReference1\Team34_GP_IFM02B2_2023_WebApp.ServiceReference1.Customer.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\ServiceReference1\Team34_GP_IFM02B2_2023_WebApp.ServiceReference1.ProductRecord.datasource">
+    <Content Include="Connected Services\ServiceReference1\Team34_GP_IFM02B2_2023_WebApp.ServiceReference1.Invoice.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\ServiceReference1\Team34_GP_IFM02B2_2023_WebApp.ServiceReference1.StoreRecord.datasource">
+    <Content Include="Connected Services\ServiceReference1\Team34_GP_IFM02B2_2023_WebApp.ServiceReference1.InvoiceItem.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Connected Services\ServiceReference1\Team34_GP_IFM02B2_2023_WebApp.ServiceReference1.UserRecord.datasource">
+    <Content Include="Connected Services\ServiceReference1\Team34_GP_IFM02B2_2023_WebApp.ServiceReference1.Product.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ServiceReference1\Team34_GP_IFM02B2_2023_WebApp.ServiceReference1.Store.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ServiceReference1\Team34_GP_IFM02B2_2023_WebApp.ServiceReference1.UserTable.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\Team34_ServiceReference\configuration91.svcinfo" />
@@ -292,6 +298,9 @@
     <None Include="Connected Services\Team34_ServiceReference\RESQSERVICE.wsdl" />
     <Content Include="obj\Release\Team34_GP_IFM02B2_2023_WebApp.csproj.AssemblyReference.cache" />
     <Content Include="obj\Release\Team34_GP_IFM02B2_2023_WebApp.csprojAssemblyReference.cache" />
+    <Content Include="Connected Services\Team34_ServiceReference\Team34_GP_IFM02B2_2023_WebApp.Team34_ServiceReference.Store.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <Content Include="Site1.Master" />
     <None Include="Web.Debug.config">
