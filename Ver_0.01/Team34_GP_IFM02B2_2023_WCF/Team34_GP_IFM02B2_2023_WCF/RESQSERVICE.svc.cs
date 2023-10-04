@@ -416,6 +416,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
                     Price = prods.Price,
                     Description = prods.Description,
                     DateAdded = prods.DateAdded,
+                    Quantity = prods.Quantity
                 };
 
                 return pr;
@@ -424,7 +425,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
             return null;
         }
 
-        public bool AddProduct(int sID, string name, string desc, double price, string picPath, DateTime date, bool enabled)
+        public bool AddProduct(int sID, string name, string desc, int quant, double price, string picPath, DateTime date, bool enabled)
             {
             //Check if product exists
                 bool checkP = (from p in db.Products
@@ -441,7 +442,8 @@ namespace Team34_GP_IFM02B2_2023_WCF
                         Picture = picPath, 
                         Price = (decimal)price, 
                         DateAdded = date, 
-                        Enabled = enabled
+                        Enabled = enabled,
+                        Quantity = quant
                     };
                     try
                     {
@@ -564,6 +566,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
                 prod.Price = P.Price;
                 prod.ProductTags = P.ProductTags;
                 prod.Store = P.Store;
+                prod.Quantity = P.Quantity;
 
                 try
                 {
@@ -739,6 +742,13 @@ namespace Team34_GP_IFM02B2_2023_WCF
                     ProductId = c.ProductId,
                     Quantity = c.Quantity
                 };
+                //remove that number of rpoducts from the products table
+                Product p = GetProduct(c.ProductId);
+                if(p!=null)
+                {
+                    p.Quantity = p.Quantity - c.Quantity;
+                }
+                editProduct(p);
                 try
                 {
                     db.InvoiceItems.InsertOnSubmit(ii);
@@ -825,6 +835,20 @@ namespace Team34_GP_IFM02B2_2023_WCF
             }
             return tempList;
 
+        }
+
+        public List<Store> getStores()
+        {
+            dynamic st = (from u in db.UserTables
+                          where u.Enabled == true && u.UserType==2
+                          select u).DefaultIfEmpty();
+            if (st != null)
+            {
+                foreach (Store s in st)
+                {
+
+                }
+            }
         }
     }
     }

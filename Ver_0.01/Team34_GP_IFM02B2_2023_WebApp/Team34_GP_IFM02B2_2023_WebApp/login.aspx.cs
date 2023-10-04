@@ -25,41 +25,41 @@ namespace Team34_GP_IFM02B2_2023_WebApp
             String GivenPassword = Secrecy.HashPassword(logPass.Value); // hashpassword, never gets stored
             int logSys = sc.loginUser(GivenEmail, GivenPassword); //send details to api?
 
-            // Session["user"] = login(...);
-            //Put this in site master
-            //SysUser s = (SysUser)Session["user"] */
-            String userName;
+                String userName;
                 Session["user"] = sc.getAdmin(GivenEmail);
+                
                 switch (logSys)
                 {
                     case -1:
                         noLog.Visible = true;
                         break;
                     case 0:
-                        Session["user"] = sc.getAdmin(GivenEmail);
+                        Session["user"] = sc.getUser(GivenEmail, 0);
                         userName = ((UserTable)Session["user"]).Email;
-                    //Server.Transfer("index.aspx");
-                    //Response.Redirect("index.aspx?userName=" + userName);
-                    Response.Redirect("index.aspx");
+                        makeCart();
+                        Response.Redirect("index.aspx");
+                        
                     break;
                     case 1:
-                        Session["user"] = sc.getAdmin(GivenEmail);
+                        Session["user"] = sc.getUser(GivenEmail, 1);
                         Customer cust = sc.getCustomer(GivenEmail);
-                        //userName = cust.FirstName + " " + cust.LastName;
-                        //Server.Transfer("index.aspx?");
-                        //Response.Redirect("index.aspx?userName=" + userName);
-                    Response.Redirect("index.aspx");
+                        makeCart();
+                        Response.Redirect("index.aspx");
                     break;
                     case 2:
-                        Session["user"] = sc.getAdmin(GivenEmail);
+                        Session["user"] = sc.getUser(GivenEmail, 2);
                         Store store = sc.getStore(GivenEmail);
-                        //userName = store.Name;
-                        //Server.Transfer("index.aspx");
-                        //Response.Redirect("index.aspx?userName=" + userName);
+                        makeCart();
                         Response.Redirect("index.aspx");
                     break;
 
                 }
+
+        }
+        private void makeCart()
+        {
+            List<CartItem> cart = new List<CartItem>();
+            Session["CartItem"] = cart;
         }
     }
 }

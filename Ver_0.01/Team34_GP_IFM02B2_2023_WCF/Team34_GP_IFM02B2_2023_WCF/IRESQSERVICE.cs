@@ -36,6 +36,9 @@ namespace Team34_GP_IFM02B2_2023_WCF
         Store getStore(String uEmail);
 
         [OperationContract]
+        List<Store> getStores();
+
+        [OperationContract]
         List<UserTable> GetEmployeeRecords(String uEmail);
 
         [OperationContract]
@@ -45,7 +48,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
         List<Product> SearchProducts(String name);
 
         [OperationContract]
-        bool AddProduct(int sID, String name, String desc, double price, String picPath, DateTime date, bool enabled);
+        bool AddProduct(int sID, String name, String desc, int quant, double price, String picPath, DateTime date, bool enabled);
 
         [OperationContract]
         bool AddToCart(int pID, int uID, DateTime added, bool enabled);
