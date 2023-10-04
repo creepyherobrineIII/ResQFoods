@@ -5,12 +5,13 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Team34_GP_IFM02B2_2023_WebApp.ResQReference;
 
 namespace Team34_GP_IFM02B2_2023_WebApp
 {
     public partial class RegStore : System.Web.UI.Page
     {
-        ResQReference.RESQSERVICEClient sc = new ResQReference.RESQSERVICEClient();
+        RESQSERVICEClient sc = new RESQSERVICEClient();
 
         protected void Page_Load(object sender, EventArgs e)
         {
