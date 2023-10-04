@@ -86,8 +86,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
         [OperationContract]
         List<InvoiceItem> getInvoiceItems(int IID);
 
-        [OperationContract]
-        Product GetProduct(int pID);
+     
 
     }
 

@@ -40,7 +40,6 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                         userName = ((UserTable)Session["user"]).Email;
                     //Server.Transfer("index.aspx");
                     //Response.Redirect("index.aspx?userName=" + userName);
-                    Response.Redirect("index.aspx");
                     break;
                     case 1:
                         Session["user"] = sc.getAdmin(GivenEmail);
@@ -48,7 +47,6 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                         //userName = cust.FirstName + " " + cust.LastName;
                         //Server.Transfer("index.aspx?");
                         //Response.Redirect("index.aspx?userName=" + userName);
-                    Response.Redirect("index.aspx");
                     break;
                     case 2:
                         Session["user"] = sc.getAdmin(GivenEmail);
@@ -56,10 +54,13 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                         //userName = store.Name;
                         //Server.Transfer("index.aspx");
                         //Response.Redirect("index.aspx?userName=" + userName);
-                        Response.Redirect("index.aspx");
-                    break;
-
+                    break;  
                 }
+
+            //Create a cart session variable 
+            List<CartItem> itemList = new List<CartItem>();
+            Session["CartList"] = itemList;
+            Response.Redirect("index.aspx");
         }
     }
 }
