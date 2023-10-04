@@ -15,27 +15,36 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UserRecord", Namespace="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserTable", Namespace="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF")]
     [System.SerializableAttribute()]
-    public partial class UserRecord : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class UserTable : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool enabledField;
+        private Team34_GP_IFM02B2_2023_WebApp.ResQReference.Customer CustomerField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string userEmailField;
+        private System.DateTime DateRegisteredField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int userIdField;
+        private string EmailField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime userRegField;
+        private bool EnabledField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int userTypeField;
+        private string HashedPasswordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Team34_GP_IFM02B2_2023_WebApp.ResQReference.Store StoreField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int UserIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int UserTypeField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -48,66 +57,105 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool enabled {
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Customer Customer {
             get {
-                return this.enabledField;
+                return this.CustomerField;
             }
             set {
-                if ((this.enabledField.Equals(value) != true)) {
-                    this.enabledField = value;
-                    this.RaisePropertyChanged("enabled");
+                if ((object.ReferenceEquals(this.CustomerField, value) != true)) {
+                    this.CustomerField = value;
+                    this.RaisePropertyChanged("Customer");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string userEmail {
+        public System.DateTime DateRegistered {
             get {
-                return this.userEmailField;
+                return this.DateRegisteredField;
             }
             set {
-                if ((object.ReferenceEquals(this.userEmailField, value) != true)) {
-                    this.userEmailField = value;
-                    this.RaisePropertyChanged("userEmail");
+                if ((this.DateRegisteredField.Equals(value) != true)) {
+                    this.DateRegisteredField = value;
+                    this.RaisePropertyChanged("DateRegistered");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int userId {
+        public string Email {
             get {
-                return this.userIdField;
+                return this.EmailField;
             }
             set {
-                if ((this.userIdField.Equals(value) != true)) {
-                    this.userIdField = value;
-                    this.RaisePropertyChanged("userId");
+                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
+                    this.EmailField = value;
+                    this.RaisePropertyChanged("Email");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime userReg {
+        public bool Enabled {
             get {
-                return this.userRegField;
+                return this.EnabledField;
             }
             set {
-                if ((this.userRegField.Equals(value) != true)) {
-                    this.userRegField = value;
-                    this.RaisePropertyChanged("userReg");
+                if ((this.EnabledField.Equals(value) != true)) {
+                    this.EnabledField = value;
+                    this.RaisePropertyChanged("Enabled");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int userType {
+        public string HashedPassword {
             get {
-                return this.userTypeField;
+                return this.HashedPasswordField;
             }
             set {
-                if ((this.userTypeField.Equals(value) != true)) {
-                    this.userTypeField = value;
-                    this.RaisePropertyChanged("userType");
+                if ((object.ReferenceEquals(this.HashedPasswordField, value) != true)) {
+                    this.HashedPasswordField = value;
+                    this.RaisePropertyChanged("HashedPassword");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Store Store {
+            get {
+                return this.StoreField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StoreField, value) != true)) {
+                    this.StoreField = value;
+                    this.RaisePropertyChanged("Store");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UserId {
+            get {
+                return this.UserIdField;
+            }
+            set {
+                if ((this.UserIdField.Equals(value) != true)) {
+                    this.UserIdField = value;
+                    this.RaisePropertyChanged("UserId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UserType {
+            get {
+                return this.UserTypeField;
+            }
+            set {
+                if ((this.UserTypeField.Equals(value) != true)) {
+                    this.UserTypeField = value;
+                    this.RaisePropertyChanged("UserType");
                 }
             }
         }
@@ -124,27 +172,39 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CustomerRecord", Namespace="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Customer", Namespace="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF")]
     [System.SerializableAttribute()]
-    public partial class CustomerRecord : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class Customer : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime birthDateField;
+        private System.DateTime BirthdateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string fNameField;
+        private Team34_GP_IFM02B2_2023_WebApp.ResQReference.CartItem[] CartItemsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool grantRecField;
+        private Team34_GP_IFM02B2_2023_WebApp.ResQReference.FavouriteStore[] FavouriteStoresField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string lNameField;
+        private string FirstNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserRecord uField;
+        private bool GrantRecipientField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Team34_GP_IFM02B2_2023_WebApp.ResQReference.Invoice[] InvoicesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LastNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int UserIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserTable UserTableField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -157,66 +217,118 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime birthDate {
+        public System.DateTime Birthdate {
             get {
-                return this.birthDateField;
+                return this.BirthdateField;
             }
             set {
-                if ((this.birthDateField.Equals(value) != true)) {
-                    this.birthDateField = value;
-                    this.RaisePropertyChanged("birthDate");
+                if ((this.BirthdateField.Equals(value) != true)) {
+                    this.BirthdateField = value;
+                    this.RaisePropertyChanged("Birthdate");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string fName {
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.CartItem[] CartItems {
             get {
-                return this.fNameField;
+                return this.CartItemsField;
             }
             set {
-                if ((object.ReferenceEquals(this.fNameField, value) != true)) {
-                    this.fNameField = value;
-                    this.RaisePropertyChanged("fName");
+                if ((object.ReferenceEquals(this.CartItemsField, value) != true)) {
+                    this.CartItemsField = value;
+                    this.RaisePropertyChanged("CartItems");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool grantRec {
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.FavouriteStore[] FavouriteStores {
             get {
-                return this.grantRecField;
+                return this.FavouriteStoresField;
             }
             set {
-                if ((this.grantRecField.Equals(value) != true)) {
-                    this.grantRecField = value;
-                    this.RaisePropertyChanged("grantRec");
+                if ((object.ReferenceEquals(this.FavouriteStoresField, value) != true)) {
+                    this.FavouriteStoresField = value;
+                    this.RaisePropertyChanged("FavouriteStores");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string lName {
+        public string FirstName {
             get {
-                return this.lNameField;
+                return this.FirstNameField;
             }
             set {
-                if ((object.ReferenceEquals(this.lNameField, value) != true)) {
-                    this.lNameField = value;
-                    this.RaisePropertyChanged("lName");
+                if ((object.ReferenceEquals(this.FirstNameField, value) != true)) {
+                    this.FirstNameField = value;
+                    this.RaisePropertyChanged("FirstName");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserRecord u {
+        public bool GrantRecipient {
             get {
-                return this.uField;
+                return this.GrantRecipientField;
             }
             set {
-                if ((object.ReferenceEquals(this.uField, value) != true)) {
-                    this.uField = value;
-                    this.RaisePropertyChanged("u");
+                if ((this.GrantRecipientField.Equals(value) != true)) {
+                    this.GrantRecipientField = value;
+                    this.RaisePropertyChanged("GrantRecipient");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Invoice[] Invoices {
+            get {
+                return this.InvoicesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.InvoicesField, value) != true)) {
+                    this.InvoicesField = value;
+                    this.RaisePropertyChanged("Invoices");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LastName {
+            get {
+                return this.LastNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LastNameField, value) != true)) {
+                    this.LastNameField = value;
+                    this.RaisePropertyChanged("LastName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UserId {
+            get {
+                return this.UserIdField;
+            }
+            set {
+                if ((this.UserIdField.Equals(value) != true)) {
+                    this.UserIdField = value;
+                    this.RaisePropertyChanged("UserId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserTable UserTable {
+            get {
+                return this.UserTableField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserTableField, value) != true)) {
+                    this.UserTableField = value;
+                    this.RaisePropertyChanged("UserTable");
                 }
             }
         }
@@ -233,30 +345,39 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="StoreRecord", Namespace="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Store", Namespace="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF")]
     [System.SerializableAttribute()]
-    public partial class StoreRecord : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class Store : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string companyField;
+        private string CompanyField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string locationField;
+        private Team34_GP_IFM02B2_2023_WebApp.ResQReference.FavouriteStore[] FavouriteStoresField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string logoField;
+        private string LocationField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string nameField;
+        private string LogoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string sTypeField;
+        private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserRecord uField;
+        private Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[] ProductsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StoreTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int UserIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserTable UserTableField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -269,79 +390,118 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string company {
+        public string Company {
             get {
-                return this.companyField;
+                return this.CompanyField;
             }
             set {
-                if ((object.ReferenceEquals(this.companyField, value) != true)) {
-                    this.companyField = value;
-                    this.RaisePropertyChanged("company");
+                if ((object.ReferenceEquals(this.CompanyField, value) != true)) {
+                    this.CompanyField = value;
+                    this.RaisePropertyChanged("Company");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string location {
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.FavouriteStore[] FavouriteStores {
             get {
-                return this.locationField;
+                return this.FavouriteStoresField;
             }
             set {
-                if ((object.ReferenceEquals(this.locationField, value) != true)) {
-                    this.locationField = value;
-                    this.RaisePropertyChanged("location");
+                if ((object.ReferenceEquals(this.FavouriteStoresField, value) != true)) {
+                    this.FavouriteStoresField = value;
+                    this.RaisePropertyChanged("FavouriteStores");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string logo {
+        public string Location {
             get {
-                return this.logoField;
+                return this.LocationField;
             }
             set {
-                if ((object.ReferenceEquals(this.logoField, value) != true)) {
-                    this.logoField = value;
-                    this.RaisePropertyChanged("logo");
+                if ((object.ReferenceEquals(this.LocationField, value) != true)) {
+                    this.LocationField = value;
+                    this.RaisePropertyChanged("Location");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string name {
+        public string Logo {
             get {
-                return this.nameField;
+                return this.LogoField;
             }
             set {
-                if ((object.ReferenceEquals(this.nameField, value) != true)) {
-                    this.nameField = value;
-                    this.RaisePropertyChanged("name");
+                if ((object.ReferenceEquals(this.LogoField, value) != true)) {
+                    this.LogoField = value;
+                    this.RaisePropertyChanged("Logo");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string sType {
+        public string Name {
             get {
-                return this.sTypeField;
+                return this.NameField;
             }
             set {
-                if ((object.ReferenceEquals(this.sTypeField, value) != true)) {
-                    this.sTypeField = value;
-                    this.RaisePropertyChanged("sType");
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserRecord u {
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[] Products {
             get {
-                return this.uField;
+                return this.ProductsField;
             }
             set {
-                if ((object.ReferenceEquals(this.uField, value) != true)) {
-                    this.uField = value;
-                    this.RaisePropertyChanged("u");
+                if ((object.ReferenceEquals(this.ProductsField, value) != true)) {
+                    this.ProductsField = value;
+                    this.RaisePropertyChanged("Products");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string StoreType {
+            get {
+                return this.StoreTypeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StoreTypeField, value) != true)) {
+                    this.StoreTypeField = value;
+                    this.RaisePropertyChanged("StoreType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UserId {
+            get {
+                return this.UserIdField;
+            }
+            set {
+                if ((this.UserIdField.Equals(value) != true)) {
+                    this.UserIdField = value;
+                    this.RaisePropertyChanged("UserId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserTable UserTable {
+            get {
+                return this.UserTableField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserTableField, value) != true)) {
+                    this.UserTableField = value;
+                    this.RaisePropertyChanged("UserTable");
                 }
             }
         }
@@ -358,33 +518,36 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ProductRecord", Namespace="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CartItem", Namespace="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF")]
     [System.SerializableAttribute()]
-    public partial class ProductRecord : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class CartItem : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool enabledField;
+        private int CartIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime prodDateField;
+        private Team34_GP_IFM02B2_2023_WebApp.ResQReference.Customer CustomerField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string prodDescField;
+        private System.DateTime DateAddedField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int prodIdField;
+        private Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product ProductField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string prodNameField;
+        private int ProductIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double prodPriceField;
+        private int QuantityField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int storeIdField;
+        private bool StatusField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int UserIdField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -397,92 +560,105 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool enabled {
+        public int CartId {
             get {
-                return this.enabledField;
+                return this.CartIdField;
             }
             set {
-                if ((this.enabledField.Equals(value) != true)) {
-                    this.enabledField = value;
-                    this.RaisePropertyChanged("enabled");
+                if ((this.CartIdField.Equals(value) != true)) {
+                    this.CartIdField = value;
+                    this.RaisePropertyChanged("CartId");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime prodDate {
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Customer Customer {
             get {
-                return this.prodDateField;
+                return this.CustomerField;
             }
             set {
-                if ((this.prodDateField.Equals(value) != true)) {
-                    this.prodDateField = value;
-                    this.RaisePropertyChanged("prodDate");
+                if ((object.ReferenceEquals(this.CustomerField, value) != true)) {
+                    this.CustomerField = value;
+                    this.RaisePropertyChanged("Customer");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string prodDesc {
+        public System.DateTime DateAdded {
             get {
-                return this.prodDescField;
+                return this.DateAddedField;
             }
             set {
-                if ((object.ReferenceEquals(this.prodDescField, value) != true)) {
-                    this.prodDescField = value;
-                    this.RaisePropertyChanged("prodDesc");
+                if ((this.DateAddedField.Equals(value) != true)) {
+                    this.DateAddedField = value;
+                    this.RaisePropertyChanged("DateAdded");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int prodId {
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product Product {
             get {
-                return this.prodIdField;
+                return this.ProductField;
             }
             set {
-                if ((this.prodIdField.Equals(value) != true)) {
-                    this.prodIdField = value;
-                    this.RaisePropertyChanged("prodId");
+                if ((object.ReferenceEquals(this.ProductField, value) != true)) {
+                    this.ProductField = value;
+                    this.RaisePropertyChanged("Product");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string prodName {
+        public int ProductId {
             get {
-                return this.prodNameField;
+                return this.ProductIdField;
             }
             set {
-                if ((object.ReferenceEquals(this.prodNameField, value) != true)) {
-                    this.prodNameField = value;
-                    this.RaisePropertyChanged("prodName");
+                if ((this.ProductIdField.Equals(value) != true)) {
+                    this.ProductIdField = value;
+                    this.RaisePropertyChanged("ProductId");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public double prodPrice {
+        public int Quantity {
             get {
-                return this.prodPriceField;
+                return this.QuantityField;
             }
             set {
-                if ((this.prodPriceField.Equals(value) != true)) {
-                    this.prodPriceField = value;
-                    this.RaisePropertyChanged("prodPrice");
+                if ((this.QuantityField.Equals(value) != true)) {
+                    this.QuantityField = value;
+                    this.RaisePropertyChanged("Quantity");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int storeId {
+        public bool Status {
             get {
-                return this.storeIdField;
+                return this.StatusField;
             }
             set {
-                if ((this.storeIdField.Equals(value) != true)) {
-                    this.storeIdField = value;
-                    this.RaisePropertyChanged("storeId");
+                if ((this.StatusField.Equals(value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UserId {
+            get {
+                return this.UserIdField;
+            }
+            set {
+                if ((this.UserIdField.Equals(value) != true)) {
+                    this.UserIdField = value;
+                    this.RaisePropertyChanged("UserId");
                 }
             }
         }
@@ -499,33 +675,27 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CartRecord", Namespace="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FavouriteStore", Namespace="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF")]
     [System.SerializableAttribute()]
-    public partial class CartRecord : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class FavouriteStore : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime addedField;
+        private Team34_GP_IFM02B2_2023_WebApp.ResQReference.Customer CustomerField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int cartIdField;
+        private int CustomerUserIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool enabledField;
+        private int FavStoreIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Team34_GP_IFM02B2_2023_WebApp.ResQReference.ProductRecord pField;
+        private Team34_GP_IFM02B2_2023_WebApp.ResQReference.Store StoreField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int prodIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserRecord uField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int userIdField;
+        private int StoreUserIdField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -538,92 +708,723 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime added {
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Customer Customer {
             get {
-                return this.addedField;
+                return this.CustomerField;
             }
             set {
-                if ((this.addedField.Equals(value) != true)) {
-                    this.addedField = value;
-                    this.RaisePropertyChanged("added");
+                if ((object.ReferenceEquals(this.CustomerField, value) != true)) {
+                    this.CustomerField = value;
+                    this.RaisePropertyChanged("Customer");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int cartId {
+        public int CustomerUserId {
             get {
-                return this.cartIdField;
+                return this.CustomerUserIdField;
             }
             set {
-                if ((this.cartIdField.Equals(value) != true)) {
-                    this.cartIdField = value;
-                    this.RaisePropertyChanged("cartId");
+                if ((this.CustomerUserIdField.Equals(value) != true)) {
+                    this.CustomerUserIdField = value;
+                    this.RaisePropertyChanged("CustomerUserId");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool enabled {
+        public int FavStoreId {
             get {
-                return this.enabledField;
+                return this.FavStoreIdField;
             }
             set {
-                if ((this.enabledField.Equals(value) != true)) {
-                    this.enabledField = value;
-                    this.RaisePropertyChanged("enabled");
+                if ((this.FavStoreIdField.Equals(value) != true)) {
+                    this.FavStoreIdField = value;
+                    this.RaisePropertyChanged("FavStoreId");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.ProductRecord p {
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Store Store {
             get {
-                return this.pField;
+                return this.StoreField;
             }
             set {
-                if ((object.ReferenceEquals(this.pField, value) != true)) {
-                    this.pField = value;
-                    this.RaisePropertyChanged("p");
+                if ((object.ReferenceEquals(this.StoreField, value) != true)) {
+                    this.StoreField = value;
+                    this.RaisePropertyChanged("Store");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int prodId {
+        public int StoreUserId {
             get {
-                return this.prodIdField;
+                return this.StoreUserIdField;
             }
             set {
-                if ((this.prodIdField.Equals(value) != true)) {
-                    this.prodIdField = value;
-                    this.RaisePropertyChanged("prodId");
+                if ((this.StoreUserIdField.Equals(value) != true)) {
+                    this.StoreUserIdField = value;
+                    this.RaisePropertyChanged("StoreUserId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Invoice", Namespace="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF")]
+    [System.SerializableAttribute()]
+    public partial class Invoice : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Team34_GP_IFM02B2_2023_WebApp.ResQReference.Customer CustomerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime DateAddedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int InvoiceIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Team34_GP_IFM02B2_2023_WebApp.ResQReference.InvoiceItem[] InvoiceItemsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal TotalPriceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int UserIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Customer Customer {
+            get {
+                return this.CustomerField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CustomerField, value) != true)) {
+                    this.CustomerField = value;
+                    this.RaisePropertyChanged("Customer");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserRecord u {
+        public System.DateTime DateAdded {
             get {
-                return this.uField;
+                return this.DateAddedField;
             }
             set {
-                if ((object.ReferenceEquals(this.uField, value) != true)) {
-                    this.uField = value;
-                    this.RaisePropertyChanged("u");
+                if ((this.DateAddedField.Equals(value) != true)) {
+                    this.DateAddedField = value;
+                    this.RaisePropertyChanged("DateAdded");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int userId {
+        public int InvoiceId {
             get {
-                return this.userIdField;
+                return this.InvoiceIdField;
             }
             set {
-                if ((this.userIdField.Equals(value) != true)) {
-                    this.userIdField = value;
-                    this.RaisePropertyChanged("userId");
+                if ((this.InvoiceIdField.Equals(value) != true)) {
+                    this.InvoiceIdField = value;
+                    this.RaisePropertyChanged("InvoiceId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.InvoiceItem[] InvoiceItems {
+            get {
+                return this.InvoiceItemsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.InvoiceItemsField, value) != true)) {
+                    this.InvoiceItemsField = value;
+                    this.RaisePropertyChanged("InvoiceItems");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal TotalPrice {
+            get {
+                return this.TotalPriceField;
+            }
+            set {
+                if ((this.TotalPriceField.Equals(value) != true)) {
+                    this.TotalPriceField = value;
+                    this.RaisePropertyChanged("TotalPrice");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UserId {
+            get {
+                return this.UserIdField;
+            }
+            set {
+                if ((this.UserIdField.Equals(value) != true)) {
+                    this.UserIdField = value;
+                    this.RaisePropertyChanged("UserId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Product", Namespace="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF")]
+    [System.SerializableAttribute()]
+    public partial class Product : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Team34_GP_IFM02B2_2023_WebApp.ResQReference.CartItem[] CartItemsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime DateAddedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool EnabledField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Team34_GP_IFM02B2_2023_WebApp.ResQReference.InvoiceItem[] InvoiceItemsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PictureField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private decimal PriceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ProductIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Team34_GP_IFM02B2_2023_WebApp.ResQReference.ProductTag[] ProductTagsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Team34_GP_IFM02B2_2023_WebApp.ResQReference.Store StoreField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int UserIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.CartItem[] CartItems {
+            get {
+                return this.CartItemsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CartItemsField, value) != true)) {
+                    this.CartItemsField = value;
+                    this.RaisePropertyChanged("CartItems");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime DateAdded {
+            get {
+                return this.DateAddedField;
+            }
+            set {
+                if ((this.DateAddedField.Equals(value) != true)) {
+                    this.DateAddedField = value;
+                    this.RaisePropertyChanged("DateAdded");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Enabled {
+            get {
+                return this.EnabledField;
+            }
+            set {
+                if ((this.EnabledField.Equals(value) != true)) {
+                    this.EnabledField = value;
+                    this.RaisePropertyChanged("Enabled");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.InvoiceItem[] InvoiceItems {
+            get {
+                return this.InvoiceItemsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.InvoiceItemsField, value) != true)) {
+                    this.InvoiceItemsField = value;
+                    this.RaisePropertyChanged("InvoiceItems");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Picture {
+            get {
+                return this.PictureField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PictureField, value) != true)) {
+                    this.PictureField = value;
+                    this.RaisePropertyChanged("Picture");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public decimal Price {
+            get {
+                return this.PriceField;
+            }
+            set {
+                if ((this.PriceField.Equals(value) != true)) {
+                    this.PriceField = value;
+                    this.RaisePropertyChanged("Price");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ProductId {
+            get {
+                return this.ProductIdField;
+            }
+            set {
+                if ((this.ProductIdField.Equals(value) != true)) {
+                    this.ProductIdField = value;
+                    this.RaisePropertyChanged("ProductId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.ProductTag[] ProductTags {
+            get {
+                return this.ProductTagsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProductTagsField, value) != true)) {
+                    this.ProductTagsField = value;
+                    this.RaisePropertyChanged("ProductTags");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Store Store {
+            get {
+                return this.StoreField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StoreField, value) != true)) {
+                    this.StoreField = value;
+                    this.RaisePropertyChanged("Store");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UserId {
+            get {
+                return this.UserIdField;
+            }
+            set {
+                if ((this.UserIdField.Equals(value) != true)) {
+                    this.UserIdField = value;
+                    this.RaisePropertyChanged("UserId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="InvoiceItem", Namespace="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF")]
+    [System.SerializableAttribute()]
+    public partial class InvoiceItem : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Team34_GP_IFM02B2_2023_WebApp.ResQReference.Invoice InvoiceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int InvoiceIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int InvoiceItemIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product ProductField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ProductIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int QuantityField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Invoice Invoice {
+            get {
+                return this.InvoiceField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.InvoiceField, value) != true)) {
+                    this.InvoiceField = value;
+                    this.RaisePropertyChanged("Invoice");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int InvoiceId {
+            get {
+                return this.InvoiceIdField;
+            }
+            set {
+                if ((this.InvoiceIdField.Equals(value) != true)) {
+                    this.InvoiceIdField = value;
+                    this.RaisePropertyChanged("InvoiceId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int InvoiceItemId {
+            get {
+                return this.InvoiceItemIdField;
+            }
+            set {
+                if ((this.InvoiceItemIdField.Equals(value) != true)) {
+                    this.InvoiceItemIdField = value;
+                    this.RaisePropertyChanged("InvoiceItemId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product Product {
+            get {
+                return this.ProductField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProductField, value) != true)) {
+                    this.ProductField = value;
+                    this.RaisePropertyChanged("Product");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ProductId {
+            get {
+                return this.ProductIdField;
+            }
+            set {
+                if ((this.ProductIdField.Equals(value) != true)) {
+                    this.ProductIdField = value;
+                    this.RaisePropertyChanged("ProductId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Quantity {
+            get {
+                return this.QuantityField;
+            }
+            set {
+                if ((this.QuantityField.Equals(value) != true)) {
+                    this.QuantityField = value;
+                    this.RaisePropertyChanged("Quantity");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProductTag", Namespace="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF")]
+    [System.SerializableAttribute()]
+    public partial class ProductTag : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product ProductField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ProductIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ProductTagIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Team34_GP_IFM02B2_2023_WebApp.ResQReference.Tag TagField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TagIdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product Product {
+            get {
+                return this.ProductField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProductField, value) != true)) {
+                    this.ProductField = value;
+                    this.RaisePropertyChanged("Product");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ProductId {
+            get {
+                return this.ProductIdField;
+            }
+            set {
+                if ((this.ProductIdField.Equals(value) != true)) {
+                    this.ProductIdField = value;
+                    this.RaisePropertyChanged("ProductId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ProductTagId {
+            get {
+                return this.ProductTagIdField;
+            }
+            set {
+                if ((this.ProductTagIdField.Equals(value) != true)) {
+                    this.ProductTagIdField = value;
+                    this.RaisePropertyChanged("ProductTagId");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Tag Tag {
+            get {
+                return this.TagField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TagField, value) != true)) {
+                    this.TagField = value;
+                    this.RaisePropertyChanged("Tag");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TagId {
+            get {
+                return this.TagIdField;
+            }
+            set {
+                if ((this.TagIdField.Equals(value) != true)) {
+                    this.TagIdField = value;
+                    this.RaisePropertyChanged("TagId");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Tag", Namespace="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF")]
+    [System.SerializableAttribute()]
+    public partial class Tag : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Team34_GP_IFM02B2_2023_WebApp.ResQReference.ProductTag[] ProductTagsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TagIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TagNameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.ProductTag[] ProductTags {
+            get {
+                return this.ProductTagsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProductTagsField, value) != true)) {
+                    this.ProductTagsField = value;
+                    this.RaisePropertyChanged("ProductTags");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TagID {
+            get {
+                return this.TagIDField;
+            }
+            set {
+                if ((this.TagIDField.Equals(value) != true)) {
+                    this.TagIDField = value;
+                    this.RaisePropertyChanged("TagID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TagName {
+            get {
+                return this.TagNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TagNameField, value) != true)) {
+                    this.TagNameField = value;
+                    this.RaisePropertyChanged("TagName");
                 }
             }
         }
@@ -667,58 +1468,46 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
         System.Threading.Tasks.Task<bool> regStoreAsync(string uEmail, string uPass, string comp, string name, string icoPath, string loc, string type);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getAdmin", ReplyAction="http://tempuri.org/IRESQSERVICE/getAdminResponse")]
-        Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserRecord getAdmin(string uEmail);
+        Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserTable getAdmin(string uEmail);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getAdmin", ReplyAction="http://tempuri.org/IRESQSERVICE/getAdminResponse")]
-        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserRecord> getAdminAsync(string uEmail);
+        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserTable> getAdminAsync(string uEmail);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getUser", ReplyAction="http://tempuri.org/IRESQSERVICE/getUserResponse")]
+        Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserTable getUser(string uEmail, int type);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getUser", ReplyAction="http://tempuri.org/IRESQSERVICE/getUserResponse")]
+        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserTable> getUserAsync(string uEmail, int type);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getCustomer", ReplyAction="http://tempuri.org/IRESQSERVICE/getCustomerResponse")]
-        Team34_GP_IFM02B2_2023_WebApp.ResQReference.CustomerRecord getCustomer(string uEmail);
+        Team34_GP_IFM02B2_2023_WebApp.ResQReference.Customer getCustomer(string uEmail);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getCustomer", ReplyAction="http://tempuri.org/IRESQSERVICE/getCustomerResponse")]
-        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.CustomerRecord> getCustomerAsync(string uEmail);
+        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Customer> getCustomerAsync(string uEmail);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getStore", ReplyAction="http://tempuri.org/IRESQSERVICE/getStoreResponse")]
-        Team34_GP_IFM02B2_2023_WebApp.ResQReference.StoreRecord getStore(string uEmail);
+        Team34_GP_IFM02B2_2023_WebApp.ResQReference.Store getStore(string uEmail);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getStore", ReplyAction="http://tempuri.org/IRESQSERVICE/getStoreResponse")]
-        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.StoreRecord> getStoreAsync(string uEmail);
+        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Store> getStoreAsync(string uEmail);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/GetEmployeeRecords", ReplyAction="http://tempuri.org/IRESQSERVICE/GetEmployeeRecordsResponse")]
-        Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserRecord[] GetEmployeeRecords(string uEmail);
+        Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserTable[] GetEmployeeRecords(string uEmail);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/GetEmployeeRecords", ReplyAction="http://tempuri.org/IRESQSERVICE/GetEmployeeRecordsResponse")]
-        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserRecord[]> GetEmployeeRecordsAsync(string uEmail);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/DeleteUser", ReplyAction="http://tempuri.org/IRESQSERVICE/DeleteUserResponse")]
-        string DeleteUser(string uEmail);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/DeleteUser", ReplyAction="http://tempuri.org/IRESQSERVICE/DeleteUserResponse")]
-        System.Threading.Tasks.Task<string> DeleteUserAsync(string uEmail);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/SearchUser", ReplyAction="http://tempuri.org/IRESQSERVICE/SearchUserResponse")]
-        Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserRecord[] SearchUser(string uEmail);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/SearchUser", ReplyAction="http://tempuri.org/IRESQSERVICE/SearchUserResponse")]
-        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserRecord[]> SearchUserAsync(string uEmail);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/UpdateUser", ReplyAction="http://tempuri.org/IRESQSERVICE/UpdateUserResponse")]
-        string UpdateUser(string uEmail);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/UpdateUser", ReplyAction="http://tempuri.org/IRESQSERVICE/UpdateUserResponse")]
-        System.Threading.Tasks.Task<string> UpdateUserAsync(string uEmail);
+        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserTable[]> GetEmployeeRecordsAsync(string uEmail);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getAllProducts", ReplyAction="http://tempuri.org/IRESQSERVICE/getAllProductsResponse")]
-        Team34_GP_IFM02B2_2023_WebApp.ResQReference.ProductRecord[] getAllProducts();
+        Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[] getAllProducts();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getAllProducts", ReplyAction="http://tempuri.org/IRESQSERVICE/getAllProductsResponse")]
-        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.ProductRecord[]> getAllProductsAsync();
+        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[]> getAllProductsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/SearchProducts", ReplyAction="http://tempuri.org/IRESQSERVICE/SearchProductsResponse")]
-        Team34_GP_IFM02B2_2023_WebApp.ResQReference.ProductRecord[] SearchProducts(string name);
+        Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[] SearchProducts(string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/SearchProducts", ReplyAction="http://tempuri.org/IRESQSERVICE/SearchProductsResponse")]
-        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.ProductRecord[]> SearchProductsAsync(string name);
+        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[]> SearchProductsAsync(string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/AddProduct", ReplyAction="http://tempuri.org/IRESQSERVICE/AddProductResponse")]
         bool AddProduct(int sID, string name, string desc, double price, string picPath, System.DateTime date, bool enabled);
@@ -733,10 +1522,70 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
         System.Threading.Tasks.Task<bool> AddToCartAsync(int pID, int uID, System.DateTime added, bool enabled);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/GetCart", ReplyAction="http://tempuri.org/IRESQSERVICE/GetCartResponse")]
-        Team34_GP_IFM02B2_2023_WebApp.ResQReference.CartRecord[] GetCart();
+        Team34_GP_IFM02B2_2023_WebApp.ResQReference.CartItem[] GetCart(int UID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/GetCart", ReplyAction="http://tempuri.org/IRESQSERVICE/GetCartResponse")]
-        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.CartRecord[]> GetCartAsync();
+        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.CartItem[]> GetCartAsync(int UID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/editProduct", ReplyAction="http://tempuri.org/IRESQSERVICE/editProductResponse")]
+        bool editProduct(Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product P);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/editProduct", ReplyAction="http://tempuri.org/IRESQSERVICE/editProductResponse")]
+        System.Threading.Tasks.Task<bool> editProductAsync(Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product P);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/editUser", ReplyAction="http://tempuri.org/IRESQSERVICE/editUserResponse")]
+        bool editUser(Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserTable U);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/editUser", ReplyAction="http://tempuri.org/IRESQSERVICE/editUserResponse")]
+        System.Threading.Tasks.Task<bool> editUserAsync(Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserTable U);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/editCustomer", ReplyAction="http://tempuri.org/IRESQSERVICE/editCustomerResponse")]
+        bool editCustomer(Team34_GP_IFM02B2_2023_WebApp.ResQReference.Customer C);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/editCustomer", ReplyAction="http://tempuri.org/IRESQSERVICE/editCustomerResponse")]
+        System.Threading.Tasks.Task<bool> editCustomerAsync(Team34_GP_IFM02B2_2023_WebApp.ResQReference.Customer C);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/editStore", ReplyAction="http://tempuri.org/IRESQSERVICE/editStoreResponse")]
+        bool editStore(Team34_GP_IFM02B2_2023_WebApp.ResQReference.Store S);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/editStore", ReplyAction="http://tempuri.org/IRESQSERVICE/editStoreResponse")]
+        System.Threading.Tasks.Task<bool> editStoreAsync(Team34_GP_IFM02B2_2023_WebApp.ResQReference.Store S);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/addInvoice", ReplyAction="http://tempuri.org/IRESQSERVICE/addInvoiceResponse")]
+        bool addInvoice(int UID, double price, System.DateTime TOS, Team34_GP_IFM02B2_2023_WebApp.ResQReference.CartItem[] cart);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/addInvoice", ReplyAction="http://tempuri.org/IRESQSERVICE/addInvoiceResponse")]
+        System.Threading.Tasks.Task<bool> addInvoiceAsync(int UID, double price, System.DateTime TOS, Team34_GP_IFM02B2_2023_WebApp.ResQReference.CartItem[] cart);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/addInvoiceItem", ReplyAction="http://tempuri.org/IRESQSERVICE/addInvoiceItemResponse")]
+        bool addInvoiceItem(int ID, Team34_GP_IFM02B2_2023_WebApp.ResQReference.CartItem c);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/addInvoiceItem", ReplyAction="http://tempuri.org/IRESQSERVICE/addInvoiceItemResponse")]
+        System.Threading.Tasks.Task<bool> addInvoiceItemAsync(int ID, Team34_GP_IFM02B2_2023_WebApp.ResQReference.CartItem c);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getFilteredList", ReplyAction="http://tempuri.org/IRESQSERVICE/getFilteredListResponse")]
+        Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[] getFilteredList(string name, double P1, double P2, int[] tags, int manu);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getFilteredList", ReplyAction="http://tempuri.org/IRESQSERVICE/getFilteredListResponse")]
+        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[]> getFilteredListAsync(string name, double P1, double P2, int[] tags, int manu);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getInvoices", ReplyAction="http://tempuri.org/IRESQSERVICE/getInvoicesResponse")]
+        Team34_GP_IFM02B2_2023_WebApp.ResQReference.Invoice[] getInvoices(int UID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getInvoices", ReplyAction="http://tempuri.org/IRESQSERVICE/getInvoicesResponse")]
+        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Invoice[]> getInvoicesAsync(int UID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getInvoice", ReplyAction="http://tempuri.org/IRESQSERVICE/getInvoiceResponse")]
+        Team34_GP_IFM02B2_2023_WebApp.ResQReference.Invoice getInvoice(int IID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getInvoice", ReplyAction="http://tempuri.org/IRESQSERVICE/getInvoiceResponse")]
+        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Invoice> getInvoiceAsync(int IID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getInvoiceItems", ReplyAction="http://tempuri.org/IRESQSERVICE/getInvoiceItemsResponse")]
+        Team34_GP_IFM02B2_2023_WebApp.ResQReference.InvoiceItem[] getInvoiceItems(int IID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getInvoiceItems", ReplyAction="http://tempuri.org/IRESQSERVICE/getInvoiceItemsResponse")]
+        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.InvoiceItem[]> getInvoiceItemsAsync(int IID);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -798,75 +1647,59 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
             return base.Channel.regStoreAsync(uEmail, uPass, comp, name, icoPath, loc, type);
         }
         
-        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserRecord getAdmin(string uEmail) {
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserTable getAdmin(string uEmail) {
             return base.Channel.getAdmin(uEmail);
         }
         
-        public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserRecord> getAdminAsync(string uEmail) {
+        public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserTable> getAdminAsync(string uEmail) {
             return base.Channel.getAdminAsync(uEmail);
         }
         
-        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.CustomerRecord getCustomer(string uEmail) {
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserTable getUser(string uEmail, int type) {
+            return base.Channel.getUser(uEmail, type);
+        }
+        
+        public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserTable> getUserAsync(string uEmail, int type) {
+            return base.Channel.getUserAsync(uEmail, type);
+        }
+        
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Customer getCustomer(string uEmail) {
             return base.Channel.getCustomer(uEmail);
         }
         
-        public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.CustomerRecord> getCustomerAsync(string uEmail) {
+        public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Customer> getCustomerAsync(string uEmail) {
             return base.Channel.getCustomerAsync(uEmail);
         }
         
-        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.StoreRecord getStore(string uEmail) {
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Store getStore(string uEmail) {
             return base.Channel.getStore(uEmail);
         }
         
-        public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.StoreRecord> getStoreAsync(string uEmail) {
+        public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Store> getStoreAsync(string uEmail) {
             return base.Channel.getStoreAsync(uEmail);
         }
         
-        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserRecord[] GetEmployeeRecords(string uEmail) {
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserTable[] GetEmployeeRecords(string uEmail) {
             return base.Channel.GetEmployeeRecords(uEmail);
         }
         
-        public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserRecord[]> GetEmployeeRecordsAsync(string uEmail) {
+        public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserTable[]> GetEmployeeRecordsAsync(string uEmail) {
             return base.Channel.GetEmployeeRecordsAsync(uEmail);
         }
         
-        public string DeleteUser(string uEmail) {
-            return base.Channel.DeleteUser(uEmail);
-        }
-        
-        public System.Threading.Tasks.Task<string> DeleteUserAsync(string uEmail) {
-            return base.Channel.DeleteUserAsync(uEmail);
-        }
-        
-        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserRecord[] SearchUser(string uEmail) {
-            return base.Channel.SearchUser(uEmail);
-        }
-        
-        public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserRecord[]> SearchUserAsync(string uEmail) {
-            return base.Channel.SearchUserAsync(uEmail);
-        }
-        
-        public string UpdateUser(string uEmail) {
-            return base.Channel.UpdateUser(uEmail);
-        }
-        
-        public System.Threading.Tasks.Task<string> UpdateUserAsync(string uEmail) {
-            return base.Channel.UpdateUserAsync(uEmail);
-        }
-        
-        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.ProductRecord[] getAllProducts() {
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[] getAllProducts() {
             return base.Channel.getAllProducts();
         }
         
-        public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.ProductRecord[]> getAllProductsAsync() {
+        public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[]> getAllProductsAsync() {
             return base.Channel.getAllProductsAsync();
         }
         
-        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.ProductRecord[] SearchProducts(string name) {
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[] SearchProducts(string name) {
             return base.Channel.SearchProducts(name);
         }
         
-        public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.ProductRecord[]> SearchProductsAsync(string name) {
+        public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[]> SearchProductsAsync(string name) {
             return base.Channel.SearchProductsAsync(name);
         }
         
@@ -886,12 +1719,92 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
             return base.Channel.AddToCartAsync(pID, uID, added, enabled);
         }
         
-        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.CartRecord[] GetCart() {
-            return base.Channel.GetCart();
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.CartItem[] GetCart(int UID) {
+            return base.Channel.GetCart(UID);
         }
         
-        public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.CartRecord[]> GetCartAsync() {
-            return base.Channel.GetCartAsync();
+        public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.CartItem[]> GetCartAsync(int UID) {
+            return base.Channel.GetCartAsync(UID);
+        }
+        
+        public bool editProduct(Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product P) {
+            return base.Channel.editProduct(P);
+        }
+        
+        public System.Threading.Tasks.Task<bool> editProductAsync(Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product P) {
+            return base.Channel.editProductAsync(P);
+        }
+        
+        public bool editUser(Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserTable U) {
+            return base.Channel.editUser(U);
+        }
+        
+        public System.Threading.Tasks.Task<bool> editUserAsync(Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserTable U) {
+            return base.Channel.editUserAsync(U);
+        }
+        
+        public bool editCustomer(Team34_GP_IFM02B2_2023_WebApp.ResQReference.Customer C) {
+            return base.Channel.editCustomer(C);
+        }
+        
+        public System.Threading.Tasks.Task<bool> editCustomerAsync(Team34_GP_IFM02B2_2023_WebApp.ResQReference.Customer C) {
+            return base.Channel.editCustomerAsync(C);
+        }
+        
+        public bool editStore(Team34_GP_IFM02B2_2023_WebApp.ResQReference.Store S) {
+            return base.Channel.editStore(S);
+        }
+        
+        public System.Threading.Tasks.Task<bool> editStoreAsync(Team34_GP_IFM02B2_2023_WebApp.ResQReference.Store S) {
+            return base.Channel.editStoreAsync(S);
+        }
+        
+        public bool addInvoice(int UID, double price, System.DateTime TOS, Team34_GP_IFM02B2_2023_WebApp.ResQReference.CartItem[] cart) {
+            return base.Channel.addInvoice(UID, price, TOS, cart);
+        }
+        
+        public System.Threading.Tasks.Task<bool> addInvoiceAsync(int UID, double price, System.DateTime TOS, Team34_GP_IFM02B2_2023_WebApp.ResQReference.CartItem[] cart) {
+            return base.Channel.addInvoiceAsync(UID, price, TOS, cart);
+        }
+        
+        public bool addInvoiceItem(int ID, Team34_GP_IFM02B2_2023_WebApp.ResQReference.CartItem c) {
+            return base.Channel.addInvoiceItem(ID, c);
+        }
+        
+        public System.Threading.Tasks.Task<bool> addInvoiceItemAsync(int ID, Team34_GP_IFM02B2_2023_WebApp.ResQReference.CartItem c) {
+            return base.Channel.addInvoiceItemAsync(ID, c);
+        }
+        
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[] getFilteredList(string name, double P1, double P2, int[] tags, int manu) {
+            return base.Channel.getFilteredList(name, P1, P2, tags, manu);
+        }
+        
+        public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[]> getFilteredListAsync(string name, double P1, double P2, int[] tags, int manu) {
+            return base.Channel.getFilteredListAsync(name, P1, P2, tags, manu);
+        }
+        
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Invoice[] getInvoices(int UID) {
+            return base.Channel.getInvoices(UID);
+        }
+        
+        public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Invoice[]> getInvoicesAsync(int UID) {
+            return base.Channel.getInvoicesAsync(UID);
+        }
+        
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Invoice getInvoice(int IID) {
+            return base.Channel.getInvoice(IID);
+        }
+        
+        public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Invoice> getInvoiceAsync(int IID) {
+            return base.Channel.getInvoiceAsync(IID);
+        }
+        
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.InvoiceItem[] getInvoiceItems(int IID) {
+            return base.Channel.getInvoiceItems(IID);
+        }
+        
+        public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.InvoiceItem[]> getInvoiceItemsAsync(int IID) {
+            return base.Channel.getInvoiceItemsAsync(IID);
         }
     }
 }
