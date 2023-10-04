@@ -5,12 +5,13 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Team34_GP_IFM02B2_2023_WebApp.ResQReference;
 
 namespace Team34_GP_IFM02B2_2023_WebApp
 {
     public partial class login : System.Web.UI.Page
     {
-        ResQReference.RESQSERVICEClient sc = new ResQReference.RESQSERVICEClient();
+        RESQSERVICEClient sc = new RESQSERVICEClient();
         protected void Page_Load(object sender, EventArgs e)
         {
             noLog.Visible = false;
@@ -36,23 +37,26 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                         break;
                     case 0:
                         Session["user"] = sc.getAdmin(GivenEmail);
-                        userName = ((ResQReference.UserRecord)Session["user"]).userEmail;
-                        //Server.Transfer("index.aspx");
-                        Response.Redirect("index.aspx?userName=" + userName);
+                        userName = ((UserTable)Session["user"]).Email;
+                    //Server.Transfer("index.aspx");
+                    //Response.Redirect("index.aspx?userName=" + userName);
+                    Response.Redirect("index.aspx");
                     break;
                     case 1:
                         Session["user"] = sc.getAdmin(GivenEmail);
-                        ResQReference.CustomerRecord cust = sc.getCustomer(GivenEmail);
-                        userName = cust.fName + " " + cust.lName;
-                         //Server.Transfer("index.aspx?");
-                        Response.Redirect("index.aspx?userName=" + userName);
+                        Customer cust = sc.getCustomer(GivenEmail);
+                        //userName = cust.FirstName + " " + cust.LastName;
+                        //Server.Transfer("index.aspx?");
+                        //Response.Redirect("index.aspx?userName=" + userName);
+                    Response.Redirect("index.aspx");
                     break;
                     case 2:
                         Session["user"] = sc.getAdmin(GivenEmail);
-                        ResQReference.StoreRecord store = sc.getStore(GivenEmail);
-                        userName = store.name;
+                        Store store = sc.getStore(GivenEmail);
+                        //userName = store.Name;
                         //Server.Transfer("index.aspx");
-                        Response.Redirect("index.aspx?userName=" + userName);
+                        //Response.Redirect("index.aspx?userName=" + userName);
+                        Response.Redirect("index.aspx");
                     break;
 
                 }
