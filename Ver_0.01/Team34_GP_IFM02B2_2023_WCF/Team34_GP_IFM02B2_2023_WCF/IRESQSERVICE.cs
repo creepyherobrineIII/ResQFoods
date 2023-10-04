@@ -42,6 +42,9 @@ namespace Team34_GP_IFM02B2_2023_WCF
         List<Product> getAllProducts();
 
         [OperationContract]
+         Product GetProduct(int pID)
+
+        [OperationContract]
         List<Product> SearchProducts(String name);
 
         [OperationContract]

@@ -826,6 +826,11 @@ namespace Team34_GP_IFM02B2_2023_WCF
             return tempList;
 
         }
+
+        public Product getProduct(int ID)
+        {
+            throw new NotImplementedException();
+        }
     }
     }
 
