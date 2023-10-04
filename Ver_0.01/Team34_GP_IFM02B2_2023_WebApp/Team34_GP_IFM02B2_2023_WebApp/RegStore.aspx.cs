@@ -29,7 +29,8 @@ namespace Team34_GP_IFM02B2_2023_WebApp
             String type = sType.Value;
             if (pass.Equals(cps))
             {
-                var regstr = sc.regStore(email, pass, cnm, snm, "/assets/img/shoprite.jpg", loc, type);
+                //use to lower and find the picture (some of the pictures arent jpg atm, need to fix that 
+                var regstr = sc.regStore(email, pass, cnm, snm, "/assets/img/" + cnm.ToLower() +".jpg", loc, type);
                 if (regstr)
                 {
                     regStat.Visible = true;
