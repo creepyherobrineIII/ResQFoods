@@ -54,6 +54,9 @@ namespace Team34_GP_IFM02B2_2023_WCF
         bool AddToCart(int pID, int uID, DateTime added, bool enabled);
 
         [OperationContract]
+        List<CartItem> GetCartTotal(int UID);
+
+        [OperationContract]
         List<CartItem> GetCart(int UID);
 
         [OperationContract]
