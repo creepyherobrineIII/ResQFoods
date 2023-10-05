@@ -839,16 +839,30 @@ namespace Team34_GP_IFM02B2_2023_WCF
 
         public List<Store> getStores()
         {
-            dynamic st = (from u in db.UserTables
+            List<Store> stList = new List<Store>();
+            dynamic user = (from u in db.UserTables
                           where u.Enabled == true && u.UserType==2
                           select u).DefaultIfEmpty();
-            if (st != null)
+            if (user != null)
             {
-                foreach (Store s in st)
+                foreach (UserTable temp in user)
                 {
-
+                    var st = (from s in db.Stores
+                              where s.UserId.Equals(temp.UserId)
+                              select s).FirstOrDefault();
+                    if (st != null)
+                    {
+                        Store stor = new Store
+                        {
+                            UserId = st.UserId,
+                            Name = st.Name,
+                            Logo = st.Logo
+                        };
+                        stList.Add(stor);
+                    }
                 }
             }
+            return stList;
         }
     }
     }

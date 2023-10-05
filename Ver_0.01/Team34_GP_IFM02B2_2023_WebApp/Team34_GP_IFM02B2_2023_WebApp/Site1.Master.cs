@@ -13,7 +13,9 @@ namespace Team34_GP_IFM02B2_2023_WebApp
         ResQReference.RESQSERVICEClient rc = new ResQReference.RESQSERVICEClient();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Session["User"]!=null)
+            noLog.Visible = true;
+
+            if (Session["User"]!=null)
             {
                 noLog.Visible = false;
                 UserTable user = ((UserTable)Session["User"]);

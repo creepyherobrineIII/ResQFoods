@@ -1,7 +1,10 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Ver_0.01",
+    "\\Ver_0.01\\Team34_GP_IFM02B2_2023_WebApp",
+    "\\Ver_0.01\\Team34_GP_IFM02B2_2023_WebApp\\Team34_GP_IFM02B2_2023_WebApp"
   ],
-  "SelectedNode": "\\Team34_GP_IFM02B2_2023_WebApp.sln",
+  "SelectedNode": "\\Ver_0.01\\Team34_GP_IFM02B2_2023_WebApp\\Team34_GP_IFM02B2_2023_WebApp\\index.aspx.cs",
   "PreviewInSolutionExplorer": false
 }

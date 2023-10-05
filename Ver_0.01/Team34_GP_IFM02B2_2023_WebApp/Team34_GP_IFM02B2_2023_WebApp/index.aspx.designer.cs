@@ -13,5 +13,23 @@ namespace Team34_GP_IFM02B2_2023_WebApp
 
     public partial class index
     {
+
+        /// <summary>
+        /// featStores control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl featStores;
+
+        /// <summary>
+        /// stCarousel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl stCarousel;
     }
 }

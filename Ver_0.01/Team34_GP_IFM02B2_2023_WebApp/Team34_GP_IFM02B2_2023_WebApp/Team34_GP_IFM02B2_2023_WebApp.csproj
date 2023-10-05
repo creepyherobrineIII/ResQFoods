@@ -70,7 +70,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddProduct.aspx" />
-    <Content Include="assets\css\logStyle.css" />
     <Content Include="assets\img\carousel-1.jpg" />
     <Content Include="assets\img\carousel-2.jpg" />
     <Content Include="assets\img\carousel-3.jpg" />
