@@ -57,6 +57,9 @@ namespace Team34_GP_IFM02B2_2023_WCF
         List<CartItem> GetCart(int UID);
 
         [OperationContract]
+        Decimal GetCartTotal(int UID);
+
+        [OperationContract]
         bool editProduct(Product P);
 
         [OperationContract]

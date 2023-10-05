@@ -827,9 +827,38 @@ namespace Team34_GP_IFM02B2_2023_WCF
 
         }
 
-        public Product getProduct(int ID)
+        public decimal GetCartTotal(int UID)
         {
-            throw new NotImplementedException();
+            dynamic cart = (from c in db.CartItems
+                            where c.UserId.Equals(c.UserId)
+                            select c).DefaultIfEmpty();
+
+            decimal total = 0;
+
+            if (cart != null)
+            {
+                foreach (Product P in cart)
+                {
+
+                    Product prod = new Product
+                    {
+                        ProductId = P.ProductId,
+                        Picture = P.Picture,
+                        DateAdded = P.DateAdded,
+                        Description = P.Description,
+                        Price = P.Price,
+                        ProductTags = P.ProductTags,
+                        Store = P.Store
+
+                    };
+
+                    total += prod.Price;
+                }
+
+                return total;
+            }
+                                
+            return 0;
         }
     }
     }
