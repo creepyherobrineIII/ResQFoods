@@ -19,7 +19,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
          List<Store> st = new List<Store>(sc.getStores());
          List<Product> prod = new List<Product>(sc.getAllProducts());
          Store[] feat = new Store[4];
-         Product[] pFeat = new Product[8];
+         Product[] pFeat = new Product[7];
 
          for(int i = 0; i<4;i++)
             {
@@ -38,7 +38,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                 }
             }
 
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 7; i++)
             {
                 bool inList = true;
 
@@ -49,7 +49,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                     Product temp = prod[ft];
                     if (!pFeat.Contains(temp))
                     {
-                        pFeat[i] = pFeat[ft];
+                        pFeat[i] = temp;
                         inList = false;
                     }
                 }
@@ -64,8 +64,8 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                 stBlock+=  "<div class='col-lg-3 col-md- 4 col-sm-6 pb-1'>";
                 stBlock+=  "<div class='product-item bg-light mb-4'>";
                  stBlock+= "<div class='product-img position-relative overflow-hidden' >";
-                stBlock+= "<a  href='shop.aspx'><img class='img- fluid w-80' src='" + s.Logo+ "' style='width: 300px; height: 300px; object-fit: contain;'></a>";
-                stBlock+= "</div>";
+                stBlock += "<a  href='shop.aspx?Filter=S&ID='" + s.UserId + "><img class='img- fluid w-80' src='" + s.Logo + "' style='width: 300px; height: 300px; object-fit: contain;'></a>";
+                stBlock += "</div>";
                 stBlock+= "<div class='text-center py-4'>";
                 stBlock+= "<a class='h6 text-decoration-none text-truncate' href='shop.aspx?Filter=S&ID="+s.UserId+"'>"+s.Name+"</a>";
                 stBlock+= "<div class='d-flex align-items-center justify-content-center mt-2'>";
@@ -81,8 +81,40 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                 stCar += "<a href = 'shop.aspx?Filter=S&ID="+s.UserId+"' ><img src='"+s.Logo+"' alt=''></a>";
                 stCar += "</div>";
             }
+
+            foreach(Product p in pFeat)
+            {
+                pBlock+= "<div class='col-lg-3 col-md-4 col-sm-6 pb-1'>";
+                pBlock+= "<div class='product-item bg-light mb-4'>";
+                pBlock+= "<div class='product-img position-relative overflow-hidden'>";
+                pBlock+= "<a  href='detail.aspx?ID='"+p.ProductId+"'><img class='img-fluid w-100' src='"+p.Picture+ "' style='width: 300px; height: 300px; object-fit: co;' alt=''></a>";
+                pBlock+= "<div class='product-action'>";
+                pBlock+= "<a class='btn btn-outline-dark btn-square' href=''><i class='fa fa-shopping-cart'></i></a>";
+                pBlock += "<a class='btn btn-outline-dark btn-square' href''><i class='far fa-heart'></i></a>";
+                pBlock += "</div>";
+                pBlock+= "</div>";
+                pBlock+= "<div class='text-center py-4'>";
+                pBlock+= " <a class='h6 text-decoration-none text-truncate' href='shop.aspx'>"+p.Name+"</a>";
+                pBlock+= "<div class='d-flex align-items-center justify-content-center mt-2'>";
+                pBlock+= "<h5>R"+p.Price+"</h5>";
+                pBlock+= "</div>";                       
+                pBlock+= "</div>";
+                pBlock+= "</div>";
+                pBlock+= "</div>";
+            }
+
+            pBlock += "<div class='col-lg-3 col-md-4 col-sm-6 pb-1'>";
+            pBlock += "<a class='h6 text-decoration-none text-truncate' href='shop.aspx'><div class='product-item bg-light mb-4'>";
+            pBlock += "<div class='text-center py-4'>";
+            pBlock += " <a class='h6 text-decoration-none text-truncate' href='shop.aspx'><button class='btn btn-primary'>Shop All</button></a>";
+            pBlock += "</div>";
+            pBlock += "</div></a>";
+            pBlock += "</div>";
+
+
             featStores.InnerHtml = stBlock;
             stCarousel.InnerHtml = stCar;
+            featProd.InnerHtml = pBlock;
 
 
 

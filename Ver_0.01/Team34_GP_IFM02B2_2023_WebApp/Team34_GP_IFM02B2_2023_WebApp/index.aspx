@@ -133,46 +133,11 @@
     <!-- Products Start -->
     <div class="container-fluid pt-5 pb-3">
         <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Recent Products</span></h2>
-        <div class="row px-xl-5">
-            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                <div class="product-item bg-light mb-4">
-                    <div class="product-img position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="assets/img/bakedgoods.jpeg" alt="">
-                        <div class="product-action">
-                            <a class="btn btn-outline-dark btn-square" href="shop.aspx"><i class="fa fa-shopping-cart"></i></a>
-                        </div>
-                    </div>
-                    <div class="text-center py-4">
-                        <a class="h8 text-decoration-none text-truncate" href="shop.aspx">Woolworths Auckland Park <br />
-                            Baked Goods Bag</a>
-                        <div class="d-flex align-items-center justify-content-center mt-2">
-                            <h5>R80</h5>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                <div class="product-item bg-light mb-4">
-                    <div class="product-img position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="assets/img/cannedgoods.jpeg" alt="">
-                        <div class="product-action">
-                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
-                        </div>
-                    </div>
-                    <div class="text-center py-4">
-                        <a class="h6 text-decoration-none text-truncate" href="shop.aspx">Shoprite Melville Canned Goods</a>
-                        <div class="d-flex align-items-center justify-content-center mt-2">
-                            <h5>R50</h5>
-                        </div>
-                       
-                    </div>
-                </div>
-            </div>
+        <div class="row px-xl-5" id="featProd" runat="server">
+            
+            
         </div>
         </div>
-
-
 
     <!-- Products End -->
 
