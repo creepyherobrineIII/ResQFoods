@@ -31,7 +31,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
 
             order.InnerHtml = products;
 
-            totals += "<h6>"+ sc.getCat +"</h6>";
+           // totals += "<h6>"+ sc. +"</h6>";
             totals += "<h6>$150</h6>";
            
                             
