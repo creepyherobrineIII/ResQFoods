@@ -79,10 +79,35 @@ namespace Team34_GP_IFM02B2_2023_WebApp
             }
                
 
-
+    
             
     }
-}
+        //Onlick update stock and clear cart, and send to success page
+        protected void pay_Click(object sender, EventArgs e)
+        {
+            int userID = Int32.Parse(Session["UID"].ToString());
+            //sc.generateInvoice(userID, 1);
+            decreaseStock();
+            Response.Redirect("success.aspx");
+        }
+
+        private void decreaseStock()
+        {
+            List<CartItem> cartProducts = (List<CartItem>)Session["CartList"];
+
+            foreach (CartItem c in cartProducts)
+            {
+                
+               // int prodQuantity = sr.getCartProdQuantity(userID, product.ProductId);//get new stock of items
+
+                //.updateTotalSold(product.ProductId, prodQuantity);//update stock levels
+                //sr.deleteFromCart(product.ProductId, userID);//deletes all items from cart.
+            }
+
+            
+        }
+    }
+
     }
 
             

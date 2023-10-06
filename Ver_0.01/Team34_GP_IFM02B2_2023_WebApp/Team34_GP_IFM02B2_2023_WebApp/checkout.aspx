@@ -105,7 +105,7 @@
                     <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Payment</span></h5>
                     <div class="bg-light p-30">
                         <div class="form-group">                         
-                        <button class="btn btn-block btn-primary font-weight-bold py-3">Place Order</button>
+                        <button class="btn btn-block btn-primary font-weight-bold py-3" id="paybutton" onclick="pay_click" runat="server">Place Order</button>
                     </div>
                 </div>
             </div>
