@@ -1503,6 +1503,12 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getAllProducts", ReplyAction="http://tempuri.org/IRESQSERVICE/getAllProductsResponse")]
         System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[]> getAllProductsAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/GetProduct", ReplyAction="http://tempuri.org/IRESQSERVICE/GetProductResponse")]
+        Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product GetProduct(int pID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/GetProduct", ReplyAction="http://tempuri.org/IRESQSERVICE/GetProductResponse")]
+        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product> GetProductAsync(int pID);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/SearchProducts", ReplyAction="http://tempuri.org/IRESQSERVICE/SearchProductsResponse")]
         Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[] SearchProducts(string name);
         
@@ -1520,6 +1526,12 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/AddToCart", ReplyAction="http://tempuri.org/IRESQSERVICE/AddToCartResponse")]
         System.Threading.Tasks.Task<bool> AddToCartAsync(int pID, int uID, System.DateTime added, bool enabled);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/GetCartTotal", ReplyAction="http://tempuri.org/IRESQSERVICE/GetCartTotalResponse")]
+        decimal GetCartTotal(int UID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/GetCartTotal", ReplyAction="http://tempuri.org/IRESQSERVICE/GetCartTotalResponse")]
+        System.Threading.Tasks.Task<decimal> GetCartTotalAsync(int UID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/GetCart", ReplyAction="http://tempuri.org/IRESQSERVICE/GetCartResponse")]
         Team34_GP_IFM02B2_2023_WebApp.ResQReference.CartItem[] GetCart(int UID);
@@ -1695,6 +1707,14 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
             return base.Channel.getAllProductsAsync();
         }
         
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product GetProduct(int pID) {
+            return base.Channel.GetProduct(pID);
+        }
+        
+        public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product> GetProductAsync(int pID) {
+            return base.Channel.GetProductAsync(pID);
+        }
+        
         public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[] SearchProducts(string name) {
             return base.Channel.SearchProducts(name);
         }
@@ -1717,6 +1737,14 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
         
         public System.Threading.Tasks.Task<bool> AddToCartAsync(int pID, int uID, System.DateTime added, bool enabled) {
             return base.Channel.AddToCartAsync(pID, uID, added, enabled);
+        }
+        
+        public decimal GetCartTotal(int UID) {
+            return base.Channel.GetCartTotal(UID);
+        }
+        
+        public System.Threading.Tasks.Task<decimal> GetCartTotalAsync(int UID) {
+            return base.Channel.GetCartTotalAsync(UID);
         }
         
         public Team34_GP_IFM02B2_2023_WebApp.ResQReference.CartItem[] GetCart(int UID) {

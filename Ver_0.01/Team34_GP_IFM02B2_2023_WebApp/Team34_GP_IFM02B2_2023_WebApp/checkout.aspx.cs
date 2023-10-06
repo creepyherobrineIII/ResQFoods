@@ -13,32 +13,76 @@ namespace Team34_GP_IFM02B2_2023_WebApp
         ResQReference.RESQSERVICEClient sc = new ResQReference.RESQSERVICEClient();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["UID"] == null)
+            Customer customer = null; //get customer
+
+            if (Session["user"] == null)
              {
-                int ID = Convert.ToInt32(Session["UID"]); //get user id
+                customer = (Customer)Session["user"];
               }
 
             string products = "";
             string totals = "";
+            string shippingdisplay = "";
+            string final = "";
 
-            List<CartItem> cart = (List<CartItem>)Session["CartList"];
-           
-            foreach(CartItem c in cart)
+            decimal totalcartitems = 0;
+            decimal finalamount = 0;
+            decimal shippingtotal = 50; //default shipping is 50, free if total is over 200
+
+            if (Session["CartList"] != null)
             {
-                products += "<p>" + c.Product.Name+ "</p>";
-                products += "<p>R" + c.Product.Price + "</p> ";
+                List<CartItem> cart = (List<CartItem>)Session["CartList"];
+
+
+                foreach (CartItem c in cart)
+                {
+                    products += "<p>" + c.Product.Name + "</p>";
+                    products += "<p>R" + c.Product.Price + "</p> ";
+
+                    //Calculate session cart total
+                    totalcartitems += c.Product.Price;
+                }
+
+                order.InnerHtml = products;
+
+
+                totals += "<h6>" + "Cart Subtotal" + "</h6>";
+                totals += "<h6>" + totalcartitems + "</h6>";
+
+                ordertotalbreakdown.InnerHtml = totals;
+
+                if((totalcartitems >= 200) || customer.GrantRecipient) // if total over 200, or grant recipient
+                {
+                    shippingtotal = 0; //make free shipping
+                }
+
+                shippingdisplay += "<h6 class='font-weight-medium'>Shipping</h6>";
+                shippingdisplay += "<h6 class='font-weight-medium''>R" + shippingtotal +"</h6>";
+
+
+                shipping.InnerHtml = shippingdisplay;
+
+                finalamount = shippingtotal + totalcartitems;
+
+                if (customer.GrantRecipient)
+                {
+
+                    finalamount = finalamount - (finalamount * 15 / 100); //15 percent discount
+                    final = "<h5>Total</h5> <h5>R" + finalamount + "</h5>";
+                    //  final += "<h5>Total</h5> <h5>R" + finalamount + "</h5>"; //add a message to tell use a discout was added
+                }
+                else { final = "<h5>Total</h5> <h5>R" + finalamount + "</h5>"; 
+                }
+
+                finaltotal.InnerHtml = final;
+
             }
+               
 
-            order.InnerHtml = products;
-
-           // totals += "<h6>"+ sc. +"</h6>";
-            totals += "<h6>$150</h6>";
-           
-                            
-
-        }
-    }
-}
 
             
-                           
+    }
+}
+    }
+
+            

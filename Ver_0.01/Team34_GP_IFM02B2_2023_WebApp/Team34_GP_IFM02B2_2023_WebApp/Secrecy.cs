@@ -5,6 +5,8 @@ using System.Web;
 using System.Security.Cryptography;
 using System.Text;
 
+//Recieved from UJ, not own code !!!!
+
 namespace HashPass
 {
     public static class Secrecy
