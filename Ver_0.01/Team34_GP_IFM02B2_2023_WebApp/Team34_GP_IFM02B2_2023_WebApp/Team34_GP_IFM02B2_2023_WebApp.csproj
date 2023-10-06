@@ -267,6 +267,9 @@
     <Content Include="Connected Services\ResQReference\Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserTable.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\ResQReference\Team34_GP_IFM02B2_2023_WebApp.ResQReference.Tag.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <Content Include="Site1.Master" />
     <None Include="Web.Debug.config">

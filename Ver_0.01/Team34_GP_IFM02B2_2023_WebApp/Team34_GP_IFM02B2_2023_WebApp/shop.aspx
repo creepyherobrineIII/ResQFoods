@@ -14,19 +14,7 @@
                     <i class="fa fa-angle-down text-dark"></i>
                 </a>
                 <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 999;">
-                    <div class="navbar-nav w-100">
-                        <div class="nav-item dropdown dropright">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Bakery <i class="fa fa-angle-right float-right mt-1"></i></a>
-                            <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
-                                <a href="" class="dropdown-item">Pastries</a>
-                                <a href="" class="dropdown-item">Baked Deserts</a>
-                                <a href="" class="dropdown-item">Breads</a>
-                            </div>
-                        </div>
-                        <a href="" class="nav-item nav-link">Fruits & Vegetables</a>
-                        <a href="" class="nav-item nav-link">Drinkables</a>
-                        <a href="" class="nav-item nav-link">Snacks</a>
-                        <a href="" class="nav-item nav-link">Canned Goods</a>
+                    <div class="navbar-nav w-100" id="pTags" runat="server">
                     </div>
                 </nav>
             </div>
@@ -77,7 +65,6 @@
                 <!-- Price Start -->
                 <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Filter by price</span></h5>
                 <div class="bg-light p-4 mb-30">
-                    <form>
                         <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
                             <a href="shop.aspx?Filter=P&upper=-1&lower=-1"><label class="custom-control-label" for="price-all">All Price</label></a>
                         </div>
@@ -96,65 +83,15 @@
                         <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between">
                             <a href="shop.aspx?Filter=P&upper=99999999&lower=200"><label class="custom-control-label" for="price-5">R200+</label></a>
                         </div>
-                    </form>
                 </div>
                 <!-- Price End -->
-                
-                <!-- Categories Start -->
-                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Filter by category</span></h5>
-                <div class="bg-light p-4 mb-30">
-                    <form>
-                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <input type="checkbox" class="custom-control-input" checked id="category-all">
-                            <label class="custom-control-label" for="category-all">All Categories</label>
-                            <span class="badge border font-weight-normal">1000</span>
-                        </div>
-                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <input type="checkbox" class="custom-control-input" id="category-1">
-                            <label class="custom-control-label" for="category-1">Baked Goods</label>
-                            <span class="badge border font-weight-normal">150</span>
-                        </div>
-                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <input type="checkbox" class="custom-control-input" id="category-2">
-                            <label class="custom-control-label" for="category-2">Fruit & Veg</label>
-                            <span class="badge border font-weight-normal">295</span>
-                        </div>
-                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <input type="checkbox" class="custom-control-input" id="category-3">
-                            <label class="custom-control-label" for="category-3">Dairy</label>
-                            <span class="badge border font-weight-normal">246</span>
-                        </div>
-                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <input type="checkbox" class="custom-control-input" id="category-4">
-                            <label class="custom-control-label" for="category-4">Drinkables</label>
-                            <span class="badge border font-weight-normal">145</span>
-                        </div>
-                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <input type="checkbox" class="custom-control-input" id="category-5">
-                            <label class="custom-control-label" for="category-5">Snacks</label>
-                            <span class="badge border font-weight-normal">168</span>
-                        </div>
-                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between">
-                            <input type="checkbox" class="custom-control-input" id="category-6">
-                            <label class="custom-control-label" for="category-6">Canned Goods</label>
-                            <span class="badge border font-weight-normal">215</span>
-                        </div>
-                    </form>
-                </div>
-                <!-- Category End -->
+               
 
                 <!-- Shop Start -->
                 <!-- Added shops by alphabetical order, thus the ids also follow alphabetical order -->
-                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Filter by shop</span></h5>
-                <div class="bg-light p-4 mb-30">
-                    <form>
-                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <a href="shop.aspx?Filter=S&ID=noStore"><label class="custom-control-label" for="shop-all">All Shops</label></a>
-                        </div>
-                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <a href="shop.aspx?Filter=S&ID="><label class="custom-control-label" for="shop-1">Checkers</label></a>
-                        </div>
-                    </form>
+                <h5 class="section-title position-relative text-uppercase mb-3" id="shopHead" runat="server" visible="true"><span class="bg-secondary pr-3">Filter by shop</span></h5>
+                <div class="bg-light p-4 mb-30" id ="stBlock" runat="server"  visible="true">
+
                 </div>
                 <!-- Shops End -->
             </div>
@@ -163,7 +100,7 @@
 
             <!-- Shop Product Start -->
             <div class="col-lg-9 col-md-8">
-                <div class="row pb-3">
+                <div class="row pb-3" id="prodSpace" runat="server">
                     <div class="col-12 pb-1">
                         <div class="d-flex align-items-center justify-content-between mb-4">
                             <div class="ml-2">
