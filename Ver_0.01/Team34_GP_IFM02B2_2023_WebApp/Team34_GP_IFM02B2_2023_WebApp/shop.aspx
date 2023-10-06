@@ -79,34 +79,22 @@
                 <div class="bg-light p-4 mb-30">
                     <form>
                         <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <input type="checkbox" class="custom-control-input" checked id="price-all">
-                            <label class="custom-control-label" for="price-all">All Price</label>
-                            <span class="badge border font-weight-normal">1000</span>
+                            <a href="shop.aspx?Filter=P&upper=-1&lower=-1"><label class="custom-control-label" for="price-all">All Price</label></a>
                         </div>
                         <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <input type="checkbox" class="custom-control-input" id="price-1">
-                            <label class="custom-control-label" for="price-1">R0 - R10</label>
-                            <span class="badge border font-weight-normal">150</span>
+                            <a href="shop.aspx?Filter=P&upper=50&lower=0"><label class="custom-control-label" for="price-1">R0 - R50</label></a>
                         </div>
                         <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <input type="checkbox" class="custom-control-input" id="price-2">
-                            <label class="custom-control-label" for="price-2">R10 - R30</label>
-                            <span class="badge border font-weight-normal">295</span>
+                            <a href="shop.aspx?Filter=P&upper=100&lower=50"><label class="custom-control-label" for="price-2">R50 - R100</label></a>
                         </div>
                         <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <input type="checkbox" class="custom-control-input" id="price-3">
-                            <label class="custom-control-label" for="price-3">R30 - R50</label>
-                            <span class="badge border font-weight-normal">246</span>
+                            <a href="shop.aspx?Filter=P&upper=150&lower=100"><label class="custom-control-label" for="price-3">R100 - R150</label></a>
                         </div>
                         <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <input type="checkbox" class="custom-control-input" id="price-4">
-                            <label class="custom-control-label" for="price-4">R50 - R70</label>
-                            <span class="badge border font-weight-normal">145</span>
+                            <a href="shop.aspx?Filter=P&upper=200&lower=-150"><label class="custom-control-label" for="price-4">R150 - R200</label></a>
                         </div>
                         <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between">
-                            <input type="checkbox" class="custom-control-input" id="price-5">
-                            <label class="custom-control-label" for="price-5">R70 - R100</label>
-                            <span class="badge border font-weight-normal">168</span>
+                            <a href="shop.aspx?Filter=P&upper=99999999&lower=200"><label class="custom-control-label" for="price-5">R200+</label></a>
                         </div>
                     </form>
                 </div>
@@ -161,39 +149,10 @@
                 <div class="bg-light p-4 mb-30">
                     <form>
                         <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <input type="checkbox" class="custom-control-input" checked id="shop-all">
-                            <label class="custom-control-label" for="shop-all">All Shops</label>
-                            <span class="badge border font-weight-normal">1000</span>
+                            <a href="shop.aspx?Filter=S&ID=noStore"><label class="custom-control-label" for="shop-all">All Shops</label></a>
                         </div>
                         <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <input type="checkbox" class="custom-control-input" id="shop-1">
-                            <label class="custom-control-label" for="shop-1">Checkers</label>
-                            <span class="badge border font-weight-normal">150</span>
-                        </div>
-                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <input type="checkbox" class="custom-control-input" id="shop-2">
-                            <label class="custom-control-label" for="shop-2">Food Lovers</label>
-                            <span class="badge border font-weight-normal">295</span>
-                        </div>
-                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <input type="checkbox" class="custom-control-input" id="shop-3">
-                            <label class="custom-control-label" for="shop-3">Pick 'n' Pay</label>
-                            <span class="badge border font-weight-normal">246</span>
-                        </div>
-                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <input type="checkbox" class="custom-control-input" id="shop-4">
-                            <label class="custom-control-label" for="shop-4">Shoprite</label>
-                            <span class="badge border font-weight-normal">145</span>
-                        </div>
-                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <input type="checkbox" class="custom-control-input" id="shop-5">
-                            <label class="custom-control-label" for="shop-5">Spar</label>
-                            <span class="badge border font-weight-normal">168</span>
-                        </div>
-                        <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between">
-                            <input type="checkbox" class="custom-control-input" id="shop-6">
-                            <label class="custom-control-label" for="shop-6">Woolworths</label>
-                            <span class="badge border font-weight-normal">99</span>
+                            <a href="shop.aspx?Filter=S&ID="><label class="custom-control-label" for="shop-1">Checkers</label></a>
                         </div>
                     </form>
                 </div>
@@ -207,20 +166,16 @@
                 <div class="row pb-3">
                     <div class="col-12 pb-1">
                         <div class="d-flex align-items-center justify-content-between mb-4">
-                            <div>
-                                <button class="btn btn-sm btn-light"><i class="fa fa-th-large"></i></button>
-                                <button class="btn btn-sm btn-light ml-2"><i class="fa fa-bars"></i></button>
-                            </div>
                             <div class="ml-2">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Sorting</button>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="#">Chronological (old-new)</a>
-                                        <a class="dropdown-item" href="#">Chronological (new-old)</a>
-                                        <a class="dropdown-item" href="#">Price (low-high)</a>
-                                        <a class="dropdown-item" href="#">Price (high-low)</a>
-                                        <a class="dropdown-item" href="#">Name (a-z)</a>
-                                        <a class="dropdown-item" href="#">Name (z-a)</a>
+                                        <a class="dropdown-item" href="shop.aspx?Order=cO">Chronological (old-new)</a>
+                                        <a class="dropdown-item" href="shop.aspx?Order=cN">Chronological (new-old)</a>
+                                        <a class="dropdown-item" href="shop.aspx?Order=pL">Price (low-high)</a>
+                                        <a class="dropdown-item" href="shop.aspx?Order=pH">Price (high-low)</a>
+                                        <a class="dropdown-item" href="shop.aspx?Order=nA">Name (a-z)</a>
+                                        <a class="dropdown-item" href="shop.aspx?Order=nZ">Name (z-a)</a>
                                     </div>
                                 </div>
                             </div>
@@ -468,17 +423,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-12">
-                        <nav>
-                          <ul class="pagination justify-content-center">
-                            <li class="page-item disabled"><a class="page-link" href="#">Previous</span></a></li>
-                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                          </ul>
-                        </nav>
                     </div>
                 </div>
             </div>

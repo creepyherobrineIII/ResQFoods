@@ -75,7 +75,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
         bool addInvoiceItem(int ID, CartItem c);
 
         [OperationContract]
-        List<Product> getFilteredList(String name, double P1, double P2, List<int> tags, int manu);
+        List<Product> getFilteredList(String name, double P1, double P2, int tag, int manu);
 
         [OperationContract]
         List<Invoice> getInvoices(int UID);
@@ -87,7 +87,10 @@ namespace Team34_GP_IFM02B2_2023_WCF
         List<InvoiceItem> getInvoiceItems(int IID);
 
         [OperationContract]
-        Product GetProduct(int pID);
+        Product getProduct(int pID);
+
+        [OperationContract]
+        List<Tag> getTags();
 
     }
 

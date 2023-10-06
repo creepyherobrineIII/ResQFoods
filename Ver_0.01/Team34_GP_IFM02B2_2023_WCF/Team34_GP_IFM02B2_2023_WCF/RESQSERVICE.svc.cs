@@ -204,7 +204,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
             return null;
             }
 
-        public List<Product> getFilteredList(String name, double P1, double P2, List<int> tags, int manu)
+        public List<Product> getFilteredList(String name, double P1, double P2, int tag, int manu)
         {
             //Get list of all products
             List<Product> tempList = getAllProducts();
@@ -246,7 +246,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
             }
 
             //In the remaining list
-            if (tags != null)
+            if (tag != -1)
             {
                 for (int i = tempList.Count - 1; i > -1; i--)
                 {
@@ -264,16 +264,13 @@ namespace Team34_GP_IFM02B2_2023_WCF
                         //For each Prodcut tag in list
                         foreach (ProductTag t in tempTag)
                         {
-                            //Loop through tag list passed, and check if they match
-                            foreach (int val in tags)
-                            {
                                 //If they match one of the tags
-                                if (val == t.TagId)
+                                if (tag == t.TagId)
                                 {
                                     //set keep to true
                                     keep = true;
                                 }
-                            }
+                            
                         }
                         //If the product does not have the tag
                         if (!keep)
@@ -399,7 +396,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
             return null;
             }
 
-        public Product GetProduct(int pID)
+        public Product getProduct(int pID)
         {
             //Get product from the data base where ID matches the passed ID
             Product prods = (from p in db.Products
@@ -743,7 +740,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
                     Quantity = c.Quantity
                 };
                 //remove that number of rpoducts from the products table
-                Product p = GetProduct(c.ProductId);
+                Product p = getProduct(c.ProductId);
                 if(p!=null)
                 {
                     p.Quantity = p.Quantity - c.Quantity;
@@ -863,6 +860,26 @@ namespace Team34_GP_IFM02B2_2023_WCF
                 }
             }
             return stList;
+        }
+
+        public List<Tag> getTags()
+        {
+            List<Tag> tReturn = new List<Tag>();
+            dynamic tg = (from t in db.Tags
+                          select t).DefaultIfEmpty();
+            if (tg != null)
+            {
+                foreach (Tag temp in tg)
+                {
+                    Tag tempTag = new Tag
+                    {
+                        TagID = temp.TagID, 
+                        TagName = temp.TagName
+                    };
+                    tReturn.Add(tempTag);
+                }
+            }
+            return tReturn;
         }
     }
     }
