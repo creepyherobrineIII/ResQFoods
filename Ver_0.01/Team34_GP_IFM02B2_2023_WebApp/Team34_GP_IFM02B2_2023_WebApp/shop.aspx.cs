@@ -27,7 +27,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
             foreach(Store s in st)
             {
             storeText += "<div class='custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3'>";
-            storeText += "<a href = 'shop.aspx?Filter=S&ID="+s.UserId+"' >< label class='custom-control-label' for='shop-1'>"+s.Name+"</label></a>";
+            storeText += "<a href = 'shop.aspx?Filter=S&ID="+s.UserId+"' ><label for='shop-1'>"+s.Name+"</label></a>";
             storeText += "</div>";
             }
             stBlock.InnerHtml = storeText;
@@ -64,13 +64,13 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                     if (Session["CartList"]!=null)
                     {
                         List<CartItem> cList = (List<CartItem>)Session["CartList"];
-                        for(int i = 0)
+                       /* for(int i = 0)
                         {
                             if(curr.ProductId==c.ProductId&&curr.UserId==c.UserId)
                             {
                                 
                             }
-                        }
+                        }*/
                         if(cList.Contains(c))
                         {
                             int i = cList.IndexOf(c);
@@ -122,7 +122,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                 }
                 else if (filt.Contains("S"))
                 {
-                    int SID = Convert.ToInt32(Request.QueryString["SID"]);
+                    int SID = Convert.ToInt32(Request.QueryString["ID"]);
                     man = SID;
                 }
                 else if (filt.Contains("P"))
@@ -138,7 +138,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                     cat = TID;
                 }
             }
-                List<Product> products = new List<Product>(rc.getFilteredList(name, upper, lower, cat, man));
+                List<Product> products = new List<Product>(rc.getFilteredList(name, lower, upper, cat, man));
                 if(Request.QueryString["Order"]!=null)
                 {
                     List<Product> ordered = null;
@@ -146,23 +146,35 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                     switch(ot)
                     {
                         case "cO":
-                            ordered = (List<Product>)products.OrderBy(prod=>prod.DateAdded);
+                            ordered = (from p in products
+                                       orderby p.DateAdded descending
+                                       select p).ToList();
                             break;
                         case "cN":
-                            ordered = (List<Product>)products.OrderByDescending(prod => prod.DateAdded);
-                            break;
+                        ordered = (from p in products
+                                   orderby p.DateAdded 
+                                   select p).ToList();
+                        break;
                         case "pL":
-                            ordered = (List<Product>)products.OrderBy(prod => prod.Price);
-                            break;
+                        ordered = (from p in products
+                                   orderby p.Price 
+                                   select p).ToList();
+                        break;
                         case "pH":
-                            ordered = (List<Product>)products.OrderByDescending(prod => prod.Price);
-                            break;
+                            ordered = (from p in products
+                                       orderby p.Price descending
+                                       select p).ToList();
+                        break;
                         case "nA":
-                            ordered = (List<Product>)products.OrderBy(prod => prod.Name);
-                            break;
+                            ordered = (from p in products
+                                       orderby p.Name
+                                       select p).ToList();
+                        break;
                         case "nZ":
-                            ordered = (List<Product>)products.OrderByDescending(prod => prod.Name);
-                            break;
+                            ordered = (from p in products
+                                       orderby p.Name descending
+                                       select p).ToList();
+                        break;
                     }
                     if (ordered != null)
                     {
@@ -177,16 +189,16 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                  pBlock += "<div class='col-lg-4 col-md-6 col-sm-6 pb-1'>";
                  pBlock += "<div class='product-item bg-light mb-4'>";        
                  pBlock += "<div class='product-img position-relative overflow-hidden'>";           
-                 pBlock += "<img class='img-fluid w-100' src='"+curr.Picture+"' alt=''>";                
+                 pBlock += "<img class='img-fluid w-100' src='"+curr.Picture+ "' style='width: 300px; height: 300px; object-fit:cover;' alt=''>";                
                  pBlock += "<div class='product-action'>";                 
                  pBlock += " <a class='btn btn-outline-dark btn-square' href='shop.aspx?CartAdd=" + curr.ProductId + "'><i class='fa fa-shopping-cart'></i></a>";                   
                  pBlock += " <a class='btn btn-outline-dark btn-square' href='shop.aspx?WishAdd=" + curr.ProductId + "'><i class='far fa-heart'></i></a>";                                     
                  pBlock += "</div>";                
                  pBlock += "</div>";           
                  pBlock += " <div class='text-center py-4'>";         
-                 pBlock += "<a class='h6 text-decoration-none text-truncate' href='"+direct+".aspx?ID="+curr.ProductId+"'>Rustic Potatoes Bag(7kg)</a>";                
+                 pBlock += "<a class='h6 text-decoration-none text-truncate' href='"+direct+".aspx?ID="+curr.ProductId+"'>"+curr.Name+"</a>";                
                  pBlock += "<div class='d-flex align-items-center justify-content-center mt-2'>";               
-                 pBlock += "<h5>R30.00</h5><h6 class='text-muted ml-2'><del>R50.00</del></h6>";                   
+                 pBlock += "<h5>R"+curr.Price+"</h5><h6 class='text-muted ml-2'></h6>";                   
                  pBlock += "</div>";                
                  pBlock += "</div>";            
                  pBlock += "</div>";       

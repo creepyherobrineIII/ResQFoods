@@ -1586,10 +1586,10 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
         System.Threading.Tasks.Task<bool> addInvoiceItemAsync(int ID, Team34_GP_IFM02B2_2023_WebApp.ResQReference.CartItem c);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getFilteredList", ReplyAction="http://tempuri.org/IRESQSERVICE/getFilteredListResponse")]
-        Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[] getFilteredList(string name, double P1, double P2, int tag, int manu);
+        Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[] getFilteredList(string name, double P1, double P2, int filTag, int manu);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getFilteredList", ReplyAction="http://tempuri.org/IRESQSERVICE/getFilteredListResponse")]
-        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[]> getFilteredListAsync(string name, double P1, double P2, int tag, int manu);
+        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[]> getFilteredListAsync(string name, double P1, double P2, int filTag, int manu);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getInvoices", ReplyAction="http://tempuri.org/IRESQSERVICE/getInvoicesResponse")]
         Team34_GP_IFM02B2_2023_WebApp.ResQReference.Invoice[] getInvoices(int UID);
@@ -1817,12 +1817,12 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
             return base.Channel.addInvoiceItemAsync(ID, c);
         }
         
-        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[] getFilteredList(string name, double P1, double P2, int tag, int manu) {
-            return base.Channel.getFilteredList(name, P1, P2, tag, manu);
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[] getFilteredList(string name, double P1, double P2, int filTag, int manu) {
+            return base.Channel.getFilteredList(name, P1, P2, filTag, manu);
         }
         
-        public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[]> getFilteredListAsync(string name, double P1, double P2, int tag, int manu) {
-            return base.Channel.getFilteredListAsync(name, P1, P2, tag, manu);
+        public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[]> getFilteredListAsync(string name, double P1, double P2, int filTag, int manu) {
+            return base.Channel.getFilteredListAsync(name, P1, P2, filTag, manu);
         }
         
         public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Invoice[] getInvoices(int UID) {

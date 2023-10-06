@@ -194,6 +194,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
                         Price = p.Price,
                         Description = p.Description,
                         Enabled = p.Enabled,
+                        DateAdded = p.DateAdded
                     };
                 prodRec.Add(pr);
 
@@ -204,7 +205,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
             return null;
             }
 
-        public List<Product> getFilteredList(String name, double P1, double P2, int tag, int manu)
+        public List<Product> getFilteredList(String name, double P1, double P2, int filTag, int manu)
         {
             //Get list of all products
             List<Product> tempList = getAllProducts();
@@ -246,38 +247,59 @@ namespace Team34_GP_IFM02B2_2023_WCF
             }
 
             //In the remaining list
-            if (tag != -1)
+            if (filTag != -1)
             {
                 for (int i = tempList.Count - 1; i > -1; i--)
                 {
                     //Create current product instance
                     Product currProd = tempList[i];
                     //Search for all temp tags in bridging table ProductTags, where the product ID = the current product ID
+                    bool cont = (from pt in db.ProductTags
+                                 where pt.ProductId.Equals(currProd.ProductId)
+                                 select pt).Any();
+                    bool keep = false;
+                    if (cont)
+                    { 
                     dynamic tempTag = (from pt in db.ProductTags
                                        where pt.ProductId.Equals(currProd.ProductId)
                                        select pt).DefaultIfEmpty();
+                    
                     //Create boolean keep, set to false
-                    bool keep = false;
+                    
 
-                    if (tempTag != null)
-                    {
-                        //For each Prodcut tag in list
-                        foreach (ProductTag t in tempTag)
+                        if (tempTag != null)
                         {
+                            List<ProductTag> tagList = new List<ProductTag>();
+                            foreach (ProductTag t in tempTag)
+                            {
+                                if (t != null)
+                                {
+                                    ProductTag curr = new ProductTag
+                                    {
+                                        ProductId = t.ProductId,
+                                        TagId = t.TagId
+                                    };
+                                    tagList.Add(curr);
+                                }
+                            }
+                            //For each Prodcut tag in list
+                            for (int x = 0; x < tagList.Count; x++)
+                            {
                                 //If they match one of the tags
-                                if (tag == t.TagId)
+                                if (tagList[x].TagId.Equals(filTag))
                                 {
                                     //set keep to true
                                     keep = true;
                                 }
-                            
-                        }
-                        //If the product does not have the tag
-                        if (!keep)
-                        {
-                            //remove the product from the list
-                            tempList.RemoveAt(i);
-                        }
+
+                            }
+                        }  
+                    }
+                    //If the product does not have the tag
+                    if (!keep)
+                    {
+                        //remove the product from the list
+                        tempList.RemoveAt(i);
                     }
                 }
             }
