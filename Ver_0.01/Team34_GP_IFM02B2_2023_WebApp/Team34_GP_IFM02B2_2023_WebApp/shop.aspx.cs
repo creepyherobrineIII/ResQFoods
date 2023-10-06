@@ -34,6 +34,61 @@ namespace Team34_GP_IFM02B2_2023_WebApp
 
             if (Request.QueryString["Edit"] != null)
             {
+                if (Request.QueryString["Edit"].Equals("true"))
+                {
+                    if (Session["User"] != null)
+                    {
+                        UserTable tempUser = (UserTable)Session["User"];
+                        if (tempUser.UserType == 2)
+                        {
+                            shopHead.Visible = false;
+                            stBlock.Visible = false;
+                            direct = "edit-product";
+                        }
+                    }
+                }
+            }
+
+            if (Request.QueryString["CartAdd"] != null)
+            {
+                if (Session["User"] != null)
+                {
+                    int PID = Convert.ToInt32(Request.QueryString["CartAdd"]);
+                    UserTable tempUser = (UserTable)Session["User"];
+                    CartItem c = new CartItem
+                    {
+                        UserId = tempUser.UserId,
+                        ProductId = PID
+                    };
+
+                    if (Session["CartList"]!=null)
+                    {
+                        List<CartItem> cList = (List<CartItem>)Session["CartList"];
+                        for(int i = 0)
+                        {
+                            if(curr.ProductId==c.ProductId&&curr.UserId==c.UserId)
+                            {
+                                
+                            }
+                        }
+                        if(cList.Contains(c))
+                        {
+                            int i = cList.IndexOf(c);
+                        }
+                        else
+                        {
+                            cList.Add(c);
+                        }
+
+                        shopHead.Visible = false;
+                        stBlock.Visible = false;
+                        direct = "edit-product";
+                    }
+                }
+            }
+
+            if (Request.QueryString["WishAdd"] != null)
+            {
                 Request.QueryString["Edit"].Equals("true");
                 if (Session["User"] != null)
                 {
