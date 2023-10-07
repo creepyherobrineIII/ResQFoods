@@ -4,7 +4,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style> 
         body {
-            background-color: white;/* Replace 'your-background-image.jpg' with your image file path */
+            background-color: white;
             background-size: cover;
             background-repeat: no-repeat;
             background-attachment: fixed;
@@ -59,8 +59,7 @@
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-  <div class="container">
+	 <div class="container">
 	
 	<div class="signup">
     <span class="signup">
