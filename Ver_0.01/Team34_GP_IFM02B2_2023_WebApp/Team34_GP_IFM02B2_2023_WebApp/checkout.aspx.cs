@@ -11,6 +11,12 @@ namespace Team34_GP_IFM02B2_2023_WebApp
     public partial class checkout : System.Web.UI.Page
     {
         ResQReference.RESQSERVICEClient sc = new ResQReference.RESQSERVICEClient();
+
+        //Made global so that onclick can access
+        private decimal finalamount = 0;
+        private decimal shippingtotal = 50; //default shipping is 50, free if total is over 200
+        List<CartItem> cart = null;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             Customer customer = null; //get customer
@@ -26,12 +32,11 @@ namespace Team34_GP_IFM02B2_2023_WebApp
             string final = "";
 
             decimal totalcartitems = 0;
-            decimal finalamount = 0;
-            decimal shippingtotal = 50; //default shipping is 50, free if total is over 200
+           
 
             if (Session["CartList"] != null)
             {
-                List<CartItem> cart = (List<CartItem>)Session["CartList"];
+                 cart = (List<CartItem>)Session["CartList"];
 
 
                 foreach (CartItem c in cart)
@@ -77,16 +82,16 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                 finaltotal.InnerHtml = final;
 
             }
-               
-
-    
+              
             
     }
         //Onlick update stock and clear cart, and send to success page
         protected void pay_Click(object sender, EventArgs e)
         {
-            int userID = Int32.Parse(Session["UID"].ToString());
-            //sc.generateInvoice(userID, 1);
+            UserTable currentuser = (UserTable)Session["user"];
+            int userID = currentuser.UserId;
+
+           // sc.addInvoice(userID, finalamount, DateTime.Now, cart);
             decreaseStock();
             Response.Redirect("success.aspx");
         }
@@ -97,11 +102,19 @@ namespace Team34_GP_IFM02B2_2023_WebApp
 
             foreach (CartItem c in cartProducts)
             {
-                
-               // int prodQuantity = sr.getCartProdQuantity(userID, product.ProductId);//get new stock of items
 
-                //.updateTotalSold(product.ProductId, prodQuantity);//update stock levels
-                //sr.deleteFromCart(product.ProductId, userID);//deletes all items from cart.
+                int prodQuantity = (int)c.Product.Quantity -1;
+                Product p = c.Product;
+                p.Quantity = prodQuantity; //update quantity
+
+                if(p.Quantity == 0)
+                {
+                    p.Enabled = false; //disable to product
+                }
+                sc.editProduct(p);//update stock  of specific product //***Add a counter for how many items sold? idk (can do it by checking unenabled stock 
+
+                //Delete Products from Cart
+                Session["CartList"] = new List<CartItem>(); //make a new empty cart
             }
 
             

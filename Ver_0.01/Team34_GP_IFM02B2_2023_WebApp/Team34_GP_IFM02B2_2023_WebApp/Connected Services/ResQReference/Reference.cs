@@ -947,6 +947,9 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
         private Team34_GP_IFM02B2_2023_WebApp.ResQReference.ProductTag[] ProductTagsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> QuantityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Team34_GP_IFM02B2_2023_WebApp.ResQReference.Store StoreField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1088,6 +1091,19 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
                 if ((object.ReferenceEquals(this.ProductTagsField, value) != true)) {
                     this.ProductTagsField = value;
                     this.RaisePropertyChanged("ProductTags");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Quantity {
+            get {
+                return this.QuantityField;
+            }
+            set {
+                if ((this.QuantityField.Equals(value) != true)) {
+                    this.QuantityField = value;
+                    this.RaisePropertyChanged("Quantity");
                 }
             }
         }

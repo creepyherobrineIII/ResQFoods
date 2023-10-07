@@ -498,6 +498,7 @@
           <xs:element minOccurs="0" name="Price" type="xs:decimal" />
           <xs:element minOccurs="0" name="ProductId" type="xs:int" />
           <xs:element minOccurs="0" name="ProductTags" nillable="true" type="tns:ArrayOfProductTag" />
+          <xs:element minOccurs="0" name="Quantity" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="Store" nillable="true" type="tns:Store" />
           <xs:element minOccurs="0" name="UserId" type="xs:int" />
         </xs:sequence>

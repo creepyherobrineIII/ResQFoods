@@ -684,13 +684,13 @@ namespace Team34_GP_IFM02B2_2023_WCF
                            select i).Any();
             return inv;
         }
-        public bool addInvoice(int UID, double price, DateTime TOS,  List<CartItem> prods)
+        public bool addInvoice(int UID, decimal price, DateTime TOS,  List<CartItem> prods)
         {
             //Create invoice, 
             Invoice temp = new Invoice
             {
                 UserId = UID,
-                TotalPrice = (decimal)price,
+                TotalPrice = price,
                 DateAdded = TOS
             };
             try

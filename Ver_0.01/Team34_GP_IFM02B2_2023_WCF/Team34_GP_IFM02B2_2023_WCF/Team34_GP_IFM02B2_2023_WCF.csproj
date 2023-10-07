@@ -71,6 +71,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IRESQSERVICE.cs" />
+    <Compile Include="ResQFoods_DCS.cs">
+      <DependentUpon>ResQFoods_DCS.dbml</DependentUpon>
+    </Compile>
     <Compile Include="ResQFoods_DCS.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
