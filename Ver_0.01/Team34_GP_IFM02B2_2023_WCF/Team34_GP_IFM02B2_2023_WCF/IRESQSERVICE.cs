@@ -72,7 +72,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
         bool editStore(Store S);
 
         [OperationContract]
-        bool addInvoice(int UID, double price, DateTime TOS, List<CartItem> cart);
+        bool addInvoice(int UID, decimal price, DateTime TOS, List<CartItem> cart);
 
         [OperationContract]
         bool addInvoiceItem(int ID, CartItem c);
