@@ -3,7 +3,6 @@
   <wsdl:types>
     <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xs:import namespace="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" />
-      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
       <xs:element name="loginUser">
         <xs:complexType>
           <xs:sequence>
@@ -130,6 +129,18 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element name="getStores">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getStoresResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="getStoresResult" nillable="true" type="q5:ArrayOfStore" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="GetEmployeeRecords">
         <xs:complexType>
           <xs:sequence>
@@ -140,7 +151,7 @@
       <xs:element name="GetEmployeeRecordsResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="GetEmployeeRecordsResult" nillable="true" type="q5:ArrayOfUserTable" />
+            <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="GetEmployeeRecordsResult" nillable="true" type="q6:ArrayOfUserTable" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -152,21 +163,7 @@
       <xs:element name="getAllProductsResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="getAllProductsResult" nillable="true" type="q6:ArrayOfProduct" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="GetProduct">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="pID" type="xs:int" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="GetProductResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="GetProductResult" nillable="true" type="q7:Product" />
+            <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="getAllProductsResult" nillable="true" type="q7:ArrayOfProduct" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -190,6 +187,7 @@
             <xs:element minOccurs="0" name="sID" type="xs:int" />
             <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
             <xs:element minOccurs="0" name="desc" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="quant" type="xs:int" />
             <xs:element minOccurs="0" name="price" type="xs:double" />
             <xs:element minOccurs="0" name="picPath" nillable="true" type="xs:string" />
             <xs:element minOccurs="0" name="date" type="xs:dateTime" />
@@ -218,20 +216,6 @@
         <xs:complexType>
           <xs:sequence>
             <xs:element minOccurs="0" name="AddToCartResult" type="xs:boolean" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="GetCartTotal">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="UID" type="xs:int" />
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-      <xs:element name="GetCartTotalResponse">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element minOccurs="0" name="GetCartTotalResult" type="xs:decimal" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -309,7 +293,7 @@
         <xs:complexType>
           <xs:sequence>
             <xs:element minOccurs="0" name="UID" type="xs:int" />
-            <xs:element minOccurs="0" name="price" type="xs:decimal" />
+            <xs:element minOccurs="0" name="price" type="xs:double" />
             <xs:element minOccurs="0" name="TOS" type="xs:dateTime" />
             <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="cart" nillable="true" type="q14:ArrayOfCartItem" />
           </xs:sequence>
@@ -343,7 +327,7 @@
             <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
             <xs:element minOccurs="0" name="P1" type="xs:double" />
             <xs:element minOccurs="0" name="P2" type="xs:double" />
-            <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="tags" nillable="true" type="q16:ArrayOfint" />
+            <xs:element minOccurs="0" name="filTag" type="xs:int" />
             <xs:element minOccurs="0" name="manu" type="xs:int" />
           </xs:sequence>
         </xs:complexType>
@@ -351,7 +335,7 @@
       <xs:element name="getFilteredListResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="getFilteredListResult" nillable="true" type="q17:ArrayOfProduct" />
+            <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="getFilteredListResult" nillable="true" type="q16:ArrayOfProduct" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -365,7 +349,7 @@
       <xs:element name="getInvoicesResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="getInvoicesResult" nillable="true" type="q18:ArrayOfInvoice" />
+            <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="getInvoicesResult" nillable="true" type="q17:ArrayOfInvoice" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -379,7 +363,7 @@
       <xs:element name="getInvoiceResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="getInvoiceResult" nillable="true" type="q19:Invoice" />
+            <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="getInvoiceResult" nillable="true" type="q18:Invoice" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -393,7 +377,33 @@
       <xs:element name="getInvoiceItemsResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="getInvoiceItemsResult" nillable="true" type="q20:ArrayOfInvoiceItem" />
+            <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="getInvoiceItemsResult" nillable="true" type="q19:ArrayOfInvoiceItem" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getProduct">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="pID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getProductResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="getProductResult" nillable="true" type="q20:Product" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getTags">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getTagsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="getTagsResult" nillable="true" type="q21:ArrayOfTag" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -598,20 +608,24 @@
         </xs:sequence>
       </xs:complexType>
       <xs:element name="ArrayOfInvoice" nillable="true" type="tns:ArrayOfInvoice" />
+      <xs:complexType name="ArrayOfStore">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Store" nillable="true" type="tns:Store" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfStore" nillable="true" type="tns:ArrayOfStore" />
       <xs:complexType name="ArrayOfUserTable">
         <xs:sequence>
           <xs:element minOccurs="0" maxOccurs="unbounded" name="UserTable" nillable="true" type="tns:UserTable" />
         </xs:sequence>
       </xs:complexType>
       <xs:element name="ArrayOfUserTable" nillable="true" type="tns:ArrayOfUserTable" />
-    </xs:schema>
-    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-      <xs:complexType name="ArrayOfint">
+      <xs:complexType name="ArrayOfTag">
         <xs:sequence>
-          <xs:element minOccurs="0" maxOccurs="unbounded" name="int" type="xs:int" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Tag" nillable="true" type="tns:Tag" />
         </xs:sequence>
       </xs:complexType>
-      <xs:element name="ArrayOfint" nillable="true" type="tns:ArrayOfint" />
+      <xs:element name="ArrayOfTag" nillable="true" type="tns:ArrayOfTag" />
     </xs:schema>
   </wsdl:types>
   <wsdl:message name="IRESQSERVICE_loginUser_InputMessage">
@@ -662,6 +676,12 @@
   <wsdl:message name="IRESQSERVICE_getStore_OutputMessage">
     <wsdl:part name="parameters" element="tns:getStoreResponse" />
   </wsdl:message>
+  <wsdl:message name="IRESQSERVICE_getStores_InputMessage">
+    <wsdl:part name="parameters" element="tns:getStores" />
+  </wsdl:message>
+  <wsdl:message name="IRESQSERVICE_getStores_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getStoresResponse" />
+  </wsdl:message>
   <wsdl:message name="IRESQSERVICE_GetEmployeeRecords_InputMessage">
     <wsdl:part name="parameters" element="tns:GetEmployeeRecords" />
   </wsdl:message>
@@ -673,12 +693,6 @@
   </wsdl:message>
   <wsdl:message name="IRESQSERVICE_getAllProducts_OutputMessage">
     <wsdl:part name="parameters" element="tns:getAllProductsResponse" />
-  </wsdl:message>
-  <wsdl:message name="IRESQSERVICE_GetProduct_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetProduct" />
-  </wsdl:message>
-  <wsdl:message name="IRESQSERVICE_GetProduct_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetProductResponse" />
   </wsdl:message>
   <wsdl:message name="IRESQSERVICE_SearchProducts_InputMessage">
     <wsdl:part name="parameters" element="tns:SearchProducts" />
@@ -697,12 +711,6 @@
   </wsdl:message>
   <wsdl:message name="IRESQSERVICE_AddToCart_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddToCartResponse" />
-  </wsdl:message>
-  <wsdl:message name="IRESQSERVICE_GetCartTotal_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetCartTotal" />
-  </wsdl:message>
-  <wsdl:message name="IRESQSERVICE_GetCartTotal_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetCartTotalResponse" />
   </wsdl:message>
   <wsdl:message name="IRESQSERVICE_GetCart_InputMessage">
     <wsdl:part name="parameters" element="tns:GetCart" />
@@ -770,6 +778,18 @@
   <wsdl:message name="IRESQSERVICE_getInvoiceItems_OutputMessage">
     <wsdl:part name="parameters" element="tns:getInvoiceItemsResponse" />
   </wsdl:message>
+  <wsdl:message name="IRESQSERVICE_getProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:getProduct" />
+  </wsdl:message>
+  <wsdl:message name="IRESQSERVICE_getProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRESQSERVICE_getTags_InputMessage">
+    <wsdl:part name="parameters" element="tns:getTags" />
+  </wsdl:message>
+  <wsdl:message name="IRESQSERVICE_getTags_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getTagsResponse" />
+  </wsdl:message>
   <wsdl:portType name="IRESQSERVICE">
     <wsdl:operation name="loginUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IRESQSERVICE/loginUser" message="tns:IRESQSERVICE_loginUser_InputMessage" />
@@ -803,6 +823,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IRESQSERVICE/getStore" message="tns:IRESQSERVICE_getStore_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRESQSERVICE/getStoreResponse" message="tns:IRESQSERVICE_getStore_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="getStores">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRESQSERVICE/getStores" message="tns:IRESQSERVICE_getStores_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRESQSERVICE/getStoresResponse" message="tns:IRESQSERVICE_getStores_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetEmployeeRecords">
       <wsdl:input wsaw:Action="http://tempuri.org/IRESQSERVICE/GetEmployeeRecords" message="tns:IRESQSERVICE_GetEmployeeRecords_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRESQSERVICE/GetEmployeeRecordsResponse" message="tns:IRESQSERVICE_GetEmployeeRecords_OutputMessage" />
@@ -810,10 +834,6 @@
     <wsdl:operation name="getAllProducts">
       <wsdl:input wsaw:Action="http://tempuri.org/IRESQSERVICE/getAllProducts" message="tns:IRESQSERVICE_getAllProducts_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRESQSERVICE/getAllProductsResponse" message="tns:IRESQSERVICE_getAllProducts_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetProduct">
-      <wsdl:input wsaw:Action="http://tempuri.org/IRESQSERVICE/GetProduct" message="tns:IRESQSERVICE_GetProduct_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IRESQSERVICE/GetProductResponse" message="tns:IRESQSERVICE_GetProduct_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="SearchProducts">
       <wsdl:input wsaw:Action="http://tempuri.org/IRESQSERVICE/SearchProducts" message="tns:IRESQSERVICE_SearchProducts_InputMessage" />
@@ -826,10 +846,6 @@
     <wsdl:operation name="AddToCart">
       <wsdl:input wsaw:Action="http://tempuri.org/IRESQSERVICE/AddToCart" message="tns:IRESQSERVICE_AddToCart_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRESQSERVICE/AddToCartResponse" message="tns:IRESQSERVICE_AddToCart_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetCartTotal">
-      <wsdl:input wsaw:Action="http://tempuri.org/IRESQSERVICE/GetCartTotal" message="tns:IRESQSERVICE_GetCartTotal_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IRESQSERVICE/GetCartTotalResponse" message="tns:IRESQSERVICE_GetCartTotal_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetCart">
       <wsdl:input wsaw:Action="http://tempuri.org/IRESQSERVICE/GetCart" message="tns:IRESQSERVICE_GetCart_InputMessage" />
@@ -874,6 +890,14 @@
     <wsdl:operation name="getInvoiceItems">
       <wsdl:input wsaw:Action="http://tempuri.org/IRESQSERVICE/getInvoiceItems" message="tns:IRESQSERVICE_getInvoiceItems_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRESQSERVICE/getInvoiceItemsResponse" message="tns:IRESQSERVICE_getInvoiceItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRESQSERVICE/getProduct" message="tns:IRESQSERVICE_getProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRESQSERVICE/getProductResponse" message="tns:IRESQSERVICE_getProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getTags">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRESQSERVICE/getTags" message="tns:IRESQSERVICE_getTags_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRESQSERVICE/getTagsResponse" message="tns:IRESQSERVICE_getTags_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IRESQSERVICE" type="tns:IRESQSERVICE">
@@ -950,6 +974,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="getStores">
+      <soap:operation soapAction="http://tempuri.org/IRESQSERVICE/getStores" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetEmployeeRecords">
       <soap:operation soapAction="http://tempuri.org/IRESQSERVICE/GetEmployeeRecords" style="document" />
       <wsdl:input>
@@ -961,15 +994,6 @@
     </wsdl:operation>
     <wsdl:operation name="getAllProducts">
       <soap:operation soapAction="http://tempuri.org/IRESQSERVICE/getAllProducts" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetProduct">
-      <soap:operation soapAction="http://tempuri.org/IRESQSERVICE/GetProduct" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -997,15 +1021,6 @@
     </wsdl:operation>
     <wsdl:operation name="AddToCart">
       <soap:operation soapAction="http://tempuri.org/IRESQSERVICE/AddToCart" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetCartTotal">
-      <soap:operation soapAction="http://tempuri.org/IRESQSERVICE/GetCartTotal" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1105,6 +1120,24 @@
     </wsdl:operation>
     <wsdl:operation name="getInvoiceItems">
       <soap:operation soapAction="http://tempuri.org/IRESQSERVICE/getInvoiceItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getProduct">
+      <soap:operation soapAction="http://tempuri.org/IRESQSERVICE/getProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTags">
+      <soap:operation soapAction="http://tempuri.org/IRESQSERVICE/getTags" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

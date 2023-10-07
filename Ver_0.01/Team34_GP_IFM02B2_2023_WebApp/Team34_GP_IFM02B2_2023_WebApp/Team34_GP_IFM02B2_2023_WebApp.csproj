@@ -70,7 +70,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddProduct.aspx" />
-    <Content Include="assets\css\logStyle.css" />
     <Content Include="assets\img\carousel-1.jpg" />
     <Content Include="assets\img\carousel-2.jpg" />
     <Content Include="assets\img\carousel-3.jpg" />
@@ -282,6 +281,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\ResQReference\Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserTable.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ResQReference\Team34_GP_IFM02B2_2023_WebApp.ResQReference.Tag.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="packages.config" />

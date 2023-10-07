@@ -194,6 +194,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
                         Price = p.Price,
                         Description = p.Description,
                         Enabled = p.Enabled,
+                        DateAdded = p.DateAdded
                     };
                 prodRec.Add(pr);
 
@@ -204,7 +205,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
             return null;
             }
 
-        public List<Product> getFilteredList(String name, double P1, double P2, List<int> tags, int manu)
+        public List<Product> getFilteredList(String name, double P1, double P2, int filTag, int manu)
         {
             //Get list of all products
             List<Product> tempList = getAllProducts();
@@ -226,7 +227,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
                 for (int i = tempList.Count - 1; i > -1; i--)
                 {
                     //If the name does not match the searched name, remove the item from the list
-                    if (tempList[i].Name != name)
+                    if (!tempList[i].Name.ToUpper().Contains(name.ToUpper()))
                     {
                         tempList.RemoveAt(i);
                     }
@@ -246,41 +247,59 @@ namespace Team34_GP_IFM02B2_2023_WCF
             }
 
             //In the remaining list
-            if (tags != null)
+            if (filTag != -1)
             {
                 for (int i = tempList.Count - 1; i > -1; i--)
                 {
                     //Create current product instance
                     Product currProd = tempList[i];
                     //Search for all temp tags in bridging table ProductTags, where the product ID = the current product ID
+                    bool cont = (from pt in db.ProductTags
+                                 where pt.ProductId.Equals(currProd.ProductId)
+                                 select pt).Any();
+                    bool keep = false;
+                    if (cont)
+                    { 
                     dynamic tempTag = (from pt in db.ProductTags
                                        where pt.ProductId.Equals(currProd.ProductId)
                                        select pt).DefaultIfEmpty();
+                    
                     //Create boolean keep, set to false
-                    bool keep = false;
+                    
 
-                    if (tempTag != null)
-                    {
-                        //For each Prodcut tag in list
-                        foreach (ProductTag t in tempTag)
+                        if (tempTag != null)
                         {
-                            //Loop through tag list passed, and check if they match
-                            foreach (int val in tags)
+                            List<ProductTag> tagList = new List<ProductTag>();
+                            foreach (ProductTag t in tempTag)
+                            {
+                                if (t != null)
+                                {
+                                    ProductTag curr = new ProductTag
+                                    {
+                                        ProductId = t.ProductId,
+                                        TagId = t.TagId
+                                    };
+                                    tagList.Add(curr);
+                                }
+                            }
+                            //For each Prodcut tag in list
+                            for (int x = 0; x < tagList.Count; x++)
                             {
                                 //If they match one of the tags
-                                if (val == t.TagId)
+                                if (tagList[x].TagId.Equals(filTag))
                                 {
                                     //set keep to true
                                     keep = true;
                                 }
+
                             }
-                        }
-                        //If the product does not have the tag
-                        if (!keep)
-                        {
-                            //remove the product from the list
-                            tempList.RemoveAt(i);
-                        }
+                        }  
+                    }
+                    //If the product does not have the tag
+                    if (!keep)
+                    {
+                        //remove the product from the list
+                        tempList.RemoveAt(i);
                     }
                 }
             }
@@ -399,7 +418,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
             return null;
             }
 
-        public Product GetProduct(int pID)
+        public Product getProduct(int pID)
         {
             //Get product from the data base where ID matches the passed ID
             Product prods = (from p in db.Products
@@ -416,6 +435,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
                     Price = prods.Price,
                     Description = prods.Description,
                     DateAdded = prods.DateAdded,
+                    Quantity = prods.Quantity
                 };
 
                 return pr;
@@ -424,7 +444,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
             return null;
         }
 
-        public bool AddProduct(int sID, string name, string desc, double price, string picPath, DateTime date, bool enabled)
+        public bool AddProduct(int sID, string name, string desc, int quant, double price, string picPath, DateTime date, bool enabled)
             {
             //Check if product exists
                 bool checkP = (from p in db.Products
@@ -441,7 +461,8 @@ namespace Team34_GP_IFM02B2_2023_WCF
                         Picture = picPath, 
                         Price = (decimal)price, 
                         DateAdded = date, 
-                        Enabled = enabled
+                        Enabled = enabled,
+                        Quantity = quant
                     };
                     try
                     {
@@ -564,6 +585,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
                 prod.Price = P.Price;
                 prod.ProductTags = P.ProductTags;
                 prod.Store = P.Store;
+                prod.Quantity = P.Quantity;
 
                 try
                 {
@@ -739,6 +761,13 @@ namespace Team34_GP_IFM02B2_2023_WCF
                     ProductId = c.ProductId,
                     Quantity = c.Quantity
                 };
+                //remove that number of rpoducts from the products table
+                Product p = getProduct(c.ProductId);
+                if(p!=null)
+                {
+                    p.Quantity = p.Quantity - c.Quantity;
+                }
+                editProduct(p);
                 try
                 {
                     db.InvoiceItems.InsertOnSubmit(ii);
@@ -859,6 +888,54 @@ namespace Team34_GP_IFM02B2_2023_WCF
             }
                                 
             return 0;
+        }
+
+        public List<Store> getStores()
+        {
+            List<Store> stList = new List<Store>();
+            dynamic user = (from u in db.UserTables
+                          where u.Enabled == true && u.UserType==2
+                          select u).DefaultIfEmpty();
+            if (user != null)
+            {
+                foreach (UserTable temp in user)
+                {
+                    var st = (from s in db.Stores
+                              where s.UserId.Equals(temp.UserId)
+                              select s).FirstOrDefault();
+                    if (st != null)
+                    {
+                        Store stor = new Store
+                        {
+                            UserId = st.UserId,
+                            Name = st.Name,
+                            Logo = st.Logo
+                        };
+                        stList.Add(stor);
+                    }
+                }
+            }
+            return stList;
+        }
+
+        public List<Tag> getTags()
+        {
+            List<Tag> tReturn = new List<Tag>();
+            dynamic tg = (from t in db.Tags
+                          select t).DefaultIfEmpty();
+            if (tg != null)
+            {
+                foreach (Tag temp in tg)
+                {
+                    Tag tempTag = new Tag
+                    {
+                        TagID = temp.TagID, 
+                        TagName = temp.TagName
+                    };
+                    tReturn.Add(tempTag);
+                }
+            }
+            return tReturn;
         }
     }
     }

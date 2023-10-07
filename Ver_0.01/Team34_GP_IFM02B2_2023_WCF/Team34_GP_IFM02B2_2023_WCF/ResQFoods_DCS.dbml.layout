@@ -58,7 +58,7 @@
         <classShapeMoniker Id="cde8e171-d8c8-45e4-8139-3dc7d184e4f5" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(7.125 : 2.85659912109375); (6.885 : 2.85659912109375); (6.885 : 3.26); (5.625 : 3.26); (5.625 : 3.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(7.125 : 2.85659912109375); (7.08333333333333 : 2.85659912109375 : JumpStart); (6.91666666666667 : 2.85659912109375 : JumpEnd); (6.875 : 2.85659912109375); (6.875 : 4.48159912109375); (6.625 : 4.48159912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/ResQFoods_DCSDataContext/UserTable/UserTable_Store" />
       <nodes>
         <classShapeMoniker Id="aadee3f9-bd15-49df-b25c-e101581c7551" />
@@ -98,7 +98,7 @@
         <elementListCompartment Id="9508411f-2afc-452e-8482-31e22dc2786c" absoluteBounds="11.515, 8.585, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(8.625 : 9.53929768880208); (10.8072944166667 : 9.53929768880208 : JumpStart); (10.9739610833333 : 9.53929768880208 : JumpEnd); (11.5 : 9.53929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(8.625 : 9.53929768880208); (11.5 : 9.53929768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ResQFoods_DCSDataContext/Invoice/Invoice_InvoiceItem" />
       <nodes>
         <classShapeMoniker Id="df852734-3b1d-474c-900b-1b5fc08f9275" />
@@ -111,45 +111,45 @@
         <elementListCompartment Id="c4bb827d-b218-4f36-99b2-bc78291a97a3" absoluteBounds="4.14, 8.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(9.875 : 3.51044840494792); (9.375 : 3.51044840494792); (9.375 : 5.7131982421875); (6.89583333333333 : 5.7131982421875 : JumpStart); (6.72916666666667 : 5.7131982421875 : JumpEnd); (5.70833333333333 : 5.7131982421875 : JumpStart); (5.54166666666667 : 5.7131982421875 : JumpEnd); (5.1093775 : 5.7131982421875); (5.1093775 : 8.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(9.875 : 3.51044840494792); (9.375 : 3.51044840494792); (9.375 : 5.7131982421875); (7.08333333333333 : 5.7131982421875 : JumpStart); (6.91666666666667 : 5.7131982421875 : JumpEnd); (5.70833333333333 : 5.7131982421875 : JumpStart); (5.54166666666667 : 5.7131982421875 : JumpEnd); (5.1093775 : 5.7131982421875); (5.1093775 : 8.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ResQFoods_DCSDataContext/Customer/Customer_CartItem" />
       <nodes>
         <classShapeMoniker Id="4236fad1-431c-4f92-a95c-457e35756de2" />
         <classShapeMoniker Id="dc6d8139-1665-4081-94a5-34b8389961b2" />
       </nodes>
     </associationConnector>
-    <classShape Id="642a3df0-39a8-40bb-96f3-a1b73bd3b163" absoluteBounds="3.5, 0.5, 2, 2.5401025390625">
+    <classShape Id="615e2d2b-dda9-4a3a-8c49-f21c267af2a9" absoluteBounds="2.25, 0.625, 2, 2.5401025390625">
       <DataClassMoniker Name="/ResQFoods_DCSDataContext/Product" />
       <nestedChildShapes>
-        <elementListCompartment Id="2a562e18-53ed-4df1-a8d0-f99dda32aa96" absoluteBounds="3.5149999999999997, 0.96, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="453d7e2e-9dde-405e-b8f2-8ab000bcd812" absoluteBounds="2.2649999999999997, 1.085, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(4.5 : 3.0401025390625); (4.5 : 3.26); (2.75 : 3.26); (2.75 : 3.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(3 : 3.1651025390625); (3 : 3.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/ResQFoods_DCSDataContext/Product/Product_ProductTag" />
       <nodes>
-        <classShapeMoniker Id="642a3df0-39a8-40bb-96f3-a1b73bd3b163" />
+        <classShapeMoniker Id="615e2d2b-dda9-4a3a-8c49-f21c267af2a9" />
         <classShapeMoniker Id="3b3a11b7-09d2-4d64-b239-0f5401b91518" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.031252 : 3.0401025390625); (5.031252 : 3.1875); (5.24479266666667 : 3.1875 : JumpStart); (5.41145933333333 : 3.1875 : JumpEnd); (6.75 : 3.1875); (6.75 : 8.91189597265625); (10.8072944166667 : 8.91189597265625 : JumpStart); (10.9739610833333 : 8.91189597265625 : JumpEnd); (11.5 : 8.91189597265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(4.25 : 1.74080006054688); (7 : 1.74080006054688); (7 : 6.52089680989583); (10.1979171666667 : 6.52089680989583 : JumpStart); (10.3645838333333 : 6.52089680989583 : JumpEnd); (10.8072944166667 : 6.52089680989583 : JumpStart); (10.9739610833333 : 6.52089680989583 : JumpEnd); (12.5 : 6.52089680989583); (12.5 : 8.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/ResQFoods_DCSDataContext/Product/Product_InvoiceItem" />
       <nodes>
-        <classShapeMoniker Id="642a3df0-39a8-40bb-96f3-a1b73bd3b163" />
+        <classShapeMoniker Id="615e2d2b-dda9-4a3a-8c49-f21c267af2a9" />
         <classShapeMoniker Id="0fd526e8-a0bb-4687-810e-22f8130a10cd" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(3.968748 : 3.0401025390625); (3.968748 : 3.375); (5.24479266666667 : 3.375 : JumpStart); (5.41145933333333 : 3.375 : JumpEnd); (6.8125 : 3.375); (6.8125 : 9.125); (6.375 : 9.125); (6.375 : 9.48159912109375); (6.125 : 9.48159912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(4.25 : 2.48420379980469); (4.5 : 2.48420379980469); (4.5 : 8.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/ResQFoods_DCSDataContext/Product/Product_CartItem" />
       <nodes>
-        <classShapeMoniker Id="642a3df0-39a8-40bb-96f3-a1b73bd3b163" />
+        <classShapeMoniker Id="615e2d2b-dda9-4a3a-8c49-f21c267af2a9" />
         <classShapeMoniker Id="dc6d8139-1665-4081-94a5-34b8389961b2" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.328126 : 3.5); (5.328126 : 3.0401025390625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(4.625 : 3.5); (4.56215521057788 : 3.44387583890501 : JumpStart); (4.43784478942212 : 3.33285918713666 : JumpEnd); (4.25 : 3.1651025390625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/ResQFoods_DCSDataContext/Store/Store_Product" />
       <nodes>
         <classShapeMoniker Id="a0e25ed4-24cd-4ec9-9c40-c061979f2dc9" />
-        <classShapeMoniker Id="642a3df0-39a8-40bb-96f3-a1b73bd3b163" />
+        <classShapeMoniker Id="615e2d2b-dda9-4a3a-8c49-f21c267af2a9" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

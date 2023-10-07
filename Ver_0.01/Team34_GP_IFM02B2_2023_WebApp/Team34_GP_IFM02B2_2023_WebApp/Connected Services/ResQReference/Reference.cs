@@ -1507,6 +1507,12 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getStore", ReplyAction="http://tempuri.org/IRESQSERVICE/getStoreResponse")]
         System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Store> getStoreAsync(string uEmail);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getStores", ReplyAction="http://tempuri.org/IRESQSERVICE/getStoresResponse")]
+        Team34_GP_IFM02B2_2023_WebApp.ResQReference.Store[] getStores();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getStores", ReplyAction="http://tempuri.org/IRESQSERVICE/getStoresResponse")]
+        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Store[]> getStoresAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/GetEmployeeRecords", ReplyAction="http://tempuri.org/IRESQSERVICE/GetEmployeeRecordsResponse")]
         Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserTable[] GetEmployeeRecords(string uEmail);
         
@@ -1532,10 +1538,10 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
         System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[]> SearchProductsAsync(string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/AddProduct", ReplyAction="http://tempuri.org/IRESQSERVICE/AddProductResponse")]
-        bool AddProduct(int sID, string name, string desc, double price, string picPath, System.DateTime date, bool enabled);
+        bool AddProduct(int sID, string name, string desc, int quant, double price, string picPath, System.DateTime date, bool enabled);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/AddProduct", ReplyAction="http://tempuri.org/IRESQSERVICE/AddProductResponse")]
-        System.Threading.Tasks.Task<bool> AddProductAsync(int sID, string name, string desc, double price, string picPath, System.DateTime date, bool enabled);
+        System.Threading.Tasks.Task<bool> AddProductAsync(int sID, string name, string desc, int quant, double price, string picPath, System.DateTime date, bool enabled);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/AddToCart", ReplyAction="http://tempuri.org/IRESQSERVICE/AddToCartResponse")]
         bool AddToCart(int pID, int uID, System.DateTime added, bool enabled);
@@ -1592,10 +1598,10 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
         System.Threading.Tasks.Task<bool> addInvoiceItemAsync(int ID, Team34_GP_IFM02B2_2023_WebApp.ResQReference.CartItem c);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getFilteredList", ReplyAction="http://tempuri.org/IRESQSERVICE/getFilteredListResponse")]
-        Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[] getFilteredList(string name, double P1, double P2, int[] tags, int manu);
+        Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[] getFilteredList(string name, double P1, double P2, int filTag, int manu);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getFilteredList", ReplyAction="http://tempuri.org/IRESQSERVICE/getFilteredListResponse")]
-        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[]> getFilteredListAsync(string name, double P1, double P2, int[] tags, int manu);
+        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[]> getFilteredListAsync(string name, double P1, double P2, int filTag, int manu);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getInvoices", ReplyAction="http://tempuri.org/IRESQSERVICE/getInvoicesResponse")]
         Team34_GP_IFM02B2_2023_WebApp.ResQReference.Invoice[] getInvoices(int UID);
@@ -1614,6 +1620,18 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getInvoiceItems", ReplyAction="http://tempuri.org/IRESQSERVICE/getInvoiceItemsResponse")]
         System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.InvoiceItem[]> getInvoiceItemsAsync(int IID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getProduct", ReplyAction="http://tempuri.org/IRESQSERVICE/getProductResponse")]
+        Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product getProduct(int pID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getProduct", ReplyAction="http://tempuri.org/IRESQSERVICE/getProductResponse")]
+        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product> getProductAsync(int pID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getTags", ReplyAction="http://tempuri.org/IRESQSERVICE/getTagsResponse")]
+        Team34_GP_IFM02B2_2023_WebApp.ResQReference.Tag[] getTags();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getTags", ReplyAction="http://tempuri.org/IRESQSERVICE/getTagsResponse")]
+        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Tag[]> getTagsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1707,6 +1725,14 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
             return base.Channel.getStoreAsync(uEmail);
         }
         
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Store[] getStores() {
+            return base.Channel.getStores();
+        }
+        
+        public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Store[]> getStoresAsync() {
+            return base.Channel.getStoresAsync();
+        }
+        
         public Team34_GP_IFM02B2_2023_WebApp.ResQReference.UserTable[] GetEmployeeRecords(string uEmail) {
             return base.Channel.GetEmployeeRecords(uEmail);
         }
@@ -1739,12 +1765,12 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
             return base.Channel.SearchProductsAsync(name);
         }
         
-        public bool AddProduct(int sID, string name, string desc, double price, string picPath, System.DateTime date, bool enabled) {
-            return base.Channel.AddProduct(sID, name, desc, price, picPath, date, enabled);
+        public bool AddProduct(int sID, string name, string desc, int quant, double price, string picPath, System.DateTime date, bool enabled) {
+            return base.Channel.AddProduct(sID, name, desc, quant, price, picPath, date, enabled);
         }
         
-        public System.Threading.Tasks.Task<bool> AddProductAsync(int sID, string name, string desc, double price, string picPath, System.DateTime date, bool enabled) {
-            return base.Channel.AddProductAsync(sID, name, desc, price, picPath, date, enabled);
+        public System.Threading.Tasks.Task<bool> AddProductAsync(int sID, string name, string desc, int quant, double price, string picPath, System.DateTime date, bool enabled) {
+            return base.Channel.AddProductAsync(sID, name, desc, quant, price, picPath, date, enabled);
         }
         
         public bool AddToCart(int pID, int uID, System.DateTime added, bool enabled) {
@@ -1819,12 +1845,12 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
             return base.Channel.addInvoiceItemAsync(ID, c);
         }
         
-        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[] getFilteredList(string name, double P1, double P2, int[] tags, int manu) {
-            return base.Channel.getFilteredList(name, P1, P2, tags, manu);
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[] getFilteredList(string name, double P1, double P2, int filTag, int manu) {
+            return base.Channel.getFilteredList(name, P1, P2, filTag, manu);
         }
         
-        public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[]> getFilteredListAsync(string name, double P1, double P2, int[] tags, int manu) {
-            return base.Channel.getFilteredListAsync(name, P1, P2, tags, manu);
+        public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[]> getFilteredListAsync(string name, double P1, double P2, int filTag, int manu) {
+            return base.Channel.getFilteredListAsync(name, P1, P2, filTag, manu);
         }
         
         public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Invoice[] getInvoices(int UID) {
@@ -1849,6 +1875,22 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
         
         public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.InvoiceItem[]> getInvoiceItemsAsync(int IID) {
             return base.Channel.getInvoiceItemsAsync(IID);
+        }
+        
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product getProduct(int pID) {
+            return base.Channel.getProduct(pID);
+        }
+        
+        public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product> getProductAsync(int pID) {
+            return base.Channel.getProductAsync(pID);
+        }
+        
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Tag[] getTags() {
+            return base.Channel.getTags();
+        }
+        
+        public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Tag[]> getTagsAsync() {
+            return base.Channel.getTagsAsync();
         }
     }
 }

@@ -34,19 +34,8 @@
                     <i class="fa fa-angle-down text-dark"></i>
                 </a>
                 <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 999;">
-                    <div class="navbar-nav w-100">
-                        <div class="nav-item dropdown dropright">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Bakery <i class="fa fa-angle-right float-right mt-1"></i></a>
-                            <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
-                                <a href="" class="dropdown-item">Pastries</a>
-                                <a href="" class="dropdown-item">Baked Deserts</a>
-                                <a href="" class="dropdown-item">Breads</a>
-                            </div>
-                        </div>
-                         <a href="" class="nav-item nav-link">Fruits & Vegetables</a>
-                        <a href="" class="nav-item nav-link">Drinkables</a>
-                        <a href="" class="nav-item nav-link">Snacks</a>
-                        <a href="" class="nav-item nav-link">Canned Goods</a>
+                    <div class="navbar-nav w-100" id="pTags" runat="server">
+                      
                     </div>
                 </nav>
             </div>
@@ -57,14 +46,10 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     </div>
-                    <form action="">
+                    <form id ="serachForm" runat="server">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search for products">
-                        <div class="input-group-append">
-                            <span class="input-group-text bg-transparent text-primary">
-                                <i class="fa fa-search"></i>
-                            </span>
-                        </div>
+                        <input type="text" class="form-control" id = "txtSearch" runat="server" placeholder="Search for products">
+                             <asp:Button ID="btnSearch" class="btn btn-primary" runat="server" Text="Search" OnClick="btnSearch_Click"></asp:Button>
                     </div>
                 </form>
                 </nav>
@@ -89,8 +74,8 @@
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
                                     <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown"></h1>
-                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Pastries</p>
-                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="shop.aspx">Shop Now</a>
+                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Baked Goods</p>
+                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="shop.aspx?Filter=T&TID=2">Shop Now</a>
                                 </div>
                             </div>
                         </div>
@@ -99,8 +84,8 @@
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
                                     <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown"></h1>
-                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Snacks</p>
-                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="shop.aspx">Shop Now</a>
+                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Meals</p>
+                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="shop.aspx?Filter=T&TID=5">Shop Now</a>
                                 </div>
                             </div>
                         </div>
@@ -111,9 +96,10 @@
                 <div class="product-offer mb-30" style="height: 200px;">
                     <img class="img-fluid" src="assets/img/sustainability.jpg" alt="">
                 </div>
-                <div class="product-offer mb-30" style="height: 200px;">
+                <a href="shop.aspx"><div class="product-offer mb-30" style="height: 200px;">
                     <img class="img-fluid" src="assets/img/offer-2.jpg" alt="">
-                </div>
+
+                </div></a>
             </div>
         </div>
     </div>
@@ -121,104 +107,10 @@
 
     <!-- Products Start -->
     <div class="container-fluid pt-5 pb-3">
-        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Featured Stores</span></h2>
-        <div class="row px-xl-5">
-            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                <div class="product-item bg-light mb-4">
-                    <div class="product-img position-relative overflow-hidden">
-                        <img class="img-fluid w-80" src="assets/img/woolworths.jpg" alt="">
-                        <div class="product-action">
-                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
-                            <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
-                        </div>
-                    </div>
-                    <div class="text-center py-4">
-                        <a class="h6 text-decoration-none text-truncate" href="">Woolworths Auckland Park </a>
-                        <div class="d-flex align-items-center justify-content-center mt-2">
-                        </div>
-                        <div class="d-flex align-items-center justify-content-center mb-1">
-                            <small class="fa fa-star text-primary mr-1"></small>
-                            <small class="fa fa-star text-primary mr-1"></small>
-                            <small class="fa fa-star text-primary mr-1"></small>
-                            <small class="fa fa-star text-primary mr-1"></small>
-                            <small class="fa fa-star text-primary mr-1"></small>
-                            <small>(5)</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                <div class="product-item bg-light mb-4">
-                    <div class="product-img position-relative overflow-hidden">
-                        <img class="img-fluid w-80" src="assets/img/shoprite.jpg" alt="">
-                        <div class="product-action">
-                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
-                            <a class="btn btn-outline-dark btn-square" href=""><i class="far fa-heart"></i></a>
-                        </div>
-                    </div>
-                    <div class="text-center py-4">
-                        <a class="h6 text-decoration-none text-truncate" href="">Shoprite Melville</a>
-                        <div class="d-flex align-items-center justify-content-center mt-2">
-                        </div>
-                        <div class="d-flex align-items-center justify-content-center mb-1">
-                            <small class="fa fa-star text-primary mr-1"></small>
-                            <small class="fa fa-star text-primary mr-1"></small>
-                            <small class="fa fa-star text-primary mr-1"></small>
-                            <small class="fa fa-star text-primary mr-1"></small>
-                            <small class="fa fa-star-half-alt text-primary mr-1"></small>
-                            <small>(6)</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                <div class="product-item bg-light mb-4">
-                    <div class="product-img position-relative overflow-hidden">
-                        <img class="img-fluid w-80" src="assets/img/pick-n-pay.png" alt="">
-                        <div class="product-action">
-                            <a class="btn btn-outline-dark btn-square" href="shop.aspx"><i class="fa fa-shopping-cart"></i></a>
-                            <a class="btn btn-outline-dark btn-square" href="shop.aspx"><i class="far fa-heart"></i></a>
-                        </div>
-                    </div>
-                    <div class="text-center py-4">
-                        <a class="h6 text-decoration-none text-truncate" href="">Pick n Pay Auckland Park</a>
-                        <div class="d-flex align-items-center justify-content-center mb-1">
-                            <small class="fa fa-star text-primary mr-1"></small>
-                            <small class="fa fa-star text-primary mr-1"></small>
-                            <small class="fa fa-star text-primary mr-1"></small>
-                            <small class="fa fa-star-half-alt text-primary mr-1"></small>
-                            <small class="far fa-star text-primary mr-1"></small>
-                            <small>(99)</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                <div class="product-item bg-light mb-4">
-                    <div class="product-img position-relative overflow-hidden">
-                        <img class="img-fluid w-80" src="assets/img/shoprite.jpg" alt="">
-                        <div class="product-action">
-                            <a class="btn btn-outline-dark btn-square" href="shop.aspx"><i class="fa fa-shopping-cart"></i></a>
-                            <a class="btn btn-outline-dark btn-square" href="shop.aspx"><i class="far fa-heart"></i></a>
-                        </div>
-                    </div>
-                    <div class="text-center py-4">
-                        <a class="h6 text-decoration-none text-truncate" href="shop.aspx">Shoprite Westdene</a>
-                        <div class="d-flex align-items-center justify-content-center mt-2">
-
-                        </div>
-                        <div class="d-flex align-items-center justify-content-center mb-1">
-                            <small class="fa fa-star text-primary mr-1"></small>
-                            <small class="fa fa-star text-primary mr-1"></small>
-                            <small class="fa fa-star text-primary mr-1"></small>
-                            <small class="far fa-star text-primary mr-1"></small>
-                            <small class="far fa-star text-primary mr-1"></small>
-                            <small>(2)</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-         </div>
+        <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Shop from one of our partner stores</span></h2>
+        <div class="row px-xl-5" id ="featStores" runat="server">
+           
+        </div>
     </div>
           
     <!-- Products End -->
@@ -227,46 +119,11 @@
     <!-- Products Start -->
     <div class="container-fluid pt-5 pb-3">
         <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Recent Products</span></h2>
-        <div class="row px-xl-5">
-            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                <div class="product-item bg-light mb-4">
-                    <div class="product-img position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="assets/img/bakedgoods.jpeg" alt="">
-                        <div class="product-action">
-                            <a class="btn btn-outline-dark btn-square" href="shop.aspx"><i class="fa fa-shopping-cart"></i></a>
-                        </div>
-                    </div>
-                    <div class="text-center py-4">
-                        <a class="h8 text-decoration-none text-truncate" href="shop.aspx">Woolworths Auckland Park <br />
-                            Baked Goods Bag</a>
-                        <div class="d-flex align-items-center justify-content-center mt-2">
-                            <h5>R80</h5>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
-                <div class="product-item bg-light mb-4">
-                    <div class="product-img position-relative overflow-hidden">
-                        <img class="img-fluid w-100" src="assets/img/cannedgoods.jpeg" alt="">
-                        <div class="product-action">
-                            <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-shopping-cart"></i></a>
-                        </div>
-                    </div>
-                    <div class="text-center py-4">
-                        <a class="h6 text-decoration-none text-truncate" href="shop.aspx">Shoprite Melville Canned Goods</a>
-                        <div class="d-flex align-items-center justify-content-center mt-2">
-                            <h5>R50</h5>
-                        </div>
-                       
-                    </div>
-                </div>
-            </div>
+        <div class="row px-xl-5" id="featProd" runat="server">
+            
+            
         </div>
         </div>
-
-
 
     <!-- Products End -->
 
@@ -274,25 +131,8 @@
     <div class="container-fluid py-5">
         <div class="row px-xl-5">
             <div class="col">
-                <div class="owl-carousel vendor-carousel">
-                    <div class="bg-light p-4">
-                        <img src="assets/img/pick-n-pay.png" alt="">
-                    </div>
-                    <div class="bg-light p-4">
-                        <img src="assets/img/woolworths.jpg" alt="">
-                    </div>
-                    <div class="bg-light p-4">
-                        <img src="assets/img/shoprite.jpg" alt="">
-                    </div>
-                    <div class="bg-light p-4">
-                        <img src="assets/img/foodlovers.jpeg" alt="">
-                    </div>
-                    <div class="bg-light p-4">
-                        <img src="assets/img/checkers.png" alt="">
-                    </div>
-                    <div class="bg-light p-4">
-                        <img src="assets/img/spar.png" alt="">
-                    </div>
+                <div class="owl-carousel vendor-carousel" id ="stCarousel" runat="server">
+                    
                 </div>
             </div>
         </div>
