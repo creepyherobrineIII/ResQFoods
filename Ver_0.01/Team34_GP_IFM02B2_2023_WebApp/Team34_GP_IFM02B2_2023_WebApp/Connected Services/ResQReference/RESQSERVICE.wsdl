@@ -309,7 +309,7 @@
         <xs:complexType>
           <xs:sequence>
             <xs:element minOccurs="0" name="UID" type="xs:int" />
-            <xs:element minOccurs="0" name="price" type="xs:double" />
+            <xs:element minOccurs="0" name="price" type="xs:decimal" />
             <xs:element minOccurs="0" name="TOS" type="xs:dateTime" />
             <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="cart" nillable="true" type="q14:ArrayOfCartItem" />
           </xs:sequence>
@@ -498,6 +498,7 @@
           <xs:element minOccurs="0" name="Price" type="xs:decimal" />
           <xs:element minOccurs="0" name="ProductId" type="xs:int" />
           <xs:element minOccurs="0" name="ProductTags" nillable="true" type="tns:ArrayOfProductTag" />
+          <xs:element minOccurs="0" name="Quantity" nillable="true" type="xs:int" />
           <xs:element minOccurs="0" name="Store" nillable="true" type="tns:Store" />
           <xs:element minOccurs="0" name="UserId" type="xs:int" />
         </xs:sequence>

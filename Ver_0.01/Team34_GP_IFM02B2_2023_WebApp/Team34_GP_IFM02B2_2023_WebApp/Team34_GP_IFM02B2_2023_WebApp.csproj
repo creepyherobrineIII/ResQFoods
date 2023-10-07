@@ -148,6 +148,7 @@
     <Content Include="html\portfolio.html" />
     <Content Include="html\services.html" />
     <Content Include="index.aspx" />
+    <Content Include="invoices.aspx" />
     <Content Include="login.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="RegStore.aspx" />
@@ -196,6 +197,13 @@
     </Compile>
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="invoices.aspx.cs">
+      <DependentUpon>invoices.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="invoices.aspx.designer.cs">
+      <DependentUpon>invoices.aspx</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
