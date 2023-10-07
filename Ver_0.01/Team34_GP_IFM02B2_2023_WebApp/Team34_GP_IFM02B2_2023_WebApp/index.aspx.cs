@@ -155,7 +155,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                 stBlock+=  "<div class='col-lg-3 col-md- 4 col-sm-6 pb-1'>";
                 stBlock+=  "<div class='product-item bg-light mb-4'>";
                  stBlock+= "<div class='product-img position-relative overflow-hidden' >";
-                stBlock += "<img class='img-fluid w-100' src='"+s.Logo+"' style='width:300px; height:300px; object-fit:cover;' alt=''>";
+                stBlock += "<a  href='shop.aspx?Filter=S&ID=" + s.UserId + "'><img class='img-fluid w-100' src='" + s.Logo+"' style='width:300px; height:300px; object-fit:cover;' alt=''>";
                 stBlock += "</div>";
                 stBlock+= "<div class='text-center py-4'>";
                 stBlock+= "<a class='h6 text-decoration-none text-truncate' href='shop.aspx?Filter=S&ID="+s.UserId+"'>"+s.Name+"</a>";
@@ -179,11 +179,14 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                 pBlock+= "<div class='product-item bg-light mb-4'>";
                 pBlock+= "<div class='product-img position-relative overflow-hidden'>";
                 pBlock+= "<a  href='detail.aspx?ID='"+p.ProductId+"'><img class='img-fluid w-100' src='"+p.Picture+ "' style='width: 300px; height: 300px; object-fit: cover;' alt=''></a>";
-                pBlock+= "<div class='product-action'>";
-                pBlock+= "<a class='btn btn-outline-dark btn-square' href='shop.aspx?CartAdd=" + p.ProductId + "'><i class='fa fa-shopping-cart'></i></a>";
-                pBlock += "<a class='btn btn-outline-dark btn-square' href'shop.aspx?WishAdd=" + p.ProductId + "'><i class='far fa-heart'></i></a>";
+                if (Session["user"] != null)
+                {
+                    pBlock += "<div class='product-action'>";
+                    pBlock += " <a class='btn btn-outline-dark btn-square' href='shop.aspx?CartAdd=" + p.ProductId + "'><i class='fa fa-shopping-cart'></i></a>";
+                    pBlock += " <a class='btn btn-outline-dark btn-square' href='shop.aspx?WishAdd=" + p.ProductId + "'><i class='far fa-heart'></i></a>";
+                    pBlock += "</div>";
+                }
                 pBlock += "</div>";
-                pBlock+= "</div>";
                 pBlock+= "<div class='text-center py-4'>";
                 pBlock+= " <a class='h6 text-decoration-none text-truncate' href='shop.aspx'>"+p.Name+"</a>";
                 pBlock+= "<div class='d-flex align-items-center justify-content-center mt-2'>";

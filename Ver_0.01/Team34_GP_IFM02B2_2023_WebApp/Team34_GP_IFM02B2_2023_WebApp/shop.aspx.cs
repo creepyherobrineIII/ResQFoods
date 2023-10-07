@@ -219,11 +219,14 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                  pBlock += "<div class='col-lg-4 col-md-6 col-sm-6 pb-1'>";
                  pBlock += "<div class='product-item bg-light mb-4'>";        
                  pBlock += "<div class='product-img position-relative overflow-hidden'>";           
-                 pBlock += "<img class='img-fluid w-100' src='"+curr.Picture+ "' style='width: 300px; height: 300px; object-fit:cover;' alt=''>";                
-                 pBlock += "<div class='product-action'>";                 
-                 pBlock += " <a class='btn btn-outline-dark btn-square' href='shop.aspx?CartAdd=" + curr.ProductId + "'><i class='fa fa-shopping-cart'></i></a>";                   
-                 pBlock += " <a class='btn btn-outline-dark btn-square' href='shop.aspx?WishAdd=" + curr.ProductId + "'><i class='far fa-heart'></i></a>";                                     
-                 pBlock += "</div>";                
+                 pBlock += "<a  href='detail.aspx?ID='" + curr.ProductId + "'><img class='img-fluid w-100' src='" + curr.Picture+ "' style='width: 300px; height: 300px; object-fit:cover;' alt=''>";
+                if (Session["user"] != null)
+                {
+                    pBlock += "<div class='product-action'>";
+                    pBlock += " <a class='btn btn-outline-dark btn-square' href='shop.aspx?CartAdd=" + curr.ProductId + "'><i class='fa fa-shopping-cart'></i></a>";
+                    pBlock += " <a class='btn btn-outline-dark btn-square' href='shop.aspx?WishAdd=" + curr.ProductId + "'><i class='far fa-heart'></i></a>";
+                    pBlock += "</div>";
+                }
                  pBlock += "</div>";           
                  pBlock += " <div class='text-center py-4'>";         
                  pBlock += "<a class='h6 text-decoration-none text-truncate' href='"+direct+".aspx?ID="+curr.ProductId+"'>"+curr.Name+"</a>";                
