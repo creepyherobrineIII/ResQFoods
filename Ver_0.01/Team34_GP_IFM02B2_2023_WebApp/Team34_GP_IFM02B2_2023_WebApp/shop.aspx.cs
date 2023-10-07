@@ -37,9 +37,9 @@ namespace Team34_GP_IFM02B2_2023_WebApp
             {
                 if (Request.QueryString["Edit"].Equals("true"))
                 {
-                    if (Session["User"] != null)
+                    if (Session["user"] != null)
                     {
-                        UserTable tempUser = (UserTable)Session["User"];
+                        UserTable tempUser = (UserTable)Session["user"];
                         if (tempUser.UserType == 2)
                         {
                             shopHead.Visible = false;
@@ -52,10 +52,10 @@ namespace Team34_GP_IFM02B2_2023_WebApp
 
             if (Request.QueryString["CartAdd"] != null)
             {
-                if (Session["User"] != null)
+                if (Session["user"] != null)
                 {
                     int PID = Convert.ToInt32(Request.QueryString["CartAdd"]);
-                    UserTable tempUser = (UserTable)Session["User"];
+                    UserTable tempUser = (UserTable)Session["user"];
                     CartItem c = new CartItem
                     {
                         UserId = tempUser.UserId,
@@ -93,10 +93,10 @@ namespace Team34_GP_IFM02B2_2023_WebApp
 
             if (Request.QueryString["WishAdd"] != null)
             {
-                if (Session["User"] != null)
+                if (Session["user"] != null)
                 {
                     int PID = Convert.ToInt32(Request.QueryString["WishAdd"]);
-                    UserTable tempUser = (UserTable)Session["User"];
+                    UserTable tempUser = (UserTable)Session["user"];
                     CartItem c = new CartItem
                     {
                         UserId = tempUser.UserId,
