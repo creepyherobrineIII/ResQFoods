@@ -26,7 +26,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
             String cps = Secrecy.HashPassword(ucPass.Value);
             if (pass.Equals(cps))
             {
-                //use to lower and find the picture (some of the pictures arent jpg atm, need to fix that 
+                
                 var regstr = sc.regAdmin(email, pass);
                 if (regstr)
                 {
