@@ -22,10 +22,7 @@
             border: 2px solid seagreen;
             
         }
-        .container img 
-        {
 
-        }
         a{
             color: black;
         }
