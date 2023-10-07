@@ -62,22 +62,28 @@
 	
 	<div class="signup">
     <span class="signup">
-	<h2>Hello Buyer Signup Here </h2><br>
-        <img class="rounded-image" src="/assets/img/buyer.png" alt="User Rounded Image">
-        <p>Not a buyer? Click below if you are either a Seller or Admin</p>
-	<p>I am a <label><a href="/RegStore.aspx">Seller</a></label> / an <label><a href ="/RegAdmin.aspx">Admin</a></label> </p> <br> 
-	
+	<h2>Create an Account</h2><br>
+        <img class="rounded-image" src="/assets/img/buyer.png" alt="User Rounded Image">        
 	</span>
 	</div>
     <div class="registration form">
       
       <form id ="regForm" runat="server">
-	  <input type="text" id="fName" runat="server" placeholder="Enter your First Name">
-	  <input type="text" id="lName" runat="server" placeholder="Enter your Last Name">
-        <input type="text" id="uEmail" runat="server" placeholder="Enter your email">
-        <input type="password" id="uPass" runat="server" placeholder="Create a password">
-        <input type="password" id="ucPass" runat="server" placeholder="Confirm your password">
-        <input type="date"  id="bDate" runat="server">
+	  <input type="text" id="sName" runat="server" placeholder="Enter Your Store Name">
+	  <input type="text" id="cName" runat="server" placeholder="Enter Your Company Name">
+        <input type="text" id="uEmail" runat="server" placeholder="Enter your Business Email">
+        <input type="password" id="uPass" runat="server" placeholder="Create a Password">
+        <input type="password" id="ucPass" runat="server" placeholder="Confirm your Password">
+        <input type="text" id="sloc" runat="server" placeholder="Enter Store Location (In one line)">
+          <br />
+        <select name="store_type" id="sType" runat="server" placeholder="Choose Store Type">
+              <option value="grocery">Grocery</option>
+              <option value="bakery">Bakery</option>
+              <option value="restaurant">Restaurant</option>
+              <option value="misc">Misc</option>
+      </select>
+          <br />
+          <br />
         <asp:Button id="regButt" runat="server" CssClass="button" Text="Register" OnClick="logReg_Click" />
         <asp:Label id="regStat" runat="server" Text = "SUCCESS" CssClass="warning"/>
       </form>

@@ -40,7 +40,7 @@
         }
 
         /* Style the registration button with rounded corners */
-        .button {
+        .buttonr{
             background-color: rgb(46, 139, 87);
             color: #fff;
             font-weight: bold;
@@ -54,6 +54,11 @@
             width: 200px; /* Set the desired width for the image */
             height: 200px; /* Set the desired height for the image */
         }
+        
+        .h2{
+                text-align: center;
+           }
+        }
     </style>
 </asp:Content>
 
@@ -61,26 +66,34 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 	 <div class="container">
 	
-	<div class="signup">
-    <span class="signup">
-	<h2>Hello Buyer Signup Here </h2><br>
-        <img class="rounded-image" src="/assets/img/buyer.png" alt="User Rounded Image">
-        <p>Not a buyer? Click below if you are either a Seller or Admin</p>
-	<p>I am a <label><a href="/RegStore.aspx">Seller</a></label> / an <label><a href ="/RegAdmin.aspx">Admin</a></label> </p> <br> 
-	
-	</span>
-	</div>
-    <div class="registration form">
+         <div class="signup">
+             <div class="signup"> 
+                 <br />
+                     <h2>Create an Account</h2>                   
+                     <img class="rounded-image" src="/assets/img/buyer.png" alt="User Rounded Image">
+                     <p>Not a buyer? Click below if you are  a Seller</p>
+                     <p>I am a
+                         <label><a href="/RegStore.aspx">Seller</a></label>
+                        <!-- / an
+                         <label><a href="/RegAdmin.aspx">Admin</a></label>--> 
+                     </p>
+                 
+             </div>
+         </div>
+         <div class="registration form">
       
       <form id ="regForm" runat="server">
 	  <input type="text" id="fName" runat="server" placeholder="Enter your First Name">
 	  <input type="text" id="lName" runat="server" placeholder="Enter your Last Name">
-        <input type="text" id="uEmail" runat="server" placeholder="Enter your email">
-        <input type="password" id="uPass" runat="server" placeholder="Create a password">
-        <input type="password" id="ucPass" runat="server" placeholder="Confirm your password">
+        <input type="text" id="uEmail" runat="server" placeholder="Enter your Email">
+        <input type="password" id="uPass" runat="server" placeholder="Create a Password">
+        <input type="password" id="ucPass" runat="server" placeholder="Confirm your Password">
+          Please Enter Date of Birth:
         <input type="date"  id="bDate" runat="server">
-        <asp:Button id="regButt" runat="server" CssClass="button" Text="Register" OnClick="logReg_Click" />
-        <asp:Label id="regStat" runat="server" Text = "SUCCESS" CssClass="warning"/>
+          <br />
+        <asp:Button id="regButt" runat="server" CssClass="buttonr" Text="Register" OnClick="logReg_Click" />
+          <br /> <br />
+       <b><asp:Label id="regStat" runat="server" Text = "" CssClass="warning"/></b> 
       </form>
       <div class="signup">
         <span class="signup">Already have an account?

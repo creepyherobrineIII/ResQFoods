@@ -24,13 +24,13 @@ namespace Team34_GP_IFM02B2_2023_WebApp
         protected global::System.Web.UI.HtmlControls.HtmlForm regForm;
 
         /// <summary>
-        /// uEmail control.
+        /// sName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText uEmail;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText sName;
 
         /// <summary>
         /// cName control.
@@ -42,31 +42,13 @@ namespace Team34_GP_IFM02B2_2023_WebApp
         protected global::System.Web.UI.HtmlControls.HtmlInputText cName;
 
         /// <summary>
-        /// sName control.
+        /// uEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText sName;
-
-        /// <summary>
-        /// sLoc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText sLoc;
-
-        /// <summary>
-        /// sType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText sType;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText uEmail;
 
         /// <summary>
         /// uPass control.
@@ -85,6 +67,24 @@ namespace Team34_GP_IFM02B2_2023_WebApp
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputPassword ucPass;
+
+        /// <summary>
+        /// sloc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText sloc;
+
+        /// <summary>
+        /// sType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect sType;
 
         /// <summary>
         /// regButt control.

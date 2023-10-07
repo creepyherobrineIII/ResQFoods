@@ -26,3 +26,10 @@ C:\Users\caitl\OneDrive - University of Johannesburg\Group Project\ResQFoods\Ver
 C:\Users\caitl\OneDrive - University of Johannesburg\Group Project\ResQFoods\Ver_0.01\Team34_GP_IFM02B2_2023_WCF\Team34_GP_IFM02B2_2023_WCF\obj\Debug\Team34_GP_IFM02B2_2023_WCF.csproj.CoreCompileInputs.cache
 C:\Users\caitl\OneDrive - University of Johannesburg\Group Project\ResQFoods\Ver_0.01\Team34_GP_IFM02B2_2023_WCF\Team34_GP_IFM02B2_2023_WCF\obj\Debug\Team34_GP_IFM02B2_2023_WCF.dll
 C:\Users\caitl\OneDrive - University of Johannesburg\Group Project\ResQFoods\Ver_0.01\Team34_GP_IFM02B2_2023_WCF\Team34_GP_IFM02B2_2023_WCF\obj\Debug\Team34_GP_IFM02B2_2023_WCF.pdb
+D:\ResQFoods\Ver_0.01\Team34_GP_IFM02B2_2023_WCF\Team34_GP_IFM02B2_2023_WCF\obj\Debug\Team34_GP_IFM02B2_2023_WCF.csproj.AssemblyReference.cache
+D:\ResQFoods\Ver_0.01\Team34_GP_IFM02B2_2023_WCF\Team34_GP_IFM02B2_2023_WCF\obj\Debug\Team34_GP_IFM02B2_2023_WCF.csproj.CoreCompileInputs.cache
+D:\ResQFoods\Ver_0.01\Team34_GP_IFM02B2_2023_WCF\Team34_GP_IFM02B2_2023_WCF\obj\Debug\Team34_GP_IFM02B2_2023_WCF.dll
+D:\ResQFoods\Ver_0.01\Team34_GP_IFM02B2_2023_WCF\Team34_GP_IFM02B2_2023_WCF\obj\Debug\Team34_GP_IFM02B2_2023_WCF.pdb
+D:\ResQFoods\Ver_0.01\Team34_GP_IFM02B2_2023_WCF\Team34_GP_IFM02B2_2023_WCF\bin\Team34_GP_IFM02B2_2023_WCF.dll.config
+D:\ResQFoods\Ver_0.01\Team34_GP_IFM02B2_2023_WCF\Team34_GP_IFM02B2_2023_WCF\bin\Team34_GP_IFM02B2_2023_WCF.dll
+D:\ResQFoods\Ver_0.01\Team34_GP_IFM02B2_2023_WCF\Team34_GP_IFM02B2_2023_WCF\bin\Team34_GP_IFM02B2_2023_WCF.pdb

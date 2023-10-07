@@ -937,6 +937,11 @@ namespace Team34_GP_IFM02B2_2023_WCF
             }
             return tReturn;
         }
+
+        public Product GetProduct(int pID)
+        {
+            throw new NotImplementedException();
+        }
     }
     }
 
