@@ -117,9 +117,10 @@
                                 </button>
                             </div>
                         </div>
-                        <p id="errMess" runat="server"></p>
-                        <button class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1"></i> Add To
-                            Cart</button>
+                        <p id="errMess" runat="server" style="color:red;"></p>
+                        <form runat="server"> 
+                            <asp:Button class="btn btn-primary px-3" id="addToCartButt" runat="server" Text="Add To Cart" OnClick="addToCart_Click"/>
+                        </form>
                     </div>
                 </div>
             </div>

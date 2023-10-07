@@ -33,5 +33,31 @@ namespace Team34_GP_IFM02B2_2023_WebApp
             }
 
         }
+
+        protected void addToCart_Click(object sender, EventArgs e) //On Click event for button
+        {
+            
+            int Quantity = int.Parse(prodQuan.Value);
+
+            if (Session["User"] != null)
+            {
+                UserTable tempUser = (UserTable)Session["User"]; //Find out user details
+
+                if (Quantity == 0)
+                {
+                    errMess.InnerText = "Add a valid quantity";
+                    errMess.Visible = true;
+                }
+
+                if (Quantity != 0)
+                {
+                    
+                }
+            } else
+            {
+                Response.Redirect("login.aspx");
+            }
+        }
     }
+
 }
