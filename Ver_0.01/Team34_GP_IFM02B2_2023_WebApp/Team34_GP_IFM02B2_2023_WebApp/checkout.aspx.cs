@@ -21,9 +21,9 @@ namespace Team34_GP_IFM02B2_2023_WebApp
         {
             Customer customer = null; //get customer
 
-            if (Session["user"] == null)
+            if (Session["customer"] != null)
              {
-                customer = (Customer)Session["user"];
+                customer = (Customer)Session["customer"];
               }
 
             string products = "";
@@ -91,7 +91,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
             UserTable currentuser = (UserTable)Session["user"];
             int userID = currentuser.UserId;
 
-           // sc.addInvoice(userID, finalamount, DateTime.Now, cart);
+            bool success = sc.addInvoice(userID, finalamount, DateTime.Now, cart.ToArray());
             decreaseStock();
             Response.Redirect("success.aspx");
         }

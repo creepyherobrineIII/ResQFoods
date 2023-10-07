@@ -12,7 +12,7 @@
             <div class="row vertical-gap">
                 <div class="col-lg-6">
                      <!--invoices inserted here-->
-                    <div id="InvoiceDisplayArea" runat="server"></div>
+                    <div id="InvoiceDisplay" runat="server"></div>
                 </div>
             </div>
         </div>
