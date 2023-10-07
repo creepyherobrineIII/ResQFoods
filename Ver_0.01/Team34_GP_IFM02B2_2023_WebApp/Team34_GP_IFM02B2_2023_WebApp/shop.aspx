@@ -25,14 +25,10 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     </div>
-                    <form action="">
+                    <form id ="serachForm" runat="server">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search for products">
-                        <div class="input-group-append">
-                            <span class="input-group-text bg-transparent text-primary">
-                                <i class="fa fa-search"></i>
-                            </span>
-                        </div>
+                        <input type="text" class="form-control" id = "txtSearch" runat="server" placeholder="Search for products">
+                             <asp:Button ID="btnSearch" class="btn btn-primary" runat="server" Text="Search" OnClick="btnSearch_Click"></asp:Button>
                     </div>
                 </form>
                 </nav>
@@ -78,7 +74,7 @@
                             <a href="shop.aspx?Filter=P&upper=150&lower=100"><label  for="price-3">R100 - R150</label></a>
                         </div>
                         <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                            <a href="shop.aspx?Filter=P&upper=200&lower=-150"><label  for="price-4">R150 - R200</label></a>
+                            <a href="shop.aspx?Filter=P&upper=200&lower=150"><label  for="price-4">R150 - R200</label></a>
                         </div>
                         <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between">
                             <a href="shop.aspx?Filter=P&upper=99999999&lower=200"><label  for="price-5">R200+</label></a>

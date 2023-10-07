@@ -34,19 +34,8 @@
                     <i class="fa fa-angle-down text-dark"></i>
                 </a>
                 <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 999;">
-                    <div class="navbar-nav w-100">
-                        <div class="nav-item dropdown dropright">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Bakery <i class="fa fa-angle-right float-right mt-1"></i></a>
-                            <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
-                                <a href="" class="dropdown-item">Pastries</a>
-                                <a href="" class="dropdown-item">Baked Deserts</a>
-                                <a href="" class="dropdown-item">Breads</a>
-                            </div>
-                        </div>
-                         <a href="" class="nav-item nav-link">Fruits & Vegetables</a>
-                        <a href="" class="nav-item nav-link">Drinkables</a>
-                        <a href="" class="nav-item nav-link">Snacks</a>
-                        <a href="" class="nav-item nav-link">Canned Goods</a>
+                    <div class="navbar-nav w-100" id="pTags" runat="server">
+                      
                     </div>
                 </nav>
             </div>
@@ -57,14 +46,10 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     </div>
-                    <form action="">
+                    <form id ="serachForm" runat="server">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search for products">
-                        <div class="input-group-append">
-                            <span class="input-group-text bg-transparent text-primary">
-                                <i class="fa fa-search"></i>
-                            </span>
-                        </div>
+                        <input type="text" class="form-control" id = "txtSearch" runat="server" placeholder="Search for products">
+                             <asp:Button ID="btnSearch" class="btn btn-primary" runat="server" Text="Search" OnClick="btnSearch_Click"></asp:Button>
                     </div>
                 </form>
                 </nav>
@@ -89,8 +74,8 @@
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
                                     <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown"></h1>
-                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Pastries</p>
-                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="shop.aspx">Shop Now</a>
+                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Baked Goods</p>
+                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="shop.aspx?Filter=T&TID=2">Shop Now</a>
                                 </div>
                             </div>
                         </div>
@@ -99,8 +84,8 @@
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
                                     <h1 class="display-4 text-white mb-3 animate__animated animate__fadeInDown"></h1>
-                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Snacks</p>
-                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="shop.aspx">Shop Now</a>
+                                    <p class="mx-md-5 px-5 animate__animated animate__bounceIn">Meals</p>
+                                    <a class="btn btn-outline-light py-2 px-4 mt-3 animate__animated animate__fadeInUp" href="shop.aspx?Filter=T&TID=5">Shop Now</a>
                                 </div>
                             </div>
                         </div>
@@ -111,9 +96,10 @@
                 <div class="product-offer mb-30" style="height: 200px;">
                     <img class="img-fluid" src="assets/img/sustainability.jpg" alt="">
                 </div>
-                <div class="product-offer mb-30" style="height: 200px;">
+                <a href="shop.aspx"><div class="product-offer mb-30" style="height: 200px;">
                     <img class="img-fluid" src="assets/img/offer-2.jpg" alt="">
-                </div>
+
+                </div></a>
             </div>
         </div>
     </div>

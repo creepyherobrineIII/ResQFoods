@@ -227,7 +227,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
                 for (int i = tempList.Count - 1; i > -1; i--)
                 {
                     //If the name does not match the searched name, remove the item from the list
-                    if (tempList[i].Name != name)
+                    if (!tempList[i].Name.ToUpper().Contains(name.ToUpper()))
                     {
                         tempList.RemoveAt(i);
                     }

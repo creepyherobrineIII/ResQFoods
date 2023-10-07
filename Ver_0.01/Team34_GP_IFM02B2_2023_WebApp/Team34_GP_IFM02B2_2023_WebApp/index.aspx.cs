@@ -18,6 +18,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
         {
          List<Store> st = new List<Store>(sc.getStores());
          List<Product> prod = new List<Product>(sc.getAllProducts());
+         List<Tag> t = new List<Tag>(sc.getTags());
          Store[] feat = new Store[4];
          Product[] pFeat = new Product[7];
 
@@ -55,11 +56,101 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                 }
             }
 
+            if (Request.QueryString["CartAdd"] != null)
+            {
+                if (Session["User"] != null)
+                {
+                    int PID = Convert.ToInt32(Request.QueryString["CartAdd"]);
+                    UserTable tempUser = (UserTable)Session["User"];
+                    CartItem c = new CartItem
+                    {
+                        UserId = tempUser.UserId,
+                        ProductId = PID,
+                        Quantity = 1
+                    };
+
+                    if (Session["CartList"] != null)
+                    {
+                        bool add = false;
+                        List<CartItem> cList = (List<CartItem>)Session["CartList"];
+                        for (int i = 0; i < cList.Count - 1; i++)
+                        {
+                            if ((cList[i].ProductId == c.ProductId) && (cList[i].UserId == c.UserId))
+                            {
+                                add = false;
+                                cList[i].Quantity += 1;
+                                break;
+                            }
+                            else
+                            {
+                                add = true;
+                            }
+                        }
+                        if (add)
+                        {
+                            cList.Add(c);
+                        }
+
+                        Session["CartList"] = cList;
+
+                    }
+                }
+            }
+
+            if (Request.QueryString["WishAdd"] != null)
+            {
+                if (Session["User"] != null)
+                {
+                    int PID = Convert.ToInt32(Request.QueryString["WishAdd"]);
+                    UserTable tempUser = (UserTable)Session["User"];
+                    CartItem c = new CartItem
+                    {
+                        UserId = tempUser.UserId,
+                        ProductId = PID,
+                        Quantity = 1
+                    };
+
+                    if (Session["WishList"] != null)
+                    {
+                        bool add = false;
+                        List<CartItem> wList = (List<CartItem>)Session["WishList"];
+                        for (int i = 0; i < wList.Count - 1; i++)
+                        {
+                            if ((wList[i].ProductId == c.ProductId) && (wList[i].UserId == c.UserId))
+                            {
+                                add = false;
+                                wList[i].Quantity += 1;
+                                break;
+                            }
+                            else
+                            {
+                                add = true;
+                            }
+                        }
+                        if (add)
+                        {
+                            wList.Add(c);
+                        }
+
+                        Session["CartList"] = wList;
+
+                    }
+                }
+            }
+
             String stBlock = "";
             String stCar = "";
             String pBlock = "";
 
-            foreach(Store s in feat)
+            String tBlock = "";
+
+            foreach (Tag temp in t)
+            {
+                tBlock += "<a href='shop.aspx?Filter=T&TID=" + temp.TagID + "' class='nav-item nav-link'>" + temp.TagName + "</a>";
+            }
+            pTags.InnerHtml = tBlock;
+
+            foreach (Store s in feat)
             {
                 stBlock+=  "<div class='col-lg-3 col-md- 4 col-sm-6 pb-1'>";
                 stBlock+=  "<div class='product-item bg-light mb-4'>";
@@ -89,8 +180,8 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                 pBlock+= "<div class='product-img position-relative overflow-hidden'>";
                 pBlock+= "<a  href='detail.aspx?ID='"+p.ProductId+"'><img class='img-fluid w-100' src='"+p.Picture+ "' style='width: 300px; height: 300px; object-fit: cover;' alt=''></a>";
                 pBlock+= "<div class='product-action'>";
-                pBlock+= "<a class='btn btn-outline-dark btn-square' href=''><i class='fa fa-shopping-cart'></i></a>";
-                pBlock += "<a class='btn btn-outline-dark btn-square' href''><i class='far fa-heart'></i></a>";
+                pBlock+= "<a class='btn btn-outline-dark btn-square' href='shop.aspx?CartAdd=" + p.ProductId + "'><i class='fa fa-shopping-cart'></i></a>";
+                pBlock += "<a class='btn btn-outline-dark btn-square' href'shop.aspx?WishAdd=" + p.ProductId + "'><i class='far fa-heart'></i></a>";
                 pBlock += "</div>";
                 pBlock+= "</div>";
                 pBlock+= "<div class='text-center py-4'>";
@@ -118,6 +209,15 @@ namespace Team34_GP_IFM02B2_2023_WebApp
 
 
 
+        }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (txtSearch.Value != null)
+            {
+                String n = txtSearch.Value;
+                Response.Redirect("shop.aspx?Filter=N&Name=" + n);
+            }
         }
     }
 }
