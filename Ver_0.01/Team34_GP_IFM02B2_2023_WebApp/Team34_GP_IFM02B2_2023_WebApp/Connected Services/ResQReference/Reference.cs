@@ -935,6 +935,9 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
         private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int NumSoldField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PictureField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1039,6 +1042,19 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
                 if ((object.ReferenceEquals(this.NameField, value) != true)) {
                     this.NameField = value;
                     this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int NumSold {
+            get {
+                return this.NumSoldField;
+            }
+            set {
+                if ((this.NumSoldField.Equals(value) != true)) {
+                    this.NumSoldField = value;
+                    this.RaisePropertyChanged("NumSold");
                 }
             }
         }
@@ -1621,17 +1637,82 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getInvoiceItems", ReplyAction="http://tempuri.org/IRESQSERVICE/getInvoiceItemsResponse")]
         System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.InvoiceItem[]> getInvoiceItemsAsync(int IID);
         
+        // CODEGEN: Generating message contract since the wrapper name (getProduct) of message getProductRequest does not match the default value (getProduct1)
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getProduct", ReplyAction="http://tempuri.org/IRESQSERVICE/getProductResponse")]
-        Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product getProduct(int pID);
+        Team34_GP_IFM02B2_2023_WebApp.ResQReference.getProductResponse getProduct1(Team34_GP_IFM02B2_2023_WebApp.ResQReference.getProductRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getProduct", ReplyAction="http://tempuri.org/IRESQSERVICE/getProductResponse")]
-        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product> getProductAsync(int pID);
+        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.getProductResponse> getProduct1Async(Team34_GP_IFM02B2_2023_WebApp.ResQReference.getProductRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getTags", ReplyAction="http://tempuri.org/IRESQSERVICE/getTagsResponse")]
         Team34_GP_IFM02B2_2023_WebApp.ResQReference.Tag[] getTags();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getTags", ReplyAction="http://tempuri.org/IRESQSERVICE/getTagsResponse")]
         System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Tag[]> getTagsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getReportTotalSales", ReplyAction="http://tempuri.org/IRESQSERVICE/getReportTotalSalesResponse")]
+        decimal getReportTotalSales();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getReportTotalSales", ReplyAction="http://tempuri.org/IRESQSERVICE/getReportTotalSalesResponse")]
+        System.Threading.Tasks.Task<decimal> getReportTotalSalesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getBestSellingStore", ReplyAction="http://tempuri.org/IRESQSERVICE/getBestSellingStoreResponse")]
+        Team34_GP_IFM02B2_2023_WebApp.ResQReference.Store getBestSellingStore();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getBestSellingStore", ReplyAction="http://tempuri.org/IRESQSERVICE/getBestSellingStoreResponse")]
+        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Store> getBestSellingStoreAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getBestSellingStoreType", ReplyAction="http://tempuri.org/IRESQSERVICE/getBestSellingStoreTypeResponse")]
+        string getBestSellingStoreType();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getBestSellingStoreType", ReplyAction="http://tempuri.org/IRESQSERVICE/getBestSellingStoreTypeResponse")]
+        System.Threading.Tasks.Task<string> getBestSellingStoreTypeAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getBestSellingProductTag", ReplyAction="http://tempuri.org/IRESQSERVICE/getBestSellingProductTagResponse")]
+        Team34_GP_IFM02B2_2023_WebApp.ResQReference.Tag getBestSellingProductTag();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getBestSellingProductTag", ReplyAction="http://tempuri.org/IRESQSERVICE/getBestSellingProductTagResponse")]
+        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Tag> getBestSellingProductTagAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getNumRegUsers", ReplyAction="http://tempuri.org/IRESQSERVICE/getNumRegUsersResponse")]
+        int getNumRegUsers(System.DateTime date);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getNumRegUsers", ReplyAction="http://tempuri.org/IRESQSERVICE/getNumRegUsersResponse")]
+        System.Threading.Tasks.Task<int> getNumRegUsersAsync(System.DateTime date);
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="getProduct", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class getProductRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public int pID;
+        
+        public getProductRequest() {
+        }
+        
+        public getProductRequest(int pID) {
+            this.pID = pID;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="getProductResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class getProductResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product getProductResult;
+        
+        public getProductResponse() {
+        }
+        
+        public getProductResponse(Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product getProductResult) {
+            this.getProductResult = getProductResult;
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1877,12 +1958,27 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
             return base.Channel.getInvoiceItemsAsync(IID);
         }
         
-        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product getProduct(int pID) {
-            return base.Channel.getProduct(pID);
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Team34_GP_IFM02B2_2023_WebApp.ResQReference.getProductResponse Team34_GP_IFM02B2_2023_WebApp.ResQReference.IRESQSERVICE.getProduct1(Team34_GP_IFM02B2_2023_WebApp.ResQReference.getProductRequest request) {
+            return base.Channel.getProduct1(request);
         }
         
-        public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product> getProductAsync(int pID) {
-            return base.Channel.getProductAsync(pID);
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product getProduct1(int pID) {
+            Team34_GP_IFM02B2_2023_WebApp.ResQReference.getProductRequest inValue = new Team34_GP_IFM02B2_2023_WebApp.ResQReference.getProductRequest();
+            inValue.pID = pID;
+            Team34_GP_IFM02B2_2023_WebApp.ResQReference.getProductResponse retVal = ((Team34_GP_IFM02B2_2023_WebApp.ResQReference.IRESQSERVICE)(this)).getProduct1(inValue);
+            return retVal.getProductResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.getProductResponse> Team34_GP_IFM02B2_2023_WebApp.ResQReference.IRESQSERVICE.getProduct1Async(Team34_GP_IFM02B2_2023_WebApp.ResQReference.getProductRequest request) {
+            return base.Channel.getProduct1Async(request);
+        }
+        
+        public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.getProductResponse> getProduct1Async(int pID) {
+            Team34_GP_IFM02B2_2023_WebApp.ResQReference.getProductRequest inValue = new Team34_GP_IFM02B2_2023_WebApp.ResQReference.getProductRequest();
+            inValue.pID = pID;
+            return ((Team34_GP_IFM02B2_2023_WebApp.ResQReference.IRESQSERVICE)(this)).getProduct1Async(inValue);
         }
         
         public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Tag[] getTags() {
@@ -1891,6 +1987,46 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
         
         public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Tag[]> getTagsAsync() {
             return base.Channel.getTagsAsync();
+        }
+        
+        public decimal getReportTotalSales() {
+            return base.Channel.getReportTotalSales();
+        }
+        
+        public System.Threading.Tasks.Task<decimal> getReportTotalSalesAsync() {
+            return base.Channel.getReportTotalSalesAsync();
+        }
+        
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Store getBestSellingStore() {
+            return base.Channel.getBestSellingStore();
+        }
+        
+        public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Store> getBestSellingStoreAsync() {
+            return base.Channel.getBestSellingStoreAsync();
+        }
+        
+        public string getBestSellingStoreType() {
+            return base.Channel.getBestSellingStoreType();
+        }
+        
+        public System.Threading.Tasks.Task<string> getBestSellingStoreTypeAsync() {
+            return base.Channel.getBestSellingStoreTypeAsync();
+        }
+        
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Tag getBestSellingProductTag() {
+            return base.Channel.getBestSellingProductTag();
+        }
+        
+        public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Tag> getBestSellingProductTagAsync() {
+            return base.Channel.getBestSellingProductTagAsync();
+        }
+        
+        public int getNumRegUsers(System.DateTime date) {
+            return base.Channel.getNumRegUsers(date);
+        }
+        
+        public System.Threading.Tasks.Task<int> getNumRegUsersAsync(System.DateTime date) {
+            return base.Channel.getNumRegUsersAsync(date);
         }
     }
 }

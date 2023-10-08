@@ -167,6 +167,20 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element name="GetProduct">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="pID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetProductResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="GetProductResult" nillable="true" type="q8:Product" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="SearchProducts">
         <xs:complexType>
           <xs:sequence>
@@ -177,7 +191,7 @@
       <xs:element name="SearchProductsResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="SearchProductsResult" nillable="true" type="q8:ArrayOfProduct" />
+            <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="SearchProductsResult" nillable="true" type="q9:ArrayOfProduct" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -219,6 +233,20 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element name="GetCartTotal">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="UID" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetCartTotalResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetCartTotalResult" type="xs:decimal" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="GetCart">
         <xs:complexType>
           <xs:sequence>
@@ -229,14 +257,14 @@
       <xs:element name="GetCartResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="GetCartResult" nillable="true" type="q9:ArrayOfCartItem" />
+            <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="GetCartResult" nillable="true" type="q10:ArrayOfCartItem" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
       <xs:element name="editProduct">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="P" nillable="true" type="q10:Product" />
+            <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="P" nillable="true" type="q11:Product" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -250,7 +278,7 @@
       <xs:element name="editUser">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="U" nillable="true" type="q11:UserTable" />
+            <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="U" nillable="true" type="q12:UserTable" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -264,7 +292,7 @@
       <xs:element name="editCustomer">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="C" nillable="true" type="q12:Customer" />
+            <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="C" nillable="true" type="q13:Customer" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -278,7 +306,7 @@
       <xs:element name="editStore">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="S" nillable="true" type="q13:Store" />
+            <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="S" nillable="true" type="q14:Store" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -293,9 +321,9 @@
         <xs:complexType>
           <xs:sequence>
             <xs:element minOccurs="0" name="UID" type="xs:int" />
-            <xs:element minOccurs="0" name="price" type="xs:double" />
+            <xs:element minOccurs="0" name="price" type="xs:decimal" />
             <xs:element minOccurs="0" name="TOS" type="xs:dateTime" />
-            <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="cart" nillable="true" type="q14:ArrayOfCartItem" />
+            <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="cart" nillable="true" type="q15:ArrayOfCartItem" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -310,7 +338,7 @@
         <xs:complexType>
           <xs:sequence>
             <xs:element minOccurs="0" name="ID" type="xs:int" />
-            <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="c" nillable="true" type="q15:CartItem" />
+            <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="c" nillable="true" type="q16:CartItem" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -335,7 +363,7 @@
       <xs:element name="getFilteredListResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="getFilteredListResult" nillable="true" type="q16:ArrayOfProduct" />
+            <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="getFilteredListResult" nillable="true" type="q17:ArrayOfProduct" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -349,7 +377,7 @@
       <xs:element name="getInvoicesResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="getInvoicesResult" nillable="true" type="q17:ArrayOfInvoice" />
+            <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="getInvoicesResult" nillable="true" type="q18:ArrayOfInvoice" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -363,7 +391,7 @@
       <xs:element name="getInvoiceResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="getInvoiceResult" nillable="true" type="q18:Invoice" />
+            <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="getInvoiceResult" nillable="true" type="q19:Invoice" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -377,7 +405,7 @@
       <xs:element name="getInvoiceItemsResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="getInvoiceItemsResult" nillable="true" type="q19:ArrayOfInvoiceItem" />
+            <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="getInvoiceItemsResult" nillable="true" type="q20:ArrayOfInvoiceItem" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -391,7 +419,7 @@
       <xs:element name="getProductResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="getProductResult" nillable="true" type="q20:Product" />
+            <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="getProductResult" nillable="true" type="q21:Product" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -403,7 +431,69 @@
       <xs:element name="getTagsResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="getTagsResult" nillable="true" type="q21:ArrayOfTag" />
+            <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="getTagsResult" nillable="true" type="q22:ArrayOfTag" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getReportTotalSales">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getReportTotalSalesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="getReportTotalSalesResult" type="xs:decimal" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getBestSellingStore">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getBestSellingStoreResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="getBestSellingStoreResult" nillable="true" type="q23:Store" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getBestSellingStoreType">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getBestSellingStoreTypeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="getBestSellingStoreTypeResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getBestSellingProductTag">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getBestSellingProductTagResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="getBestSellingProductTagResult" nillable="true" type="q24:Tag" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getNumRegUsers">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getNumRegUsersResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="getNumRegUsersResult" type="xs:int" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -504,6 +594,7 @@
           <xs:element minOccurs="0" name="Enabled" type="xs:boolean" />
           <xs:element minOccurs="0" name="InvoiceItems" nillable="true" type="tns:ArrayOfInvoiceItem" />
           <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NumSold" type="xs:int" />
           <xs:element minOccurs="0" name="Picture" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Price" type="xs:decimal" />
           <xs:element minOccurs="0" name="ProductId" type="xs:int" />
@@ -694,6 +785,12 @@
   <wsdl:message name="IRESQSERVICE_getAllProducts_OutputMessage">
     <wsdl:part name="parameters" element="tns:getAllProductsResponse" />
   </wsdl:message>
+  <wsdl:message name="IRESQSERVICE_GetProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProduct" />
+  </wsdl:message>
+  <wsdl:message name="IRESQSERVICE_GetProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductResponse" />
+  </wsdl:message>
   <wsdl:message name="IRESQSERVICE_SearchProducts_InputMessage">
     <wsdl:part name="parameters" element="tns:SearchProducts" />
   </wsdl:message>
@@ -711,6 +808,12 @@
   </wsdl:message>
   <wsdl:message name="IRESQSERVICE_AddToCart_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddToCartResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRESQSERVICE_GetCartTotal_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCartTotal" />
+  </wsdl:message>
+  <wsdl:message name="IRESQSERVICE_GetCartTotal_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCartTotalResponse" />
   </wsdl:message>
   <wsdl:message name="IRESQSERVICE_GetCart_InputMessage">
     <wsdl:part name="parameters" element="tns:GetCart" />
@@ -790,6 +893,36 @@
   <wsdl:message name="IRESQSERVICE_getTags_OutputMessage">
     <wsdl:part name="parameters" element="tns:getTagsResponse" />
   </wsdl:message>
+  <wsdl:message name="IRESQSERVICE_getReportTotalSales_InputMessage">
+    <wsdl:part name="parameters" element="tns:getReportTotalSales" />
+  </wsdl:message>
+  <wsdl:message name="IRESQSERVICE_getReportTotalSales_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getReportTotalSalesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRESQSERVICE_getBestSellingStore_InputMessage">
+    <wsdl:part name="parameters" element="tns:getBestSellingStore" />
+  </wsdl:message>
+  <wsdl:message name="IRESQSERVICE_getBestSellingStore_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getBestSellingStoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRESQSERVICE_getBestSellingStoreType_InputMessage">
+    <wsdl:part name="parameters" element="tns:getBestSellingStoreType" />
+  </wsdl:message>
+  <wsdl:message name="IRESQSERVICE_getBestSellingStoreType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getBestSellingStoreTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRESQSERVICE_getBestSellingProductTag_InputMessage">
+    <wsdl:part name="parameters" element="tns:getBestSellingProductTag" />
+  </wsdl:message>
+  <wsdl:message name="IRESQSERVICE_getBestSellingProductTag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getBestSellingProductTagResponse" />
+  </wsdl:message>
+  <wsdl:message name="IRESQSERVICE_getNumRegUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:getNumRegUsers" />
+  </wsdl:message>
+  <wsdl:message name="IRESQSERVICE_getNumRegUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getNumRegUsersResponse" />
+  </wsdl:message>
   <wsdl:portType name="IRESQSERVICE">
     <wsdl:operation name="loginUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IRESQSERVICE/loginUser" message="tns:IRESQSERVICE_loginUser_InputMessage" />
@@ -835,6 +968,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IRESQSERVICE/getAllProducts" message="tns:IRESQSERVICE_getAllProducts_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRESQSERVICE/getAllProductsResponse" message="tns:IRESQSERVICE_getAllProducts_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRESQSERVICE/GetProduct" message="tns:IRESQSERVICE_GetProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRESQSERVICE/GetProductResponse" message="tns:IRESQSERVICE_GetProduct_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="SearchProducts">
       <wsdl:input wsaw:Action="http://tempuri.org/IRESQSERVICE/SearchProducts" message="tns:IRESQSERVICE_SearchProducts_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRESQSERVICE/SearchProductsResponse" message="tns:IRESQSERVICE_SearchProducts_OutputMessage" />
@@ -846,6 +983,10 @@
     <wsdl:operation name="AddToCart">
       <wsdl:input wsaw:Action="http://tempuri.org/IRESQSERVICE/AddToCart" message="tns:IRESQSERVICE_AddToCart_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRESQSERVICE/AddToCartResponse" message="tns:IRESQSERVICE_AddToCart_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCartTotal">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRESQSERVICE/GetCartTotal" message="tns:IRESQSERVICE_GetCartTotal_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRESQSERVICE/GetCartTotalResponse" message="tns:IRESQSERVICE_GetCartTotal_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetCart">
       <wsdl:input wsaw:Action="http://tempuri.org/IRESQSERVICE/GetCart" message="tns:IRESQSERVICE_GetCart_InputMessage" />
@@ -898,6 +1039,26 @@
     <wsdl:operation name="getTags">
       <wsdl:input wsaw:Action="http://tempuri.org/IRESQSERVICE/getTags" message="tns:IRESQSERVICE_getTags_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRESQSERVICE/getTagsResponse" message="tns:IRESQSERVICE_getTags_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getReportTotalSales">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRESQSERVICE/getReportTotalSales" message="tns:IRESQSERVICE_getReportTotalSales_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRESQSERVICE/getReportTotalSalesResponse" message="tns:IRESQSERVICE_getReportTotalSales_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getBestSellingStore">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRESQSERVICE/getBestSellingStore" message="tns:IRESQSERVICE_getBestSellingStore_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRESQSERVICE/getBestSellingStoreResponse" message="tns:IRESQSERVICE_getBestSellingStore_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getBestSellingStoreType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRESQSERVICE/getBestSellingStoreType" message="tns:IRESQSERVICE_getBestSellingStoreType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRESQSERVICE/getBestSellingStoreTypeResponse" message="tns:IRESQSERVICE_getBestSellingStoreType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getBestSellingProductTag">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRESQSERVICE/getBestSellingProductTag" message="tns:IRESQSERVICE_getBestSellingProductTag_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRESQSERVICE/getBestSellingProductTagResponse" message="tns:IRESQSERVICE_getBestSellingProductTag_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getNumRegUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRESQSERVICE/getNumRegUsers" message="tns:IRESQSERVICE_getNumRegUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRESQSERVICE/getNumRegUsersResponse" message="tns:IRESQSERVICE_getNumRegUsers_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IRESQSERVICE" type="tns:IRESQSERVICE">
@@ -1001,6 +1162,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetProduct">
+      <soap:operation soapAction="http://tempuri.org/IRESQSERVICE/GetProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="SearchProducts">
       <soap:operation soapAction="http://tempuri.org/IRESQSERVICE/SearchProducts" style="document" />
       <wsdl:input>
@@ -1021,6 +1191,15 @@
     </wsdl:operation>
     <wsdl:operation name="AddToCart">
       <soap:operation soapAction="http://tempuri.org/IRESQSERVICE/AddToCart" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCartTotal">
+      <soap:operation soapAction="http://tempuri.org/IRESQSERVICE/GetCartTotal" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1138,6 +1317,51 @@
     </wsdl:operation>
     <wsdl:operation name="getTags">
       <soap:operation soapAction="http://tempuri.org/IRESQSERVICE/getTags" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getReportTotalSales">
+      <soap:operation soapAction="http://tempuri.org/IRESQSERVICE/getReportTotalSales" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBestSellingStore">
+      <soap:operation soapAction="http://tempuri.org/IRESQSERVICE/getBestSellingStore" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBestSellingStoreType">
+      <soap:operation soapAction="http://tempuri.org/IRESQSERVICE/getBestSellingStoreType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBestSellingProductTag">
+      <soap:operation soapAction="http://tempuri.org/IRESQSERVICE/getBestSellingProductTag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getNumRegUsers">
+      <soap:operation soapAction="http://tempuri.org/IRESQSERVICE/getNumRegUsers" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

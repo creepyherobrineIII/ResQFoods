@@ -102,7 +102,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
         //Reports Functions
 
         [OperationContract]
-        decimal getReportTotalSales();
+        decimal getReportTotalSales();                  
 
 
         [OperationContract]
@@ -110,17 +110,16 @@ namespace Team34_GP_IFM02B2_2023_WCF
 
 
         [OperationContract]
-        Store getBestSellingStoreType();
+        String getBestSellingStoreType();
 
         [OperationContract]
-        Store getBestSellingProductTag(); 
-
-
-        [OperationContract]
-        List<Product> getProductStock(); //Report Requirement //used to display
+        Tag getBestSellingProductTag(); 
 
         [OperationContract]
         int getNumRegUsers(DateTime date); //Requirement
+
+       [OperationContract]
+        List<Product> getProductStock(int StoreID); //Requirement
 
     }
 
