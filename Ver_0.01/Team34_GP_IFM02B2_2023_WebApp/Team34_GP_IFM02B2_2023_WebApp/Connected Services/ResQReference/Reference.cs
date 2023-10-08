@@ -1662,6 +1662,12 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getBestSellingStore", ReplyAction="http://tempuri.org/IRESQSERVICE/getBestSellingStoreResponse")]
         System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Store> getBestSellingStoreAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getBestSellingStoreFromType", ReplyAction="http://tempuri.org/IRESQSERVICE/getBestSellingStoreFromTypeResponse")]
+        Team34_GP_IFM02B2_2023_WebApp.ResQReference.Store getBestSellingStoreFromType(string Type);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getBestSellingStoreFromType", ReplyAction="http://tempuri.org/IRESQSERVICE/getBestSellingStoreFromTypeResponse")]
+        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Store> getBestSellingStoreFromTypeAsync(string Type);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getBestSellingStoreType", ReplyAction="http://tempuri.org/IRESQSERVICE/getBestSellingStoreTypeResponse")]
         string getBestSellingStoreType();
         
@@ -2009,6 +2015,14 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
         
         public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Store> getBestSellingStoreAsync() {
             return base.Channel.getBestSellingStoreAsync();
+        }
+        
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Store getBestSellingStoreFromType(string Type) {
+            return base.Channel.getBestSellingStoreFromType(Type);
+        }
+        
+        public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Store> getBestSellingStoreFromTypeAsync(string Type) {
+            return base.Channel.getBestSellingStoreFromTypeAsync(Type);
         }
         
         public string getBestSellingStoreType() {

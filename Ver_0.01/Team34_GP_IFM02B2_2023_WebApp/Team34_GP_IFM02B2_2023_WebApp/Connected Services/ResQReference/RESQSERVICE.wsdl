@@ -459,6 +459,20 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element name="getBestSellingStoreFromType">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getBestSellingStoreFromTypeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="getBestSellingStoreFromTypeResult" nillable="true" type="q24:Store" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
       <xs:element name="getBestSellingStoreType">
         <xs:complexType>
           <xs:sequence />
@@ -479,7 +493,7 @@
       <xs:element name="getBestSellingProductTagResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="getBestSellingProductTagResult" nillable="true" type="q24:Tag" />
+            <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="getBestSellingProductTagResult" nillable="true" type="q25:Tag" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -507,7 +521,7 @@
       <xs:element name="getProductStockResponse">
         <xs:complexType>
           <xs:sequence>
-            <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="getProductStockResult" nillable="true" type="q25:ArrayOfProduct" />
+            <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="getProductStockResult" nillable="true" type="q26:ArrayOfProduct" />
           </xs:sequence>
         </xs:complexType>
       </xs:element>
@@ -919,6 +933,12 @@
   <wsdl:message name="IRESQSERVICE_getBestSellingStore_OutputMessage">
     <wsdl:part name="parameters" element="tns:getBestSellingStoreResponse" />
   </wsdl:message>
+  <wsdl:message name="IRESQSERVICE_getBestSellingStoreFromType_InputMessage">
+    <wsdl:part name="parameters" element="tns:getBestSellingStoreFromType" />
+  </wsdl:message>
+  <wsdl:message name="IRESQSERVICE_getBestSellingStoreFromType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getBestSellingStoreFromTypeResponse" />
+  </wsdl:message>
   <wsdl:message name="IRESQSERVICE_getBestSellingStoreType_InputMessage">
     <wsdl:part name="parameters" element="tns:getBestSellingStoreType" />
   </wsdl:message>
@@ -1067,6 +1087,10 @@
     <wsdl:operation name="getBestSellingStore">
       <wsdl:input wsaw:Action="http://tempuri.org/IRESQSERVICE/getBestSellingStore" message="tns:IRESQSERVICE_getBestSellingStore_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRESQSERVICE/getBestSellingStoreResponse" message="tns:IRESQSERVICE_getBestSellingStore_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getBestSellingStoreFromType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRESQSERVICE/getBestSellingStoreFromType" message="tns:IRESQSERVICE_getBestSellingStoreFromType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRESQSERVICE/getBestSellingStoreFromTypeResponse" message="tns:IRESQSERVICE_getBestSellingStoreFromType_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="getBestSellingStoreType">
       <wsdl:input wsaw:Action="http://tempuri.org/IRESQSERVICE/getBestSellingStoreType" message="tns:IRESQSERVICE_getBestSellingStoreType_InputMessage" />
@@ -1359,6 +1383,15 @@
     </wsdl:operation>
     <wsdl:operation name="getBestSellingStore">
       <soap:operation soapAction="http://tempuri.org/IRESQSERVICE/getBestSellingStore" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getBestSellingStoreFromType">
+      <soap:operation soapAction="http://tempuri.org/IRESQSERVICE/getBestSellingStoreFromType" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

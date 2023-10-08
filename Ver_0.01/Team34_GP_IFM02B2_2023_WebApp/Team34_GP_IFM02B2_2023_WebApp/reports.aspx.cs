@@ -60,10 +60,11 @@ namespace Team34_GP_IFM02B2_2023_WebApp
             }
             
             totals.InnerHtml = Display; //display to
-           
+
 
             //Tab 3
-            beststore.InnerHtml = "<p>" + sc.get + "</p>";
+            String stype = Select1.Value;
+            beststore.InnerHtml = "<p>" + sc.getBestSellingStoreFromType(stype) + "</p>";
 
         }
 
