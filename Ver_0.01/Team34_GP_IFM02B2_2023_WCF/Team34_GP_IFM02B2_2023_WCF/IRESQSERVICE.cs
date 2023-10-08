@@ -109,7 +109,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
         Store getBestSellingStore();
 
         [OperationContract]
-        Store getBestSellingStoreType(String Type);
+        Store getBestSellingStoreFromType(String Type);
 
 
         [OperationContract]

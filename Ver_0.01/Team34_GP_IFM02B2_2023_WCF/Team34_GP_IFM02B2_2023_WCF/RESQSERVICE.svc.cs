@@ -1006,7 +1006,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
             return highest;
         }
 
-        public Store getBestSellingStoreType(String Type)
+        public Store getBestSellingStoreFromType(String Type)
         {
             dynamic store = (from s in db.Stores where s.StoreType.Equals(Type)
                              select s);
