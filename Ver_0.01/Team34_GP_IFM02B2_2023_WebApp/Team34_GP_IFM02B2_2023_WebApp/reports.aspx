@@ -16,15 +16,15 @@
                 <a class="nav-link active" href="#tabs-1-1" role="tab" data-toggle="tab">Total Amount of Sales</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#tabs-1-2" role="tab" id="productstotal" data-toggle="tab">Total Products Sold and Product Quanities</a>
+                <a class="nav-link" href="#tabs-1-2" role="tab" data-toggle="tab" id="productstotal" runat="server">Total Products Sold and Product Quanities</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#tabs-1-3" role="tab" data-toggle="tab">Best Selling Shop</a>
+                <a class="nav-link" href="#tabs-1-3" role="tab" data-toggle="tab" id="bestsellingshop" runat="server">Best Selling Shop</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="#tabs-1-4" role="tab" data-toggle="tab">Best Selling Product Category</a>
+                <a class="nav-link" href="#tabs-1-4" role="tab" data-toggle="tab" id="sTypes" runat="server">Best Selling Product Category</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#tabs-1-5" role="tab" data-toggle="tab" id="users" runat="server">Total Users Registered</a>
@@ -79,7 +79,7 @@
                                                 <th>Total Sold</th>
                                             </tr>
                                         </thead>
-                                        <tbody class="align-middle" id="products" runat="server">
+                                        <tbody class="align-middle" id="totals" runat="server">
                                             <!--Dynamic Product Display-->
                                         </tbody>
                                     </table>
@@ -91,20 +91,34 @@
                 <div class="nk-gap"></div>
             </div>
 
-            <!-- Best Selling Sotre NOT DONE-->
+            <!-- Best Selling Store NOT DONE-->
             <div role="tabpanel" class="tab-pane fade" id="tabs-1-3">
                 <div class="nk-gap"></div>
                 <div>
                     <div class="nk-gap-1"></div>
                     <br />
+                    <table>
+                        <tr>
+                            <td>
+                                <div class="nk-post-title h4 ml-3" style="text-align: left">Total Sales: </div>
+                                <h2 class="nk-post-title h4 ml-3">Best Selling Shop: </h2>
+                                <select class="h5 ml-3" name="store_type" id="Select1" runat="server" placeholder="Choose Store">
+                                    <option value="grocery">Grocery</option>
+                                    <option value="bakery">Bakery</option>
+                                    <option value="restaurant">Restaurant</option>
+                                    <option value="misc">Misc</option>
+                                    <option value="overall">Overall</option>
+                                </select>
+                            </td>
+                            <td>
+                                <div class="nk-post-title h5 ml-2 mt-2" id="beststore" runat="server">
+                                    <!--Dynamic loading-->
+                                </div>
+                                <div class="nk-gap"></div>
+                            </td>
+                        </tr>
+                    </table>
 
-                    <h2 class="nk-post-title h4 ml-3">Best Selling Shop: </h2>
-                    <select class="h5 ml-3" name="store_type" id="sType" runat="server" placeholder="Choose Store">
-                        <option value="grocery">Grocery</option>
-                        <option value="bakery">Bakery</option>
-                        <option value="restaurant">Restaurant</option>
-                        <option value="misc">Misc</option>
-                    </select>
                 </div>
                 <div class="nk-gap"></div>
             </div>
@@ -125,39 +139,38 @@
             <div role="tabpanel" class="tab-pane fade" id="tabs-1-5">
                 <div class="nk-gap"></div>
                 <br />
-                    <h2 class="nk-post-title h4 ml-3">Number of Users Registered: </h2>
+                <h2 class="nk-post-title h4 ml-3">Number of Users Registered: </h2>
                 <div class="nk-blog-post nk-blog-post-border-bottom">
                     <div class="col-md-6">
                         <div class="nk-product-cat" runat="server" id="Div2">
 
                             <div class="row vertical-gap">
                                 <div class="col-lg-6">
-                                <form runat="server">
-                                    <div class="row vertical-gap">
-                                        <div class="col-sm-6">
-                                            <label for="sDate3">Start Date: <span class="text-main-1"></span></label>
-                                            <input id="bDate" type="date" runat="server">
-
+                                    <form runat="server">
+                                        <div class="row vertical-gap">
+                                            <div class="col-sm-6">
+                                                <label for="sDate3">Start Date: <span class="text-main-1"></span></label>
+                                                <input id="bDate" type="date" runat="server">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="nk-gap-2"></div>
+                                        <div class="nk-gap-2"></div>
 
-                                    <br />
-                                    
-                                    <asp:Button class="nk-btn nk-btn-rounded nk-btn-color-main-1" ID="btnUsers" runat="server" Text="Generate Num Users" OnClick="btnUsers_Click"></asp:Button>
-                                     
-                                    <label runat="server" id="usersTotal">Total Users: N/A<span class="text-main-1"></span></label>
+                                        <br />
 
-                                </form>
+                                        <asp:Button class="nk-btn nk-btn-rounded nk-btn-color-main-1" ID="btnUsers" runat="server" Text="Generate Num Users" OnClick="btnUsers_Click"></asp:Button>
+
+                                        <label runat="server" id="usersTotal">Total Users: N/A<span class="text-main-1"></span></label>
+
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="nk-gap">
-              </div>
+                </div>
 
             </div>
         </div>
-        </div>
+    </div>
 </asp:Content>

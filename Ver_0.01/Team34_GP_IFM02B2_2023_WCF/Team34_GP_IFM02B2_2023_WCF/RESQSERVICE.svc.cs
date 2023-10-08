@@ -1006,6 +1006,49 @@ namespace Team34_GP_IFM02B2_2023_WCF
             return highest;
         }
 
+        public Store getBestSellingStore(String Type)
+        {
+            dynamic store = (from s in db.Stores where s.StoreType.Equals(Type)
+                             select s);
+
+            decimal tempHighesttotal = 0;
+
+            Store temphighest = new Store();
+
+            //add all products to list
+            foreach (Store s in store)
+            {
+                decimal storeTotal = 0;
+
+                dynamic products = (from p in db.Products where p.UserId == s.UserId select p); //get all store products
+
+                //Calculate product total
+                foreach (Product pr in products)
+                {
+                    storeTotal += (pr.Price * pr.NumSold); //get total store profit
+                }
+
+                if (tempHighesttotal < storeTotal)
+                {
+                    tempHighesttotal = storeTotal;
+                    temphighest = s;
+
+                }
+            }
+
+            Store highest = new Store()
+            {
+                UserId = temphighest.UserId,
+                Company = temphighest.Company,
+                Name = temphighest.Name,
+                Logo = temphighest.Logo,
+                Location = temphighest.Location,
+                StoreType = temphighest.StoreType
+            };
+
+            return highest;
+        }
+
         public String getBestSellingStoreType()
         {
             Store s = getBestSellingStore();

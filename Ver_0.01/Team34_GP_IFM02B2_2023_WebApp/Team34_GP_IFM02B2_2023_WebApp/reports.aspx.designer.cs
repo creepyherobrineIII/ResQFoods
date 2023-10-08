@@ -15,6 +15,33 @@ namespace Team34_GP_IFM02B2_2023_WebApp
     {
 
         /// <summary>
+        /// productstotal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor productstotal;
+
+        /// <summary>
+        /// bestsellingshop control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor bestsellingshop;
+
+        /// <summary>
+        /// sTypes control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor sTypes;
+
+        /// <summary>
         /// users control.
         /// </summary>
         /// <remarks>
@@ -33,22 +60,31 @@ namespace Team34_GP_IFM02B2_2023_WebApp
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl totalSales;
 
         /// <summary>
-        /// products control.
+        /// totals control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl products;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl totals;
 
         /// <summary>
-        /// sType control.
+        /// Select1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect sType;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect Select1;
+
+        /// <summary>
+        /// beststore control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl beststore;
 
         /// <summary>
         /// Div2 control.

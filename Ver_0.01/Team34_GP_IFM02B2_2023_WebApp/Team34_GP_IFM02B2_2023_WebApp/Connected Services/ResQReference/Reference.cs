@@ -1679,6 +1679,12 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getNumRegUsers", ReplyAction="http://tempuri.org/IRESQSERVICE/getNumRegUsersResponse")]
         System.Threading.Tasks.Task<int> getNumRegUsersAsync(System.DateTime date);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getProductStock", ReplyAction="http://tempuri.org/IRESQSERVICE/getProductStockResponse")]
+        Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[] getProductStock(int StoreID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getProductStock", ReplyAction="http://tempuri.org/IRESQSERVICE/getProductStockResponse")]
+        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[]> getProductStockAsync(int StoreID);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2027,6 +2033,14 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
         
         public System.Threading.Tasks.Task<int> getNumRegUsersAsync(System.DateTime date) {
             return base.Channel.getNumRegUsersAsync(date);
+        }
+        
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[] getProductStock(int StoreID) {
+            return base.Channel.getProductStock(StoreID);
+        }
+        
+        public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[]> getProductStockAsync(int StoreID) {
+            return base.Channel.getProductStockAsync(StoreID);
         }
     }
 }

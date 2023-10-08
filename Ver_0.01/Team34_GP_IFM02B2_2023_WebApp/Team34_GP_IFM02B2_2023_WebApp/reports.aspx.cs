@@ -15,6 +15,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
         {
 
             UserTable user = (UserTable)Session["user"];
+            Store storeuser = new Store();
 
 
             if (user != null)
@@ -22,14 +23,15 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                 if (user.UserType == 0)
                 {
                     //show everything  except total products
-                    products.Visible = false;
+                    productstotal.Visible = false;
                 }
                 else if (user.UserType == 2)
                 {
                     //show everything except users registered and options to look at other business
                     users.Visible = false;
-                    sType.Visible = false;
-                    Store storeuser = sc.getStore(user.Email);
+                    sTypes.Visible = false;
+                    bestsellingshop.Visible = false;
+                     storeuser = sc.getStore(user.Email);
 
                 }
                 else Server.Transfer("index.aspx"); //transfer home if customer 
@@ -41,36 +43,28 @@ namespace Team34_GP_IFM02B2_2023_WebApp
 
 
             //Tab 2
-
             //Get  products for specific store
             //Display those produts
-            //List<Product> products = sc.getPro
+            String Display = "";
+            List<Product> products = sc.getProductStock(storeuser.UserId).ToList();
 
-            /*foreach (Product p in products)
+            foreach (Product p in products)
             {
                 Display += "<tr>";
-                Display += "<td class='align-middle'><img src='" + c.Product.Picture + "' alt='' style='width: 50px;'>" + c.Product.Name + "</td>";
-                Display += " <td class='align-middle'>R" + c.Product.Price + "</td>";
-                Display += "<td class='align-middle'>";
-                Display += "<div class='input-group quantity mx-auto' style='width: 100px;'>";
-                Display += "<div class='input-group-btn'>";
-                Display += "<button class='btn btn-sm btn-primary btn-minus'>";
-                Display += "<i class='fa fa-minus'></i> </button> </div>";
-                Display += "<input type='text' class='form-control form-control-sm bg-secondary border-0 text-center' value='1'>";
-                Display += "<div class='input-group-btn'>";
-                Display += "<button class='btn btn-sm btn-primary btn-plus'>";
-                Display += "<i class='fa fa-plus'></i>";
-                Display += "</button> </div> </div> </td> ";
-                Display += "<button class='btn btn-sm btn-primary btn-plus'>";
-                Display += "<td class='align-middle'>R" + (c.Product.Price * c.Quantity) + "</td>";
-                Display += "<td class='align-middle'><button class='btn btn-sm btn-danger'><i class='fa fa-times'></i></button></td> </tr>";
+                Display += "<td class='align-middle'>" + p.UserId + "</td>";
+                Display += " <td class='align-middle'>R" + p.Name + "</td>";
+                Display += "<td class='align-middle'>" + p.ProductTags + "</td>";
+                Display += "<td class='align-middle'>" + p.Quantity + "</td>";
+                Display += "<td class='align-middle'>" + p.NumSold + "</td>";
+                Display += "</tr>";
             }
-            //cartitem.InnerHtml = Display; //display to
-            */
+            
+            totals.InnerHtml = Display; //display to
+           
 
             //Tab 3
+            beststore.InnerHtml = "<p>" + sc.get + "</p>";
 
-         
         }
 
         //Tab 5
