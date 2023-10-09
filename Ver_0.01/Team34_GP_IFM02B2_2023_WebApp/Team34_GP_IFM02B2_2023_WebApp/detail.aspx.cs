@@ -4,91 +4,76 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Team34_GP_IFM02B2_2023_WebApp.ResQReference;
 
 namespace Team34_GP_IFM02B2_2023_WebApp
 {
     public partial class detail : System.Web.UI.Page
     {
-        private List<Product> productList = new List<Product>();
-
-    protected void Page_Load(object sender, EventArgs e)
-    {
-        if (!IsPostBack)
+        RESQSERVICEClient rc = new RESQSERVICEClient();
+        protected void Page_Load(object sender, EventArgs e) //Display product from URL Parameters
         {
-            // Load the product data from a database or other data source
-            productList = LoadProductData();
-        }
-    }
+            Product dispProd = null;
 
-    protected void SaveProduct(object sender, EventArgs e)
-    {
-        // Get the product ID from the form field
-        int productId;
-        if (!int.TryParse(productId.Value, out productId))
-        {
-            // ???handling of product invalid id (optional)
-            return;
-        }
-
-        // Check if the product ID is valid for editing (non-negative ID indicates a new product)
-        if (productId >= 0)
-        {
-            // Find the product to update based on the product ID
-            Product productToUpdate = productList.Find(p => p.Id == productId);
-
-            if (productToUpdate == null)
+            if (Request.QueryString["ID"] != null) //Determine whether URL Parameters exist
             {
-                // Handle product not found (optional)
-                return;
+                int prodID = Convert.ToInt32(Request.QueryString["ID"]);
+
+                dispProd = rc.getProduct(prodID);
+
+                string prodImage = "<img class='mw-100 mh-100 px-auto' src=" + dispProd.Picture + " style='width:480px; height:400px; object-fit:cover;' alt='Image'>";
+
+                //Display product
+                prodImage1.InnerHtml = prodImage;
+                prodHead.InnerText = dispProd.Name;
+                prodShortDesc.InnerText = dispProd.Description.Substring(0, 20) + "..."; //Short Description of product
+                prodFullDesc.InnerText = dispProd.Description; //Full Description
+                prodPrice.InnerText = "R" + dispProd.Price.ToString();
             }
 
-            // Update product details from form fields
-            productToUpdate.Name = productName.Value;
-            productToUpdate.Description = productDescription.Value;
-            decimal price;
-            if (decimal.TryParse(productPrice.Value, out price))
+        }
+
+        protected void addToCart_Click(object sender, EventArgs e) //On Click event for button
+        {
+
+            if (Session["User"] != null)
             {
-                productToUpdate.Price = price;
+                UserTable tempUser = (UserTable)Session["User"]; //Find out user details
+                int prodID = int.Parse(Request.QueryString["ID"]);
+
+                CartItem c = new CartItem
+                {
+                    UserId = tempUser.UserId,
+                    ProductId = prodID
+                };
+
+                if (Session["CartList"] != null)
+                {
+                    List<CartItem> cList = (List<CartItem>)Session["CartList"];
+
+                    if (cList.Contains(c))
+                    {
+                        int i = cList.IndexOf(c);
+                    } else
+                    {
+                        cList.Add(c);
+                        Session["CartList"] = cList;
+                        Response.Redirect("detail.aspx?ID=" +prodID);
+                    }
+                } else
+                {
+                    List<CartItem> cList = new List<CartItem>();
+                    cList.Add(c);
+                    Session["CartList"] = cList;
+                    Response.Redirect("detail.aspx?ID=" + prodID);
+                }
+
             }
-
-            // Provide user feedback (e.g., display a success message)
-            successLabel.Text = "Product updated successfully!";
-        }
-        else
-        {
-            // Adding a new product
-            Product newProduct = new Product
+            else
             {
-                Id = GenerateNewProductId(),
-                Name = productName.Value,
-                Description = productDescription.Value,
-                Price = Convert.ToDecimal(productPrice.Value)
-            };
-
-            productList.Add(newProduct);
-
-            // Optionally, save the new product data to a database or file for persistence(maybe?)
-
-            //feedback to manager
-            successLabel.Text = "Product added successfully!";
+                Response.Redirect("login.aspx");
+            }
         }
-}
-
-    private List<Product> LoadProductData()
-    {
-        
-        return new List<Product>
-        {
-            new Product { Id = 1, Name = "Product 1", Description = "Description 1", Price = 10.99m },
-            new Product { Id = 2, Name = "Product 2", Description = "Description 2", Price = 19.99m },
-            // Add more products as needed
-        };
     }
 
-    private int GenerateNewProductId()
-    {
-        
-        return productList.Count + 1; //increment the count of existing products
-    }
- }    
 }
