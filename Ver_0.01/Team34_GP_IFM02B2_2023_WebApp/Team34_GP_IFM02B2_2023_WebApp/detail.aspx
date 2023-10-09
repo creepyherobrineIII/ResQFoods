@@ -260,7 +260,36 @@
     </div>
     <!-- Shop Detail End -->
 
+<!-- for manager to add and edit product-->
+ <form id="productEdit" runat="server">
+        <label for="productId">Product ID:</label>
+        <input type="text" id="productId" runat="server" /><br /><br />
 
+        <label for="productName">Product Name:</label>
+        <input type="text" id="productName" runat="server" /><br /><br />
+
+        <label for="productDescription">Product Description:</label>
+        <textarea id="productDescription" runat="server"></textarea><br /><br />
+
+        <label for="productPrice">Product Price:</label>
+        <input type="text" id="productPrice" runat="server" /><br /><br />
+
+        <input type="submit" id="updateProductButton" runat="server" text="Update Product" onserverclick="UpdateProduct" />
+   
+</form>
+
+ <form id="AddProduct" runat="server">
+        <label for="productName">Product Name:</label>
+        <input type="text" id="productName" runat="server" /><br /><br />
+
+        <label for="productDescription">Product Description:</label>
+        <textarea id="productDescription" runat="server"></textarea><br /><br />
+
+        <label for="productPrice">Product Price:</label>
+        <input type="text" id="productPrice" runat="server" /><br /><br />
+
+        <input type="submit" id="addProductButton" runat="server" text="Add Product" onserverclick="AddProduct" />
+    </form>
     <!-- Products Start -->
     <div class="container-fluid py-5">
         <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">You May Also Like</span></h2>
