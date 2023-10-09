@@ -14,7 +14,6 @@ namespace Team34_GP_IFM02B2_2023_WebApp
         protected void Page_Load(object sender, EventArgs e) //Display product from URL Parameters
         {
             Product dispProd = null;
-            errMess.Visible = false;
 
             if (Request.QueryString["ID"] != null) //Determine whether URL Parameters exist
             {
@@ -36,24 +35,41 @@ namespace Team34_GP_IFM02B2_2023_WebApp
 
         protected void addToCart_Click(object sender, EventArgs e) //On Click event for button
         {
-            
-            int Quantity = int.Parse(prodQuan.Value);
 
             if (Session["User"] != null)
             {
                 UserTable tempUser = (UserTable)Session["User"]; //Find out user details
+                int prodID = int.Parse(Request.QueryString["ID"]);
 
-                if (Quantity == 0)
+                CartItem c = new CartItem
                 {
-                    errMess.InnerText = "Add a valid quantity";
-                    errMess.Visible = true;
+                    UserId = tempUser.UserId,
+                    ProductId = prodID
+                };
+
+                if (Session["CartList"] != null)
+                {
+                    List<CartItem> cList = (List<CartItem>)Session["CartList"];
+
+                    if (cList.Contains(c))
+                    {
+                        int i = cList.IndexOf(c);
+                    } else
+                    {
+                        cList.Add(c);
+                        Session["CartList"] = cList;
+                        Response.Redirect("detail.aspx?ID=" +prodID);
+                    }
+                } else
+                {
+                    List<CartItem> cList = new List<CartItem>();
+                    cList.Add(c);
+                    Session["CartList"] = cList;
+                    Response.Redirect("detail.aspx?ID=" + prodID);
                 }
 
-                if (Quantity != 0)
-                {
-                    
-                }
-            } else
+            }
+            else
             {
                 Response.Redirect("login.aspx");
             }
