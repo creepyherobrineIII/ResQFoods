@@ -1,35 +1,61 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml.Linq;
+using Team34_GP_IFM02B2_2023_WebApp.ResQReference;
 
 namespace Team34_GP_IFM02B2_2023_WebApp
 {
     public partial class AddProduct : System.Web.UI.Page
     {
-        ResQReference.RESQSERVICEClient sc = new ResQReference.RESQSERVICEClient();
+        private object lblMessage;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            //not sure if i should add page logic here
         }
 
-        protected void addProd_Click(object sender, EventArgs e)
+        protected bool btnAddProduct_Click(object sender, EventArgs e)
         {
-            /*int sID, string name, string desc, double price, string picPath, DateTime date, bool enabled
-            String pnm = pName.Value;
-            String desc = pdesc.Value;
-            Double price;
-            Double.TryParse(pPrice.Value, out price);
-            DateTime dAdd = DateTime.Today;
-            bool enabled = true;
+            // Handle adding a new product to the shop
+            // Retrieve input values from form controls
+            string productName = txtProductName.Value;
+            string productDescription = txtProductDescription.Value;
+            // Get other input values
 
-            bool adProd = sc.AddProduct(1, pnm, desc, price, "/assets/img/carousel-2.jpg", dAdd, true);
-            if (adProd)
+            // Perform validation, data processing, and add the product to the shop using the WCF service
+            try
             {
-                Server.Transfer("index.aspx");
-            }*/
+                RESQSERVICEClient serviceClient = new RESQSERVICEClient();
+
+                // Replace the following placeholders with actual values
+                int storeId = 123; // Replace with the actual store ID
+                double productPrice = 19.99; // Replace with the actual product price
+                string picturePath = "path_to_image.jpg"; // Replace with the actual image path
+                DateTime dateAdded = DateTime.Now; // Replace with the actual date
+
+                bool success = serviceClient.AddProduct(storeId, productName, productDescription, 1, productPrice, picturePath, dateAdded, true);
+
+                if (success)
+                {
+                    // Product added successfully, you can also show a success message if needed
+                    Response.Redirect("Shop.aspx"); // Redirect to the shop page after adding the product
+                }
+                else
+                {
+                    //lblMessage. = "You were not able to successfully add the product";
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
     }
 }
+   }

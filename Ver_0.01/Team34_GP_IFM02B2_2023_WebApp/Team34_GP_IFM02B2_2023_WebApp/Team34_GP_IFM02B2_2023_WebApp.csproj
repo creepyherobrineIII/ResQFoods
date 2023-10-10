@@ -140,6 +140,7 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="detail.aspx" />
+    <Content Include="EditProduct.aspx" />
     <Content Include="html\about.html" />
     <Content Include="html\blog-single.html" />
     <Content Include="html\blog.html" />
@@ -190,6 +191,13 @@
     </Compile>
     <Compile Include="detail.aspx.designer.cs">
       <DependentUpon>detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditProduct.aspx.cs">
+      <DependentUpon>EditProduct.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditProduct.aspx.designer.cs">
+      <DependentUpon>EditProduct.aspx</DependentUpon>
     </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
