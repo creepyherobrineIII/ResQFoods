@@ -75,6 +75,8 @@
         <input type="password" id="uPass" runat="server" placeholder="Create a Password">
         <input type="password" id="ucPass" runat="server" placeholder="Confirm your Password">
         <input type="text" id="sloc" runat="server" placeholder="Enter Store Location (In one line)">
+          <asp:FileUpload ID="FileUpload1" runat="server" />
+
           <br />
         <select name="store_type" id="sType" runat="server" placeholder="Choose Store Type">
               <option value="grocery">Grocery</option>
