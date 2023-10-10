@@ -91,7 +91,7 @@
                 <div class="nk-gap"></div>
             </div>
 
-            <!-- Best Selling Store NOT DONE-->
+            <!-- Best Selling Store-->
             <div role="tabpanel" class="tab-pane fade" id="tabs-1-3">
                 <div class="nk-gap"></div>
                 <div>
@@ -123,13 +123,28 @@
             </div>
 
             <!-- Best Selliing Product Category NOT DONE-->
-            <div role="tabpanel" class="tab-pane fade" id="tabs-1-4">
+             <div role="tabpanel" class="tab-pane fade" id="tabs-1-4">
                 <div class="nk-gap"></div>
                 <div>
                     <div class="nk-gap-1"></div>
                     <br />
+                    <table>
+                        <tr>
+                            <td>
+                                <h2 class="nk-post-title h4 ml-3">Best Selling Category: </h2>
+                                <select class="h5 ml-3" id="categories" runat="server" placeholder="Choose Store Type">
 
-                    <h2 class="nk-post-title h4 ml-3">Best Selling Category: </h2>
+                                </select>
+                            </td>
+                            <td>
+                                <div class="nk-post-title h5 ml-2 mt-2" id="catdisplay" runat="server">
+                                    <!--Dynamic loading-->
+                                </div>
+                                <div class="nk-gap"></div>
+                            </td>
+                        </tr>
+                    </table>
+
                 </div>
                 <div class="nk-gap"></div>
             </div>

@@ -6,7 +6,6 @@
     <div class="nk-store nk-store-checkout">
         <h3 class="nk-decorated-h-2"><span><span class="text-main-1">View</span> Invoices</span></h3>
 
-        <!-- START: Billing Details -->
         <div class="nk-gap"></div>
         <div action="#" class="nk-form">
             <div class="row vertical-gap">

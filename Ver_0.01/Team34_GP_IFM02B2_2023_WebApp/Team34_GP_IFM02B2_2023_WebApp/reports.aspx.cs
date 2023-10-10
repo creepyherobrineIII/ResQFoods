@@ -64,10 +64,20 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                   String stype = Select1.Value;
                   beststore.InnerHtml = "<p>" + sc.getBestSellingStoreFromType(stype) + "</p>"; */
 
+               
+                                   
+               // catdisplay.InnerHtml = "<p>" + sc.getBestSellingStoreFromType(tags) + "</p>";
+               
+            //Tab 4
+            List<Tag> tags = new List<Tag>(sc.getTags());
+
+            foreach (Tag t in tags)
+            {
+                categories.Items.Add(t.TagName);
             }
-
-
-
+            }
+           
+           
 
         }
 
