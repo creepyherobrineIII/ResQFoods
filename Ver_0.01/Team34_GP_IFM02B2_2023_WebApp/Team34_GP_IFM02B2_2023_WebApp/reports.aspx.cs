@@ -35,36 +35,39 @@ namespace Team34_GP_IFM02B2_2023_WebApp
 
                 }
                 else Server.Transfer("index.aspx"); //transfer home if customer 
+
+                //Tab 1
+                // totalSales.InnerHtml = "<p><b>R" + (sc.getReportTotalSales()).ToString("#.#0") + "</b></p>";
+
+
+                //Tab 2
+                //Get  products for specific store
+                //Display those produts
+                /*  String Display = "";
+                  List<Product> products = sc.getProductStock(storeuser.UserId).ToList();
+
+                  foreach (Product p in products)
+                  {
+                      Display += "<tr>";
+                      Display += "<td class='align-middle'>" + p.UserId + "</td>";
+                      Display += " <td class='align-middle'>R" + p.Name + "</td>";
+                      Display += "<td class='align-middle'>" + p.ProductTags + "</td>";
+                      Display += "<td class='align-middle'>" + p.Quantity + "</td>";
+                      Display += "<td class='align-middle'>" + p.NumSold + "</td>";
+                      Display += "</tr>";
+                  }
+
+                  totals.InnerHtml = Display; //display to
+
+
+                  //Tab 3
+                  String stype = Select1.Value;
+                  beststore.InnerHtml = "<p>" + sc.getBestSellingStoreFromType(stype) + "</p>"; */
+
             }
 
 
-            //Tab 1
-             totalSales.InnerHtml = "<p><b>R" + (sc.getReportTotalSales()).ToString("#.#0") + "</b></p>";
 
-
-            //Tab 2
-            //Get  products for specific store
-            //Display those produts
-            String Display = "";
-            List<Product> products = sc.getProductStock(storeuser.UserId).ToList();
-
-            foreach (Product p in products)
-            {
-                Display += "<tr>";
-                Display += "<td class='align-middle'>" + p.UserId + "</td>";
-                Display += " <td class='align-middle'>R" + p.Name + "</td>";
-                Display += "<td class='align-middle'>" + p.ProductTags + "</td>";
-                Display += "<td class='align-middle'>" + p.Quantity + "</td>";
-                Display += "<td class='align-middle'>" + p.NumSold + "</td>";
-                Display += "</tr>";
-            }
-            
-            totals.InnerHtml = Display; //display to
-
-
-            //Tab 3
-            String stype = Select1.Value;
-            beststore.InnerHtml = "<p>" + sc.getBestSellingStoreFromType(stype) + "</p>";
 
         }
 

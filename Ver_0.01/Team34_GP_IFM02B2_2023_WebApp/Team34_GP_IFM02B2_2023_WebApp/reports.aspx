@@ -100,7 +100,6 @@
                     <table>
                         <tr>
                             <td>
-                                <div class="nk-post-title h4 ml-3" style="text-align: left">Total Sales: </div>
                                 <h2 class="nk-post-title h4 ml-3">Best Selling Shop: </h2>
                                 <select class="h5 ml-3" name="store_type" id="Select1" runat="server" placeholder="Choose Store Type">
                                     <option value="grocery">Grocery</option>
