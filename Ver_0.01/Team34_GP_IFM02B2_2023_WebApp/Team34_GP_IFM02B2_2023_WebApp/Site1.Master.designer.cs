@@ -33,15 +33,6 @@ namespace Team34_GP_IFM02B2_2023_WebApp
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl logCust;
 
         /// <summary>
-        /// WishCust control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl WishCust;
-
-        /// <summary>
         /// CartCust control.
         /// </summary>
         /// <remarks>
@@ -69,24 +60,6 @@ namespace Team34_GP_IFM02B2_2023_WebApp
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl storeLog;
 
         /// <summary>
-        /// wishStore control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl wishStore;
-
-        /// <summary>
-        /// imgWishStore control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl imgWishStore;
-
-        /// <summary>
         /// cartStore control.
         /// </summary>
         /// <remarks>
@@ -112,6 +85,15 @@ namespace Team34_GP_IFM02B2_2023_WebApp
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl adLog;
+
+        /// <summary>
+        /// cartAd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cartAd;
 
         /// <summary>
         /// ContentPlaceHolder1 control.
