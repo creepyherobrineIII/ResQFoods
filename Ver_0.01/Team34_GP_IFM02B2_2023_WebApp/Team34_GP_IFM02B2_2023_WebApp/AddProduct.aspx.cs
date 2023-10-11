@@ -20,7 +20,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
             //not sure if i should add page logic here
         }
 
-        protected bool btnAddProduct_Click(object sender, EventArgs e)
+        protected void btnAddProduct_Click(object sender, EventArgs e)
         {
             // Handle adding a new product to the shop
             // Retrieve input values from form controls
@@ -53,9 +53,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
             }
             catch (Exception ex)
             {
-                return false;
             }
         }
     }
 }
-   }

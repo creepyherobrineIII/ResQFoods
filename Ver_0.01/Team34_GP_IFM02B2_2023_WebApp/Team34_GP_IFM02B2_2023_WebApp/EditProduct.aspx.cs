@@ -51,7 +51,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
             if (product != null)
             {
                 // Populate the form fields with product details
-                txtName.Value = product.Name;
+                txtProductName.Value = product.Name;
                 txtDescription.Value = product.Description;
                 txtPrice.Value = product.Price.ToString();
                 txtQuantity.Value = product.Quantity.ToString();

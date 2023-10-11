@@ -13,7 +13,9 @@
             <!-- Product Name -->
             <div class="form-group">
                 <label for="txtProductName">Product Name:</label>
-                <input type="text" id="txtProductName" runat="server" class="form-control" />
+              <!-- <input type="text" id="txtProductName" runat="server" class="form-control" /> -->
+             <!--   <asp:TextBox id="txtProductName" runat="server" CssClass="form-control"></asp:TextBox> -->
+            <!--   <input type="text" id="sName" runat="server" placeholder="Enter Your Store Name"> -->
             </div>
 
             <!-- Product Description -->

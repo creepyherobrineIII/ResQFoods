@@ -10,10 +10,10 @@ namespace Team34_GP_IFM02B2_2023_WebApp
 {
     public partial class detail : System.Web.UI.Page
     {
-        
+
         protected void Page_Load(object sender, EventArgs e) //Display product from URL Parameters
         {
-        ]
+        }
     }
 }
         
