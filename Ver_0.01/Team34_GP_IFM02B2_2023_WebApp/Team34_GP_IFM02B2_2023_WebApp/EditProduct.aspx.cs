@@ -84,20 +84,25 @@ namespace Team34_GP_IFM02B2_2023_WebApp
         protected void btnUpdateProduct_Click(object sender, EventArgs e)
         {
             // Get the updated values from the form fields
+            Product tempProd = sc.getProduct(productID);
             string newName = txtProductName.Value;
             string newDescription = txtProductDescription.Value;
             double newPrice = Convert.ToDouble(txtProductPrice.Value);
             int newQuantity = Convert.ToInt32(txtProductQuantity.Value);
             int tag = sc.searchTag(cType.Value);
-            if (FileUpload1.HasFile && newName != "" && newDescription != "" && newPrice > 0)
+            String newImage = tempProd.Picture;
+            if( newName != "" && newDescription != "" && newPrice > 0)
             {
-                String imgPath = Server.MapPath("~/assets/img/");
-                String fPath = imgPath + FileUpload1.FileName;
-                if (!File.Exists(fPath))
+                if (FileUpload1.HasFile)
                 {
-                    FileUpload1.PostedFile.SaveAs(fPath);
+                    String imgPath = Server.MapPath("~/assets/img/");
+                    String fPath = imgPath + FileUpload1.FileName;
+                    if (!File.Exists(fPath))
+                    {
+                        FileUpload1.PostedFile.SaveAs(fPath);
+                    }
+                    newImage = "/assets/img/" + FileUpload1.FileName;
                 }
-                string picturePath = "/assets/img/" + FileUpload1.FileName;
                 Product P = new Product
                 {
                     ProductId = productID,
@@ -106,10 +111,10 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                     Quantity = newQuantity,
                     Price = (decimal)newPrice,
                     Enabled = true,
-                    Picture = picturePath
+                    Picture = newImage
                 };
                 bool isUpdated = sc.editProduct(P, tag);
-                Response.Redirect("details.aspx?ID="+P.ProductId);
+                Response.Redirect("shop.aspx?Edit=true");
             }
 
         }
