@@ -15,10 +15,12 @@ namespace Team34_GP_IFM02B2_2023_WebApp
         {
             //COMMENTED OUT FOR TESTING OF EASE
             //user must be logged in
-            //if (Session["UID"] == null)
-            // {
-            //     Response.Redirect("index.aspx");
-            //  }
+            if (Session["user"] == null)
+             {
+                 Response.Redirect("index.aspx");
+             }
+
+            UserTable user = (UserTable)Session["user"];
 
             //Increase Quantity if user wishes to
             if (Request.QueryString["dec"] != null)
@@ -82,9 +84,10 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                 String Display = "";
                 foreach (CartItem c in cart)
                     {
+                    Product p = sc.getProduct(c.ProductId);
                         Display += "<tr>";
-                        Display += "<td class='align-middle'><img src='" + c.Product.Picture + "' alt='' style='width: 50px;'>" + c.Product.Name + "</td>";
-                        Display += " <td class='align-middle'>R" + c.Product.Price + "</td>";
+                        Display += "<td class='align-middle'><img src='" + c.Product.Picture + "' alt='' style='width: 50px;'>" + p.Name + "</td>";
+                        Display += " <td class='align-middle'>R" + p.Price + "</td>";
                         Display += "<td class='align-middle'>";
                         Display += "<div class='input-group quantity mx-auto' style='width: 100px;'>";
                         Display += "<div class='input-group-btn'>";
@@ -96,7 +99,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                         Display += "<i class='fa fa-plus'></i>";
                         Display += "</button> </div> </div> </td> ";
                         Display += "<button class='btn btn-sm btn-primary btn-plus'>";
-                        Display += "<td class='align-middle'>R" + (c.Product.Price * c.Quantity) + "</td>";
+                        Display += "<td class='align-middle'>R" + (p.Price * c.Quantity) + "</td>";
                         Display += "<td class='align-middle'><button class='btn btn-sm btn-danger'><i class='fa fa-times'></i></button></td> </tr>";
                 }
                     cartitem.InnerHtml = Display; //display to 
@@ -105,7 +108,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                 string Display2 = "";
                     Display2 += "<div class='border-bottom pb-2'>";
                     Display2 += "<div class='d-flex justify-content-between mb-3'>";
-                    Display2 += "<h6>Subtotal</h6> <h6>R" + 20 + "</h6></div>"; //NEEDS A BACKEND FUNCTION TO CALC TOTAL PRICE OF CART
+                    Display2 += "<h6>Subtotal</h6> <h6>R" + sc.GetCartTotal(user.UserId) + "</h6></div>"; //NEEDS A BACKEND FUNCTION TO CALC TOTAL PRICE OF CART
                     Display2 += "<div class='d-flex justify-content-between'><h6 class='font-weight-medium'>VAT</h6><h6 class='font-weight-medium'>R10</h6></div><br/>";
                     Display2 += "<div class='d-flex justify-content-between'> <h6 class='font-weight-medium'>Shipping</h6><h6 class='font-weight-medium'>R10</h6></div></div>";
                     Display2 += "<div class='pt-2'>";
