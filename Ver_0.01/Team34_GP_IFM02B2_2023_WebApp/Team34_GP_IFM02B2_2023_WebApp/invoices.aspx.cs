@@ -11,21 +11,22 @@ namespace Team34_GP_IFM02B2_2023_WebApp
     public partial class invoices : System.Web.UI.Page
     {
         ResQReference.RESQSERVICEClient sc = new ResQReference.RESQSERVICEClient();
-        int customer_id = 0;
+        int user_id = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             //get user
-            //  if (Session["user"] == null)
-            //  {
-            //      Response.Redirect("Home.aspx");
-            //   }
-            if (Session["customer"] != null) //only display information if user is logged in
+              if (Session["user"] == null)
+              {
+                Response.Redirect("index.aspx");
+              }
+              else
+             //only display information if user is logged in
             {
-                Customer customer = (Customer)Session["customer"];
-                customer_id = customer.UserId;
+                UserTable user = (UserTable)Session["user"];
+                user_id = user.UserId;
                 //get user invoices 
-                List<Invoice> invoices = sc.getInvoices(customer_id).ToList();
+                List<Invoice> invoices = sc.getInvoices(user_id).ToList();
                 
                 string display = DisplayInvoices(invoices);
                 InvoiceDisplay.InnerHtml = display;
@@ -65,7 +66,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
             display += "<tr><td class='nk-product-cart-title'><h5 class='h6'>Invoice: " + invoice.InvoiceId + "</h5><div class='nk-gap-1'></div>"
                     + "<h2 class='nk-post-title h4'>Date Created: " + invoice.DateAdded + "</h2></td>";
 
-            List<InvoiceItem> items = sc.getInvoiceItems(customer_id).ToList();
+            List<InvoiceItem> items = sc.getInvoiceItems(invoice.InvoiceId).ToList();
             foreach (InvoiceItem i in items)
             {
                 display += DisplayInvoiceItem(i);
