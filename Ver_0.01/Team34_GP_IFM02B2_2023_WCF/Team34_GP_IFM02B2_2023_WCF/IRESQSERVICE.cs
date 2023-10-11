@@ -51,7 +51,10 @@ namespace Team34_GP_IFM02B2_2023_WCF
         List<Product> SearchProducts(String name);
 
         [OperationContract]
-        bool AddProduct(int sID, String name, String desc, int quant, double price, String picPath, DateTime date, bool enabled);
+        bool AddProduct(int sID, String name, String desc, int quant, double price, String picPath, DateTime date, int tg, bool enabled);
+
+        [OperationContract]
+        bool AddProdTag(int pID, int tID);
 
         [OperationContract]
         bool AddToCart(int pID, int uID, DateTime added, bool enabled);
@@ -63,7 +66,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
         List<CartItem> GetCart(int UID);
 
         [OperationContract]
-        bool editProduct(Product P);
+        bool editProduct(Product P, int tg);
 
         [OperationContract]
         bool editUser(UserTable U);

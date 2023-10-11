@@ -33,6 +33,13 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                         LoadProductDetails(productID);
                     }
                 }
+                List<Tag> tList = new List<Tag>(sc.getTags());
+                String tagVal = "";
+                foreach (Tag t in tList)
+                {
+                    tagVal += "<option value='" + t.TagID + "'>" + t.TagName + "</option>";
+                }
+                cType.InnerHtml = tagVal;
             }
             else
             {
@@ -68,7 +75,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
             string newDescription = txtProductDescription.Value;
             double newPrice = Convert.ToDouble(txtProductPrice.Value);
             int newQuantity=Convert.ToInt32(txtProductQuantity.Value);
-            //int Tag = ;
+            int tag = Convert.ToInt32(cType.Value);
             if (FileUpload1.HasFile && newName!="" && newDescription!="" && newPrice>0)
             { 
                 String imgPath = Server.MapPath("~/assets/img/");
@@ -80,14 +87,21 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                 string picturePath = "/assets/img/" + FileUpload1.FileName;
                 Product P = new Product
                 {
-                    ProductId = productID, 
-                    
-          
+                    ProductId = productID,
+                    Name = newName,
+                    Description = newDescription,
+                    Quantity = newQuantity,
+                    Price = (decimal)newPrice,
+                    Enabled = true
                 };
-                //bool isUpdated = sc.editProduct();
+                bool isUpdated = sc.editProduct(P, tag);
             }
 
         }
 
+        protected void btnDeleteProduct_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

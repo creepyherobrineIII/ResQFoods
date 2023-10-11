@@ -41,6 +41,11 @@
                 <asp:FileUpload ID="FileUpload1" runat="server" />
             </div>
 
+            <div class="form-group">
+            <select name="store_type" id="cType" runat="server" placeholder="Choose Product Category">
+            </select>
+              </div>
+
             <!-- Update Product Button -->
             <div class="form-group">
                 <asp:Button ID="btnUpdateProduct" runat="server" Text="Update Product" OnClick="btnUpdateProduct_Click" CssClass="btn btn-primary" />
@@ -48,7 +53,7 @@
 
             <!-- Delete Product Button -->
             <div class="form-group">
-                <asp:Button ID="btnDeleteProduct" runat="server" Text="Delete Product" OnClick="btnDeleteProduct_Click" CssClass="btn btn-danger" />
+                <asp:Button ID="btnDeleteProduct" runat="server" Text="Delete Product"  CssClass="btn btn-danger" OnClick="btnDeleteProduct_Click" />
             </div>
         </div>
     </form>

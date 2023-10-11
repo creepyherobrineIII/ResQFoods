@@ -444,7 +444,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
             return null;
         }
 
-        public bool AddProduct(int sID, string name, string desc, int quant, double price, string picPath, DateTime date, bool enabled)
+        public bool AddProduct(int sID, string name, string desc, int quant, double price, string picPath, DateTime date, int tg, bool enabled)
             {
             //Check if product exists
                 bool checkP = (from p in db.Products
@@ -468,7 +468,19 @@ namespace Team34_GP_IFM02B2_2023_WCF
                     {
                         db.Products.InsertOnSubmit(p);
                         db.SubmitChanges();
-                        return true;
+
+                    Product prd = (from prevProd in db.Products
+                                    where prevProd.DateAdded.Equals(date)
+                                    select prevProd).FirstOrDefault();
+
+                    if(prd!=null)
+                    {
+                        if(AddProdTag(prd.ProductId, tg))
+                        {
+                            return true;
+                        }
+                    }
+                
                     }
                     catch(Exception ex)
                     {
@@ -479,6 +491,33 @@ namespace Team34_GP_IFM02B2_2023_WCF
                 }
                 return false;
             }
+
+        public bool AddProdTag(int pID, int tID)
+        {
+            var pTag = (from pt in db.ProductTags
+                        where pt.ProductId.Equals(pID) && pt.TagId.Equals(tID)
+                        select pt).FirstOrDefault();
+            if(pTag==null)
+            {
+                ProductTag temp = new ProductTag
+                {
+                    ProductId = pID,
+                    TagId = tID,
+                };
+                try
+                {
+                    db.ProductTags.InsertOnSubmit(temp);
+                    db.SubmitChanges();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    ex.GetBaseException();
+                    return false;
+                }
+            }
+            return false;
+        }
 
         public bool AddToCart(int pID, int uID, DateTime added, bool enabled)
         {
@@ -568,7 +607,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
             return null;
         }
 
-        public bool editProduct(Product P)
+        public bool editProduct(Product P, int pTag)
         {
             //Get product from the database 
             var prod = (from p in db.Products
@@ -583,14 +622,19 @@ namespace Team34_GP_IFM02B2_2023_WCF
                 prod.DateAdded = P.DateAdded;
                 prod.Description = P.Description;
                 prod.Price = P.Price;
-                prod.ProductTags = P.ProductTags;
-                prod.Store = P.Store;
                 prod.Quantity = P.Quantity;
+                prod.Enabled = P.Enabled;
 
                 try
                 {
                     //submit changes in db
                     db.SubmitChanges();
+                    
+
+                    if(pTag!=-1)
+                    {
+                        AddProdTag(P.ProductId, pTag);
+                    }
                     return true;
                 }
                 catch(SqlException ex)
@@ -767,7 +811,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
                 {
                     p.Quantity = p.Quantity - c.Quantity;
                 }
-                editProduct(p);
+                editProduct(p, -1);
                 try
                 {
                     db.InvoiceItems.InsertOnSubmit(ii);

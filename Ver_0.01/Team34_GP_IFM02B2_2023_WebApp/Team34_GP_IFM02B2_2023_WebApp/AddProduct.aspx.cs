@@ -41,6 +41,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
             string productDescription = txtProductDescription.Value;
             double prc = Convert.ToDouble(txtProductPrice.Value);
             int quantity = Convert.ToInt32(txtProductQuantity.Value);
+            int tag = Convert.ToInt32(cType.Value);
 
             // Get other input values
 
@@ -60,7 +61,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                     string picturePath = "/assets/img/" + FileUpload1.FileName;
                     DateTime dateAdded = DateTime.Now;
 
-                    bool success = serviceClient.AddProduct(storeId, productName, productDescription, quantity, prc, picturePath, dateAdded, true);
+                    bool success = serviceClient.AddProduct(storeId, productName, productDescription, quantity, prc, picturePath, dateAdded, tag, true);
 
                     if (success)
                     {
