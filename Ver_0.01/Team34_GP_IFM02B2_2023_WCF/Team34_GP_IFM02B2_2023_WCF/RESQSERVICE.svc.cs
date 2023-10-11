@@ -923,13 +923,16 @@ namespace Team34_GP_IFM02B2_2023_WCF
                 //Populate the invoice item list with created invoice items, return the list
                 foreach (InvoiceItem ii in temp)
                 {
-                    InvoiceItem tempI = new InvoiceItem
+                    if (ii != null)
                     {
-                        InvoiceId = ii.InvoiceId,
-                        ProductId = ii.ProductId,
-                        Quantity = ii.Quantity
-                    };
-                    tempList.Add(tempI);
+                        InvoiceItem tempI = new InvoiceItem
+                        {
+                            InvoiceId = ii.InvoiceId,
+                            ProductId = ii.ProductId,
+                            Quantity = ii.Quantity
+                        };
+                        tempList.Add(tempI);
+                    }
                 }
             }
             return tempList;

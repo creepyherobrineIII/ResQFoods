@@ -40,3 +40,10 @@ C:\Users\Gray Capital\Source\Repos\creepyherobrineIII\ResQFoods\Ver_0.01\Team34_
 C:\Users\Gray Capital\Source\Repos\creepyherobrineIII\ResQFoods\Ver_0.01\Team34_GP_IFM02B2_2023_WCF\Team34_GP_IFM02B2_2023_WCF\obj\Debug\Team34_GP_IFM02B2_2023_WCF.csproj.CoreCompileInputs.cache
 C:\Users\Gray Capital\Source\Repos\creepyherobrineIII\ResQFoods\Ver_0.01\Team34_GP_IFM02B2_2023_WCF\Team34_GP_IFM02B2_2023_WCF\obj\Debug\Team34_GP_IFM02B2_2023_WCF.dll
 C:\Users\Gray Capital\Source\Repos\creepyherobrineIII\ResQFoods\Ver_0.01\Team34_GP_IFM02B2_2023_WCF\Team34_GP_IFM02B2_2023_WCF\obj\Debug\Team34_GP_IFM02B2_2023_WCF.pdb
+C:\group_project\ResQFoods\Ver_0.01\Team34_GP_IFM02B2_2023_WCF\Team34_GP_IFM02B2_2023_WCF\bin\Team34_GP_IFM02B2_2023_WCF.dll.config
+C:\group_project\ResQFoods\Ver_0.01\Team34_GP_IFM02B2_2023_WCF\Team34_GP_IFM02B2_2023_WCF\bin\Team34_GP_IFM02B2_2023_WCF.dll
+C:\group_project\ResQFoods\Ver_0.01\Team34_GP_IFM02B2_2023_WCF\Team34_GP_IFM02B2_2023_WCF\bin\Team34_GP_IFM02B2_2023_WCF.pdb
+C:\group_project\ResQFoods\Ver_0.01\Team34_GP_IFM02B2_2023_WCF\Team34_GP_IFM02B2_2023_WCF\obj\Debug\Team34_GP_IFM02B2_2023_WCF.csproj.AssemblyReference.cache
+C:\group_project\ResQFoods\Ver_0.01\Team34_GP_IFM02B2_2023_WCF\Team34_GP_IFM02B2_2023_WCF\obj\Debug\Team34_GP_IFM02B2_2023_WCF.csproj.CoreCompileInputs.cache
+C:\group_project\ResQFoods\Ver_0.01\Team34_GP_IFM02B2_2023_WCF\Team34_GP_IFM02B2_2023_WCF\obj\Debug\Team34_GP_IFM02B2_2023_WCF.dll
+C:\group_project\ResQFoods\Ver_0.01\Team34_GP_IFM02B2_2023_WCF\Team34_GP_IFM02B2_2023_WCF\obj\Debug\Team34_GP_IFM02B2_2023_WCF.pdb

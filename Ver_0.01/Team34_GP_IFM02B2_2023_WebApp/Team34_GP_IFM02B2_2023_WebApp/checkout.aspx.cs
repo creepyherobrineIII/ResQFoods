@@ -75,7 +75,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                     }
 
                     shippingdisplay += "<h6 class='font-weight-medium'>Shipping</h6>";
-                    shippingdisplay += "<h6 class='font-weight-medium''>R" + shippingtotal + "</h6>";
+                    shippingdisplay += "<h6 class='font-weight-medium''>R" + shippingtotal.ToString("#.##") + "</h6>";
 
 
                     shipping.InnerHtml = shippingdisplay;
@@ -87,12 +87,12 @@ namespace Team34_GP_IFM02B2_2023_WebApp
 
                         finalamount = finalamount - (finalamount * 15 / 100); //15 percent discount
                         final += "<h6 class='font-weight-medium'>Grant Added</h6></br>";
-                        final += "<h5>Total</h5> <h5>R" + finalamount + "</h5>";
+                        final += "<h5>Total</h5> <h5>R" + finalamount.ToString("#.##") + "</h5>";
                         //  final += "<h5>Total</h5> <h5>R" + finalamount + "</h5>"; //add a message to tell use a discout was added
                     }
                     else
                     {
-                        final = "<h5>Total</h5> <h5>R" + finalamount + "</h5>";
+                        final = "<h5>Total</h5> <h5>R" + finalamount.ToString("#.##") + "</h5>";
                     }
 
                     finaltotal.InnerHtml = final;

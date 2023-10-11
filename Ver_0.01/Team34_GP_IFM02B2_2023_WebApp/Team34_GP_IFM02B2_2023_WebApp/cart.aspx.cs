@@ -93,7 +93,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                         p = sc.getProduct(c.ProductId);
                         Display += "<tr>";
                         Display += "<td class='align-middle'><img src='" + p.Picture + "' alt='' style='width: 50px;'>" + p.Name + "</td>";
-                        Display += " <td class='align-middle'>R" + p.Price + "</td>";
+                        Display += " <td class='align-middle'>R" + p.Price.ToString("#.##") + "</td>";
                         Display += "<td class='align-middle'>";
                         Display += "<div class='input-group quantity mx-auto' style='width: 100px;'>";
                         Display += "<div class='input-group-btn'>";
@@ -115,7 +115,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                     Display2 += "<div class='border-bottom pb-2'>";
                     Display2 += "<div class='d-flex justify-content-between mb-3'>";
                     Display2 += "<div class='pt-2'>";
-                    Display2 += "<div class='d-flex justify-content-between mt-2'><h5>Total: R" + GetCartTotal(cart) + "</h5></div>";
+                    Display2 += "<div class='d-flex justify-content-between mt-2'><h5>Total: R" + GetCartTotal(cart).ToString("#.##") + "</h5></div>";
                     Display2 +=  "";
                
 

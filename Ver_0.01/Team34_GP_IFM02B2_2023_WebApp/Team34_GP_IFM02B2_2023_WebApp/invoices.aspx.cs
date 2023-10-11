@@ -38,7 +38,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
         //Display Invoice Items (Gets Called in Display Invoices)
         private String DisplayInvoiceItem(InvoiceItem item)
         {
-            var p = sc.getProduct(item.Product.ProductId);
+            var p = sc.getProduct(item.ProductId);
 
             String display_items = "<tr><td class='nk-product-cart-thumb'>";
             display_items += "<a href='product.aspx?ID=" + p.ProductId + "' class='nk-image-box-1 nk-post-image'>";
@@ -49,7 +49,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                 display_items += "<h2 class='nk-post-title h4'><a href='detail.aspx?ID=" + p.ProductId + "'>" + p.Name + "</a></h2></td>";
             else
                 display_items += "<h2 class='nk-post-title h4'>" + p.Name + "</h2></td>";
-            display_items += "<td class='nk-product-cart-price'><h5 class='h6'>Price:</h5><div class='nk-gap-1'></div>";
+            display_items += "<td class='nk-product-cart-price'><h5 class='h6'>Price:</h5><div class='nk-gap-1'>R" + p.Price.ToString("#.##") + "</div>";
 
             display_items += "<td class='nk-product-cart-remove'><a href='#'><span class='ion-android-close'></span></a></td>";
 
@@ -64,7 +64,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
         {
             String display = "<table class='table nk-store-cart-products'><tbody>";
             display += "<tr><td class='nk-product-cart-title'><h5 class='h6'>Invoice: " + invoice.InvoiceId + "</h5><div class='nk-gap-1'></div>"
-                    + "<h2 class='nk-post-title h4'>Date Created: " + invoice.DateAdded + "</h2></td>";
+                    + "<h5 class='nk-post-title h4'>Date Created: " + invoice.DateAdded + "</h5></td>";
 
             List<InvoiceItem> items = sc.getInvoiceItems(invoice.InvoiceId).ToList();
             foreach (InvoiceItem i in items)
@@ -78,10 +78,10 @@ namespace Team34_GP_IFM02B2_2023_WebApp
 
             display += "<h3 class='nk-title h4'>Cart Totals</h3>";
             display += "<table class='nk-table nk-table-sm'><tbody><tr class='nk-store-cart-totals-subtotal'>";
-            display += "<td>Subtotal</td><td> R" + invoice.TotalPrice + "</td>";
+            display += "<td>Subtotal</td><td> R" + invoice.TotalPrice.ToString("#.##") + "</td>";
             display += "<tr class='nk-store-cart-totals-shipping'>";
             display += "<tr class='nk-store-cart-totals-total'>";
-            display += "<td>Total</td><td> R" + invoice.TotalPrice + "</td></tr></tbody></table>";
+            display += "<td>Total</td><td> R" + invoice.TotalPrice.ToString("#.##") + "</td></tr></tbody></table>";
 
             return display;
         }

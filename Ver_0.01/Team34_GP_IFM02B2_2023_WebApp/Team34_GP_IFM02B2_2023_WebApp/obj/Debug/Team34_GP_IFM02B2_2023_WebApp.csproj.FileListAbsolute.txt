@@ -74,3 +74,12 @@ C:\Users\Gray Capital\Source\Repos\creepyherobrineIII\ResQFoods\Ver_0.01\Team34_
 C:\Users\Gray Capital\Source\Repos\creepyherobrineIII\ResQFoods\Ver_0.01\Team34_GP_IFM02B2_2023_WebApp\Team34_GP_IFM02B2_2023_WebApp\obj\Debug\Team34_GP_IFM02B2_2023_WebApp.csproj.CopyComplete
 C:\Users\Gray Capital\Source\Repos\creepyherobrineIII\ResQFoods\Ver_0.01\Team34_GP_IFM02B2_2023_WebApp\Team34_GP_IFM02B2_2023_WebApp\obj\Debug\Team34_GP_IFM02B2_2023_WebApp.dll
 C:\Users\Gray Capital\Source\Repos\creepyherobrineIII\ResQFoods\Ver_0.01\Team34_GP_IFM02B2_2023_WebApp\Team34_GP_IFM02B2_2023_WebApp\obj\Debug\Team34_GP_IFM02B2_2023_WebApp.pdb
+C:\group_project\ResQFoods\Ver_0.01\Team34_GP_IFM02B2_2023_WebApp\Team34_GP_IFM02B2_2023_WebApp\bin\Team34_GP_IFM02B2_2023_WebApp.dll.config
+C:\group_project\ResQFoods\Ver_0.01\Team34_GP_IFM02B2_2023_WebApp\Team34_GP_IFM02B2_2023_WebApp\bin\Team34_GP_IFM02B2_2023_WebApp.dll
+C:\group_project\ResQFoods\Ver_0.01\Team34_GP_IFM02B2_2023_WebApp\Team34_GP_IFM02B2_2023_WebApp\bin\Team34_GP_IFM02B2_2023_WebApp.pdb
+C:\group_project\ResQFoods\Ver_0.01\Team34_GP_IFM02B2_2023_WebApp\Team34_GP_IFM02B2_2023_WebApp\bin\Newtonsoft.Json.xml
+C:\group_project\ResQFoods\Ver_0.01\Team34_GP_IFM02B2_2023_WebApp\Team34_GP_IFM02B2_2023_WebApp\obj\Debug\Team34_GP_IFM02B2_2023_WebApp.csproj.AssemblyReference.cache
+C:\group_project\ResQFoods\Ver_0.01\Team34_GP_IFM02B2_2023_WebApp\Team34_GP_IFM02B2_2023_WebApp\obj\Debug\Team34_GP_IFM02B2_2023_WebApp.csproj.CoreCompileInputs.cache
+C:\group_project\ResQFoods\Ver_0.01\Team34_GP_IFM02B2_2023_WebApp\Team34_GP_IFM02B2_2023_WebApp\obj\Debug\Team34_GP_IFM02B2_2023_WebApp.csproj.CopyComplete
+C:\group_project\ResQFoods\Ver_0.01\Team34_GP_IFM02B2_2023_WebApp\Team34_GP_IFM02B2_2023_WebApp\obj\Debug\Team34_GP_IFM02B2_2023_WebApp.dll
+C:\group_project\ResQFoods\Ver_0.01\Team34_GP_IFM02B2_2023_WebApp\Team34_GP_IFM02B2_2023_WebApp\obj\Debug\Team34_GP_IFM02B2_2023_WebApp.pdb
