@@ -33,7 +33,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                     sTypes.Visible = false;
                     bestsellingshop.Visible = false;
                     storeuser = sc.getStore(user.Email);
-                    totalSales.InnerHtml = "<p><b>R" + (sc.getReportTotalSalesBusiness(storeuser).ToString("#.#0") + "</b></p>"; //the total sales to specific business is this
+                    totalSales.InnerHtml = "<p><b>R" + (sc.getReportTotalSalesBusiness(storeuser).ToString("#.#0") + "</b></p>"); //the total sales to specific business is this
 
 
                 }
