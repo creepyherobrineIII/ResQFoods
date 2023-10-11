@@ -1668,12 +1668,6 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getBestSellingStoreFromType", ReplyAction="http://tempuri.org/IRESQSERVICE/getBestSellingStoreFromTypeResponse")]
         System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Store> getBestSellingStoreFromTypeAsync(string Type);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getBestSellingStoreType", ReplyAction="http://tempuri.org/IRESQSERVICE/getBestSellingStoreTypeResponse")]
-        string getBestSellingStoreType();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getBestSellingStoreType", ReplyAction="http://tempuri.org/IRESQSERVICE/getBestSellingStoreTypeResponse")]
-        System.Threading.Tasks.Task<string> getBestSellingStoreTypeAsync();
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getBestSellingProductTag", ReplyAction="http://tempuri.org/IRESQSERVICE/getBestSellingProductTagResponse")]
         Team34_GP_IFM02B2_2023_WebApp.ResQReference.Tag getBestSellingProductTag();
         
@@ -1691,6 +1685,12 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getProductStock", ReplyAction="http://tempuri.org/IRESQSERVICE/getProductStockResponse")]
         System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[]> getProductStockAsync(int StoreID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getBestCategory", ReplyAction="http://tempuri.org/IRESQSERVICE/getBestCategoryResponse")]
+        Team34_GP_IFM02B2_2023_WebApp.ResQReference.Tag getBestCategory();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getBestCategory", ReplyAction="http://tempuri.org/IRESQSERVICE/getBestCategoryResponse")]
+        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Tag> getBestCategoryAsync();
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2025,14 +2025,6 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
             return base.Channel.getBestSellingStoreFromTypeAsync(Type);
         }
         
-        public string getBestSellingStoreType() {
-            return base.Channel.getBestSellingStoreType();
-        }
-        
-        public System.Threading.Tasks.Task<string> getBestSellingStoreTypeAsync() {
-            return base.Channel.getBestSellingStoreTypeAsync();
-        }
-        
         public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Tag getBestSellingProductTag() {
             return base.Channel.getBestSellingProductTag();
         }
@@ -2055,6 +2047,14 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
         
         public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[]> getProductStockAsync(int StoreID) {
             return base.Channel.getProductStockAsync(StoreID);
+        }
+        
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Tag getBestCategory() {
+            return base.Channel.getBestCategory();
+        }
+        
+        public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Tag> getBestCategoryAsync() {
+            return base.Channel.getBestCategoryAsync();
         }
     }
 }

@@ -31,19 +31,19 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                     users.Visible = false;
                     sTypes.Visible = false;
                     bestsellingshop.Visible = false;
-                     storeuser = sc.getStore(user.Email);
+                    storeuser = sc.getStore(user.Email);
 
                 }
                 else Server.Transfer("index.aspx"); //transfer home if customer 
 
                 //Tab 1
-                // totalSales.InnerHtml = "<p><b>R" + (sc.getReportTotalSales()).ToString("#.#0") + "</b></p>";
+                 totalSales.InnerHtml = "<p><b>R" + (sc.getReportTotalSales()).ToString("#.#0") + "</b></p>";
 
 
                 //Tab 2
                 //Get  products for specific store
                 //Display those produts
-                /*  String Display = "";
+                  String Display = "";
                   List<Product> products = sc.getProductStock(storeuser.UserId).ToList();
 
                   foreach (Product p in products)
@@ -62,22 +62,19 @@ namespace Team34_GP_IFM02B2_2023_WebApp
 
                   //Tab 3
                   String stype = Select1.Value;
-                  beststore.InnerHtml = "<p>" + sc.getBestSellingStoreFromType(stype) + "</p>"; */
+                  beststore.InnerHtml = "<p>" + sc.getBestSellingStoreFromType(stype) + "</p>"; 
 
-               
-                                   
-               // catdisplay.InnerHtml = "<p>" + sc.getBestSellingStoreFromType(tags) + "</p>";
-               
-            //Tab 4
-            List<Tag> tags = new List<Tag>(sc.getTags());
 
-            foreach (Tag t in tags)
-            {
-                categories.Items.Add(t.TagName);
+                //Tab 4
+                List<Tag> tags = new List<Tag>(sc.getTags());
+
+                foreach (Tag t in tags)
+                {
+                    categories.Items.Add(t.TagName);
+                }
+                catdisplay.InnerHtml = "<p>" + sc.getBestCategory() + "</p>";
             }
-            }
-           
-           
+
 
         }
 

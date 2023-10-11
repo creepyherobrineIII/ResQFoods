@@ -1137,6 +1137,105 @@ namespace Team34_GP_IFM02B2_2023_WCF
 
             return totalRegistered;
         }
+
+        public Tag getBestCategory() //Code from Richard
+        {
+            //Declare lists for products, and their totals
+            List<int> prodSold = new List<int>();
+            List<int> noSold = new List<int>();
+
+            //Delcare list for tags and their totals
+            List<Tag> tgs = getTags();
+            List<int> noSoldTag = new List<int>();
+            Tag t = null;
+
+            //get all invoices from the invoice table
+            dynamic inv = (from i in db.InvoiceItems
+                           select i).DefaultIfEmpty();
+
+            //Set count for items sold per tag to 0
+            for (int x = 0; x < tgs.Count; x++)
+            {
+                noSoldTag.Add(0);
+            }
+
+            if (inv != null)
+            {
+                //For each invoice in the db
+                foreach (Invoice curr in inv)
+                {
+                    //Get all lines associated with the invoice
+                    List<InvoiceItem> iList = getInvoiceItems(curr.InvoiceId);
+                    //For each item
+                    foreach (InvoiceItem temp in iList)
+                    {
+                        //Get the product id of the invoice entry
+                        int pId = temp.ProductId;
+                        if (!prodSold.Contains(pId))
+                        {
+                            //If the product ID is not in the product sold array
+                            //Add the product to the prodSold array
+                            prodSold.Add(pId);
+                            //Add the quantity to the corresponding index
+                            noSold.Add(temp.Quantity);
+                        }
+                        else
+                        {
+                            //Get the index of the productID
+                            int index = prodSold.IndexOf(pId);
+                            //Add the quntity sold of the product to its total
+                            noSold[index] += temp.Quantity;
+                        }
+
+                    }
+                }
+
+
+                //For each product that has ever been sold
+                for (int i = 0; i < prodSold.Count; i++)
+                {
+                    //Get its tags
+                    bool hasTag = (from prd in db.ProductTags
+                                   where prd.ProductId.Equals(prodSold[i])
+                                   select prd).Any();
+                    if (hasTag)
+                    {
+                        //Get a list of its tags if it has any
+                        dynamic productTag = (from prd in db.ProductTags
+                                              where prd.ProductId.Equals(prodSold[i])
+                                              select prd).DefaultIfEmpty();
+                        //For each of its tags
+                        foreach (ProductTag tempP in productTag)
+                        {
+                            //Loop through the tags array
+                            foreach (Tag tempTag in tgs)
+                            {
+                                //If the product has a tag
+                                if (tempP.TagId.Equals(tempTag.TagID))
+                                {
+                                    //Find the products tags index in the tags array
+                                    int index = tgs.IndexOf(tempTag);
+                                    //Add the number sold of that item to the tag count 
+                                    noSoldTag[index] += noSold[i];
+                                }
+                            }
+                        }
+                    }
+                }
+
+
+
+                //Get the value of highest tag sales
+                int highSale = noSoldTag.Max();
+                //Get the index of that high value
+                int indexOfSale = noSoldTag.IndexOf(highSale);
+                //Get the tag at that index in the tgs table
+                Tag tagToReturn = tgs[indexOfSale];
+
+                t = tagToReturn;
+            }
+            return t; 
+        }
     }
     }
 

@@ -111,10 +111,6 @@ namespace Team34_GP_IFM02B2_2023_WCF
         [OperationContract]
         Store getBestSellingStoreFromType(String Type);
 
-
-        [OperationContract]
-        String getBestSellingStoreType();
-
         [OperationContract]
         Tag getBestSellingProductTag(); 
 
@@ -122,7 +118,10 @@ namespace Team34_GP_IFM02B2_2023_WCF
         int getNumRegUsers(DateTime date); //Requirement
 
        [OperationContract]
-        List<Product> getProductStock(int StoreID); //Requirement
+       List<Product> getProductStock(int StoreID); //Requirement
+
+        [OperationContract]
+        Tag getBestCategory();
 
     }
 
