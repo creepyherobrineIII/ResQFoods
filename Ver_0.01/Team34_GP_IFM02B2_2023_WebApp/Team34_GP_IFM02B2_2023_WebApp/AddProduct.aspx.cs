@@ -24,12 +24,10 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                 storeId = st.UserId;
             }
             List <Tag> tList = new List<Tag>(serviceClient.getTags());
-            String tagVal = "";
             foreach(Tag t in tList)
             {
-                tagVal+= "<option value='"+t.TagID+"'>"+t.TagName+"</option>";
+                cType.Items.Add(t.TagName);
             }
-            cType.InnerHtml = tagVal;
         }
 
         protected void btnAddProduct_Click(object sender, EventArgs e)
@@ -41,7 +39,8 @@ namespace Team34_GP_IFM02B2_2023_WebApp
             string productDescription = txtProductDescription.Value;
             double prc = Convert.ToDouble(txtProductPrice.Value);
             int quantity = Convert.ToInt32(txtProductQuantity.Value);
-            int tag = Convert.ToInt32(cType.Value);
+            int tag = Convert.ToInt32(serviceClient.searchTag(cType.Value));
+            Console.WriteLine(tag);
 
             // Get other input values
 

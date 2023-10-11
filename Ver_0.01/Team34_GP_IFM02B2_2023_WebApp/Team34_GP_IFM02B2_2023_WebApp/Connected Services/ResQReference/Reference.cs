@@ -1525,12 +1525,6 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getAllProducts", ReplyAction="http://tempuri.org/IRESQSERVICE/getAllProductsResponse")]
         System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[]> getAllProductsAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/GetProduct", ReplyAction="http://tempuri.org/IRESQSERVICE/GetProductResponse")]
-        Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product GetProduct(int pID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/GetProduct", ReplyAction="http://tempuri.org/IRESQSERVICE/GetProductResponse")]
-        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product> GetProductAsync(int pID);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/SearchProducts", ReplyAction="http://tempuri.org/IRESQSERVICE/SearchProductsResponse")]
         Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[] SearchProducts(string name);
         
@@ -1627,52 +1621,41 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getInvoiceItems", ReplyAction="http://tempuri.org/IRESQSERVICE/getInvoiceItemsResponse")]
         System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.InvoiceItem[]> getInvoiceItemsAsync(int IID);
         
-        // CODEGEN: Generating message contract since the wrapper name (getProduct) of message getProductRequest does not match the default value (getProduct1)
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getProduct", ReplyAction="http://tempuri.org/IRESQSERVICE/getProductResponse")]
-        Team34_GP_IFM02B2_2023_WebApp.ResQReference.getProductResponse getProduct1(Team34_GP_IFM02B2_2023_WebApp.ResQReference.getProductRequest request);
+        Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product getProduct(int pID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getProduct", ReplyAction="http://tempuri.org/IRESQSERVICE/getProductResponse")]
-        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.getProductResponse> getProduct1Async(Team34_GP_IFM02B2_2023_WebApp.ResQReference.getProductRequest request);
+        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product> getProductAsync(int pID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getTags", ReplyAction="http://tempuri.org/IRESQSERVICE/getTagsResponse")]
         Team34_GP_IFM02B2_2023_WebApp.ResQReference.Tag[] getTags();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getTags", ReplyAction="http://tempuri.org/IRESQSERVICE/getTagsResponse")]
         System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Tag[]> getTagsAsync();
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="getProduct", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class getProductRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public int pID;
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getProdTag", ReplyAction="http://tempuri.org/IRESQSERVICE/getProdTagResponse")]
+        int getProdTag(int pID);
         
-        public getProductRequest() {
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getProdTag", ReplyAction="http://tempuri.org/IRESQSERVICE/getProdTagResponse")]
+        System.Threading.Tasks.Task<int> getProdTagAsync(int pID);
         
-        public getProductRequest(int pID) {
-            this.pID = pID;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(WrapperName="getProductResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
-    public partial class getProductResponse {
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getTagName", ReplyAction="http://tempuri.org/IRESQSERVICE/getTagNameResponse")]
+        string getTagName(int tID);
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
-        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product getProductResult;
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getTagName", ReplyAction="http://tempuri.org/IRESQSERVICE/getTagNameResponse")]
+        System.Threading.Tasks.Task<string> getTagNameAsync(int tID);
         
-        public getProductResponse() {
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/editProdTag", ReplyAction="http://tempuri.org/IRESQSERVICE/editProdTagResponse")]
+        bool editProdTag(int pID, int tID);
         
-        public getProductResponse(Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product getProductResult) {
-            this.getProductResult = getProductResult;
-        }
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/editProdTag", ReplyAction="http://tempuri.org/IRESQSERVICE/editProdTagResponse")]
+        System.Threading.Tasks.Task<bool> editProdTagAsync(int pID, int tID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/searchTag", ReplyAction="http://tempuri.org/IRESQSERVICE/searchTagResponse")]
+        int searchTag(string tagVal);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/searchTag", ReplyAction="http://tempuri.org/IRESQSERVICE/searchTagResponse")]
+        System.Threading.Tasks.Task<int> searchTagAsync(string tagVal);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1788,14 +1771,6 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
         
         public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[]> getAllProductsAsync() {
             return base.Channel.getAllProductsAsync();
-        }
-        
-        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product GetProduct(int pID) {
-            return base.Channel.GetProduct(pID);
-        }
-        
-        public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product> GetProductAsync(int pID) {
-            return base.Channel.GetProductAsync(pID);
         }
         
         public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product[] SearchProducts(string name) {
@@ -1926,27 +1901,12 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
             return base.Channel.getInvoiceItemsAsync(IID);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Team34_GP_IFM02B2_2023_WebApp.ResQReference.getProductResponse Team34_GP_IFM02B2_2023_WebApp.ResQReference.IRESQSERVICE.getProduct1(Team34_GP_IFM02B2_2023_WebApp.ResQReference.getProductRequest request) {
-            return base.Channel.getProduct1(request);
+        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product getProduct(int pID) {
+            return base.Channel.getProduct(pID);
         }
         
-        public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product getProduct1(int pID) {
-            Team34_GP_IFM02B2_2023_WebApp.ResQReference.getProductRequest inValue = new Team34_GP_IFM02B2_2023_WebApp.ResQReference.getProductRequest();
-            inValue.pID = pID;
-            Team34_GP_IFM02B2_2023_WebApp.ResQReference.getProductResponse retVal = ((Team34_GP_IFM02B2_2023_WebApp.ResQReference.IRESQSERVICE)(this)).getProduct1(inValue);
-            return retVal.getProductResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.getProductResponse> Team34_GP_IFM02B2_2023_WebApp.ResQReference.IRESQSERVICE.getProduct1Async(Team34_GP_IFM02B2_2023_WebApp.ResQReference.getProductRequest request) {
-            return base.Channel.getProduct1Async(request);
-        }
-        
-        public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.getProductResponse> getProduct1Async(int pID) {
-            Team34_GP_IFM02B2_2023_WebApp.ResQReference.getProductRequest inValue = new Team34_GP_IFM02B2_2023_WebApp.ResQReference.getProductRequest();
-            inValue.pID = pID;
-            return ((Team34_GP_IFM02B2_2023_WebApp.ResQReference.IRESQSERVICE)(this)).getProduct1Async(inValue);
+        public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Product> getProductAsync(int pID) {
+            return base.Channel.getProductAsync(pID);
         }
         
         public Team34_GP_IFM02B2_2023_WebApp.ResQReference.Tag[] getTags() {
@@ -1955,6 +1915,38 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
         
         public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Tag[]> getTagsAsync() {
             return base.Channel.getTagsAsync();
+        }
+        
+        public int getProdTag(int pID) {
+            return base.Channel.getProdTag(pID);
+        }
+        
+        public System.Threading.Tasks.Task<int> getProdTagAsync(int pID) {
+            return base.Channel.getProdTagAsync(pID);
+        }
+        
+        public string getTagName(int tID) {
+            return base.Channel.getTagName(tID);
+        }
+        
+        public System.Threading.Tasks.Task<string> getTagNameAsync(int tID) {
+            return base.Channel.getTagNameAsync(tID);
+        }
+        
+        public bool editProdTag(int pID, int tID) {
+            return base.Channel.editProdTag(pID, tID);
+        }
+        
+        public System.Threading.Tasks.Task<bool> editProdTagAsync(int pID, int tID) {
+            return base.Channel.editProdTagAsync(pID, tID);
+        }
+        
+        public int searchTag(string tagVal) {
+            return base.Channel.searchTag(tagVal);
+        }
+        
+        public System.Threading.Tasks.Task<int> searchTagAsync(string tagVal) {
+            return base.Channel.searchTagAsync(tagVal);
         }
     }
 }

@@ -18,8 +18,6 @@ namespace Team34_GP_IFM02B2_2023_WebApp
         private readonly RESQSERVICEClient sc = new RESQSERVICEClient();
         int productID; // Define a variable to hold the product ID
 
-        public object txtPrice { get; private set; }
-
         protected void Page_Load(object sender, EventArgs e)
         {
             // Check if a product ID is provided in the query string
@@ -34,12 +32,10 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                     }
                 }
                 List<Tag> tList = new List<Tag>(sc.getTags());
-                String tagVal = "";
                 foreach (Tag t in tList)
                 {
-                    tagVal += "<option value='" + t.TagID + "'>" + t.TagName + "</option>";
+                    cType.Items.Add(t.TagName);
                 }
-                cType.InnerHtml = tagVal;
             }
             else
             {
@@ -51,7 +47,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
         protected void LoadProductDetails(int productID)
         {
             // Retrieve product details from the database
-            Product product = sc.GetProduct(productID);
+            Product product = sc.getProduct(productID);
 
             if (product != null)
             {
@@ -59,7 +55,8 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                 txtProductName.Value = product.Name;
                 txtProductDescription.Value= product.Description;
                 txtProductPrice.Value = product.Price.ToString();
-                //txtQuantity.Value = product.Quantity.ToString();
+                txtProductQuantity.Value = product.Quantity.ToString();
+                cType.Value = sc.getTagName(sc.getProdTag(productID));
             }
             else
             {
@@ -70,14 +67,36 @@ namespace Team34_GP_IFM02B2_2023_WebApp
 
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
+            
+
+        }
+
+        protected void btnDeleteProduct_Click(object sender, EventArgs e)
+        {
+            Product product = sc.getProduct(productID);
+                Product P = new Product
+                {
+                    ProductId = product.ProductId,
+                    Name = product.Name,
+                    Description = product.Description,
+                    Quantity = product.Quantity,
+                    Price = product.Price,
+                    UserId = product.UserId,
+                    Enabled = false
+                };
+                bool isUpdated = sc.editProduct(P, -1);
+        }
+
+        protected void btnUpdateProduct_Click(object sender, EventArgs e)
+        {
             // Get the updated values from the form fields
             string newName = txtProductName.Value;
             string newDescription = txtProductDescription.Value;
             double newPrice = Convert.ToDouble(txtProductPrice.Value);
-            int newQuantity=Convert.ToInt32(txtProductQuantity.Value);
-            int tag = Convert.ToInt32(cType.Value);
-            if (FileUpload1.HasFile && newName!="" && newDescription!="" && newPrice>0)
-            { 
+            int newQuantity = Convert.ToInt32(txtProductQuantity.Value);
+            int tag = sc.searchTag(cType.Value);
+            if (FileUpload1.HasFile && newName != "" && newDescription != "" && newPrice > 0)
+            {
                 String imgPath = Server.MapPath("~/assets/img/");
                 String fPath = imgPath + FileUpload1.FileName;
                 if (!File.Exists(fPath))
@@ -92,15 +111,11 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                     Description = newDescription,
                     Quantity = newQuantity,
                     Price = (decimal)newPrice,
-                    Enabled = true
+                    Enabled = true,
+                    Picture = picturePath
                 };
                 bool isUpdated = sc.editProduct(P, tag);
             }
-
-        }
-
-        protected void btnDeleteProduct_Click(object sender, EventArgs e)
-        {
 
         }
     }

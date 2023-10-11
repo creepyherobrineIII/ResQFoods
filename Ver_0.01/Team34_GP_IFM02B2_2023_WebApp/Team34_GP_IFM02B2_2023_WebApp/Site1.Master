@@ -158,7 +158,7 @@
                     <div class="btn-group">
                         <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">My Account</button>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <button class="dropdown-item" id="btnAddAd" ><a href="/Register.aspx">Add Admin</a></button>
+                            <button class="dropdown-item" id="btnAddAd" ><a href="/RegAdmin.aspx">Add Admin</a></button>
                             <button class="dropdown-item"  id="btnMMet"><a href="/Register.aspx">View all metrics</a></button>
                             <button class="dropdown-item"  id="btnAlgt"><a href="/logout.aspx">Log out</a></button>
                         </div>

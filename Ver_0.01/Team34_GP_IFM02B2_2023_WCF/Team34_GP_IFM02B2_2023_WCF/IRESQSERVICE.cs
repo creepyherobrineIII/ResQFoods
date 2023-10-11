@@ -45,9 +45,6 @@ namespace Team34_GP_IFM02B2_2023_WCF
         List<Product> getAllProducts();
 
         [OperationContract]
-        Product GetProduct(int pID);
-
-        [OperationContract]
         List<Product> SearchProducts(String name);
 
         [OperationContract]
@@ -100,6 +97,18 @@ namespace Team34_GP_IFM02B2_2023_WCF
 
         [OperationContract]
         List<Tag> getTags();
+
+        [OperationContract]
+        int getProdTag(int pID);
+
+        [OperationContract]
+        String getTagName(int tID);
+
+        [OperationContract]
+        bool editProdTag(int pID, int tID);
+
+        [OperationContract]
+        int searchTag(String tagVal);
 
     }
 

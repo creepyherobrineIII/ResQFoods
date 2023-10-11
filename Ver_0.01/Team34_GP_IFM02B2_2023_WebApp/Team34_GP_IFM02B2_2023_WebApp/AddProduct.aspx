@@ -39,8 +39,8 @@
             </div>
 
 
-            <div class="form-group">
-            <select name="store_type" id="cType" runat="server" placeholder="Choose Product Category">
+            <div class="form-group" id="catType">
+            <select name="store_type"  id="cType" runat="server" placeholder="Choose Product Category">
             </select>
               </div>
             

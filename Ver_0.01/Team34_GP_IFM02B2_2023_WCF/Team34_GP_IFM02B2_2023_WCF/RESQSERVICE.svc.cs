@@ -495,7 +495,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
         public bool AddProdTag(int pID, int tID)
         {
             var pTag = (from pt in db.ProductTags
-                        where pt.ProductId.Equals(pID) && pt.TagId.Equals(tID)
+                        where pt.ProductId.Equals(pID)
                         select pt).FirstOrDefault();
             if(pTag==null)
             {
@@ -633,7 +633,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
 
                     if(pTag!=-1)
                     {
-                        AddProdTag(P.ProductId, pTag);
+                        editProdTag(P.ProductId, pTag);
                     }
                     return true;
                 }
@@ -982,9 +982,52 @@ namespace Team34_GP_IFM02B2_2023_WCF
             return tReturn;
         }
 
-        public Product GetProduct(int pID)
+        
+
+        public int getProdTag(int pID)
         {
-            throw new NotImplementedException();
+            var pTag = (from pt in db.ProductTags
+                        where pt.ProductId.Equals(pID)
+                        select pt).FirstOrDefault();
+            return pTag.TagId;
+        }
+
+        public String getTagName(int tID)
+        {
+            var pTag = (from pt in db.Tags
+                        where pt.TagID.Equals(tID)
+                        select pt).FirstOrDefault();
+            if(pTag!=null)
+            {
+                return pTag.TagName;
+            }
+            return "null";
+        }
+
+        public bool editProdTag(int pID, int tID)
+        {
+            var pTag = (from pt in db.ProductTags
+                        where pt.ProductId.Equals(pID) && pt.TagId.Equals(tID)
+                        select pt).FirstOrDefault();
+            if(pTag!=null)
+            {
+                pTag.TagId = tID;
+                db.SubmitChanges();
+                return true;
+            }
+            return false;
+        }
+
+        public int searchTag(string tagVal)
+        {
+            var pTag = (from t in db.Tags
+                        where t.TagName.ToUpper().Equals(tagVal.ToUpper())
+                        select t).FirstOrDefault();
+            if(pTag!=null)
+            {
+                return pTag.TagID;
+            }
+            return -1;
         }
     }
     }
