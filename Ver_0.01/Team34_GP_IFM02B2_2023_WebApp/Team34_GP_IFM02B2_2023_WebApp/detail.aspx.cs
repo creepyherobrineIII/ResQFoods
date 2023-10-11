@@ -54,6 +54,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                     if (cList.Contains(c))
                     {
                         int i = cList.IndexOf(c);
+                        cList[i].Quantity += 1;
                     } else
                     {
                         cList.Add(c);

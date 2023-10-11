@@ -61,33 +61,26 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                     {
                         UserId = tempUser.UserId,
                         ProductId = PID,
-                        Quantity = 1
                     };
 
-                    if (Session["CartList"]!=null)
+                    if (Request.QueryString["CartAdd"] != null && !IsPostBack)
                     {
-                        bool add = false;
+                        Console.WriteLine(Request.QueryString["CartAdd"]);
                         List<CartItem> cList = (List<CartItem>)Session["CartList"];
-                       for(int i = 0;i<cList.Count-1;i++)
+                        if (cList.Contains(c))
                         {
-                            if((cList[i].ProductId==c.ProductId)&&(cList[i].UserId==c.UserId))
-                            {
-                                add = false;
-                                cList[i].Quantity += 1;
-                                break;
-                            }
-                            else
-                            {
-                                add = true;
-                            }
+                            int i = cList.IndexOf(c);
+                            cList[i].Quantity += 1;
                         }
-                        if(add)
+                        else
                         {
+                            c.Quantity = 1;
                             cList.Add(c);
                         }
 
                         Session["CartList"] = cList;
-                        
+                        Response.Redirect("index.aspx");
+
                     }
                 }
             }
