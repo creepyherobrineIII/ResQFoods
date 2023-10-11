@@ -69,8 +69,8 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                         Quantity = 1
                     };
 
-                    //if (Session["CartList"] != null)
-                    //{
+                    if (Session["CartList"] != null)
+                    {
                         bool add = false;
                         List<CartItem> cList = (List<CartItem>)Session["CartList"];
                         for (int i = 0; i < cList.Count - 1; i++)
@@ -93,7 +93,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
 
                         Session["CartList"] = cList;
 
-                    //}
+                    }
                 }
             }
 
