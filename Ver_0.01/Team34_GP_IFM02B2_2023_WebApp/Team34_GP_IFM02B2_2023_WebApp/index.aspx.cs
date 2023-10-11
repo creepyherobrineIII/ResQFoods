@@ -69,8 +69,8 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                         Quantity = 1
                     };
 
-                    if (Session["CartList"] != null)
-                    {
+                    //if (Session["CartList"] != null)
+                    //{
                         bool add = false;
                         List<CartItem> cList = (List<CartItem>)Session["CartList"];
                         for (int i = 0; i < cList.Count - 1; i++)
@@ -93,48 +93,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
 
                         Session["CartList"] = cList;
 
-                    }
-                }
-            }
-
-            if (Request.QueryString["WishAdd"] != null)
-            {
-                if (Session["user"] != null)
-                {
-                    int PID = Convert.ToInt32(Request.QueryString["WishAdd"]);
-                    UserTable tempUser = (UserTable)Session["user"];
-                    CartItem c = new CartItem
-                    {
-                        UserId = tempUser.UserId,
-                        ProductId = PID,
-                        Quantity = 1
-                    };
-
-                    if (Session["WishList"] != null)
-                    {
-                        bool add = false;
-                        List<CartItem> wList = (List<CartItem>)Session["WishList"];
-                        for (int i = 0; i < wList.Count - 1; i++)
-                        {
-                            if ((wList[i].ProductId == c.ProductId) && (wList[i].UserId == c.UserId))
-                            {
-                                add = false;
-                                wList[i].Quantity += 1;
-                                break;
-                            }
-                            else
-                            {
-                                add = true;
-                            }
-                        }
-                        if (add)
-                        {
-                            wList.Add(c);
-                        }
-
-                        Session["CartList"] = wList;
-
-                    }
+                    //}
                 }
             }
 
@@ -182,13 +141,11 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                 if (Session["user"] != null)
                 {
                     pBlock += "<div class='product-action'>";
-                    pBlock += " <a class='btn btn-outline-dark btn-square' href='shop.aspx?CartAdd=" + p.ProductId + "'><i class='fa fa-shopping-cart'></i></a>";
-                    pBlock += " <a class='btn btn-outline-dark btn-square' href='shop.aspx?WishAdd=" + p.ProductId + "'><i class='far fa-heart'></i></a>";
-                    pBlock += "</div>";
+                    pBlock += " <a class='btn btn-outline-dark btn-square' href='index.aspx?CartAdd=" + p.ProductId + "'><i class='fa fa-shopping-cart'></i></a>";                    pBlock += "</div>";
                 }
                 pBlock += "</div>";
                 pBlock+= "<div class='text-center py-4'>";
-                pBlock+= " <a class='h6 text-decoration-none text-truncate' href='shop.aspx'>"+p.Name+"</a>";
+                pBlock+= " <a class='h6 text-decoration-none text-truncate' href='detail.aspx?ID="+p.ProductId+"'>"+p.Name+"</a>";
                 pBlock+= "<div class='d-flex align-items-center justify-content-center mt-2'>";
                 pBlock+= "<h5>R"+p.Price+"</h5>";
                 pBlock+= "</div>";                       

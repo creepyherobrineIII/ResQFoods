@@ -65,12 +65,6 @@ namespace Team34_GP_IFM02B2_2023_WebApp
             }
         }
 
-        protected void btnUpdate_Click(object sender, EventArgs e)
-        {
-            
-
-        }
-
         protected void btnDeleteProduct_Click(object sender, EventArgs e)
         {
             Product product = sc.getProduct(productID);
@@ -115,6 +109,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                     Picture = picturePath
                 };
                 bool isUpdated = sc.editProduct(P, tag);
+                Response.Redirect("details.aspx?ID="+P.ProductId);
             }
 
         }
