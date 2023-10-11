@@ -24,6 +24,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                 {
                     //show everything  except total products
                     productstotal.Visible = false;
+                    totalSales.InnerHtml = "<p><b>R" + (sc.getReportTotalSales()).ToString("#.#0") + "</b></p>"; //the total sales to admin is this
                 }
                 else if (user.UserType == 2)
                 {
@@ -32,12 +33,13 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                     sTypes.Visible = false;
                     bestsellingshop.Visible = false;
                     storeuser = sc.getStore(user.Email);
+                    totalSales.InnerHtml = "<p><b>R" + (sc.getReportTotalSalesBusiness(storeuser).ToString("#.#0") + "</b></p>"; //the total sales to specific business is this
+
 
                 }
                 else Server.Transfer("index.aspx"); //transfer home if customer 
 
-                //Tab 1
-                 totalSales.InnerHtml = "<p><b>R" + (sc.getReportTotalSales()).ToString("#.#0") + "</b></p>";
+               
 
 
                 //Tab 2
@@ -66,12 +68,12 @@ namespace Team34_GP_IFM02B2_2023_WebApp
 
 
                 //Tab 4
-                List<Tag> tags = new List<Tag>(sc.getTags());
+               /* List<Tag> tags = new List<Tag>(sc.getTags());
 
                 foreach (Tag t in tags)
                 {
                     categories.Items.Add(t.TagName);
-                }
+                }*/
                 catdisplay.InnerHtml = "<p>" + sc.getBestCategory() + "</p>";
             }
 

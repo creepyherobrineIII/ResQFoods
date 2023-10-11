@@ -123,6 +123,9 @@ namespace Team34_GP_IFM02B2_2023_WCF
         [OperationContract]
         Tag getBestCategory();
 
+        [OperationContract]
+        decimal getReportTotalSalesBusiness(Store s);
+
     }
 
 

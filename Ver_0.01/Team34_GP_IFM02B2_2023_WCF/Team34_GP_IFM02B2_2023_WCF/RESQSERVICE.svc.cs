@@ -1236,6 +1236,25 @@ namespace Team34_GP_IFM02B2_2023_WCF
             }
             return t; 
         }
+
+        public decimal getReportTotalSalesBusiness(Store s)
+        {
+
+            dynamic items = (from i in db.InvoiceItems select i);
+
+
+            //calculate total sales
+            decimal totalSales = 0;
+            foreach (InvoiceItem inv in items)
+            {
+               if(inv.Product.UserId == s.UserId)
+                {
+                    totalSales += (inv.Product.Price * inv.Product.NumSold);
+                }
+            }
+
+            return totalSales;
+        }
     }
     }
 

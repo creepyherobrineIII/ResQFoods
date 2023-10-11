@@ -1691,6 +1691,12 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getBestCategory", ReplyAction="http://tempuri.org/IRESQSERVICE/getBestCategoryResponse")]
         System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Tag> getBestCategoryAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getReportTotalSalesBusiness", ReplyAction="http://tempuri.org/IRESQSERVICE/getReportTotalSalesBusinessResponse")]
+        decimal getReportTotalSalesBusiness(Team34_GP_IFM02B2_2023_WebApp.ResQReference.Store s);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRESQSERVICE/getReportTotalSalesBusiness", ReplyAction="http://tempuri.org/IRESQSERVICE/getReportTotalSalesBusinessResponse")]
+        System.Threading.Tasks.Task<decimal> getReportTotalSalesBusinessAsync(Team34_GP_IFM02B2_2023_WebApp.ResQReference.Store s);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2055,6 +2061,14 @@ namespace Team34_GP_IFM02B2_2023_WebApp.ResQReference {
         
         public System.Threading.Tasks.Task<Team34_GP_IFM02B2_2023_WebApp.ResQReference.Tag> getBestCategoryAsync() {
             return base.Channel.getBestCategoryAsync();
+        }
+        
+        public decimal getReportTotalSalesBusiness(Team34_GP_IFM02B2_2023_WebApp.ResQReference.Store s) {
+            return base.Channel.getReportTotalSalesBusiness(s);
+        }
+        
+        public System.Threading.Tasks.Task<decimal> getReportTotalSalesBusinessAsync(Team34_GP_IFM02B2_2023_WebApp.ResQReference.Store s) {
+            return base.Channel.getReportTotalSalesBusinessAsync(s);
         }
     }
 }

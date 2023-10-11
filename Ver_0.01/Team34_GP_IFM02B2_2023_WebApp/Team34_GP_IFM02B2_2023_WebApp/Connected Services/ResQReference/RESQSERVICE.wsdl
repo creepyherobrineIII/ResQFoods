@@ -525,6 +525,20 @@
           </xs:sequence>
         </xs:complexType>
       </xs:element>
+      <xs:element name="getReportTotalSalesBusiness">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Team34_GP_IFM02B2_2023_WCF" minOccurs="0" name="s" nillable="true" type="q28:Store" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getReportTotalSalesBusinessResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="getReportTotalSalesBusinessResult" type="xs:decimal" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
     </xs:schema>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
       <xs:element name="anyType" nillable="true" type="xs:anyType" />
@@ -963,6 +977,12 @@
   <wsdl:message name="IRESQSERVICE_getBestCategory_OutputMessage">
     <wsdl:part name="parameters" element="tns:getBestCategoryResponse" />
   </wsdl:message>
+  <wsdl:message name="IRESQSERVICE_getReportTotalSalesBusiness_InputMessage">
+    <wsdl:part name="parameters" element="tns:getReportTotalSalesBusiness" />
+  </wsdl:message>
+  <wsdl:message name="IRESQSERVICE_getReportTotalSalesBusiness_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getReportTotalSalesBusinessResponse" />
+  </wsdl:message>
   <wsdl:portType name="IRESQSERVICE">
     <wsdl:operation name="loginUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IRESQSERVICE/loginUser" message="tns:IRESQSERVICE_loginUser_InputMessage" />
@@ -1107,6 +1127,10 @@
     <wsdl:operation name="getBestCategory">
       <wsdl:input wsaw:Action="http://tempuri.org/IRESQSERVICE/getBestCategory" message="tns:IRESQSERVICE_getBestCategory_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IRESQSERVICE/getBestCategoryResponse" message="tns:IRESQSERVICE_getBestCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getReportTotalSalesBusiness">
+      <wsdl:input wsaw:Action="http://tempuri.org/IRESQSERVICE/getReportTotalSalesBusiness" message="tns:IRESQSERVICE_getReportTotalSalesBusiness_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IRESQSERVICE/getReportTotalSalesBusinessResponse" message="tns:IRESQSERVICE_getReportTotalSalesBusiness_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IRESQSERVICE" type="tns:IRESQSERVICE">
@@ -1428,6 +1452,15 @@
     </wsdl:operation>
     <wsdl:operation name="getBestCategory">
       <soap:operation soapAction="http://tempuri.org/IRESQSERVICE/getBestCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getReportTotalSalesBusiness">
+      <soap:operation soapAction="http://tempuri.org/IRESQSERVICE/getReportTotalSalesBusiness" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

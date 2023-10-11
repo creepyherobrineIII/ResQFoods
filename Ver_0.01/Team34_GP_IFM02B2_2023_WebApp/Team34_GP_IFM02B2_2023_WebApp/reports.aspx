@@ -132,9 +132,9 @@
                         <tr>
                             <td>
                                 <h2 class="nk-post-title h4 ml-3">Best Selling Category: </h2>
-                                <select class="h5 ml-3" id="categories" runat="server" placeholder="Choose Product Category">
+                               <!-- //<select class="h5 ml-3" id="categories" runat="server" placeholder="Choose Product Category"> -->
 
-                                </select>
+                                <!--</select> -->
                             </td>
                             <td>
                                 <div class="nk-post-title h5 ml-2 mt-2" id="catdisplay" runat="server">
