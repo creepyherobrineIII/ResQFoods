@@ -60,13 +60,22 @@ namespace Team34_GP_IFM02B2_2023_WebApp
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtProductQuantity;
 
         /// <summary>
-        /// fileProductImage control.
+        /// FileUpload1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputFile fileProductImage;
+        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
+
+        /// <summary>
+        /// cType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect cType;
 
         /// <summary>
         /// btnAddProduct control.

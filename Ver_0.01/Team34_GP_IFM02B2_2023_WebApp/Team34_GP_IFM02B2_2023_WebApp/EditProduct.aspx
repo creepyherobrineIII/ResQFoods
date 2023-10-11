@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="EditProduct.aspx.cs" Inherits="Team34_GP_IFM02B2_2023_WebApp.WebForm2" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="True" CodeBehind="EditProduct.aspx.cs" Inherits="Team34_GP_IFM02B2_2023_WebApp.EditProduct" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
     <title> Edit product </title>
@@ -11,17 +11,16 @@
             <input type="hidden" id="hiddenProductId" runat="server" />
 
             <!-- Product Name -->
-            <div class="form-group">
+            <div class="form-group" id ="pName" runat="server">
                 <label for="txtProductName">Product Name:</label>
-              <!-- <input type="text" id="txtProductName" runat="server" class="form-control" /> -->
-             <!--   <asp:TextBox id="txtProductName" runat="server" CssClass="form-control"></asp:TextBox> -->
-            <!--   <input type="text" id="sName" runat="server" placeholder="Enter Your Store Name"> -->
+              <input type="text" id="txtProductName" runat="server" class="form-control" text ="ok"/>
+             
             </div>
 
             <!-- Product Description -->
             <div class="form-group">
                 <label for="txtProductDescription">Product Description:</label>
-                <textarea id="txtProductDescription" runat="server" class="form-control" rows="4"></textarea>
+                <input id="txtProductDescription" runat="server" class="form-control" rows="4"></input>
             </div>
 
             <!-- Product Price -->
@@ -39,7 +38,7 @@
             <!-- Product Image Upload (Optional) -->
             <div class="form-group">
                 <label for="fileProductImage">Product Image (Optional):</label>
-                <input type="file" id="fileProductImage" runat="server" accept="image/*" class="form-control-file" />
+                <asp:FileUpload ID="FileUpload1" runat="server" />
             </div>
 
             <!-- Update Product Button -->

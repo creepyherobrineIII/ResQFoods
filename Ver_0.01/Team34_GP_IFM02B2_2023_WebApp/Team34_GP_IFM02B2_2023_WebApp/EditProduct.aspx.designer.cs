@@ -11,7 +11,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
 {
 
 
-    public partial class WebForm2
+    public partial class EditProduct
     {
 
         /// <summary>
@@ -33,6 +33,15 @@ namespace Team34_GP_IFM02B2_2023_WebApp
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden hiddenProductId;
 
         /// <summary>
+        /// pName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pName;
+
+        /// <summary>
         /// txtProductName control.
         /// </summary>
         /// <remarks>
@@ -42,31 +51,13 @@ namespace Team34_GP_IFM02B2_2023_WebApp
         protected global::System.Web.UI.HtmlControls.HtmlInputText txtProductName;
 
         /// <summary>
-        /// txtProductName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtProductName;
-
-        /// <summary>
-        /// sName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText sName;
-
-        /// <summary>
         /// txtProductDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtProductDescription;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtProductDescription;
 
         /// <summary>
         /// txtProductPrice control.
@@ -87,13 +78,13 @@ namespace Team34_GP_IFM02B2_2023_WebApp
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtProductQuantity;
 
         /// <summary>
-        /// fileProductImage control.
+        /// FileUpload1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputFile fileProductImage;
+        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
 
         /// <summary>
         /// btnUpdateProduct control.

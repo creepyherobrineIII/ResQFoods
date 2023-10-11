@@ -16,6 +16,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
         protected void Page_Load(object sender, EventArgs e)
         {
             regStat.Visible = false;
+            
         }
 
         protected void logReg_Click(object sender, EventArgs e)

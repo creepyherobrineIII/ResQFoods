@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Web;
@@ -16,9 +17,6 @@ namespace Team34_GP_IFM02B2_2023_WebApp
     {
         private readonly RESQSERVICEClient sc = new RESQSERVICEClient();
         int productID; // Define a variable to hold the product ID
-        private object txtName;
-        private object txtDescription;
-        private object lblMessage;
 
         public object txtPrice { get; private set; }
 
@@ -52,9 +50,9 @@ namespace Team34_GP_IFM02B2_2023_WebApp
             {
                 // Populate the form fields with product details
                 txtProductName.Value = product.Name;
-                txtDescription.Value = product.Description;
-                txtPrice.Value = product.Price.ToString();
-                txtQuantity.Value = product.Quantity.ToString();
+                txtProductDescription.Value= product.Description;
+                txtProductPrice.Value = product.Price.ToString();
+                //txtQuantity.Value = product.Quantity.ToString();
             }
             else
             {
@@ -66,73 +64,29 @@ namespace Team34_GP_IFM02B2_2023_WebApp
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
             // Get the updated values from the form fields
-            string newName = txtName.Text;
-            string newDescription = txtDescription.Text;
-            double newPrice;
-            int newQuantity;
-
-            if (double.TryParse(txtPrice.Text, out newPrice) && int.TryParse(txtQuantity.Text, out newQuantity))
-            {
-                // Update the product in the database
-                bool isUpdated = UpdateProduct(productID, newName, newDescription, newPrice, newQuantity);
-
-                if (isUpdated)
+            string newName = txtProductName.Value;
+            string newDescription = txtProductDescription.Value;
+            double newPrice = Convert.ToDouble(txtProductPrice.Value);
+            int newQuantity=Convert.ToInt32(txtProductQuantity.Value);
+            //int Tag = ;
+            if (FileUpload1.HasFile && newName!="" && newDescription!="" && newPrice>0)
+            { 
+                String imgPath = Server.MapPath("~/assets/img/");
+                String fPath = imgPath + FileUpload1.FileName;
+                if (!File.Exists(fPath))
                 {
-                    // Handle successful update (e.g., show a success message)
-                    lblMessage.Text = "Product updated successfully!";
+                    FileUpload1.PostedFile.SaveAs(fPath);
                 }
-                else
+                string picturePath = "/assets/img/" + FileUpload1.FileName;
+                Product P = new Product
                 {
-                    // Handle the case where the product update fails
-                    lblMessage.Text = "Product update failed!";
-                }
+                    ProductId = productID, 
+                    
+          
+                };
+                //bool isUpdated = sc.editProduct();
             }
-            else
-            {
-                // Handle the case where price or quantity parsing fails
-                lblMessage.Text = "Invalid price or quantity!";
-            }
-        }
 
-        protected bool UpdateProduct(int productID, string newName, string newDescription, double newPrice, int newQuantity)
-        {
-            // Implement the product update logic using your data access layer
-            // You can use ADO.NET or Entity Framework to update the product in the database
-            // Return true if the update is successful, or false if it fails
-
-            // Example ADO.NET update logic
-            // Replace with your actual database update code
-            try
-            {
-                // Define your connection string
-                string connectionString = "your_connection_string_here";
-
-                using (var connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-
-                    // Implement your SQL update query
-                    string updateQuery = "UPDATE Products SET Name = @NewName, Description = @NewDescription, Price = @NewPrice, Quantity = @NewQuantity WHERE ProductID = @ProductID";
-
-                    using (var command = new SqlCommand(updateQuery, connection))
-                    {
-                        command.Parameters.AddWithValue("@ProductID", productID);
-                        command.Parameters.AddWithValue("@NewName", newName);
-                        command.Parameters.AddWithValue("@NewDescription", newDescription);
-                        command.Parameters.AddWithValue("@NewPrice", newPrice);
-                        command.Parameters.AddWithValue("@NewQuantity", newQuantity);
-
-                        int rowsAffected = command.ExecuteNonQuery();
-
-                        return rowsAffected > 0;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                // Handle any exceptions here
-                return false;
-            }
         }
 
     }

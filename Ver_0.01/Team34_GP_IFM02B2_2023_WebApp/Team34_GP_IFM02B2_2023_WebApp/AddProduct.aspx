@@ -35,8 +35,14 @@
             <!-- Product Image Upload -->
             <div class="form-group">
                 <label for="fileProductImage">Product Image:</label>
-                <input type="file" id="fileProductImage" runat="server" accept="image/*" class="form-control-file" />
+                <asp:FileUpload ID="FileUpload1" runat="server" />
             </div>
+
+
+            <div class="form-group">
+            <select name="store_type" id="cType" runat="server" placeholder="Choose Product Category">
+            </select>
+              </div>
             
             <!-- Add Product Button -->
             <div class="form-group">
