@@ -650,6 +650,37 @@ namespace Team34_GP_IFM02B2_2023_WCF
             return false;
         }
 
+        public bool decProduct(int prodID)
+        {
+            //Get product from the database 
+            var prod = (from p in db.Products
+                        where p.ProductId.Equals(prodID)
+                        select p).FirstOrDefault();
+
+            if (prod != null)
+            {
+                prod.Quantity -= 1;
+                if (prod.Quantity <= 0)
+                {
+                    prod.Enabled = false; //disable to product
+                }
+
+                try
+                {
+                    //submit changes in db
+                    db.SubmitChanges();
+
+                    return true;
+                }
+                catch (SqlException ex)
+                {
+                    ex.GetBaseException();
+                }
+            }
+
+            return false;
+        }
+
         public bool editStore(Store S)
         {
             //Check if store and its parent exist
@@ -754,7 +785,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
                            select i).Any();
             return inv;
         }
-        public bool addInvoice(int UID, decimal price, DateTime TOS,  List<CartItem> prods)
+        public bool addInvoice(int UID, decimal price, DateTime TOS, List<int> prodIds, List<int> Quantities)
         {
             //Create invoice, 
             Invoice temp = new Invoice
@@ -776,9 +807,9 @@ namespace Team34_GP_IFM02B2_2023_WCF
                 if (inv != null)
                 {
                     //Create invoice items for every cart item, add to invoice just added
-                    foreach (CartItem c in prods)
+                    for (int i = 0; i < prodIds.Count; i++)
                     {
-                        addInvoiceItem(inv.InvoiceId, c);
+                        addInvoiceItem(inv.InvoiceId, prodIds[i], Quantities[i]);
 
                     }
                 }
@@ -794,7 +825,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
 
         }
 
-        public bool addInvoiceItem(int ID, CartItem c)
+        public bool addInvoiceItem(int ID, int ProdID, int Quantity)
         {
             //Get invoice from database
             var inv = (from i in db.Invoices
@@ -806,14 +837,14 @@ namespace Team34_GP_IFM02B2_2023_WCF
                 InvoiceItem ii = new InvoiceItem
                 {
                     InvoiceId = inv.InvoiceId,
-                    ProductId = c.ProductId,
-                    Quantity = c.Quantity
+                    ProductId = ProdID,
+                    Quantity = Quantity
                 };
                 //remove that number of rpoducts from the products table
-                Product p = getProduct(c.ProductId);
+                Product p = getProduct(ProdID);
                 if(p!=null)
                 {
-                    p.Quantity = p.Quantity - c.Quantity;
+                    p.Quantity = p.Quantity - Quantity;
                 }
                 editProduct(p, -1);
                 try
@@ -914,18 +945,18 @@ namespace Team34_GP_IFM02B2_2023_WCF
 
             if (cart != null)
             {
-                foreach (Product P in cart)
+                foreach (CartItem c in cart)
                 {
 
                     Product prod = new Product
                     {
-                        ProductId = P.ProductId,
-                        Picture = P.Picture,
-                        DateAdded = P.DateAdded,
-                        Description = P.Description,
-                        Price = P.Price,
-                        ProductTags = P.ProductTags,
-                        Store = P.Store
+                        ProductId = c.Product.ProductId,
+                        Picture = c.Product.Picture,
+                        DateAdded = c.Product.DateAdded,
+                        Description = c.Product.Description,
+                        Price = c.Product.Price,
+                        ProductTags = c.Product.ProductTags,
+                        Store = c.Product.Store
 
                     };
 

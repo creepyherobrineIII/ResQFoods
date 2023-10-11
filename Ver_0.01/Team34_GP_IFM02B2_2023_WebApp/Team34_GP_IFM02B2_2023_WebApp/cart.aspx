@@ -39,12 +39,13 @@
                 </table>
             </div>
             <div class="col-lg-4">
-                <form class="mb-30" action="">
-                   
+                <form class="mb-30" action="" runat="server">
+                    <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Cart Summary</span></h5>
+                    <div class="bg-light p-30 mb-5" id="cartsum" runat="server"> <!--Dynamic Cart Summary Display-->
+                    </div>
+                    <asp:Button id='checkout' runat='server' Text='Checkout' OnClick='btnCheckout_Click' class='btn btn-sm btn-primary'/>
                 </form>
-                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Cart Summary</span></h5>
-                <div class="bg-light p-30 mb-5" id="cartsum" runat="server"> <!--Dynamic Cart Summary Display-->
-                </div>
+               
             </div>
         </div>
     </div>

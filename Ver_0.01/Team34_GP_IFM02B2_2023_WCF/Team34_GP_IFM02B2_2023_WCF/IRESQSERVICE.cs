@@ -66,6 +66,9 @@ namespace Team34_GP_IFM02B2_2023_WCF
         bool editProduct(Product P, int tg);
 
         [OperationContract]
+        bool decProduct(int prodID);
+
+        [OperationContract]
         bool editUser(UserTable U);
 
         [OperationContract]
@@ -75,10 +78,10 @@ namespace Team34_GP_IFM02B2_2023_WCF
         bool editStore(Store S);
 
         [OperationContract]
-        bool addInvoice(int UID, decimal price, DateTime TOS, List<CartItem> cart);
+        bool addInvoice(int UID, decimal price, DateTime TOS, List<int> prodIds, List<int> Quantities);
 
         [OperationContract]
-        bool addInvoiceItem(int ID, CartItem c);
+        bool addInvoiceItem(int ID, int ProdID, int Quantity);
 
         [OperationContract]
         List<Product> getFilteredList(String name, double P1, double P2, int filTag, int manu);

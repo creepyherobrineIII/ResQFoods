@@ -49,14 +49,5 @@ namespace Team34_GP_IFM02B2_2023_WebApp
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl finaltotal;
-
-        /// <summary>
-        /// paybutton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton paybutton;
     }
 }

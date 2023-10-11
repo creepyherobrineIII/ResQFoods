@@ -19,67 +19,86 @@ namespace Team34_GP_IFM02B2_2023_WebApp
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Customer customer = null; //get customer
+            UserTable user = null; //get customer
 
-            if (Session["customer"] != null)
+            if (Session["user"] != null)
              {
-                customer = (Customer)Session["customer"];
-              }
-
-            string products = "";
-            string totals = "";
-            string shippingdisplay = "";
-            string final = "";
-
-            decimal totalcartitems = 0;
-           
-
-            if (Session["CartList"] != null)
+                user = (UserTable)Session["user"];
+            }
+            else
             {
-                 cart = (List<CartItem>)Session["CartList"];
+                Response.Redirect("index.aspx");
+            }
+
+            Customer customer = null;
+            if (user.UserType==1)
+            {
+                customer = sc.getCustomer(user.Email);
 
 
-                foreach (CartItem c in cart)
+                string products = "";
+                string totals = "";
+                string shippingdisplay = "";
+                string final = "";
+
+                decimal totalcartitems = 0;
+
+
+                if (Session["CartList"] != null)
                 {
-                    products += "<p>" + c.Product.Name + "</p>";
-                    products += "<p>R" + c.Product.Price + "</p> ";
+                    cart = (List<CartItem>)Session["CartList"];
 
-                    //Calculate session cart total
-                    totalcartitems += c.Product.Price;
+
+                    foreach (CartItem c in cart)
+                    {
+                        c.Product = sc.getProduct(c.ProductId);
+
+                        products += "<p>" + c.Product.Name + "</p>";
+                        products += "<p>R" + c.Product.Price + "</p> ";
+                        products += "<p>" + c.Quantity + "</p> ";
+
+                        //Calculate session cart total
+                        totalcartitems += c.Product.Price * c.Quantity;
+                    }
+
+                    order.InnerHtml = products;
+
+
+                    totals += "<h6>" + "Cart Subtotal" + "</h6>";
+                    totals += "<h6>" + totalcartitems + "</h6>";
+
+                    ordertotalbreakdown.InnerHtml = totals;
+
+                    if ((totalcartitems >= 200) || customer.GrantRecipient) // if total over 200, or grant recipient
+                    {
+                        shippingtotal = 0; //make free shipping
+                    }
+
+                    shippingdisplay += "<h6 class='font-weight-medium'>Shipping</h6>";
+                    shippingdisplay += "<h6 class='font-weight-medium''>R" + shippingtotal + "</h6>";
+
+
+                    shipping.InnerHtml = shippingdisplay;
+
+                    finalamount = shippingtotal + totalcartitems;
+
+                    if (customer.GrantRecipient)
+                    {
+
+                        finalamount = finalamount - (finalamount * 15 / 100); //15 percent discount
+                        final += "<h6 class='font-weight-medium'>Grant Added</h6></br>";
+                        final += "<h5>Total</h5> <h5>R" + finalamount + "</h5>";
+                        //  final += "<h5>Total</h5> <h5>R" + finalamount + "</h5>"; //add a message to tell use a discout was added
+                    }
+                    else
+                    {
+                        final = "<h5>Total</h5> <h5>R" + finalamount + "</h5>";
+                    }
+
+                    finaltotal.InnerHtml = final;
+
+
                 }
-
-                order.InnerHtml = products;
-
-
-                totals += "<h6>" + "Cart Subtotal" + "</h6>";
-                totals += "<h6>" + totalcartitems + "</h6>";
-
-                ordertotalbreakdown.InnerHtml = totals;
-
-                if((totalcartitems >= 200) || customer.GrantRecipient) // if total over 200, or grant recipient
-                {
-                    shippingtotal = 0; //make free shipping
-                }
-
-                shippingdisplay += "<h6 class='font-weight-medium'>Shipping</h6>";
-                shippingdisplay += "<h6 class='font-weight-medium''>R" + shippingtotal +"</h6>";
-
-
-                shipping.InnerHtml = shippingdisplay;
-
-                finalamount = shippingtotal + totalcartitems;
-
-                if (customer.GrantRecipient)
-                {
-
-                    finalamount = finalamount - (finalamount * 15 / 100); //15 percent discount
-                    final = "<h5>Total</h5> <h5>R" + finalamount + "</h5>";
-                    //  final += "<h5>Total</h5> <h5>R" + finalamount + "</h5>"; //add a message to tell use a discout was added
-                }
-                else { final = "<h5>Total</h5> <h5>R" + finalamount + "</h5>"; 
-                }
-
-                finaltotal.InnerHtml = final;
 
             }
               
@@ -91,7 +110,16 @@ namespace Team34_GP_IFM02B2_2023_WebApp
             UserTable currentuser = (UserTable)Session["user"];
             int userID = currentuser.UserId;
 
-            bool success = sc.addInvoice(userID, finalamount, DateTime.Now, cart.ToArray());
+            List<int> Quanities = new List<int>();
+            List<int> ProdIDs = new List<int>(); 
+
+            foreach(CartItem c in cart)
+            {
+                Quanities.Add(c.Quantity);
+                ProdIDs.Add(c.ProductId);
+            }
+
+            bool success = sc.addInvoice(userID, finalamount, DateTime.Now, ProdIDs.ToArray(), Quanities.ToArray() );
             decreaseStock();
             Response.Redirect("success.aspx");
         }
@@ -107,11 +135,8 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                 Product p = c.Product;
                 p.Quantity = prodQuantity; //update quantity
 
-                if(p.Quantity == 0)
-                {
-                    p.Enabled = false; //disable to product
-                }
-                sc.editProduct(p, -1);//update stock  of specific product //***Add a counter for how many items sold? idk (can do it by checking unenabled stock 
+                
+                sc.decProduct(c.ProductId);//update stock  of specific product //***Add a counter for how many items sold? idk (can do it by checking unenabled stock 
 
                 //Delete Products from Cart
                 Session["CartList"] = new List<CartItem>(); //make a new empty cart

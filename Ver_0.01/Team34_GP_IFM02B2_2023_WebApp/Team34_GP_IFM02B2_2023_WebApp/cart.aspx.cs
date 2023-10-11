@@ -84,23 +84,24 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                 String Display = "";
                 foreach (CartItem c in cart)
                     {
-                    Product p = sc.getProduct(c.ProductId);
+                    Product p = new Product();
+                        p = sc.getProduct(c.ProductId);
                         Display += "<tr>";
-                        Display += "<td class='align-middle'><img src='" + c.Product.Picture + "' alt='' style='width: 50px;'>" + p.Name + "</td>";
+                        Display += "<td class='align-middle'><img src='" + p.Picture + "' alt='' style='width: 50px;'>" + p.Name + "</td>";
                         Display += " <td class='align-middle'>R" + p.Price + "</td>";
                         Display += "<td class='align-middle'>";
                         Display += "<div class='input-group quantity mx-auto' style='width: 100px;'>";
                         Display += "<div class='input-group-btn'>";
-                        Display += "<button class='btn btn-sm btn-primary btn-minus'>";
-                        Display += "<i class='fa fa-minus'></i> </button> </div>";
-                        Display += "<input type='text' class='form-control form-control-sm bg-secondary border-0 text-center' value='1'>";
+                        Display += "<a href='cart.aspx?dec=" + p.ProductId + "'><button class='btn btn-sm btn-primary btn-minus'>";
+                        Display += "<i class='fa fa-minus'></i> </button></a> </div>";
+                        Display += "<input type='text' class='form-control form-control-sm bg-secondary border-0 text-center' value='" + c.Quantity +"'>";
                         Display += "<div class='input-group-btn'>";
-                        Display += "<button class='btn btn-sm btn-primary btn-plus'>";
+                        Display += "<a href='cart.aspx?inc=" + p.ProductId + "'<button class='btn btn-sm btn-primary btn-plus'>";
                         Display += "<i class='fa fa-plus'></i>";
-                        Display += "</button> </div> </div> </td> ";
+                        Display += "</button></a> </div> </div> </td> ";
                         Display += "<button class='btn btn-sm btn-primary btn-plus'>";
                         Display += "<td class='align-middle'>R" + (p.Price * c.Quantity) + "</td>";
-                        Display += "<td class='align-middle'><button class='btn btn-sm btn-danger'><i class='fa fa-times'></i></button></td> </tr>";
+                        Display += "<td class='align-middle'><a href='cart.aspx?REMOVEID=" + p.ProductId+ "'><button class='btn btn-sm btn-danger'><i class='fa fa-times'></i></button></td> </tr>";
                 }
                     cartitem.InnerHtml = Display; //display to 
 
@@ -108,19 +109,49 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                 string Display2 = "";
                     Display2 += "<div class='border-bottom pb-2'>";
                     Display2 += "<div class='d-flex justify-content-between mb-3'>";
-                    Display2 += "<h6>Subtotal</h6> <h6>R" + sc.GetCartTotal(user.UserId) + "</h6></div>"; //NEEDS A BACKEND FUNCTION TO CALC TOTAL PRICE OF CART
-                    Display2 += "<div class='d-flex justify-content-between'><h6 class='font-weight-medium'>VAT</h6><h6 class='font-weight-medium'>R10</h6></div><br/>";
-                    Display2 += "<div class='d-flex justify-content-between'> <h6 class='font-weight-medium'>Shipping</h6><h6 class='font-weight-medium'>R10</h6></div></div>";
                     Display2 += "<div class='pt-2'>";
-                    Display2 += "<div class='d-flex justify-content-between mt-2'> <h5>Total</h5><h5>$160</h5></div>";
-                    Display2 += "<button class='btn btn-block btn-primary font-weight-bold my-3 py-3'>Proceed To Checkout</button>";
+                    Display2 += "<div class='d-flex justify-content-between mt-2'><h5>Total: R" + GetCartTotal(cart) + "</h5></div>";
+                    Display2 +=  "";
+               
 
-                     cartsum.InnerHtml = Display; //display to
+                     cartsum.InnerHtml = Display2; //display to
 
             }
 
                                                    
             }
+
+        protected decimal GetCartTotal(List<CartItem> l)
+        {
+            decimal total = 0;
+
+            foreach (CartItem c in l)
+            {
+                Product p = sc.getProduct(c.ProductId);
+
+                Product prod = new Product
+                {
+                    ProductId = p.ProductId,
+                    Picture = p.Picture,
+                    DateAdded = p.DateAdded,
+                    Description = p.Description,
+                    Price = p.Price,
+                    ProductTags = p.ProductTags,
+                    Store = p.Store
+
+                };
+
+                total += prod.Price * c.Quantity;
+            }
+
+            return total;
+        }
+
+        protected void btnCheckout_Click(object sender, EventArgs e)
+        { 
+                Response.Redirect("checkout.aspx");
+        }
+
     }
 }
 
