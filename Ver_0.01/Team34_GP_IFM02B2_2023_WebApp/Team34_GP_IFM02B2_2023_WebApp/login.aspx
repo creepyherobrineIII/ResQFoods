@@ -1,7 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="login.aspx.cs" MasterPageFile="~/Site1.Master" Inherits="Team34_GP_IFM02B2_2023_WebApp.login" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-        <style> 
+         
+    <style>
         body {
             background-color: white;/* Replace 'your-background-image.jpg' with your image file path */
             background-size: cover;
@@ -13,7 +14,7 @@
 
         .container
         {
-            width: 70;
+            width: 70%;
             text-align: center;
             font-family: 'Times New Roman', Times, serif;
             color: black;
@@ -25,6 +26,7 @@
         a{
             color: black;
         }
+
         input[type="text"],
         input[type="password"],
         input[type="date"] {
@@ -48,7 +50,7 @@
             cursor: pointer;
             width: 70%;
         }
-            </style>
+      </Style> 
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -59,7 +61,7 @@
         <input type="text" id = "logEmail" runat="server" placeholder="Enter your email">
         <input type="password" id ="logPass" runat="server" placeholder="Enter your password">
         <asp:Label id="noLog" runat="server" Text = "INVALID CREDENTIALS, PLEASE RE-ENTER" CssClass="warning"/>
-        <asp:Button id="logButt" runat="server"  onlick="log_Click()" CssClass="button" Text="Login" OnClick="logButt_Click" />
+        <asp:Button id="logButt" runat="server" CssClass="button" Text="Login" OnClick="logButt_Click" />
        
       </form>
       <div class="signup" runat="server">

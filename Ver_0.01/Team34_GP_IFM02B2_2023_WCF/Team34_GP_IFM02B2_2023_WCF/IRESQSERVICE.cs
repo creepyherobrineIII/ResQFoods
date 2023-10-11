@@ -45,13 +45,13 @@ namespace Team34_GP_IFM02B2_2023_WCF
         List<Product> getAllProducts();
 
         [OperationContract]
-        Product GetProduct(int pID);
-
-        [OperationContract]
         List<Product> SearchProducts(String name);
 
         [OperationContract]
-        bool AddProduct(int sID, String name, String desc, int quant, double price, String picPath, DateTime date, bool enabled);
+        bool AddProduct(int sID, String name, String desc, int quant, double price, String picPath, DateTime date, int tg, bool enabled);
+
+        [OperationContract]
+        bool AddProdTag(int pID, int tID);
 
         [OperationContract]
         bool AddToCart(int pID, int uID, DateTime added, bool enabled);
@@ -63,7 +63,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
         List<CartItem> GetCart(int UID);
 
         [OperationContract]
-        bool editProduct(Product P);
+        bool editProduct(Product P, int tg);
 
         [OperationContract]
         bool editUser(UserTable U);
@@ -125,6 +125,18 @@ namespace Team34_GP_IFM02B2_2023_WCF
 
         [OperationContract]
         decimal getReportTotalSalesBusiness(Store s);
+
+        [OperationContract]
+        int getProdTag(int pID);
+
+        [OperationContract]
+        String getTagName(int tID);
+
+        [OperationContract]
+        bool editProdTag(int pID, int tID);
+
+        [OperationContract]
+        int searchTag(String tagVal);
 
     }
 

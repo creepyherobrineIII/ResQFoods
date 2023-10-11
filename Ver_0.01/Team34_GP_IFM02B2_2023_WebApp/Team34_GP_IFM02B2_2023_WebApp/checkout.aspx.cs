@@ -111,7 +111,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                 {
                     p.Enabled = false; //disable to product
                 }
-                sc.editProduct(p);//update stock  of specific product //***Add a counter for how many items sold? idk (can do it by checking unenabled stock 
+                sc.editProduct(p, -1);//update stock  of specific product //***Add a counter for how many items sold? idk (can do it by checking unenabled stock 
 
                 //Delete Products from Cart
                 Session["CartList"] = new List<CartItem>(); //make a new empty cart

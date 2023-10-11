@@ -5,12 +5,13 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Team34_GP_IFM02B2_2023_WebApp.ResQReference;
 
 namespace Team34_GP_IFM02B2_2023_WebApp
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
-        ResQReference.RESQSERVICEClient sc = new ResQReference.RESQSERVICEClient();
+        RESQSERVICEClient sc = new RESQSERVICEClient();
         protected void Page_Load(object sender, EventArgs e)
         {
             regStat.Visible = true; 
@@ -42,9 +43,11 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                     var regcus = sc.regCust(email, pass, fnm, lnm, dt, true);
                     if (regcus)
                     {
+                        UserTable curr = sc.getUser(email, 1);
+                        Session["user"] = curr;
                         regStat.Visible = true;
                         regStat.Text = "Register Success!";
-                        Server.Transfer("login.aspx");
+                        Response.Redirect("index.aspx");
                     }
                 }
                 else

@@ -178,7 +178,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                 pBlock+= "<div class='col-lg-3 col-md-4 col-sm-6 pb-1'>";
                 pBlock+= "<div class='product-item bg-light mb-4'>";
                 pBlock+= "<div class='product-img position-relative overflow-hidden'>";
-                pBlock+= "<a  href='detail.aspx?ID='"+p.ProductId+"'><img class='img-fluid w-100' src='"+p.Picture+ "' style='width: 300px; height: 300px; object-fit: cover;' alt=''></a>";
+                pBlock+= "<a  href='detail.aspx?ID="+p.ProductId+"'><img class='img-fluid w-100' src='"+p.Picture+ "' style='width: 300px; height: 300px; object-fit: cover;' alt=''></a>";
                 if (Session["user"] != null)
                 {
                     pBlock += "<div class='product-action'>";

@@ -11,115 +11,106 @@ namespace Team34_GP_IFM02B2_2023_WebApp
 {
 
 
-    public partial class Site1
+    public partial class EditProduct
     {
 
         /// <summary>
-        /// head control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// logCust control.
+        /// hiddenProductId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl logCust;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hiddenProductId;
 
         /// <summary>
-        /// WishCust control.
+        /// pName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl WishCust;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pName;
 
         /// <summary>
-        /// CartCust control.
+        /// txtProductName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CartCust;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtProductName;
 
         /// <summary>
-        /// noLog control.
+        /// txtProductDescription control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl noLog;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText txtProductDescription;
 
         /// <summary>
-        /// storeLog control.
+        /// txtProductPrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl storeLog;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtProductPrice;
 
         /// <summary>
-        /// wishStore control.
+        /// txtProductQuantity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl wishStore;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtProductQuantity;
 
         /// <summary>
-        /// imgWishStore control.
+        /// FileUpload1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl imgWishStore;
+        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
 
         /// <summary>
-        /// cartStore control.
+        /// cType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl cartStore;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect cType;
 
         /// <summary>
-        /// imgCartStore control.
+        /// btnUpdateProduct control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl imgCartStore;
+        protected global::System.Web.UI.WebControls.Button btnUpdateProduct;
 
         /// <summary>
-        /// adLog control.
+        /// btnDeleteProduct control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl adLog;
-
-        /// <summary>
-        /// ContentPlaceHolder1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolder1;
+        protected global::System.Web.UI.WebControls.Button btnDeleteProduct;
     }
 }

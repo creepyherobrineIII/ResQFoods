@@ -1,4 +1,4 @@
-<%@ Page Title="AminRegistration" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="RegAdmin.aspx.cs" Inherits="Team34_GP_IFM02B2_2023_WebApp.WebForm2" %>
+<%@ Page Title="AminRegistration" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="True" CodeBehind="RegAdmin.aspx.cs" Inherits="Team34_GP_IFM02B2_2023_WebApp.WebForm2" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
         <style> 
         body {

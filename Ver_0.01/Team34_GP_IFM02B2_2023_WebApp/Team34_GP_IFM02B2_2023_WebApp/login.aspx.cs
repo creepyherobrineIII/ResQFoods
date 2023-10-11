@@ -26,16 +26,17 @@ namespace Team34_GP_IFM02B2_2023_WebApp
             int logSys = sc.loginUser(GivenEmail, GivenPassword); //send details to api?
 
                 String userName;
-                Session["user"] = sc.getAdmin(GivenEmail);
+                //Session["user"] = sc.getAdmin(GivenEmail);
                 
                 switch (logSys)
                 {
                     case -1:
                         noLog.Visible = true;
-                        break;
+                    Response.Redirect("login.aspx");
+                    break;
                     case 0:
                         Session["user"] = sc.getUser(GivenEmail, 0);
-                        userName = ((UserTable)Session["user"]).Email;
+                        //userName = ((UserTable)Session["user"]).Email;
                     //Server.Transfer("index.aspx");
                     //Response.Redirect("index.aspx?userName=" + userName);
                     break;

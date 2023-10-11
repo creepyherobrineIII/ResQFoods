@@ -37,7 +37,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
         //Display Invoice Items (Gets Called in Display Invoices)
         private String DisplayInvoiceItem(InvoiceItem item)
         {
-            var p = sc.GetProduct(item.Product.ProductId);
+            var p = sc.getProduct(item.Product.ProductId);
 
             String display_items = "<tr><td class='nk-product-cart-thumb'>";
             display_items += "<a href='product.aspx?ID=" + p.ProductId + "' class='nk-image-box-1 nk-post-image'>";
