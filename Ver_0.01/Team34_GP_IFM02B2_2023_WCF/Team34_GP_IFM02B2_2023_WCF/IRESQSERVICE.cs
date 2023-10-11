@@ -98,6 +98,34 @@ namespace Team34_GP_IFM02B2_2023_WCF
         [OperationContract]
         List<Tag> getTags();
 
+
+        //Reports Functions
+
+        [OperationContract]
+        decimal getReportTotalSales();                  
+
+
+        [OperationContract]
+        Store getBestSellingStore();
+
+        [OperationContract]
+        Store getBestSellingStoreFromType(String Type);
+
+        [OperationContract]
+        Tag getBestSellingProductTag(); 
+
+        [OperationContract]
+        int getNumRegUsers(DateTime date); //Requirement
+
+       [OperationContract]
+       List<Product> getProductStock(int StoreID); //Requirement
+
+        [OperationContract]
+        Tag getBestCategory();
+
+        [OperationContract]
+        decimal getReportTotalSalesBusiness(Store s);
+
         [OperationContract]
         int getProdTag(int pID);
 

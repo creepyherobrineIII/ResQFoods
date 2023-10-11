@@ -409,7 +409,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
                         Picture = p.Picture,
                         Price = p.Price,
                         Description = p.Description,
-                        DateAdded = p.DateAdded,
+                        DateAdded = p.DateAdded
                     };
                     prodRec.Add(pr);
                 }
@@ -435,7 +435,9 @@ namespace Team34_GP_IFM02B2_2023_WCF
                     Price = prods.Price,
                     Description = prods.Description,
                     DateAdded = prods.DateAdded,
-                    Quantity = prods.Quantity
+                    Quantity = prods.Quantity,
+                    NumSold = prods.NumSold
+                    
                 };
 
                 return pr;
@@ -462,7 +464,8 @@ namespace Team34_GP_IFM02B2_2023_WCF
                         Price = (decimal)price, 
                         DateAdded = date, 
                         Enabled = enabled,
-                        Quantity = quant
+                        Quantity = quant,
+                        NumSold = 0
                     };
                     try
                     {
@@ -624,6 +627,7 @@ namespace Team34_GP_IFM02B2_2023_WCF
                 prod.Price = P.Price;
                 prod.Quantity = P.Quantity;
                 prod.Enabled = P.Enabled;
+                prod.NumSold = P.NumSold;
 
                 try
                 {
@@ -1028,6 +1032,315 @@ namespace Team34_GP_IFM02B2_2023_WCF
                 return pTag.TagID;
             }
             return -1;
+        }
+
+        public decimal getReportTotalSales()
+        {
+            dynamic invoice = (from i in db.Invoices
+                               select i);
+
+
+            //calculate total sales
+            decimal totalSales = 0;
+            foreach (Invoice inv in invoice)
+            {
+                totalSales += inv.TotalPrice;
+            }
+
+            return totalSales;
+        }
+
+        public Store getBestSellingStore()
+        {
+            dynamic store = (from s in db.Stores
+                               select s);
+
+            decimal tempHighesttotal = 0;
+
+            Store temphighest = new Store();
+
+            //add all products to list
+            foreach (Store s in store)
+            {
+                decimal storeTotal = 0;
+
+                dynamic products = (from p in db.Products where p.UserId == s.UserId select p); //get all store products
+
+                //Calculate product total
+                foreach(Product pr in products)
+                {
+                   storeTotal += (pr.Price * pr.NumSold); //get total store profit
+                }
+
+                if (tempHighesttotal < storeTotal)
+                {
+                    tempHighesttotal = storeTotal;
+                    temphighest = s;
+
+                }
+            }
+
+            Store highest = new Store()
+            {
+                UserId = temphighest.UserId,
+                Company = temphighest.Company,
+                Name = temphighest.Name,
+                Logo = temphighest.Logo,
+                Location = temphighest.Location,
+                StoreType = temphighest.StoreType
+            };
+
+            return highest;
+        }
+
+        public Store getBestSellingStoreFromType(String Type)
+        {
+            dynamic store = (from s in db.Stores where s.StoreType.Equals(Type)
+                             select s);
+
+            decimal tempHighesttotal = 0;
+
+            Store temphighest = new Store();
+
+            //add all products to list
+            foreach (Store s in store)
+            {
+                decimal storeTotal = 0;
+
+                dynamic products = (from p in db.Products where p.UserId == s.UserId select p); //get all store products
+
+                //Calculate product total
+                foreach (Product pr in products)
+                {
+                    storeTotal += (pr.Price * pr.NumSold); //get total store profit
+                }
+
+                if (tempHighesttotal < storeTotal)
+                {
+                    tempHighesttotal = storeTotal;
+                    temphighest = s;
+
+                }
+            }
+
+            Store highest = new Store()
+            {
+                UserId = temphighest.UserId,
+                Company = temphighest.Company,
+                Name = temphighest.Name,
+                Logo = temphighest.Logo,
+                Location = temphighest.Location,
+                StoreType = temphighest.StoreType
+            };
+
+            return highest;
+        }
+
+        public String getBestSellingStoreType()
+        {
+            Store s = getBestSellingStore();
+
+            return s.StoreType;
+        }
+
+        public Tag getBestSellingProductTag()
+        {
+            dynamic tags = (from t in db.Tags select t);
+
+            Tag returntag = new Tag();
+
+            int tempHighestAmount = 0;
+            
+            foreach(Tag tag in tags)
+            {
+                dynamic products = (from pt in db.ProductTags
+                                   where pt.TagId.Equals(tag.TagID)
+                                   select pt.Product).DefaultIfEmpty();
+                int totalProductsSoldWithTag = 0;
+                foreach (Product pr in products)
+                {
+                    totalProductsSoldWithTag += pr.NumSold; 
+                }
+
+                if (tempHighestAmount< totalProductsSoldWithTag)
+                {
+                    tempHighestAmount = totalProductsSoldWithTag;
+                    returntag = tag;
+
+                }
+
+
+            }
+
+            return returntag;
+        }
+
+        public List<Product> getProductStock(int StoreID)
+        {
+            dynamic product = (from p in db.Products
+                               where p.Enabled.Equals(true) && p.UserId.Equals(StoreID)
+                               select p);
+
+            if (product == null) 
+            return null;
+
+            List<Product> productreturn = new List<Product>();
+
+            //add all products to list
+            foreach (Product p in product)
+            {
+                Product sentproduct = new Product()
+                {
+                    ProductId = p.ProductId,
+                    Name = p.Name,
+                    Description = null, //dont need to have decription to admin
+                    Quantity = p.Quantity,
+                    NumSold = p.NumSold,
+                    DateAdded = p.DateAdded,
+                    Price = p.Price
+                    
+                };
+                productreturn.Add(sentproduct);
+            }
+
+            return productreturn;
+        }
+
+        public int getNumRegUsers(DateTime date) //recieve date from admin to find specific users on that date
+        {
+            //gets invoice from DB
+            dynamic Users = (from u in db.UserTables
+                             where u.DateRegistered.Equals(date)
+                             select u);
+
+
+            //calculate total profit
+            int totalRegistered = 0;
+
+            foreach (UserTable u in Users)
+            {
+                totalRegistered++;
+            }
+
+            return totalRegistered;
+        }
+
+        public Tag getBestCategory() //Code from Richard
+        {
+            //Declare lists for products, and their totals
+            List<int> prodSold = new List<int>();
+            List<int> noSold = new List<int>();
+
+            //Delcare list for tags and their totals
+            List<Tag> tgs = getTags();
+            List<int> noSoldTag = new List<int>();
+            Tag t = null;
+
+            //get all invoices from the invoice table
+            dynamic inv = (from i in db.InvoiceItems
+                           select i).DefaultIfEmpty();
+
+            //Set count for items sold per tag to 0
+            for (int x = 0; x < tgs.Count; x++)
+            {
+                noSoldTag.Add(0);
+            }
+
+            if (inv != null)
+            {
+                //For each invoice in the db
+                foreach (Invoice curr in inv)
+                {
+                    //Get all lines associated with the invoice
+                    List<InvoiceItem> iList = getInvoiceItems(curr.InvoiceId);
+                    //For each item
+                    foreach (InvoiceItem temp in iList)
+                    {
+                        //Get the product id of the invoice entry
+                        int pId = temp.ProductId;
+                        if (!prodSold.Contains(pId))
+                        {
+                            //If the product ID is not in the product sold array
+                            //Add the product to the prodSold array
+                            prodSold.Add(pId);
+                            //Add the quantity to the corresponding index
+                            noSold.Add(temp.Quantity);
+                        }
+                        else
+                        {
+                            //Get the index of the productID
+                            int index = prodSold.IndexOf(pId);
+                            //Add the quntity sold of the product to its total
+                            noSold[index] += temp.Quantity;
+                        }
+
+                    }
+                }
+
+
+                //For each product that has ever been sold
+                for (int i = 0; i < prodSold.Count; i++)
+                {
+                    //Get its tags
+                    bool hasTag = (from prd in db.ProductTags
+                                   where prd.ProductId.Equals(prodSold[i])
+                                   select prd).Any();
+                    if (hasTag)
+                    {
+                        //Get a list of its tags if it has any
+                        dynamic productTag = (from prd in db.ProductTags
+                                              where prd.ProductId.Equals(prodSold[i])
+                                              select prd).DefaultIfEmpty();
+                        //For each of its tags
+                        foreach (ProductTag tempP in productTag)
+                        {
+                            //Loop through the tags array
+                            foreach (Tag tempTag in tgs)
+                            {
+                                //If the product has a tag
+                                if (tempP.TagId.Equals(tempTag.TagID))
+                                {
+                                    //Find the products tags index in the tags array
+                                    int index = tgs.IndexOf(tempTag);
+                                    //Add the number sold of that item to the tag count 
+                                    noSoldTag[index] += noSold[i];
+                                }
+                            }
+                        }
+                    }
+                }
+
+
+
+                //Get the value of highest tag sales
+                int highSale = noSoldTag.Max();
+                //Get the index of that high value
+                int indexOfSale = noSoldTag.IndexOf(highSale);
+                //Get the tag at that index in the tgs table
+                Tag tagToReturn = tgs[indexOfSale];
+
+                t = tagToReturn;
+            }
+            return t; 
+        }
+
+        public decimal getReportTotalSalesBusiness(Store s)
+        {
+
+            dynamic items = (from i in db.InvoiceItems select i);
+
+
+            //calculate total sales
+            decimal totalSales = 0;
+            foreach (InvoiceItem inv in items)
+            {
+               if(inv.Product.UserId == s.UserId)
+                {
+                    totalSales += (inv.Product.Price * inv.Product.NumSold);
+                }
+            }
+
+            return totalSales;
         }
     }
     }

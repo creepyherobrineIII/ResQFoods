@@ -45,12 +45,11 @@ namespace Team34_GP_IFM02B2_2023_WebApp
             display_items += "<td class='nk-product-cart-title'><h5 class='h6'>Product:</h5><div class='nk-gap-1'></div>";
             //no link to products already sold out (page shouldn't exist anymore)
             if (p.Enabled)
-                display_items += "<h2 class='nk-post-title h4'><a href='Product.aspx?ID=" + p.ProductId + "'>" + p.Name + "</a></h2></td>";
+                display_items += "<h2 class='nk-post-title h4'><a href='detail.aspx?ID=" + p.ProductId + "'>" + p.Name + "</a></h2></td>";
             else
                 display_items += "<h2 class='nk-post-title h4'>" + p.Name + "</h2></td>";
             display_items += "<td class='nk-product-cart-price'><h5 class='h6'>Price:</h5><div class='nk-gap-1'></div>";
 
-          //  display_items += "<strong>R" + ((decimal)item.PriceWhenInvoiced).ToString("#.#0") + "</strong></td>";
             display_items += "<td class='nk-product-cart-remove'><a href='#'><span class='ion-android-close'></span></a></td>";
 
             display_items += "<td class='nk-product-cart-price'><h5 class='h6'>Quantity:</h5><div class='nk-gap-1'></div>";

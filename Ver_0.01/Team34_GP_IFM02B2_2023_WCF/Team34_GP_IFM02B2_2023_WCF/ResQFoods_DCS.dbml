@@ -115,6 +115,7 @@
       <Column Name="DateAdded" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Enabled" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="NumSold" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="Product_ProductTag" Member="ProductTags" ThisKey="ProductId" OtherKey="ProductId" Type="ProductTag" />
       <Association Name="Product_InvoiceItem" Member="InvoiceItems" ThisKey="ProductId" OtherKey="ProductId" Type="InvoiceItem" />
       <Association Name="Product_CartItem" Member="CartItems" ThisKey="ProductId" OtherKey="ProductId" Type="CartItem" />

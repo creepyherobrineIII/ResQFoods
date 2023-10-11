@@ -154,6 +154,7 @@
     <Content Include="RegAdmin.aspx" />
     <Content Include="Register.aspx" />
     <Content Include="RegStore.aspx" />
+    <Content Include="reports.aspx" />
     <Content Include="resIndex.aspx" />
     <Content Include="shop.aspx" />
     <Content Include="success.aspx" />
@@ -244,6 +245,13 @@
     </Compile>
     <Compile Include="RegStore.aspx.designer.cs">
       <DependentUpon>RegStore.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="reports.aspx.cs">
+      <DependentUpon>reports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="reports.aspx.designer.cs">
+      <DependentUpon>reports.aspx</DependentUpon>
     </Compile>
     <Compile Include="resIndex.aspx.cs">
       <DependentUpon>resIndex.aspx</DependentUpon>

@@ -2355,6 +2355,8 @@ namespace Team34_GP_IFM02B2_2023_WCF
 		
 		private bool _Enabled;
 		
+		private int _NumSold;
+		
 		private EntitySet<ProductTag> _ProductTags;
 		
 		private EntitySet<InvoiceItem> _InvoiceItems;
@@ -2385,6 +2387,8 @@ namespace Team34_GP_IFM02B2_2023_WCF
     partial void OnQuantityChanged();
     partial void OnEnabledChanging(bool value);
     partial void OnEnabledChanged();
+    partial void OnNumSoldChanging(int value);
+    partial void OnNumSoldChanged();
     #endregion
 		
 		public Product()
@@ -2576,6 +2580,26 @@ namespace Team34_GP_IFM02B2_2023_WCF
 					this._Enabled = value;
 					this.SendPropertyChanged("Enabled");
 					this.OnEnabledChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumSold", DbType="Int NOT NULL")]
+		public int NumSold
+		{
+			get
+			{
+				return this._NumSold;
+			}
+			set
+			{
+				if ((this._NumSold != value))
+				{
+					this.OnNumSoldChanging(value);
+					this.SendPropertyChanging();
+					this._NumSold = value;
+					this.SendPropertyChanged("NumSold");
+					this.OnNumSoldChanged();
 				}
 			}
 		}
