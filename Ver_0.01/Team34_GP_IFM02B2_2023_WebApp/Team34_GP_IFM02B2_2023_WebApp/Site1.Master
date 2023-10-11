@@ -179,18 +179,6 @@
                  
             </div>
             <div class="col-lg-8 col-md-12">
-                    <div class="col-md-7 mb-5">
-                        <h5 class="text-secondary text-uppercase mb-4">Newsletter</h5>
-                        <p>Want to join the newsletter on new partners and our monthly initiatives? Join now to learn more!</p>
-                        <form>
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Your Email Address">
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary">Sign Up</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
                 </div>
             </div>
         </div>

@@ -19,8 +19,13 @@ namespace Team34_GP_IFM02B2_2023_WebApp
              {
                  Response.Redirect("index.aspx");
              }
+            
 
             UserTable user = (UserTable)Session["user"];
+            if(user.UserType==1)
+            {
+                btnCheck.Visible = true;
+            }
 
             //Increase Quantity if user wishes to
             if (Request.QueryString["dec"] != null)
