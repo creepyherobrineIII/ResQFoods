@@ -621,7 +621,6 @@ namespace Team34_GP_IFM02B2_2023_WCF
             {
                 //Edit product attributes with passed product
                 prod.ProductId = P.ProductId;
-                prod.Name = P.Name;
                 prod.Picture = P.Picture;
                 prod.DateAdded = P.DateAdded;
                 prod.Description = P.Description;

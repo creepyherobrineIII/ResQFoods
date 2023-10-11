@@ -6,7 +6,6 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Xml.Linq;
-using Team34_GP_IFM02B2_2023_WebApp.ResQReference;
 
 namespace Team34_GP_IFM02B2_2023_WebApp
 {
@@ -32,10 +31,8 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                 var regstr = sc.regAdmin(email, pass);
                 if (regstr)
                 {
-                    UserTable u = sc.getUser(email, 0);
-                    Session["user"] = u;
                     regStat.Visible = true;
-                    Response.Redirect("index.aspx");
+                    Server.Transfer("index.aspx");
                 }
             }
 

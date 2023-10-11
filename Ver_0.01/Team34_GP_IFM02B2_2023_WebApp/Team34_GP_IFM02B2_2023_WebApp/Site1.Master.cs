@@ -24,17 +24,6 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                 {
                     case 0:
                         adLog.Visible = true;
-                        String cartAdmin = "";
-                        String noCAd = "0";
-                        if (Session["CartList"] != null)
-                        {
-                            noCAd = ((List<CartItem>)Session["Cartlist"]).Count + "";
-                        }
-                        cartAdmin += "<a href = 'cart.aspx' class='btn px-0 ml-2'>";
-                        cartAdmin += "<i class='fas fa-shopping-cart text-dark'></i>";
-                        cartAdmin += "<span class='badge text-dark border border-dark rounded-circle' style='padding-bottom: 2px;'>" + noCAd + "</span>";
-                        cartAdmin += "</a>";
-                        cartAd.InnerHtml = cartAdmin;
                         break;
                     case 1:
                         logCust.Visible = true;
@@ -48,7 +37,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                         cartCust += "<i class='fas fa-shopping-cart text-dark'></i>";
                         cartCust+= "<span class='badge text-dark border border-dark rounded-circle' style='padding-bottom: 2px;'>"+noCi+"</span>";
                         cartCust += "</a>";
-                        CartCust.InnerHtml = cartCust;
+                        WishCust.InnerHtml = cartCust;
                         break;
                     case 2:
                         storeLog.Visible = true;
@@ -62,7 +51,7 @@ namespace Team34_GP_IFM02B2_2023_WebApp
                         cStore += "<i class='fas fa-shopping-cart text-dark'></i>";
                         cStore += "<span class='badge text-dark border border-dark rounded-circle' style='padding-bottom: 2px;'>" + cSn + "</span>";
                         cStore += "</a>";
-                        cartStore.InnerHtml = cStore;
+                        WishCust.InnerHtml = cStore;
                         break; 
 
                 };

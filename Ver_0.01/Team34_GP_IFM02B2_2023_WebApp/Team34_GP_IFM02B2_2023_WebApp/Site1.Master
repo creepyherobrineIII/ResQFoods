@@ -53,6 +53,12 @@
                     </div>
                 </div>
                 <div class="d-inline-flex align-items-center d-block">
+                    <div id="WishCust" runat="server">
+                    <a href="" class="btn px-0 ml-2">
+                        <i class="fas fa-heart text-dark"></i>
+                        <span class="badge text-dark border border-dark rounded-circle" style="padding-bottom: 2px;"></span>
+                    </a>
+                    </div>
                     <div id ="CartCust" runat="server">
                     </div>
                 </div>
@@ -109,12 +115,18 @@
                         <div class="dropdown-menu dropdown-menu-right">
                             <button class="dropdown-item" id="btnView" ><a href="/shop.aspx?Edit=true">View my products</a></button>
                             <button class="dropdown-item"  id="btnAdd"><a href="/AddProduct.aspx">Add a product</a></button>
-                            <button class="dropdown-item" id="btnSMet" ><a href="/reports.aspx">Store Metrics</a></button>
+                            <button class="dropdown-item" id="btnSMet" ><a href="/Reports.aspx">Store Metrics</a></button>
                             <button class="dropdown-item" id="btnSlgt" ><a href="/login.aspx?logout=true">Log out</a></button>
                         </div>
                     </div>
                 </div>
                 <div class="d-inline-flex align-items-center d-block">
+                    <div id="wishStore" runat="server">
+                    <a href="" class="btn px-0 ml-2">
+                        <i class="fas fa-heart text-dark"></i>
+                        <span class="badge text-dark border border-dark rounded-circle" style="padding-bottom: 2px;" id="imgWishStore" runat="server"></span>
+                    </a>
+                    </div>
                     <div id="cartStore" runat="server">
                     <a href="cart.aspx" class="btn px-0 ml-2">
                         <i class="fas fa-shopping-cart text-dark"></i>
@@ -147,18 +159,20 @@
                         <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">My Account</button>
                         <div class="dropdown-menu dropdown-menu-right">
                             <button class="dropdown-item" id="btnAddAd" ><a href="/RegAdmin.aspx">Add Admin</a></button>
-                            <button class="dropdown-item"  id="btnMMet"><a href="/reports.aspx">View all metrics</a></button>
-                            <button class="dropdown-item"  id="btnAlgt"><a href="/login.aspx?logout=true">Log out</a></button>
+                            <button class="dropdown-item"  id="btnMMet"><a href="/Register.aspx">View all metrics</a></button>
+                            <button class="dropdown-item"  id="btnAlgt"><a href="/logout.aspx">Log out</a></button>
                         </div>
                     </div>
                 </div>
                 <div class="d-inline-flex align-items-center d-block">
-                    <div id="cartAd" runat="server">
+                    <a href="" class="btn px-0 ml-2">
+                        <i class="fas fa-heart text-dark"></i>
+                        <span class="badge text-dark border border-dark rounded-circle" style="padding-bottom: 2px;">0</span>
+                    </a>
                     <a href="cart.aspx" class="btn px-0 ml-2">
                         <i class="fas fa-shopping-cart text-dark"></i>
                         <span class="badge text-dark border border-dark rounded-circle" style="padding-bottom: 2px;">0</span>
                     </a>
-                    </div>
                 </div>
         </div>
     </div>
